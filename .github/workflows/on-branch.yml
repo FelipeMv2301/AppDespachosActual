@@ -1,0 +1,29 @@
+name: On branch event
+
+on: 
+  push:
+    branches:
+      - development
+      - main
+
+run-name: ${{ github.actor }} trigger pipeline
+jobs:
+  trigger-run:
+    name: Dispatch on branch
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install the gh cli
+        uses: actions/checkout@v2
+        env:
+          GH_HOST: gitlab.com
+          GH_REPO: gitlab.com/$GITHUB_REPOSITORY
+        with:
+          version: 2.12.1
+      - run: |
+          gh version
+          echo ${{ secrets.PIPELINE_USER_TOKEN }} > token.txt
+          gh auth login --with-token < token.txt
+          echo '{"commit_id": "'$GITHUB_SHA'", "branch_name":"'$GITHUB_REF_NAME'"}' | gh workflow run on-branch.yml --ref pipeline --json
+      
+          
+          
