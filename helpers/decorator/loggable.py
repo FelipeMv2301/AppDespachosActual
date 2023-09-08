@@ -40,6 +40,6 @@ def loggable(f: Callable):
                 }
                 logger.info(msg=request_detail)
                 messages.error(request=request, message=e)
-                return redirect(to='app_home')
+                return redirect(to='home')
             raise e
     return wrapper

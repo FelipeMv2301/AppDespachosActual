@@ -22,7 +22,7 @@ from .views import home
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('__debug__/', include(debug_toolbar.urls)),
-    path(route='', view=home, name='app_home'),
+    path(route='', view=home, name='home'),
 ]
 
 # Errors handling
