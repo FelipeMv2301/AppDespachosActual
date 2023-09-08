@@ -5,11 +5,14 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Despachos BQ</title>
-        <link rel="icon" type="image/x-icon" href="{% static 'app/assets/img/icon_bq_blanco.png' %}">
+        <link rel="icon" type="image/x-icon" href="{% static 'app/img/white_bq_icon.png' %}">
         <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
         {% bootstrap_css %}
         <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.min.css" rel="stylesheet">
         <link rel="stylesheet" href="{% static 'app/css/main.css' %}">
+        <link rel="stylesheet" href="{% static 'app/css/elements/input.css' %}">
+        <link rel="stylesheet" href="{% static 'app/css/elements/button.css' %}">
+        <link rel="stylesheet" href="{% static 'app/css/sweet-alert.css' %}">
         {% block styles %}
         {% endblock %}
     </head>
@@ -26,7 +29,7 @@
         <div class="container-fluid">
             <div class="row">
                 {% if request.user.is_authenticated %}
-                    <nav id="sidebarMenu" class="col-auto col-xxl-2 col-xl-3 d-xl-flex sidebar collapse position-fixed z-3">
+                    <nav id="sidebarMenu" class="sidebar col-auto col-xxl-2 col-xl-3 d-xl-flex collapse position-fixed z-3">
                         <div class="d-flex flex-column position-sticky pt-3 sidebar-sticky">
                             <div class="pb-5">
                                 <a href="/">
@@ -116,7 +119,7 @@
                 <main class="col-xl-9 ms-sm-auto px-md-4 p-4 pt-0">
                     {% if request.user.is_authenticated %}
                         <div class="w-100 py-3 bg-white position-fixed border-bottom z-1">
-                            <span class="fs-5 fw-bolder align-middle" id="page-title">{% block page_title %}{% endblock %}</span>
+                            <span class="main__title fs-5 fw-bolder align-middle">{% block page_title %}{% endblock %}</span>
                         </div>
                     {% endif %}
                     <div class="pt-5 ps-2">
@@ -129,6 +132,10 @@
         {% bootstrap_javascript %}
         <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.all.min.js"></script>
+        <script>
+            const authenticatedUser = {{ request.user.is_authenticated|lower }};
+        </script>
+        <script src="{% static 'app/js/main.js' %}"></script>
         {% block scripts %}
         {% endblock %}
     </body>

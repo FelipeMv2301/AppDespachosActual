@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('__debug__/', include(debug_toolbar.urls)),
     path(route='', view=home, name='home'),
+    path(route='auth/', view=include(arg='app.authentication.urls')),
 ]
 
 # Errors handling

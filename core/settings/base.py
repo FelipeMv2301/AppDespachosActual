@@ -96,7 +96,7 @@ THIRD_PARTY_APPS = []
 
 LOCAL_APPS = [
     # 'api',
-    # 'app.authentication',
+    'app.authentication',
     # 'app.dispatch',
     # 'app.kpi',
     # 'app.order',
