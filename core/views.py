@@ -2,7 +2,11 @@ from django.shortcuts import redirect, render
 
 
 def home(request):
-    return redirect(to='order_view')
+    # return render(
+    #     request=request,
+    #     template_name="base.html"
+    # )
+    return redirect(to='login')
 
 
 def error_404(request, exception):

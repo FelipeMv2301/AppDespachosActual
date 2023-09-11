@@ -134,6 +134,30 @@
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.all.min.js"></script>
         <script>
             const authenticatedUser = {{ request.user.is_authenticated|lower }};
+
+            var userMessages = '';
+            {% if messages %}
+                {% for message in messages %}
+                    var swalIcon = '{{ message.tags }}';
+                    userMessages += '{{ message }}';
+                {% endfor %}
+                userMessages += '\n';
+            {% elif form.errors %}
+                var swalIcon = 'error';
+                userMessages += 'Error(es):';
+                {% for error in form.errors.values %}
+                    {% for e in error %}
+                        userMessages += '\n->{{ e }}';
+                    {% endfor %}
+                {% endfor %}
+                userMessages += '\n';
+            {% endif %}
+            if (userMessages !== null && userMessages !== '') {
+                Swal.fire({
+                    icon: swalIcon,
+                    text: userMessages
+                })
+            }
         </script>
         <script src="{% static 'app/js/main.js' %}"></script>
         {% block scripts %}
