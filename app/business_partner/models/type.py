@@ -3,15 +3,15 @@ from django.utils import timezone
 from simple_history.models import HistoricalRecords
 
 
-class TypeSap(models.Model):
+class Type(models.Model):
     # General
     code = models.CharField(max_length=100, unique=True)
     name = models.CharField(max_length=100)
-    sale_channel = models.ForeignKey(to='business_partner.Type',
-                                     on_delete=models.CASCADE)
     # Object tracking
-    changed_by = models.ForeignKey(to='auth.User', on_delete=models.CASCADE)
-    history = HistoricalRecords(table_name='business_partner_type_sap_history')
+    changed_by = models.ForeignKey(to='auth.User',
+                                   on_delete=models.CASCADE,
+                                   related_name='bsns_partner_type_changed_by')
+    history = HistoricalRecords(table_name='business_partner_type_history')
     # Object timestamps
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True, null=True)
@@ -25,4 +25,4 @@ class TypeSap(models.Model):
         self.changed_by = value
 
     class Meta:
-        db_table = 'business_partner_type_sap'
+        db_table = 'business_partner_type'

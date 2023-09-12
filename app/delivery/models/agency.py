@@ -8,7 +8,7 @@ class Agency(models.Model):
     code = models.CharField(max_length=100)
     name = models.CharField(max_length=100)
     carrier = models.ForeignKey(to='delivery.Carrier',
-                                on_delete=models.CASCADE)
+                                on_delete=models.CASCADE, null=True)
     addr = models.ForeignKey(to='general.Address', on_delete=models.CASCADE)
     phone = models.CharField(max_length=100, null=True)
     shipping = models.BooleanField(default=True)

@@ -6,12 +6,12 @@ from simple_history.models import HistoricalRecords
 class Order(models.Model):
     # General
     ref = models.CharField(max_length=100, unique=True)
-    currency = models.ForeignKey(to='general.currency',
+    currency = models.ForeignKey(to='general.Currency',
                                  on_delete=models.CASCADE)
     web_order_ref = models.CharField(max_length=100)
-    sale_channel = models.ForeignKey(to='order.sale_channel',
+    sale_channel = models.ForeignKey(to='order.SaleChannel',
                                      on_delete=models.CASCADE)
-    seller = models.ForeignKey(to='order.employee',
+    seller = models.ForeignKey(to='general.Employee',
                                on_delete=models.CASCADE)
     # Dates
     create_date = models.DateField()
@@ -19,8 +19,12 @@ class Order(models.Model):
     commit_date = models.DateField()
     updtd_commit_date = models.DateField()
     # Adresses
-    ship_addr = models.ForeignKey(to='general.addr', on_delete=models.CASCADE)
-    bill_addr = models.ForeignKey(to='general.addr', on_delete=models.CASCADE)
+    ship_addr = models.ForeignKey(to='general.Address',
+                                  on_delete=models.CASCADE,
+                                  related_name='order_ship_addr')
+    bill_addr = models.ForeignKey(to='general.Address',
+                                  on_delete=models.CASCADE,
+                                  related_name='order_bill_addr')
     # Customer
     customer = models.ForeignKey(to='business_partner.BusinessPartner',
                                  on_delete=models.CASCADE)

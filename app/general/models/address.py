@@ -13,7 +13,7 @@ class Address(models.Model):
     longitude = models.FloatField()
     # Object tracking
     changed_by = models.ForeignKey(to='auth.User', on_delete=models.CASCADE)
-    history = HistoricalRecords(table_name='municipality_history')
+    history = HistoricalRecords(table_name='address_history')
     # Object timestamps
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True, null=True)
@@ -27,4 +27,4 @@ class Address(models.Model):
         self.changed_by = value
 
     class Meta:
-        db_table = 'municipality'
+        db_table = 'address'

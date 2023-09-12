@@ -7,13 +7,14 @@ class BusinessPartner(models.Model):
     # General
     code = models.CharField(max_length=100, unique=True)
     name = models.CharField(max_length=100, unique=True)
-    currency = models.ForeignKey(to='general.currency',
+    currency = models.ForeignKey(to='general.Currency',
                                  on_delete=models.CASCADE)
-    group = models.ForeignKey(to='business_partner.BusinessPartnerGroup',
+    group = models.ForeignKey(to='business_partner.Group',
                               on_delete=models.CASCADE)
     tax_id = models.CharField(max_length=100)
-    type = models.ForeignKey(to='business_partner.BusinessPartnerType',
-                             on_delete=models.CASCADE)
+    type = models.ForeignKey(to='business_partner.Type',
+                             on_delete=models.CASCADE,
+                             null=True)
     # Contact info
     phone1 = models.CharField(max_length=100, null=True)
     phone2 = models.CharField(max_length=100, null=True)

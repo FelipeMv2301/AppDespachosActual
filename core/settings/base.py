@@ -95,11 +95,14 @@ DJANGO_APPS = [
 THIRD_PARTY_APPS = []
 
 LOCAL_APPS = [
-    # 'api',
     'app.authentication',
+    'app.business_partner',
+    'app.delivery',
+    'app.general',
+    'app.order',
+    # 'api',
     # 'app.dispatch',
     # 'app.kpi',
-    # 'app.order',
     # 'classes.starken',
     # 'core.company',
     # 'helpers.notification',

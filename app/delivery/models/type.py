@@ -9,7 +9,9 @@ class Type(models.Model):
     name = models.CharField(max_length=100)
     enabled = models.BooleanField(default=True)
     # Object tracking
-    changed_by = models.ForeignKey(to='auth.User', on_delete=models.CASCADE)
+    changed_by = models.ForeignKey(to='auth.User',
+                                   on_delete=models.CASCADE,
+                                   related_name='deliv_type_changed_by')
     history = HistoricalRecords(table_name='delivery_type_history')
     # Object timestamps
     created_at = models.DateTimeField(default=timezone.now)

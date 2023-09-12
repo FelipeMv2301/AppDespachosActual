@@ -27,7 +27,7 @@ class Delivery(models.Model):
     folio = models.CharField(max_length=100,
                              default=new_folio.__func__,
                              unique=True)
-    order_grouping = models.ForeignKey(to='order.OrderGrouping',
+    order_grouping = models.ForeignKey(to='order.Grouping',
                                        on_delete=models.CASCADE)
     status = models.CharField(max_length=100,
                               choices=Status.choices,
