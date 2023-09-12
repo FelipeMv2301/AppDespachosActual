@@ -9,6 +9,8 @@ class Address(models.Model):
     ref = models.CharField(max_length=100)
     st_and_num = models.CharField(max_length=100)
     muni = models.ForeignKey(to='general.Muni', on_delete=models.CASCADE)
+    latitude = models.FloatField()
+    longitude = models.FloatField()
     # Object tracking
     changed_by = models.ForeignKey(to='auth.User', on_delete=models.CASCADE)
     history = HistoricalRecords(table_name='municipality_history')

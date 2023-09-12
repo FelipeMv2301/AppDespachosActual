@@ -3,14 +3,16 @@ from django.utils import timezone
 from simple_history.models import HistoricalRecords
 
 
-class Service(models.Model):
+class Document(models.Model):
     # General
-    code = models.CharField(max_length=100, unique=True)
-    name = models.CharField(max_length=100)
-    enabled = models.BooleanField(default=True)
+    folio = models.CharField(max_length=100)
+    delivery = models.ForeignKey(to='delivery.Delivery',
+                                 on_delete=models.CASCADE)
+    type = models.ForeignKey(to='delivery.DocumentType',
+                             on_delete=models.CASCADE)
     # Object tracking
     changed_by = models.ForeignKey(to='auth.User', on_delete=models.CASCADE)
-    history = HistoricalRecords(table_name='delivery_service_history')
+    history = HistoricalRecords(table_name='delivery_document_history')
     # Object timestamps
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True, null=True)
@@ -24,4 +26,4 @@ class Service(models.Model):
         self.changed_by = value
 
     class Meta:
-        db_table = 'delivery_service'
+        db_table = 'delivery_document'

@@ -6,7 +6,7 @@ from simple_history.models import HistoricalRecords
 class BusinessPartner(models.Model):
     # General
     code = models.CharField(max_length=100, unique=True)
-    name = models.ForeignKey(to='', on_delete=models.CASCADE)
+    name = models.CharField(max_length=100, unique=True)
     currency = models.ForeignKey(to='general.currency',
                                  on_delete=models.CASCADE)
     group = models.ForeignKey(to='business_partner.BusinessPartnerGroup',
@@ -15,10 +15,10 @@ class BusinessPartner(models.Model):
     type = models.ForeignKey(to='business_partner.BusinessPartnerType',
                              on_delete=models.CASCADE)
     # Contact info
-    phone1 = models.CharField(max_length=100)
-    phone2 = models.CharField(max_length=100)
-    mobile_phone = models.CharField(max_length=100)
-    email_addr = models.EmailField(max_length=100)
+    phone1 = models.CharField(max_length=100, null=True)
+    phone2 = models.CharField(max_length=100, null=True)
+    mobile_phone = models.CharField(max_length=100, null=True)
+    email_addr = models.EmailField(max_length=100, null=True)
     # Status
     enabled = models.BooleanField(default=True)
     # Object tracking

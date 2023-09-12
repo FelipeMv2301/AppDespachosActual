@@ -3,21 +3,22 @@ from django.utils import timezone
 from simple_history.models import HistoricalRecords
 
 
-class Option(models.Model):
+class Grouping(models.Model):
+    code = models.CharField(max_length=100)
     # Relationship
-    carrier = models.ForeignKey(to='delivery.Carrier',
-                                on_delete=models.CASCADE)
-    service = models.ForeignKey(to='delivery.Service',
-                                on_delete=models.CASCADE)
-    type = models.ForeignKey(to='delivery.Type', on_delete=models.CASCADE)
-    pay_type = models.ForeignKey(to='delivery.PayType',
-                                 on_delete=models.CASCADE)
-    agency = models.ForeignKey(to='delivery.Agency', on_delete=models.CASCADE)
+    order = models.ForeignKey(to='order.Order',
+                              on_delete=models.CASCADE)
+    delivery_option = models.ForeignKey(to='delivery.Option',
+                                        on_delete=models.CASCADE)
+    addr = models.ForeignKey(to='general.Address',
+                             on_delete=models.CASCADE)
     # Status
     enabled = models.BooleanField(default=True)
+    # Observations
+    deliv_obs = models.TextField(null=True)
     # Object tracking
     changed_by = models.ForeignKey(to='auth.User', on_delete=models.CASCADE)
-    history = HistoricalRecords(table_name='delivery_option_history')
+    history = HistoricalRecords(table_name='order_grouping_history')
     # Object timestamps
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True, null=True)
@@ -31,4 +32,4 @@ class Option(models.Model):
         self.changed_by = value
 
     class Meta:
-        db_table = 'delivery_option'
+        db_table = 'order_grouping'

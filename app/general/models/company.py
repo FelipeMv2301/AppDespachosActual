@@ -5,7 +5,8 @@ from simple_history.models import HistoricalRecords
 
 class Company(models.Model):
     # General
-    name = models.CharField(max_length=100, unique=True)
+    code = models.CharField(max_length=100, unique=True)
+    name = models.CharField(max_length=100)
     # Object tracking
     changed_by = models.ForeignKey(to='auth.User', on_delete=models.CASCADE)
     history = HistoricalRecords(table_name='company_history')

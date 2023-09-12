@@ -21,8 +21,6 @@ class Order(models.Model):
     # Adresses
     ship_addr = models.ForeignKey(to='general.addr', on_delete=models.CASCADE)
     bill_addr = models.ForeignKey(to='general.addr', on_delete=models.CASCADE)
-    # Delivery
-    delivery = models.ForeignKey(to='', on_delete=models.CASCADE)
     # Customer
     customer = models.ForeignKey(to='business_partner.BusinessPartner',
                                  on_delete=models.CASCADE)
@@ -37,10 +35,9 @@ class Order(models.Model):
     local_total_amt = models.IntegerField()
     doc_total_amt = models.IntegerField()
     # Status
-    status = models.ForeignKey(to='', on_delete=models.CASCADE)
+    enabled = models.BooleanField(default=True)
     # Observations
     obs = models.TextField()
-    disp_obs = models.TextField()
     # Object tracking
     changed_by = models.ForeignKey(to='auth.User',
                                    on_delete=models.CASCADE,

@@ -7,15 +7,15 @@ class Contact(models.Model):
     # General
     code = models.CharField(max_length=100, unique=True)
     ref = models.CharField(max_length=100)
-    first_name = models.ForeignKey(to='', on_delete=models.CASCADE)
-    last_name = models.ForeignKey(to='', on_delete=models.CASCADE)
+    first_name = models.CharField(max_length=100, null=True)
+    last_name = models.CharField(max_length=100, null=True)
     # Address info
-    addr = models.ForeignKey(to='', on_delete=models.CASCADE)
+    addr = models.ForeignKey(to='general.Address', on_delete=models.CASCADE)
     # Contact info
-    phone1 = models.CharField(max_length=100)
-    phone2 = models.CharField(max_length=100)
-    mobile_phone = models.CharField(max_length=100)
-    email_addr = models.EmailField(max_length=100)
+    phone1 = models.CharField(max_length=100, null=True)
+    phone2 = models.CharField(max_length=100, null=True)
+    mobile_phone = models.CharField(max_length=100, null=True)
+    email_addr = models.EmailField(max_length=100, null=True)
     # Status
     enabled = models.BooleanField(default=True)
     # Object tracking
