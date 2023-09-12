@@ -1,12 +1,14 @@
 import json
-# from app.order.models.agency_starken import AgencyStarken as StkAg
-# from app.order.models.municipality_starken import \
-#     MunicipalityStarken as StkMuni
 from typing import Any, Dict, List
 
 import requests
+from django.contrib.auth.models import User
+from simple_history.utils import (bulk_create_with_history,
+                                  bulk_update_with_history)
 
+from app.general.models.muni_starken import MuniStarken
 from classes.starken.starken import Starken
+from core.settings.base import APP_USERNAME
 from helpers.decorator.loggable import loggable
 
 
@@ -25,6 +27,7 @@ class Municipality(Starken):
         self.name = name
         self.code_dls = code_dls
         self.picking = picking
+        self.agencies = agencies
 
     @loggable
     def add_agency(self, agency: object, *args, **kwargs):
@@ -34,76 +37,37 @@ class Municipality(Starken):
     def search_all(self, *args, **kwargs) -> Dict[str, Any]:
         response = requests.get(url=self.muni_api_path,
                                 headers=self.api_headers)
-        # TODO: check response before return
+        self.check_response(response=response)
 
         return json.loads(s=response.text)
 
-    # @loggable
-    # def app_sync(self, *args, **kwargs) -> None:
-    #     '''also synchronizes the agencies'''
-    #     municipalities = self.get()
-    #     for m in municipalities:
-    #         stk_muni_id = m['id']
-    #         code_dls = m['code_dls']
-    #         name = m['name']
-    #         pickup_enabled = m['retiro_habilitado']
-    #         agencies = m['agencies']
-    #         municipality_object_search = StkMuni.objects.filter(
-    #             stk_id=stk_muni_id)
-    #         if municipality_object_search.exists():
-    #             municipality_object_search.update(
-    #                 code_dls=code_dls,
-    #                 name=name,
-    #                 pickup_enabled=pickup_enabled
-    #             )
-    #             municipality_object = municipality_object_search[0]
-    #         else:
-    #             municipality_object_creation = StkMuni.objects.create(
-    #                 stk_id=stk_muni_id,
-    #                 code_dls=code_dls,
-    #                 name=name,
-    #                 pickup_enabled=pickup_enabled
-    #             )
-    #             municipality_object_creation.save()
-    #             municipality_object = StkMuni.objects.filter(
-    #                 id=municipality_object_creation.id)[0]
+    @loggable
+    def app_sync(self, *args, **kwargs):
+        model = MuniStarken
+        munis = self.search_all()
+        user_obj = User.objects.get(username=APP_USERNAME)
 
-    #         for a in agencies:
-    #             stk_ag_id = a['id']
-    #             name = a['name']
-    #             code_dls = a['code_dls']
-    #             if code_dls is None:
-    #                 continue
-    #             address = a['address']
-    #             latitude = a['latitude']
-    #             longitude = a['longitude']
-    #             shipping = a['shipping']
-    #             delivery = a['delivery']
-    #             status = a['status']
-    #             agency_object_search = StkAg.objects.filter(
-    #                 stk_id=stk_ag_id)
-    #             if agency_object_search.exists():
-    #                 agency_object_search.update(
-    #                     code_dls=code_dls,
-    #                     name=name,
-    #                     address=address,
-    #                     latitude=latitude,
-    #                     longitude=longitude,
-    #                     shipping=shipping,
-    #                     delivery=delivery,
-    #                     status=status,
-    #                     stk_municipality=municipality_object
-    #                 )
-    #             else:
-    #                 StkAg(
-    #                     stk_id=stk_ag_id,
-    #                     code_dls=code_dls,
-    #                     name=name,
-    #                     address=address,
-    #                     latitude=latitude,
-    #                     longitude=longitude,
-    #                     shipping=shipping,
-    #                     delivery=delivery,
-    #                     status=status,
-    #                     stk_municipality=municipality_object
-    #                 ).save()
+        objs = {obj.code: obj
+                for obj in model.objects.all()}
+        for muni in munis:
+            code = muni['code_dls']
+            name = muni['name']
+
+            sync_kwargs = {'model': model}
+            if code in objs:
+                obj = objs[code]
+                sync_func = bulk_update_with_history
+                sync_kwargs['fields'] = [
+                    'code',
+                    'name',
+                    'changed_by'
+                ]
+            else:
+                sync_func = bulk_create_with_history
+                obj = model()
+
+            obj.code = code
+            obj.name = name
+            obj.changed_by = user_obj
+            sync_kwargs['objs'] = [obj]
+            sync_func(**sync_kwargs)

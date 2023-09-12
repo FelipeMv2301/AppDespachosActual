@@ -20,7 +20,7 @@ class Delivery(models.Model):
             correlative = 1
         else:
             correlative = Delivery.objects.latest('id').id + 1
-        folio = ''.join([str(prefix), str(correlative)])
+        folio = f'{prefix} {correlative}'
         return folio
 
     # General

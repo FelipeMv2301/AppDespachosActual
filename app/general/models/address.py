@@ -1,12 +1,28 @@
+import random
+import string
+
 from django.db import models
 from django.utils import timezone
 from simple_history.models import HistoricalRecords
 
 
 class Address(models.Model):
+    @staticmethod
+    def new_code():
+        chars = string.ascii_uppercase
+        prefix = ''.join(random.choice(chars) for _ in range(4))
+        if Address.objects.count() == 0:
+            correlative = 1
+        else:
+            correlative = Address.objects.latest('id').id + 1
+        folio = f'{prefix} {correlative}'
+        return folio
+
     # General
-    code = models.CharField(max_length=100, unique=True)
-    ref = models.CharField(max_length=100)
+    code = models.CharField(max_length=100,
+                            unique=True,
+                            default=new_code.__func__)
+    ref = models.CharField(max_length=100, default=new_code.__func__)
     st_and_num = models.CharField(max_length=100)
     muni = models.ForeignKey(to='general.Muni', on_delete=models.CASCADE)
     latitude = models.FloatField()
