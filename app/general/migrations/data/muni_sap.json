@@ -1,0 +1,3116 @@
+[
+{
+  "model": "general.munisap",
+  "pk": 1,
+  "fields": {
+    "code": "101",
+    "name": "ARICA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 2,
+  "fields": {
+    "code": "102",
+    "name": "CAMARONES",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 3,
+  "fields": {
+    "code": "103",
+    "name": "IQUIQUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 4,
+  "fields": {
+    "code": "104",
+    "name": "PICA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 5,
+  "fields": {
+    "code": "105",
+    "name": "POZO ALMONTE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 6,
+  "fields": {
+    "code": "106",
+    "name": "HUARA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 7,
+  "fields": {
+    "code": "107",
+    "name": "CAMINA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 8,
+  "fields": {
+    "code": "108",
+    "name": "COLCHANE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 9,
+  "fields": {
+    "code": "109",
+    "name": "ALTO HOSPICIO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 10,
+  "fields": {
+    "code": "110",
+    "name": "PUTRE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 11,
+  "fields": {
+    "code": "111",
+    "name": "GENERAL LAGOS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 12,
+  "fields": {
+    "code": "112",
+    "name": "TOCOPILLA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 13,
+  "fields": {
+    "code": "113",
+    "name": "MARIA ELENA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 14,
+  "fields": {
+    "code": "114",
+    "name": "ANTOFAGASTA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 15,
+  "fields": {
+    "code": "115",
+    "name": "TALTAL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 16,
+  "fields": {
+    "code": "116",
+    "name": "MEJILLONES",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 17,
+  "fields": {
+    "code": "117",
+    "name": "SIERRA GORDA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 18,
+  "fields": {
+    "code": "118",
+    "name": "CALAMA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 19,
+  "fields": {
+    "code": "119",
+    "name": "OLLAGUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 20,
+  "fields": {
+    "code": "120",
+    "name": "SAN PEDRO DE ATACAMA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 21,
+  "fields": {
+    "code": "121",
+    "name": "CHANARAL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 22,
+  "fields": {
+    "code": "122",
+    "name": "DIEGO DE ALMAGRO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 23,
+  "fields": {
+    "code": "123",
+    "name": "COPIAPO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 24,
+  "fields": {
+    "code": "124",
+    "name": "CALDERA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 25,
+  "fields": {
+    "code": "125",
+    "name": "TIERRA AMARILLA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 26,
+  "fields": {
+    "code": "126",
+    "name": "VALLENAR",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 27,
+  "fields": {
+    "code": "127",
+    "name": "FREIRINA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 28,
+  "fields": {
+    "code": "128",
+    "name": "HUASCO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 29,
+  "fields": {
+    "code": "129",
+    "name": "ALTO DEL CARMEN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 30,
+  "fields": {
+    "code": "130",
+    "name": "LA SERENA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 31,
+  "fields": {
+    "code": "131",
+    "name": "LA HIGUERA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 32,
+  "fields": {
+    "code": "132",
+    "name": "COQUIMBO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 33,
+  "fields": {
+    "code": "133",
+    "name": "ANDACOLLO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 34,
+  "fields": {
+    "code": "134",
+    "name": "VICUÑA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 35,
+  "fields": {
+    "code": "135",
+    "name": "PAIHUANO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 36,
+  "fields": {
+    "code": "136",
+    "name": "OVALLE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 37,
+  "fields": {
+    "code": "137",
+    "name": "MONTE PATRIA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 38,
+  "fields": {
+    "code": "138",
+    "name": "PUNITAQUI",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 39,
+  "fields": {
+    "code": "139",
+    "name": "COMBARBALA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 40,
+  "fields": {
+    "code": "140",
+    "name": "RIO HURTADO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 41,
+  "fields": {
+    "code": "141",
+    "name": "ILLAPEL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 42,
+  "fields": {
+    "code": "142",
+    "name": "SALAMANCA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 43,
+  "fields": {
+    "code": "143",
+    "name": "LOS VILOS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 44,
+  "fields": {
+    "code": "144",
+    "name": "CANELA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 45,
+  "fields": {
+    "code": "145",
+    "name": "ISLA DE PASCUA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 46,
+  "fields": {
+    "code": "146",
+    "name": "LA LIGUA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 47,
+  "fields": {
+    "code": "147",
+    "name": "PETORCA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 48,
+  "fields": {
+    "code": "148",
+    "name": "CABILDO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 49,
+  "fields": {
+    "code": "149",
+    "name": "ZAPALLAR",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 50,
+  "fields": {
+    "code": "150",
+    "name": "PAPUDO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 51,
+  "fields": {
+    "code": "151",
+    "name": "VALPARAISO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 52,
+  "fields": {
+    "code": "152",
+    "name": "VIÑA DEL MAR",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 53,
+  "fields": {
+    "code": "153",
+    "name": "VILLA ALEMANA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 54,
+  "fields": {
+    "code": "154",
+    "name": "QUILPUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 55,
+  "fields": {
+    "code": "155",
+    "name": "CASABLANCA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 56,
+  "fields": {
+    "code": "156",
+    "name": "QUINTERO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 57,
+  "fields": {
+    "code": "157",
+    "name": "PUCHUNCAVI",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 58,
+  "fields": {
+    "code": "158",
+    "name": "JUAN FERNANDEZ",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 59,
+  "fields": {
+    "code": "159",
+    "name": "CONCON",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 60,
+  "fields": {
+    "code": "160",
+    "name": "SAN ANTONIO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 61,
+  "fields": {
+    "code": "161",
+    "name": "SANTO DOMINGO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 62,
+  "fields": {
+    "code": "162",
+    "name": "CARTAGENA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 63,
+  "fields": {
+    "code": "163",
+    "name": "EL TABO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 64,
+  "fields": {
+    "code": "164",
+    "name": "EL QUISCO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 65,
+  "fields": {
+    "code": "165",
+    "name": "ALGARROBO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 66,
+  "fields": {
+    "code": "166",
+    "name": "QUILLOTA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 67,
+  "fields": {
+    "code": "167",
+    "name": "NOGALES",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 68,
+  "fields": {
+    "code": "168",
+    "name": "HIJUELAS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 69,
+  "fields": {
+    "code": "169",
+    "name": "LA CALERA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 70,
+  "fields": {
+    "code": "170",
+    "name": "LA CRUZ",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 71,
+  "fields": {
+    "code": "171",
+    "name": "LIMACHE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 72,
+  "fields": {
+    "code": "172",
+    "name": "OLMUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 73,
+  "fields": {
+    "code": "173",
+    "name": "SAN FELIPE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 74,
+  "fields": {
+    "code": "174",
+    "name": "PANQUEHUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 75,
+  "fields": {
+    "code": "175",
+    "name": "CATEMU",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 76,
+  "fields": {
+    "code": "176",
+    "name": "PUTAENDO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 77,
+  "fields": {
+    "code": "177",
+    "name": "SANTA MARIA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 78,
+  "fields": {
+    "code": "178",
+    "name": "LLAY-LLAY",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 79,
+  "fields": {
+    "code": "179",
+    "name": "LOS ANDES",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 80,
+  "fields": {
+    "code": "180",
+    "name": "CALLE LARGA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 81,
+  "fields": {
+    "code": "181",
+    "name": "SAN ESTEBAN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 82,
+  "fields": {
+    "code": "182",
+    "name": "RINCONADA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 83,
+  "fields": {
+    "code": "183",
+    "name": "RANCAGUA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 84,
+  "fields": {
+    "code": "184",
+    "name": "MACHALI",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 85,
+  "fields": {
+    "code": "185",
+    "name": "GRANEROS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 86,
+  "fields": {
+    "code": "186",
+    "name": "SAN FCO DE MOSTAZAL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 87,
+  "fields": {
+    "code": "187",
+    "name": "DONIHUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 88,
+  "fields": {
+    "code": "188",
+    "name": "COLTAUCO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 89,
+  "fields": {
+    "code": "189",
+    "name": "CODEGUA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 90,
+  "fields": {
+    "code": "190",
+    "name": "PEUMO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 91,
+  "fields": {
+    "code": "191",
+    "name": "LAS CABRAS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 92,
+  "fields": {
+    "code": "192",
+    "name": "SAN VICENTE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 93,
+  "fields": {
+    "code": "193",
+    "name": "PICHIDEGUA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 94,
+  "fields": {
+    "code": "194",
+    "name": "RENGO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 95,
+  "fields": {
+    "code": "195",
+    "name": "REQUINOA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 96,
+  "fields": {
+    "code": "196",
+    "name": "OLIVAR",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 97,
+  "fields": {
+    "code": "197",
+    "name": "MALLOA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 98,
+  "fields": {
+    "code": "198",
+    "name": "COINCO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 99,
+  "fields": {
+    "code": "199",
+    "name": "QUINTA DE TILCOCO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 100,
+  "fields": {
+    "code": "200",
+    "name": "SAN FERNANDO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 101,
+  "fields": {
+    "code": "201",
+    "name": "CHIMBARONGO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 102,
+  "fields": {
+    "code": "202",
+    "name": "NANCAGUA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 103,
+  "fields": {
+    "code": "203",
+    "name": "PLACILLA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 104,
+  "fields": {
+    "code": "204",
+    "name": "SANTA CRUZ",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 105,
+  "fields": {
+    "code": "205",
+    "name": "LOLOL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 106,
+  "fields": {
+    "code": "206",
+    "name": "PALMILLA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 107,
+  "fields": {
+    "code": "207",
+    "name": "PERALILLO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 108,
+  "fields": {
+    "code": "208",
+    "name": "CHEPICA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 109,
+  "fields": {
+    "code": "209",
+    "name": "PUMANQUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 110,
+  "fields": {
+    "code": "210",
+    "name": "PICHILEMU",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 111,
+  "fields": {
+    "code": "211",
+    "name": "NAVIDAD",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 112,
+  "fields": {
+    "code": "212",
+    "name": "LITUECHE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 113,
+  "fields": {
+    "code": "213",
+    "name": "LA ESTRELLA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 114,
+  "fields": {
+    "code": "214",
+    "name": "MARCHIGUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 115,
+  "fields": {
+    "code": "215",
+    "name": "PAREDONES",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 116,
+  "fields": {
+    "code": "216",
+    "name": "CURICO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 117,
+  "fields": {
+    "code": "217",
+    "name": "TENO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 118,
+  "fields": {
+    "code": "218",
+    "name": "ROMERAL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 119,
+  "fields": {
+    "code": "219",
+    "name": "RAUCO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 120,
+  "fields": {
+    "code": "220",
+    "name": "LICANTEN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 121,
+  "fields": {
+    "code": "221",
+    "name": "VICHUQUEN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 122,
+  "fields": {
+    "code": "222",
+    "name": "HUALANE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 123,
+  "fields": {
+    "code": "223",
+    "name": "MOLINA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 124,
+  "fields": {
+    "code": "224",
+    "name": "SAGRADA FAMILIA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 125,
+  "fields": {
+    "code": "225",
+    "name": "TALCA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 126,
+  "fields": {
+    "code": "226",
+    "name": "SAN CLEMENTE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 127,
+  "fields": {
+    "code": "227",
+    "name": "PELARCO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 128,
+  "fields": {
+    "code": "228",
+    "name": "RIO CLARO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 129,
+  "fields": {
+    "code": "229",
+    "name": "PENCAHUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 130,
+  "fields": {
+    "code": "230",
+    "name": "MAULE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 131,
+  "fields": {
+    "code": "446",
+    "name": "SAN VICENTE TAGUA TAGUA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 132,
+  "fields": {
+    "code": "232",
+    "name": "CONSTITUCION",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 133,
+  "fields": {
+    "code": "233",
+    "name": "EMPEDRADO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 134,
+  "fields": {
+    "code": "234",
+    "name": "SAN RAFAEL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 135,
+  "fields": {
+    "code": "235",
+    "name": "LINARES",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 136,
+  "fields": {
+    "code": "236",
+    "name": "YERBAS BUENAS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 137,
+  "fields": {
+    "code": "237",
+    "name": "COLBUN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 138,
+  "fields": {
+    "code": "238",
+    "name": "LONGAVI",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 139,
+  "fields": {
+    "code": "239",
+    "name": "PARRAL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 140,
+  "fields": {
+    "code": "240",
+    "name": "RETIRO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 141,
+  "fields": {
+    "code": "241",
+    "name": "VILLA ALEGRE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 142,
+  "fields": {
+    "code": "242",
+    "name": "SAN JAVIER",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 143,
+  "fields": {
+    "code": "243",
+    "name": "CAUQUENES",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 144,
+  "fields": {
+    "code": "244",
+    "name": "PELLUHUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 145,
+  "fields": {
+    "code": "245",
+    "name": "CHANCO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 146,
+  "fields": {
+    "code": "246",
+    "name": "CHILLAN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 147,
+  "fields": {
+    "code": "247",
+    "name": "PINTO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 148,
+  "fields": {
+    "code": "248",
+    "name": "COIHUECO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 149,
+  "fields": {
+    "code": "249",
+    "name": "QUIRIHUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 150,
+  "fields": {
+    "code": "250",
+    "name": "NINHUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 151,
+  "fields": {
+    "code": "251",
+    "name": "PORTEZUELO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 152,
+  "fields": {
+    "code": "252",
+    "name": "COBQUECURA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 153,
+  "fields": {
+    "code": "253",
+    "name": "TREHUACO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 154,
+  "fields": {
+    "code": "254",
+    "name": "SAN CARLOS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 155,
+  "fields": {
+    "code": "255",
+    "name": "NIQUEN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 156,
+  "fields": {
+    "code": "256",
+    "name": "SAN FABIAN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 157,
+  "fields": {
+    "code": "257",
+    "name": "SAN NICOLAS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 158,
+  "fields": {
+    "code": "258",
+    "name": "BULNES",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 159,
+  "fields": {
+    "code": "259",
+    "name": "SAN IGNACIO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 160,
+  "fields": {
+    "code": "260",
+    "name": "QUILLON",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 161,
+  "fields": {
+    "code": "261",
+    "name": "YUNGAY",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 162,
+  "fields": {
+    "code": "262",
+    "name": "PEMUCO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 163,
+  "fields": {
+    "code": "263",
+    "name": "EL CARMEN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 164,
+  "fields": {
+    "code": "264",
+    "name": "RANQUIL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 165,
+  "fields": {
+    "code": "265",
+    "name": "COELEMU",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 166,
+  "fields": {
+    "code": "266",
+    "name": "CHILLAN VIEJO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 167,
+  "fields": {
+    "code": "267",
+    "name": "CONCEPCION",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 168,
+  "fields": {
+    "code": "268",
+    "name": "PENCO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 169,
+  "fields": {
+    "code": "269",
+    "name": "HUALQUI",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 170,
+  "fields": {
+    "code": "270",
+    "name": "FLORIDA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 171,
+  "fields": {
+    "code": "271",
+    "name": "TOME",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 172,
+  "fields": {
+    "code": "272",
+    "name": "TALCAHUANO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 173,
+  "fields": {
+    "code": "273",
+    "name": "CORONEL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 174,
+  "fields": {
+    "code": "274",
+    "name": "LOTA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 175,
+  "fields": {
+    "code": "275",
+    "name": "SANTA JUANA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 176,
+  "fields": {
+    "code": "276",
+    "name": "SAN PEDRO DE LA PAZ",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 177,
+  "fields": {
+    "code": "277",
+    "name": "CHIGUAYANTE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 178,
+  "fields": {
+    "code": "278",
+    "name": "HUALPEN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 179,
+  "fields": {
+    "code": "279",
+    "name": "ARAUCO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 180,
+  "fields": {
+    "code": "280",
+    "name": "CURANILAHUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 181,
+  "fields": {
+    "code": "281",
+    "name": "LEBU",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 182,
+  "fields": {
+    "code": "282",
+    "name": "LOS ALAMOS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 183,
+  "fields": {
+    "code": "283",
+    "name": "CANETE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 184,
+  "fields": {
+    "code": "284",
+    "name": "CONTULMO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 185,
+  "fields": {
+    "code": "285",
+    "name": "TIRUA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 186,
+  "fields": {
+    "code": "286",
+    "name": "LOS ANGELES",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 187,
+  "fields": {
+    "code": "287",
+    "name": "SANTA BARBARA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 188,
+  "fields": {
+    "code": "288",
+    "name": "LAJA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 189,
+  "fields": {
+    "code": "289",
+    "name": "QUILLECO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 190,
+  "fields": {
+    "code": "290",
+    "name": "NACIMIENTO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 191,
+  "fields": {
+    "code": "291",
+    "name": "NEGRETE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 192,
+  "fields": {
+    "code": "292",
+    "name": "MULCHEN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 193,
+  "fields": {
+    "code": "293",
+    "name": "QUILACO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 194,
+  "fields": {
+    "code": "294",
+    "name": "YUMBEL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 195,
+  "fields": {
+    "code": "295",
+    "name": "CABRERO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 196,
+  "fields": {
+    "code": "296",
+    "name": "SAN ROSENDO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 197,
+  "fields": {
+    "code": "297",
+    "name": "TUCAPEL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 198,
+  "fields": {
+    "code": "298",
+    "name": "ANTUCO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 199,
+  "fields": {
+    "code": "299",
+    "name": "ALTO BIOBIO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 200,
+  "fields": {
+    "code": "300",
+    "name": "ANGOL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 201,
+  "fields": {
+    "code": "301",
+    "name": "PUREN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 202,
+  "fields": {
+    "code": "302",
+    "name": "LOS SAUCES",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 203,
+  "fields": {
+    "code": "303",
+    "name": "RENAICO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 204,
+  "fields": {
+    "code": "304",
+    "name": "COLLIPULLI",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 205,
+  "fields": {
+    "code": "305",
+    "name": "ERCILLA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 206,
+  "fields": {
+    "code": "306",
+    "name": "TRAIGUEN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 207,
+  "fields": {
+    "code": "307",
+    "name": "LUMACO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 208,
+  "fields": {
+    "code": "308",
+    "name": "VICTORIA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 209,
+  "fields": {
+    "code": "309",
+    "name": "CURACAUTIN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 210,
+  "fields": {
+    "code": "310",
+    "name": "LONQUIMAY",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 211,
+  "fields": {
+    "code": "311",
+    "name": "TEMUCO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 212,
+  "fields": {
+    "code": "312",
+    "name": "VILCUN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 213,
+  "fields": {
+    "code": "313",
+    "name": "FREIRE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 214,
+  "fields": {
+    "code": "314",
+    "name": "CUNCO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 215,
+  "fields": {
+    "code": "315",
+    "name": "LAUTARO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 216,
+  "fields": {
+    "code": "316",
+    "name": "PERQUENCO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 217,
+  "fields": {
+    "code": "317",
+    "name": "GALVARINO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 218,
+  "fields": {
+    "code": "318",
+    "name": "NUEVA IMPERIAL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 219,
+  "fields": {
+    "code": "319",
+    "name": "CARAHUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 220,
+  "fields": {
+    "code": "320",
+    "name": "SAAVEDRA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 221,
+  "fields": {
+    "code": "321",
+    "name": "PITRUFQUEN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 222,
+  "fields": {
+    "code": "322",
+    "name": "GORBEA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 223,
+  "fields": {
+    "code": "323",
+    "name": "TOLTEN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 224,
+  "fields": {
+    "code": "231",
+    "name": "CUREPTO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 225,
+  "fields": {
+    "code": "325",
+    "name": "VILLARRICA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 226,
+  "fields": {
+    "code": "326",
+    "name": "PUCON",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 227,
+  "fields": {
+    "code": "327",
+    "name": "MELIPEUCO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 228,
+  "fields": {
+    "code": "328",
+    "name": "CURARREHUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 229,
+  "fields": {
+    "code": "329",
+    "name": "TEODORO SCHMIDT",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 230,
+  "fields": {
+    "code": "330",
+    "name": "PADRE LAS CASAS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 231,
+  "fields": {
+    "code": "331",
+    "name": "CHOLCHOL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 232,
+  "fields": {
+    "code": "332",
+    "name": "VALDIVIA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 233,
+  "fields": {
+    "code": "333",
+    "name": "MARIQUINA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 234,
+  "fields": {
+    "code": "334",
+    "name": "LANCO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 235,
+  "fields": {
+    "code": "335",
+    "name": "LOS LAGOS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 236,
+  "fields": {
+    "code": "336",
+    "name": "FUTRONO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 237,
+  "fields": {
+    "code": "337",
+    "name": "CORRAL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 238,
+  "fields": {
+    "code": "338",
+    "name": "MAFIL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 239,
+  "fields": {
+    "code": "339",
+    "name": "PANGUIPULLI",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 240,
+  "fields": {
+    "code": "340",
+    "name": "LA UNION",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 241,
+  "fields": {
+    "code": "341",
+    "name": "PAILLACO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 242,
+  "fields": {
+    "code": "342",
+    "name": "RIO BUENO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 243,
+  "fields": {
+    "code": "343",
+    "name": "LAGO RANCO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 244,
+  "fields": {
+    "code": "344",
+    "name": "OSORNO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 245,
+  "fields": {
+    "code": "345",
+    "name": "SAN PABLO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 246,
+  "fields": {
+    "code": "346",
+    "name": "PUERTO OCTAY",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 247,
+  "fields": {
+    "code": "347",
+    "name": "PUYEHUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 248,
+  "fields": {
+    "code": "348",
+    "name": "RIO NEGRO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 249,
+  "fields": {
+    "code": "349",
+    "name": "PURRANQUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 250,
+  "fields": {
+    "code": "350",
+    "name": "SAN JUAN DE LA COSTA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 251,
+  "fields": {
+    "code": "351",
+    "name": "PUERTO MONTT",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 252,
+  "fields": {
+    "code": "352",
+    "name": "COCHAMO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 253,
+  "fields": {
+    "code": "353",
+    "name": "PUERTO VARAS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 254,
+  "fields": {
+    "code": "354",
+    "name": "FRESIA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 255,
+  "fields": {
+    "code": "355",
+    "name": "FRUTILLAR",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 256,
+  "fields": {
+    "code": "356",
+    "name": "LLANQUIHUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 257,
+  "fields": {
+    "code": "357",
+    "name": "MAULLIN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 258,
+  "fields": {
+    "code": "358",
+    "name": "LOS MUERMOS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 259,
+  "fields": {
+    "code": "359",
+    "name": "CALBUCO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 260,
+  "fields": {
+    "code": "360",
+    "name": "CASTRO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 261,
+  "fields": {
+    "code": "361",
+    "name": "CHONCHI",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 262,
+  "fields": {
+    "code": "362",
+    "name": "QUEILEN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 263,
+  "fields": {
+    "code": "363",
+    "name": "QUELLON",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 264,
+  "fields": {
+    "code": "364",
+    "name": "PUQUELDON",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 265,
+  "fields": {
+    "code": "365",
+    "name": "ANCUD",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 266,
+  "fields": {
+    "code": "366",
+    "name": "QUEMCHI",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 267,
+  "fields": {
+    "code": "367",
+    "name": "DALCAHUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 268,
+  "fields": {
+    "code": "368",
+    "name": "CURACO DE VELEZ",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 269,
+  "fields": {
+    "code": "369",
+    "name": "QUINCHAO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 270,
+  "fields": {
+    "code": "370",
+    "name": "CHAITEN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 271,
+  "fields": {
+    "code": "371",
+    "name": "HUALAIHUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 272,
+  "fields": {
+    "code": "372",
+    "name": "FUTALEUFU",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 273,
+  "fields": {
+    "code": "373",
+    "name": "PALENA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 274,
+  "fields": {
+    "code": "374",
+    "name": "AYSEN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 275,
+  "fields": {
+    "code": "375",
+    "name": "CISNES",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 276,
+  "fields": {
+    "code": "376",
+    "name": "GUAITECAS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 277,
+  "fields": {
+    "code": "377",
+    "name": "CHILE CHICO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 278,
+  "fields": {
+    "code": "378",
+    "name": "RIO IBANEZ",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 279,
+  "fields": {
+    "code": "379",
+    "name": "COCHRANE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 280,
+  "fields": {
+    "code": "380",
+    "name": "OHIGGINS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 281,
+  "fields": {
+    "code": "381",
+    "name": "TORTEL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 282,
+  "fields": {
+    "code": "382",
+    "name": "COYHAIQUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 283,
+  "fields": {
+    "code": "383",
+    "name": "LAGO VERDE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 284,
+  "fields": {
+    "code": "384",
+    "name": "NATALES",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 285,
+  "fields": {
+    "code": "385",
+    "name": "TORRES DEL PAINE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 286,
+  "fields": {
+    "code": "386",
+    "name": "RIO VERDE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 287,
+  "fields": {
+    "code": "387",
+    "name": "SAN GREGORIO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 288,
+  "fields": {
+    "code": "388",
+    "name": "PUNTA ARENAS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 289,
+  "fields": {
+    "code": "389",
+    "name": "LAGUNA BLANCA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 290,
+  "fields": {
+    "code": "390",
+    "name": "PORVENIR",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 291,
+  "fields": {
+    "code": "391",
+    "name": "PRIMAVERA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 292,
+  "fields": {
+    "code": "392",
+    "name": "TIMAUKEL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 293,
+  "fields": {
+    "code": "393",
+    "name": "CABO DE HORNOS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 294,
+  "fields": {
+    "code": "394",
+    "name": "SANTIAGO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 295,
+  "fields": {
+    "code": "395",
+    "name": "RECOLETA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 296,
+  "fields": {
+    "code": "396",
+    "name": "INDEPENDENCIA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 297,
+  "fields": {
+    "code": "397",
+    "name": "QUINTA NORMAL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 298,
+  "fields": {
+    "code": "398",
+    "name": "MAIPU",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 299,
+  "fields": {
+    "code": "399",
+    "name": "PUDAHUEL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 300,
+  "fields": {
+    "code": "400",
+    "name": "RENCA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 301,
+  "fields": {
+    "code": "401",
+    "name": "QUILICURA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 302,
+  "fields": {
+    "code": "402",
+    "name": "CONCHALI",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 303,
+  "fields": {
+    "code": "403",
+    "name": "LO PRADO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 304,
+  "fields": {
+    "code": "404",
+    "name": "CERRO NAVIA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 305,
+  "fields": {
+    "code": "405",
+    "name": "ESTACION CENTRAL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 306,
+  "fields": {
+    "code": "406",
+    "name": "HUECHURABA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 307,
+  "fields": {
+    "code": "407",
+    "name": "CERRILLOS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 308,
+  "fields": {
+    "code": "408",
+    "name": "COLINA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 309,
+  "fields": {
+    "code": "409",
+    "name": "LAMPA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 310,
+  "fields": {
+    "code": "410",
+    "name": "TIL-TIL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 311,
+  "fields": {
+    "code": "411",
+    "name": "TALAGANTE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 312,
+  "fields": {
+    "code": "412",
+    "name": "ISLA DE MAIPO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 313,
+  "fields": {
+    "code": "413",
+    "name": "EL MONTE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 314,
+  "fields": {
+    "code": "414",
+    "name": "PEÑAFLOR",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 315,
+  "fields": {
+    "code": "415",
+    "name": "PADRE HURTADO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 316,
+  "fields": {
+    "code": "416",
+    "name": "MELIPILLA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 317,
+  "fields": {
+    "code": "417",
+    "name": "MARIA PINTO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 318,
+  "fields": {
+    "code": "418",
+    "name": "CURACAVI",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 319,
+  "fields": {
+    "code": "419",
+    "name": "SAN PEDRO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 320,
+  "fields": {
+    "code": "420",
+    "name": "ALHUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 321,
+  "fields": {
+    "code": "421",
+    "name": "PROVIDENCIA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 322,
+  "fields": {
+    "code": "422",
+    "name": "ÑUÑOA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 323,
+  "fields": {
+    "code": "423",
+    "name": "LAS CONDES",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 324,
+  "fields": {
+    "code": "424",
+    "name": "LA FLORIDA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 325,
+  "fields": {
+    "code": "425",
+    "name": "LA REINA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 326,
+  "fields": {
+    "code": "426",
+    "name": "MACUL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 327,
+  "fields": {
+    "code": "427",
+    "name": "PEÑALOLEN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 328,
+  "fields": {
+    "code": "428",
+    "name": "VITACURA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 329,
+  "fields": {
+    "code": "429",
+    "name": "LO BARNECHEA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 330,
+  "fields": {
+    "code": "430",
+    "name": "SAN MIGUEL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 331,
+  "fields": {
+    "code": "431",
+    "name": "LA CISTERNA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 332,
+  "fields": {
+    "code": "432",
+    "name": "LA GRANJA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 333,
+  "fields": {
+    "code": "433",
+    "name": "SAN RAMON",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 334,
+  "fields": {
+    "code": "434",
+    "name": "LA PINTANA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 335,
+  "fields": {
+    "code": "435",
+    "name": "PEDRO AGUIRRE CERDA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 336,
+  "fields": {
+    "code": "436",
+    "name": "SAN JOAQUIN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 337,
+  "fields": {
+    "code": "437",
+    "name": "LO ESPEJO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 338,
+  "fields": {
+    "code": "438",
+    "name": "EL BOSQUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 339,
+  "fields": {
+    "code": "439",
+    "name": "PUENTE ALTO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 340,
+  "fields": {
+    "code": "440",
+    "name": "PIRQUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 341,
+  "fields": {
+    "code": "441",
+    "name": "SAN JOSE DE MAIPO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 342,
+  "fields": {
+    "code": "442",
+    "name": "SAN BERNARDO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 343,
+  "fields": {
+    "code": "443",
+    "name": "CALERA DE TANGO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 344,
+  "fields": {
+    "code": "444",
+    "name": "BUIN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 345,
+  "fields": {
+    "code": "445",
+    "name": "PAINE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munisap",
+  "pk": 346,
+  "fields": {
+    "code": "324",
+    "name": "LONCOCHE",
+    "changed_by": 1
+  }
+}
+]

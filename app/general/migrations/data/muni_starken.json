@@ -1,0 +1,6995 @@
+[
+{
+  "model": "general.munistarken",
+  "pk": 1,
+  "fields": {
+    "code_dls": "3047",
+    "name": "ACHAO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 2,
+  "fields": {
+    "code_dls": "2756",
+    "name": "AGUA BUENA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 3,
+  "fields": {
+    "code_dls": "3048",
+    "name": "AHUI",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 4,
+  "fields": {
+    "code_dls": "2574",
+    "name": "AIQUINA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 5,
+  "fields": {
+    "code_dls": "3026",
+    "name": "ALERCE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 6,
+  "fields": {
+    "code_dls": "2592",
+    "name": "ALGARROBAL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 7,
+  "fields": {
+    "code_dls": "2607",
+    "name": "ALGARROBITO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 8,
+  "fields": {
+    "code_dls": "2685",
+    "name": "ALGARROBO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 9,
+  "fields": {
+    "code_dls": "3127",
+    "name": "ALHUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 10,
+  "fields": {
+    "code_dls": "2684",
+    "name": "ALICAHUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 11,
+  "fields": {
+    "code_dls": "2860",
+    "name": "ALTO BIO BIO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 12,
+  "fields": {
+    "code_dls": "2593",
+    "name": "ALTO DEL CARMEN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 13,
+  "fields": {
+    "code_dls": "3135",
+    "name": "ALTO EL CANELO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 14,
+  "fields": {
+    "code_dls": "2554",
+    "name": "ALTO HOSPICIO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 15,
+  "fields": {
+    "code_dls": "3169",
+    "name": "ALTO JAHUEL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 16,
+  "fields": {
+    "code_dls": "2608",
+    "name": "ALTOVALSOL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 17,
+  "fields": {
+    "code_dls": "2555",
+    "name": "ANCUAQUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 18,
+  "fields": {
+    "code_dls": "3049",
+    "name": "ANCUD",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 19,
+  "fields": {
+    "code_dls": "2609",
+    "name": "ANDACOLLO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 20,
+  "fields": {
+    "code_dls": "2953",
+    "name": "ANGOL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 21,
+  "fields": {
+    "code_dls": "1350",
+    "name": "ANTARTICA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 22,
+  "fields": {
+    "code_dls": "3379",
+    "name": "ANTIHUALA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 23,
+  "fields": {
+    "code_dls": "1288",
+    "name": "ANTILHUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 24,
+  "fields": {
+    "code_dls": "2572",
+    "name": "ANTOFAGASTA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 25,
+  "fields": {
+    "code_dls": "2861",
+    "name": "ANTUCO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 26,
+  "fields": {
+    "code_dls": "2862",
+    "name": "ARAUCO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 27,
+  "fields": {
+    "code_dls": "2536",
+    "name": "ARICA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 28,
+  "fields": {
+    "code_dls": "2686",
+    "name": "ARTIFICIO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 29,
+  "fields": {
+    "code_dls": "3222",
+    "name": "BAHIA INGLESA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 30,
+  "fields": {
+    "code_dls": "3027",
+    "name": "BAHIA MANSA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 31,
+  "fields": {
+    "code_dls": "3230",
+    "name": "BAHIA MURTA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 32,
+  "fields": {
+    "code_dls": "3095",
+    "name": "BALMACEDA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 33,
+  "fields": {
+    "code_dls": "2575",
+    "name": "BAQUEDANO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 34,
+  "fields": {
+    "code_dls": "3265",
+    "name": "BARROS ARANA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 35,
+  "fields": {
+    "code_dls": "3128",
+    "name": "BATUCO (RM)",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 36,
+  "fields": {
+    "code_dls": "2813",
+    "name": "BATUCO (TALCA)",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 37,
+  "fields": {
+    "code_dls": "2537",
+    "name": "BELEN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 38,
+  "fields": {
+    "code_dls": "2687",
+    "name": "BELLOTO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 39,
+  "fields": {
+    "code_dls": "2814",
+    "name": "BOBADILLA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 40,
+  "fields": {
+    "code_dls": "3400",
+    "name": "BOCO DE QUILLOTA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 41,
+  "fields": {
+    "code_dls": "3170",
+    "name": "BOLLENAR",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 42,
+  "fields": {
+    "code_dls": "2757",
+    "name": "BUCALEMU",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 43,
+  "fields": {
+    "code_dls": "2863",
+    "name": "BUCHUPUREO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 44,
+  "fields": {
+    "code_dls": "3129",
+    "name": "BUIN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 45,
+  "fields": {
+    "code_dls": "2864",
+    "name": "BULNES",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 46,
+  "fields": {
+    "code_dls": "2688",
+    "name": "CABILDO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 47,
+  "fields": {
+    "code_dls": "2865",
+    "name": "CABRERO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 48,
+  "fields": {
+    "code_dls": "2955",
+    "name": "CABURGA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 49,
+  "fields": {
+    "code_dls": "2689",
+    "name": "CACHAGUA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 50,
+  "fields": {
+    "code_dls": "2866",
+    "name": "CACHAPOAL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 51,
+  "fields": {
+    "code_dls": "2758",
+    "name": "CAHUIL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 52,
+  "fields": {
+    "code_dls": "2690",
+    "name": "CAIMANES",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 53,
+  "fields": {
+    "code_dls": "2956",
+    "name": "CAJON",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 54,
+  "fields": {
+    "code_dls": "3130",
+    "name": "CAJON DEL MAIPO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 55,
+  "fields": {
+    "code_dls": "3015",
+    "name": "CALAFQUEN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 56,
+  "fields": {
+    "code_dls": "2573",
+    "name": "CALAMA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 57,
+  "fields": {
+    "code_dls": "3050",
+    "name": "CALBUCO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 58,
+  "fields": {
+    "code_dls": "2595",
+    "name": "CALDERA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 59,
+  "fields": {
+    "code_dls": "3131",
+    "name": "CALERA DE TANGO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 60,
+  "fields": {
+    "code_dls": "3231",
+    "name": "CALETA ANDRADE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 61,
+  "fields": {
+    "code_dls": "2556",
+    "name": "CALETA BUENA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 62,
+  "fields": {
+    "code_dls": "3028",
+    "name": "CALETA GONZALO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 63,
+  "fields": {
+    "code_dls": "2759",
+    "name": "CALETONES",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 64,
+  "fields": {
+    "code_dls": "2691",
+    "name": "CALLE LARGA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 65,
+  "fields": {
+    "code_dls": "1143",
+    "name": "CAMARICO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 66,
+  "fields": {
+    "code_dls": "2538",
+    "name": "CAMARONES",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 67,
+  "fields": {
+    "code_dls": "3112",
+    "name": "CAMERON",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 68,
+  "fields": {
+    "code_dls": "2557",
+    "name": "CAMINA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 69,
+  "fields": {
+    "code_dls": "2930",
+    "name": "CAMPANARIO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 70,
+  "fields": {
+    "code_dls": "2558",
+    "name": "CANCOSA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 71,
+  "fields": {
+    "code_dls": "2611",
+    "name": "CANELA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 72,
+  "fields": {
+    "code_dls": "2867",
+    "name": "CANETE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 73,
+  "fields": {
+    "code_dls": "2612",
+    "name": "CANTO DE AGUA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 74,
+  "fields": {
+    "code_dls": "2991",
+    "name": "CAPITAN PASTENE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 75,
+  "fields": {
+    "code_dls": "2539",
+    "name": "CAQUENA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 76,
+  "fields": {
+    "code_dls": "2954",
+    "name": "CARAHUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 77,
+  "fields": {
+    "code_dls": "2868",
+    "name": "CARAMPANGUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 78,
+  "fields": {
+    "code_dls": "3029",
+    "name": "CARELMAPU",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 79,
+  "fields": {
+    "code_dls": "2613",
+    "name": "CAREN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 80,
+  "fields": {
+    "code_dls": "2559",
+    "name": "CARIQUIMA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 81,
+  "fields": {
+    "code_dls": "2614",
+    "name": "CARRIZAL BAJO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 82,
+  "fields": {
+    "code_dls": "2692",
+    "name": "CARTAGENA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 83,
+  "fields": {
+    "code_dls": "2693",
+    "name": "CASABLANCA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 84,
+  "fields": {
+    "code_dls": "3479",
+    "name": "CASMA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 85,
+  "fields": {
+    "code_dls": "2576",
+    "name": "CASPANA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 86,
+  "fields": {
+    "code_dls": "3051",
+    "name": "CASTRO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 87,
+  "fields": {
+    "code_dls": "2695",
+    "name": "CATAPILCO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 88,
+  "fields": {
+    "code_dls": "2696",
+    "name": "CATEMU",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 89,
+  "fields": {
+    "code_dls": "3052",
+    "name": "CAULIN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 90,
+  "fields": {
+    "code_dls": "2817",
+    "name": "CAUQUENES",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 91,
+  "fields": {
+    "code_dls": "2869",
+    "name": "CAYUCUPIL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 92,
+  "fields": {
+    "code_dls": "26",
+    "name": "CERRILLOS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 93,
+  "fields": {
+    "code_dls": "2616",
+    "name": "CERRILLOS DE TAMAYA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 94,
+  "fields": {
+    "code_dls": "3360",
+    "name": "CERRO ALTO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 95,
+  "fields": {
+    "code_dls": "3189",
+    "name": "CERRO NAVIA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 96,
+  "fields": {
+    "code_dls": "3113",
+    "name": "CERRO SOMBRERO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 97,
+  "fields": {
+    "code_dls": "3053",
+    "name": "CHACAO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 98,
+  "fields": {
+    "code_dls": "3251",
+    "name": "CHAICA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 99,
+  "fields": {
+    "code_dls": "3030",
+    "name": "CHAITEN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 100,
+  "fields": {
+    "code_dls": "3171",
+    "name": "CHAMPA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 101,
+  "fields": {
+    "code_dls": "2596",
+    "name": "CHANARAL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 102,
+  "fields": {
+    "code_dls": "2617",
+    "name": "CHANARAL ALTO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 103,
+  "fields": {
+    "code_dls": "2618",
+    "name": "CHANARAL DE CAREN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 104,
+  "fields": {
+    "code_dls": "2819",
+    "name": "CHANCO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 105,
+  "fields": {
+    "code_dls": "2872",
+    "name": "CHARRUA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 106,
+  "fields": {
+    "code_dls": "3020",
+    "name": "CHAUQUEN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 107,
+  "fields": {
+    "code_dls": "3275",
+    "name": "CHECURA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 108,
+  "fields": {
+    "code_dls": "2760",
+    "name": "CHEPICA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 109,
+  "fields": {
+    "code_dls": "3054",
+    "name": "CHEPU",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 110,
+  "fields": {
+    "code_dls": "3245",
+    "name": "CHERQUENCO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 111,
+  "fields": {
+    "code_dls": "2502",
+    "name": "CHICUREO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 112,
+  "fields": {
+    "code_dls": "2873",
+    "name": "CHIGUAYANTE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 113,
+  "fields": {
+    "code_dls": "3299",
+    "name": "CHILCAS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 114,
+  "fields": {
+    "code_dls": "3094",
+    "name": "CHILE CHICO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 115,
+  "fields": {
+    "code_dls": "2857",
+    "name": "CHILLAN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 116,
+  "fields": {
+    "code_dls": "3236",
+    "name": "CHILLEPIN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 117,
+  "fields": {
+    "code_dls": "2761",
+    "name": "CHIMBARONGO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 118,
+  "fields": {
+    "code_dls": "3173",
+    "name": "CHOCALAN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 119,
+  "fields": {
+    "code_dls": "2957",
+    "name": "CHOLCHOL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 120,
+  "fields": {
+    "code_dls": "2870",
+    "name": "CHOLGUAN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 121,
+  "fields": {
+    "code_dls": "3077",
+    "name": "CHONCHI",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 122,
+  "fields": {
+    "code_dls": "3255",
+    "name": "CHOROICO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 123,
+  "fields": {
+    "code_dls": "3009",
+    "name": "CHOSHUENCO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 124,
+  "fields": {
+    "code_dls": "2762",
+    "name": "CIRUELOS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 125,
+  "fields": {
+    "code_dls": "3096",
+    "name": "CISNES",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 126,
+  "fields": {
+    "code_dls": "3132",
+    "name": "CIUDAD DE LOS VALLES",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 127,
+  "fields": {
+    "code_dls": "2577",
+    "name": "COBIJA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 128,
+  "fields": {
+    "code_dls": "2874",
+    "name": "COBQUECURA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 129,
+  "fields": {
+    "code_dls": "3031",
+    "name": "COCHAMO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 130,
+  "fields": {
+    "code_dls": "3105",
+    "name": "COCHRANE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 131,
+  "fields": {
+    "code_dls": "2763",
+    "name": "CODEGUA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 132,
+  "fields": {
+    "code_dls": "3174",
+    "name": "CODIGUA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 133,
+  "fields": {
+    "code_dls": "2540",
+    "name": "CODPA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 134,
+  "fields": {
+    "code_dls": "2875",
+    "name": "COELEMU",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 135,
+  "fields": {
+    "code_dls": "2931",
+    "name": "COIHUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 136,
+  "fields": {
+    "code_dls": "2876",
+    "name": "COIHUECO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 137,
+  "fields": {
+    "code_dls": "2764",
+    "name": "COINCO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 138,
+  "fields": {
+    "code_dls": "2820",
+    "name": "COLBUN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 139,
+  "fields": {
+    "code_dls": "2560",
+    "name": "COLCHANE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 140,
+  "fields": {
+    "code_dls": "1233",
+    "name": "COLCURA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 141,
+  "fields": {
+    "code_dls": "3256",
+    "name": "COLICO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 142,
+  "fields": {
+    "code_dls": "3133",
+    "name": "COLINA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 143,
+  "fields": {
+    "code_dls": "2877",
+    "name": "COLIUMO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 144,
+  "fields": {
+    "code_dls": "2561",
+    "name": "COLLACAGUA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 145,
+  "fields": {
+    "code_dls": "3419",
+    "name": "COLLIGUAY",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 146,
+  "fields": {
+    "code_dls": "2958",
+    "name": "COLLIPULLI",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 147,
+  "fields": {
+    "code_dls": "3266",
+    "name": "COLONIA MENDOZA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 148,
+  "fields": {
+    "code_dls": "2765",
+    "name": "COLTAUCO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 149,
+  "fields": {
+    "code_dls": "2619",
+    "name": "COMBARBALA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 150,
+  "fields": {
+    "code_dls": "2959",
+    "name": "CONARIPE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 151,
+  "fields": {
+    "code_dls": "2620",
+    "name": "CONAY",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 152,
+  "fields": {
+    "code_dls": "2859",
+    "name": "CONCEPCION",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 153,
+  "fields": {
+    "code_dls": "3190",
+    "name": "CONCHALI",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 154,
+  "fields": {
+    "code_dls": "2697",
+    "name": "CONCON",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 155,
+  "fields": {
+    "code_dls": "2821",
+    "name": "CONSTITUCION",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 156,
+  "fields": {
+    "code_dls": "2878",
+    "name": "CONTULMO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 157,
+  "fields": {
+    "code_dls": "2591",
+    "name": "COPIAPO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 158,
+  "fields": {
+    "code_dls": "3271",
+    "name": "COPIULEMU",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 159,
+  "fields": {
+    "code_dls": "2606",
+    "name": "COQUIMBO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 160,
+  "fields": {
+    "code_dls": "2879",
+    "name": "CORONEL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 161,
+  "fields": {
+    "code_dls": "2998",
+    "name": "CORRAL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 162,
+  "fields": {
+    "code_dls": "2541",
+    "name": "COSAPILLA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 163,
+  "fields": {
+    "code_dls": "2766",
+    "name": "COYA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 164,
+  "fields": {
+    "code_dls": "3093",
+    "name": "COYHAIQUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 165,
+  "fields": {
+    "code_dls": "3018",
+    "name": "COZ COZ",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 166,
+  "fields": {
+    "code_dls": "2815",
+    "name": "CULENAR",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 167,
+  "fields": {
+    "code_dls": "3175",
+    "name": "CULIPRAN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 168,
+  "fields": {
+    "code_dls": "2816",
+    "name": "CUMPEO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 169,
+  "fields": {
+    "code_dls": "2767",
+    "name": "CUNACO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 170,
+  "fields": {
+    "code_dls": "2960",
+    "name": "CUNCO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 171,
+  "fields": {
+    "code_dls": "3237",
+    "name": "CUNCUMEN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 172,
+  "fields": {
+    "code_dls": "3258",
+    "name": "CURACALCO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 173,
+  "fields": {
+    "code_dls": "2961",
+    "name": "CURACAUTIN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 174,
+  "fields": {
+    "code_dls": "3134",
+    "name": "CURACAVI",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 175,
+  "fields": {
+    "code_dls": "3072",
+    "name": "CURACO DE VELEZ",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 176,
+  "fields": {
+    "code_dls": "2880",
+    "name": "CURANILAHUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 177,
+  "fields": {
+    "code_dls": "2818",
+    "name": "CURANIPE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 178,
+  "fields": {
+    "code_dls": "2962",
+    "name": "CURARREHUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 179,
+  "fields": {
+    "code_dls": "2698",
+    "name": "CURAUMA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 180,
+  "fields": {
+    "code_dls": "2822",
+    "name": "CUREPTO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 181,
+  "fields": {
+    "code_dls": "2811",
+    "name": "CURICO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 182,
+  "fields": {
+    "code_dls": "3176",
+    "name": "CURIMON",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 183,
+  "fields": {
+    "code_dls": "3010",
+    "name": "CURINANCO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 184,
+  "fields": {
+    "code_dls": "2542",
+    "name": "CUYA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 185,
+  "fields": {
+    "code_dls": "3078",
+    "name": "DALCAHUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 186,
+  "fields": {
+    "code_dls": "3055",
+    "name": "DEGAN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 187,
+  "fields": {
+    "code_dls": "2881",
+    "name": "DICHATO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 188,
+  "fields": {
+    "code_dls": "2597",
+    "name": "DIEGO DE ALMAGRO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 189,
+  "fields": {
+    "code_dls": "2622",
+    "name": "DOMEYKO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 190,
+  "fields": {
+    "code_dls": "2768",
+    "name": "DONIHUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 191,
+  "fields": {
+    "code_dls": "2823",
+    "name": "DUAO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 192,
+  "fields": {
+    "code_dls": "52",
+    "name": "EL BOSQUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 193,
+  "fields": {
+    "code_dls": "3177",
+    "name": "EL CANELO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 194,
+  "fields": {
+    "code_dls": "2882",
+    "name": "EL CARMEN CHILLAN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 195,
+  "fields": {
+    "code_dls": "2769",
+    "name": "EL CARMEN RENGO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 196,
+  "fields": {
+    "code_dls": "3136",
+    "name": "EL COLORADO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 197,
+  "fields": {
+    "code_dls": "2623",
+    "name": "EL HINOJAL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 198,
+  "fields": {
+    "code_dls": "3137",
+    "name": "EL INGENIO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 199,
+  "fields": {
+    "code_dls": "3319",
+    "name": "EL MANZANAR",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 200,
+  "fields": {
+    "code_dls": "2770",
+    "name": "EL MANZANO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 201,
+  "fields": {
+    "code_dls": "3178",
+    "name": "EL MELOCOTON",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 202,
+  "fields": {
+    "code_dls": "2699",
+    "name": "EL MELON",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 203,
+  "fields": {
+    "code_dls": "3179",
+    "name": "EL MEMBRILLO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 204,
+  "fields": {
+    "code_dls": "2624",
+    "name": "EL MOLLE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 205,
+  "fields": {
+    "code_dls": "3138",
+    "name": "EL MONTE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 206,
+  "fields": {
+    "code_dls": "2625",
+    "name": "EL PALQUI",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 207,
+  "fields": {
+    "code_dls": "2626",
+    "name": "EL PENON",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 208,
+  "fields": {
+    "code_dls": "2700",
+    "name": "EL QUISCO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 209,
+  "fields": {
+    "code_dls": "2598",
+    "name": "EL SALVADOR",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 210,
+  "fields": {
+    "code_dls": "2702",
+    "name": "EL SAUCE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 211,
+  "fields": {
+    "code_dls": "2701",
+    "name": "EL TABO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 212,
+  "fields": {
+    "code_dls": "2627",
+    "name": "EL TAMBO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 213,
+  "fields": {
+    "code_dls": "2628",
+    "name": "EL TANGUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 214,
+  "fields": {
+    "code_dls": "2824",
+    "name": "EMPEDRADO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 215,
+  "fields": {
+    "code_dls": "3082",
+    "name": "ENSENADA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 216,
+  "fields": {
+    "code_dls": "3032",
+    "name": "ENTRE LAGOS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 217,
+  "fields": {
+    "code_dls": "2963",
+    "name": "ERCILLA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 218,
+  "fields": {
+    "code_dls": "2599",
+    "name": "ESMERALDA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 219,
+  "fields": {
+    "code_dls": "2543",
+    "name": "ESQUINA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 220,
+  "fields": {
+    "code_dls": "3192",
+    "name": "ESTACION CENTRAL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 221,
+  "fields": {
+    "code_dls": "3139",
+    "name": "FARELLONES",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 222,
+  "fields": {
+    "code_dls": "3277",
+    "name": "FILOMENA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 223,
+  "fields": {
+    "code_dls": "2883",
+    "name": "FLORIDA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 224,
+  "fields": {
+    "code_dls": "2964",
+    "name": "FREIRE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 225,
+  "fields": {
+    "code_dls": "2600",
+    "name": "FREIRINA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 226,
+  "fields": {
+    "code_dls": "3079",
+    "name": "FRESIA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 227,
+  "fields": {
+    "code_dls": "3080",
+    "name": "FRUTILLAR",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 228,
+  "fields": {
+    "code_dls": "3033",
+    "name": "FUTALEUFU",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 229,
+  "fields": {
+    "code_dls": "2999",
+    "name": "FUTRONO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 230,
+  "fields": {
+    "code_dls": "2629",
+    "name": "GABRIELA MISTRAL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 231,
+  "fields": {
+    "code_dls": "2965",
+    "name": "GALVARINO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 232,
+  "fields": {
+    "code_dls": "2544",
+    "name": "GENERAL LAGOS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 233,
+  "fields": {
+    "code_dls": "2966",
+    "name": "GORBEA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 234,
+  "fields": {
+    "code_dls": "2771",
+    "name": "GRANEROS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 235,
+  "fields": {
+    "code_dls": "1332",
+    "name": "GUADAL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 236,
+  "fields": {
+    "code_dls": "1333",
+    "name": "GUAITECAS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 237,
+  "fields": {
+    "code_dls": "2825",
+    "name": "GUALLECO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 238,
+  "fields": {
+    "code_dls": "2630",
+    "name": "GUANAQUEROS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 239,
+  "fields": {
+    "code_dls": "2631",
+    "name": "GUANGUALI",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 240,
+  "fields": {
+    "code_dls": "3056",
+    "name": "GUAPILACUY",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 241,
+  "fields": {
+    "code_dls": "2703",
+    "name": "GUARDIA VIEJA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 242,
+  "fields": {
+    "code_dls": "3274",
+    "name": "GUARILIHUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 243,
+  "fields": {
+    "code_dls": "3180",
+    "name": "GUAYACAN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 244,
+  "fields": {
+    "code_dls": "2632",
+    "name": "HACIENDA LOS ANDES",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 245,
+  "fields": {
+    "code_dls": "2704",
+    "name": "HIJUELAS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 246,
+  "fields": {
+    "code_dls": "2705",
+    "name": "HORCON",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 247,
+  "fields": {
+    "code_dls": "2633",
+    "name": "HORCON IV",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 248,
+  "fields": {
+    "code_dls": "2578",
+    "name": "HORNITOS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 249,
+  "fields": {
+    "code_dls": "3034",
+    "name": "HORNOPIREN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 250,
+  "fields": {
+    "code_dls": "3140",
+    "name": "HOSPITAL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 251,
+  "fields": {
+    "code_dls": "3035",
+    "name": "HUALAIHUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 252,
+  "fields": {
+    "code_dls": "2826",
+    "name": "HUALANE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 253,
+  "fields": {
+    "code_dls": "1016",
+    "name": "HUALPEN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 254,
+  "fields": {
+    "code_dls": "2885",
+    "name": "HUALPENCILLO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 255,
+  "fields": {
+    "code_dls": "1282",
+    "name": "HUALPIN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 256,
+  "fields": {
+    "code_dls": "2886",
+    "name": "HUALQUI",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 257,
+  "fields": {
+    "code_dls": "2634",
+    "name": "HUAMALATA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 258,
+  "fields": {
+    "code_dls": "2562",
+    "name": "HUARA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 259,
+  "fields": {
+    "code_dls": "2594",
+    "name": "HUASCO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 260,
+  "fields": {
+    "code_dls": "3193",
+    "name": "HUECHURABA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 261,
+  "fields": {
+    "code_dls": "3057",
+    "name": "HUELDEN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 262,
+  "fields": {
+    "code_dls": "3243",
+    "name": "HUELLAHUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 263,
+  "fields": {
+    "code_dls": "3141",
+    "name": "HUELQUEN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 264,
+  "fields": {
+    "code_dls": "2635",
+    "name": "HUENTELAUQUEN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 265,
+  "fields": {
+    "code_dls": "2887",
+    "name": "HUEPIL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 266,
+  "fields": {
+    "code_dls": "3058",
+    "name": "HUILLINCO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 267,
+  "fields": {
+    "code_dls": "2706",
+    "name": "HUINTIL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 268,
+  "fields": {
+    "code_dls": "2967",
+    "name": "ICALMA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 269,
+  "fields": {
+    "code_dls": "2636",
+    "name": "ILLAPEL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 270,
+  "fields": {
+    "code_dls": "2827",
+    "name": "ILOCA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 271,
+  "fields": {
+    "code_dls": "3194",
+    "name": "INDEPENDENCIA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 272,
+  "fields": {
+    "code_dls": "2553",
+    "name": "IQUIQUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 273,
+  "fields": {
+    "code_dls": "3142",
+    "name": "ISLA DE MAIPO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 274,
+  "fields": {
+    "code_dls": "1386",
+    "name": "ISLA DE PASCUA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 275,
+  "fields": {
+    "code_dls": "1387",
+    "name": "ISLA JUAN FERNANDEZ",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 276,
+  "fields": {
+    "code_dls": "2707",
+    "name": "ISLA NEGRA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 277,
+  "fields": {
+    "code_dls": "3262",
+    "name": "ISLA SANTA MARIA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 278,
+  "fields": {
+    "code_dls": "2563",
+    "name": "ISLUGA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 279,
+  "fields": {
+    "code_dls": "3181",
+    "name": "JUNCAL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 280,
+  "fields": {
+    "code_dls": "3362",
+    "name": "LA ARAUCANA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 281,
+  "fields": {
+    "code_dls": "2601",
+    "name": "LA ARENA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 282,
+  "fields": {
+    "code_dls": "3252",
+    "name": "LA ARENA PTO MONTT",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 283,
+  "fields": {
+    "code_dls": "2708",
+    "name": "LA CALERA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 284,
+  "fields": {
+    "code_dls": "2774",
+    "name": "LA CEBADA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 285,
+  "fields": {
+    "code_dls": "2637",
+    "name": "LA CHIMBA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 286,
+  "fields": {
+    "code_dls": "3195",
+    "name": "LA CISTERNA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 287,
+  "fields": {
+    "code_dls": "2710",
+    "name": "LA CRUZ",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 288,
+  "fields": {
+    "code_dls": "1162",
+    "name": "LA DORMIDA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 289,
+  "fields": {
+    "code_dls": "2772",
+    "name": "LA ESTRELLA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 290,
+  "fields": {
+    "code_dls": "3196",
+    "name": "LA FLORIDA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 291,
+  "fields": {
+    "code_dls": "3197",
+    "name": "LA GRANJA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 292,
+  "fields": {
+    "code_dls": "2565",
+    "name": "LA HAUYCA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 293,
+  "fields": {
+    "code_dls": "2642",
+    "name": "LA HIGUERA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 294,
+  "fields": {
+    "code_dls": "3239",
+    "name": "LA JARILLA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 295,
+  "fields": {
+    "code_dls": "3106",
+    "name": "LA JUNTA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 296,
+  "fields": {
+    "code_dls": "2711",
+    "name": "LA LIGUA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 297,
+  "fields": {
+    "code_dls": "2639",
+    "name": "LA MARQUESA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 298,
+  "fields": {
+    "code_dls": "2579",
+    "name": "LA NEGRA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 299,
+  "fields": {
+    "code_dls": "3182",
+    "name": "LA OBRA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 300,
+  "fields": {
+    "code_dls": "3402",
+    "name": "LA PALMA DE QUILLOTA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 301,
+  "fields": {
+    "code_dls": "3143",
+    "name": "LA PARVA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 302,
+  "fields": {
+    "code_dls": "3198",
+    "name": "LA PINTANA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 303,
+  "fields": {
+    "code_dls": "2640",
+    "name": "LA PLACILLA (PUNITAQUI)",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 304,
+  "fields": {
+    "code_dls": "3199",
+    "name": "LA REINA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 305,
+  "fields": {
+    "code_dls": "3420",
+    "name": "LA RETUCA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 306,
+  "fields": {
+    "code_dls": "2775",
+    "name": "LA RUFINA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 307,
+  "fields": {
+    "code_dls": "2641",
+    "name": "LA SERENA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 308,
+  "fields": {
+    "code_dls": "3097",
+    "name": "LA TAPERA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 309,
+  "fields": {
+    "code_dls": "2564",
+    "name": "LA TIRANA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 310,
+  "fields": {
+    "code_dls": "3001",
+    "name": "LA UNION",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 311,
+  "fields": {
+    "code_dls": "2978",
+    "name": "LABRANZA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 312,
+  "fields": {
+    "code_dls": "3002",
+    "name": "LAGO RANCO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 313,
+  "fields": {
+    "code_dls": "3098",
+    "name": "LAGO VERDE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 314,
+  "fields": {
+    "code_dls": "3144",
+    "name": "LAGUNA ACULEO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 315,
+  "fields": {
+    "code_dls": "3114",
+    "name": "LAGUNA BLANCA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 316,
+  "fields": {
+    "code_dls": "1179",
+    "name": "LAGUNA VERDE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 317,
+  "fields": {
+    "code_dls": "2715",
+    "name": "LAGUNILLAS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 318,
+  "fields": {
+    "code_dls": "2888",
+    "name": "LAJA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 319,
+  "fields": {
+    "code_dls": "3059",
+    "name": "LAJAS BLANCAS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 320,
+  "fields": {
+    "code_dls": "3145",
+    "name": "LAMPA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 321,
+  "fields": {
+    "code_dls": "3003",
+    "name": "LANCO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 322,
+  "fields": {
+    "code_dls": "2890",
+    "name": "LARAQUETE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 323,
+  "fields": {
+    "code_dls": "2776",
+    "name": "LARMAHUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 324,
+  "fields": {
+    "code_dls": "2643",
+    "name": "LAS BREAS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 325,
+  "fields": {
+    "code_dls": "2778",
+    "name": "LAS CABRAS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 326,
+  "fields": {
+    "code_dls": "2645",
+    "name": "LAS CARDAS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 327,
+  "fields": {
+    "code_dls": "2644",
+    "name": "LAS CARDAS SUR",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 328,
+  "fields": {
+    "code_dls": "3200",
+    "name": "LAS CONDES",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 329,
+  "fields": {
+    "code_dls": "2709",
+    "name": "LAS CRUCES",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 330,
+  "fields": {
+    "code_dls": "2716",
+    "name": "LAS DICHAS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 331,
+  "fields": {
+    "code_dls": "2646",
+    "name": "LAS DUNAS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 332,
+  "fields": {
+    "code_dls": "3259",
+    "name": "LAS HORTENCIAS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 333,
+  "fields": {
+    "code_dls": "2777",
+    "name": "LAS NIEVES",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 334,
+  "fields": {
+    "code_dls": "2647",
+    "name": "LAS RAMADAS DE TULAHUEN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 335,
+  "fields": {
+    "code_dls": "2648",
+    "name": "LAS TACAS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 336,
+  "fields": {
+    "code_dls": "2891",
+    "name": "LAS TRANCAS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 337,
+  "fields": {
+    "code_dls": "2751",
+    "name": "LAS VENTANAS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 338,
+  "fields": {
+    "code_dls": "3146",
+    "name": "LAS VERTIENTES",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 339,
+  "fields": {
+    "code_dls": "2580",
+    "name": "LASANA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 340,
+  "fields": {
+    "code_dls": "2970",
+    "name": "LAUTARO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 341,
+  "fields": {
+    "code_dls": "2892",
+    "name": "LEBU",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 342,
+  "fields": {
+    "code_dls": "3060",
+    "name": "LECHAGUA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 343,
+  "fields": {
+    "code_dls": "3250",
+    "name": "LENCA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 344,
+  "fields": {
+    "code_dls": "3276",
+    "name": "LEONERA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 345,
+  "fields": {
+    "code_dls": "2717",
+    "name": "LEYDA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 346,
+  "fields": {
+    "code_dls": "2971",
+    "name": "LICAN RAY",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 347,
+  "fields": {
+    "code_dls": "2828",
+    "name": "LICANTEN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 348,
+  "fields": {
+    "code_dls": "2712",
+    "name": "LIMACHE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 349,
+  "fields": {
+    "code_dls": "2649",
+    "name": "LIMARI",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 350,
+  "fields": {
+    "code_dls": "3061",
+    "name": "LINAO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 351,
+  "fields": {
+    "code_dls": "2829",
+    "name": "LINARES",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 352,
+  "fields": {
+    "code_dls": "3147",
+    "name": "LINDEROS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 353,
+  "fields": {
+    "code_dls": "2968",
+    "name": "LIQUINE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 354,
+  "fields": {
+    "code_dls": "2566",
+    "name": "LIRIMA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 355,
+  "fields": {
+    "code_dls": "2893",
+    "name": "LIRQUEN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 356,
+  "fields": {
+    "code_dls": "2779",
+    "name": "LITUECHE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 357,
+  "fields": {
+    "code_dls": "2713",
+    "name": "LLAILLAY",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 358,
+  "fields": {
+    "code_dls": "2650",
+    "name": "LLANOS DE GUANTA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 359,
+  "fields": {
+    "code_dls": "3081",
+    "name": "LLANQUIHUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 360,
+  "fields": {
+    "code_dls": "3036",
+    "name": "LLICO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 361,
+  "fields": {
+    "code_dls": "3000",
+    "name": "LLIFEN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 362,
+  "fields": {
+    "code_dls": "644",
+    "name": "LLOLLEO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 363,
+  "fields": {
+    "code_dls": "3201",
+    "name": "LO BARNECHEA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 364,
+  "fields": {
+    "code_dls": "3183",
+    "name": "LO CHACON",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 365,
+  "fields": {
+    "code_dls": "3202",
+    "name": "LO ESPEJO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 366,
+  "fields": {
+    "code_dls": "2780",
+    "name": "LO MIRANDA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 367,
+  "fields": {
+    "code_dls": "3203",
+    "name": "LO PRADO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 368,
+  "fields": {
+    "code_dls": "3148",
+    "name": "LO VALDES",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 369,
+  "fields": {
+    "code_dls": "2830",
+    "name": "LO VALDIVIA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 370,
+  "fields": {
+    "code_dls": "3339",
+    "name": "LOGISTICA REVERSA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 371,
+  "fields": {
+    "code_dls": "2781",
+    "name": "LOLOL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 372,
+  "fields": {
+    "code_dls": "3149",
+    "name": "LOMAS DE LO AGUIRRE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 373,
+  "fields": {
+    "code_dls": "2972",
+    "name": "LONCOCHE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 374,
+  "fields": {
+    "code_dls": "2831",
+    "name": "LONGAVI",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 375,
+  "fields": {
+    "code_dls": "3150",
+    "name": "LONQUEN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 376,
+  "fields": {
+    "code_dls": "2973",
+    "name": "LONQUIMAY",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 377,
+  "fields": {
+    "code_dls": "2832",
+    "name": "LONTUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 378,
+  "fields": {
+    "code_dls": "2894",
+    "name": "LOS ALAMOS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 379,
+  "fields": {
+    "code_dls": "2714",
+    "name": "LOS ANDES",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 380,
+  "fields": {
+    "code_dls": "2858",
+    "name": "LOS ANGELES",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 381,
+  "fields": {
+    "code_dls": "3267",
+    "name": "LOS BOLDOS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 382,
+  "fields": {
+    "code_dls": "2895",
+    "name": "LOS HORCONES",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 383,
+  "fields": {
+    "code_dls": "2610",
+    "name": "LOS HORNOS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 384,
+  "fields": {
+    "code_dls": "3004",
+    "name": "LOS LAGOS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 385,
+  "fields": {
+    "code_dls": "2980",
+    "name": "LOS LAURELES",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 386,
+  "fields": {
+    "code_dls": "3263",
+    "name": "LOS LINGUES",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 387,
+  "fields": {
+    "code_dls": "3184",
+    "name": "LOS MAITENES",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 388,
+  "fields": {
+    "code_dls": "2754",
+    "name": "LOS MOLLES",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 389,
+  "fields": {
+    "code_dls": "3083",
+    "name": "LOS MUERMOS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 390,
+  "fields": {
+    "code_dls": "2833",
+    "name": "LOS NICHES",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 391,
+  "fields": {
+    "code_dls": "2651",
+    "name": "LOS OLIVOS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 392,
+  "fields": {
+    "code_dls": "2974",
+    "name": "LOS SAUCES",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 393,
+  "fields": {
+    "code_dls": "3279",
+    "name": "LOS TILOS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 394,
+  "fields": {
+    "code_dls": "2652",
+    "name": "LOS VILOS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 395,
+  "fields": {
+    "code_dls": "2896",
+    "name": "LOTA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 396,
+  "fields": {
+    "code_dls": "2989",
+    "name": "LUMACO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 397,
+  "fields": {
+    "code_dls": "2782",
+    "name": "MACHALI",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 398,
+  "fields": {
+    "code_dls": "3204",
+    "name": "MACUL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 399,
+  "fields": {
+    "code_dls": "3005",
+    "name": "MAFIL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 400,
+  "fields": {
+    "code_dls": "3037",
+    "name": "MAICOLPUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 401,
+  "fields": {
+    "code_dls": "3006",
+    "name": "MAIHUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 402,
+  "fields": {
+    "code_dls": "3151",
+    "name": "MAIPO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 403,
+  "fields": {
+    "code_dls": "3205",
+    "name": "MAIPU",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 404,
+  "fields": {
+    "code_dls": "2718",
+    "name": "MAITENCILLO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 405,
+  "fields": {
+    "code_dls": "3226",
+    "name": "MALALCAHUELLO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 406,
+  "fields": {
+    "code_dls": "2783",
+    "name": "MALLOA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 407,
+  "fields": {
+    "code_dls": "3152",
+    "name": "MALLOCO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 408,
+  "fields": {
+    "code_dls": "2567",
+    "name": "MAMINA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 409,
+  "fields": {
+    "code_dls": "3062",
+    "name": "MANAO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 410,
+  "fields": {
+    "code_dls": "2720",
+    "name": "MANDINGA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 411,
+  "fields": {
+    "code_dls": "2719",
+    "name": "MARBELLA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 412,
+  "fields": {
+    "code_dls": "2784",
+    "name": "MARCHIHUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 413,
+  "fields": {
+    "code_dls": "2581",
+    "name": "MARIA ELENA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 414,
+  "fields": {
+    "code_dls": "3153",
+    "name": "MARIA PINTO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 415,
+  "fields": {
+    "code_dls": "2721",
+    "name": "MATANZAS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 416,
+  "fields": {
+    "code_dls": "2834",
+    "name": "MAULE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 417,
+  "fields": {
+    "code_dls": "3084",
+    "name": "MAULLIN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 418,
+  "fields": {
+    "code_dls": "3063",
+    "name": "MECHAICO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 419,
+  "fields": {
+    "code_dls": "3246",
+    "name": "MECHUQUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 420,
+  "fields": {
+    "code_dls": "3011",
+    "name": "MEHUIN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 421,
+  "fields": {
+    "code_dls": "3272",
+    "name": "MEIPO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 422,
+  "fields": {
+    "code_dls": "2582",
+    "name": "MEJILLONES",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 423,
+  "fields": {
+    "code_dls": "3099",
+    "name": "MELINKA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 424,
+  "fields": {
+    "code_dls": "2975",
+    "name": "MELIPEUCO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 425,
+  "fields": {
+    "code_dls": "3154",
+    "name": "MELIPILLA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 426,
+  "fields": {
+    "code_dls": "3249",
+    "name": "METRI",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 427,
+  "fields": {
+    "code_dls": "2932",
+    "name": "MINAS DEL PRADO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 428,
+  "fields": {
+    "code_dls": "2722",
+    "name": "MINCHA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 429,
+  "fields": {
+    "code_dls": "2933",
+    "name": "MININCO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 430,
+  "fields": {
+    "code_dls": "2568",
+    "name": "MOCHA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 431,
+  "fields": {
+    "code_dls": "2835",
+    "name": "MOLINA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 432,
+  "fields": {
+    "code_dls": "2545",
+    "name": "MOLINOS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 433,
+  "fields": {
+    "code_dls": "2897",
+    "name": "MONTE AGUILA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 434,
+  "fields": {
+    "code_dls": "3115",
+    "name": "MONTE AYMOND",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 435,
+  "fields": {
+    "code_dls": "2654",
+    "name": "MONTE GRANDE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 436,
+  "fields": {
+    "code_dls": "2653",
+    "name": "MONTE PATRIA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 437,
+  "fields": {
+    "code_dls": "2723",
+    "name": "MONTENEGRO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 438,
+  "fields": {
+    "code_dls": "2655",
+    "name": "MORRILLOS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 439,
+  "fields": {
+    "code_dls": "2898",
+    "name": "MULCHEN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 440,
+  "fields": {
+    "code_dls": "2899",
+    "name": "NACIMIENTO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 441,
+  "fields": {
+    "code_dls": "2934",
+    "name": "NAHUELTORO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 442,
+  "fields": {
+    "code_dls": "3064",
+    "name": "NAL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 443,
+  "fields": {
+    "code_dls": "2785",
+    "name": "NANCAGUA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 444,
+  "fields": {
+    "code_dls": "2786",
+    "name": "NAVIDAD",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 445,
+  "fields": {
+    "code_dls": "2900",
+    "name": "NEGRETE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 446,
+  "fields": {
+    "code_dls": "3017",
+    "name": "NELTUME",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 447,
+  "fields": {
+    "code_dls": "3012",
+    "name": "NIEBLA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 448,
+  "fields": {
+    "code_dls": "2901",
+    "name": "NINHUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 449,
+  "fields": {
+    "code_dls": "2902",
+    "name": "NIPAS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 450,
+  "fields": {
+    "code_dls": "2903",
+    "name": "NIQUEN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 451,
+  "fields": {
+    "code_dls": "3232",
+    "name": "NIREHUAO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 452,
+  "fields": {
+    "code_dls": "2836",
+    "name": "NIRIVILO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 453,
+  "fields": {
+    "code_dls": "2724",
+    "name": "NOGALES",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 454,
+  "fields": {
+    "code_dls": "3162",
+    "name": "NOS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 455,
+  "fields": {
+    "code_dls": "3155",
+    "name": "NOVICIADO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 456,
+  "fields": {
+    "code_dls": "3038",
+    "name": "NUEVA BRAUNAU",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 457,
+  "fields": {
+    "code_dls": "2976",
+    "name": "NUEVA IMPERIAL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 458,
+  "fields": {
+    "code_dls": "3206",
+    "name": "NUNOA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 459,
+  "fields": {
+    "code_dls": "3320",
+    "name": "OCOA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 460,
+  "fields": {
+    "code_dls": "2787",
+    "name": "OLIVAR ALTO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 461,
+  "fields": {
+    "code_dls": "3223",
+    "name": "OLIVAR BAJO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 462,
+  "fields": {
+    "code_dls": "2725",
+    "name": "OLMUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 463,
+  "fields": {
+    "code_dls": "3023",
+    "name": "OSORNO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 464,
+  "fields": {
+    "code_dls": "2657",
+    "name": "OVALLE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 465,
+  "fields": {
+    "code_dls": "2546",
+    "name": "PACHAMA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 466,
+  "fields": {
+    "code_dls": "3156",
+    "name": "PADRE HURTADO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 467,
+  "fields": {
+    "code_dls": "2977",
+    "name": "PADRE LAS CASAS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 468,
+  "fields": {
+    "code_dls": "2658",
+    "name": "PAIHUANO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 469,
+  "fields": {
+    "code_dls": "3007",
+    "name": "PAILLACO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 470,
+  "fields": {
+    "code_dls": "3157",
+    "name": "PAINE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 471,
+  "fields": {
+    "code_dls": "2602",
+    "name": "PAIPOTE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 472,
+  "fields": {
+    "code_dls": "3039",
+    "name": "PALENA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 473,
+  "fields": {
+    "code_dls": "2788",
+    "name": "PALMILLA SAN FERNANDO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 474,
+  "fields": {
+    "code_dls": "3065",
+    "name": "PALOMAR",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 475,
+  "fields": {
+    "code_dls": "3238",
+    "name": "PALQUIAL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 476,
+  "fields": {
+    "code_dls": "2603",
+    "name": "PAN DE AZUCAR",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 477,
+  "fields": {
+    "code_dls": "2935",
+    "name": "PANGAL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 478,
+  "fields": {
+    "code_dls": "3008",
+    "name": "PANGUIPULLI",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 479,
+  "fields": {
+    "code_dls": "2837",
+    "name": "PANIMAVIDA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 480,
+  "fields": {
+    "code_dls": "2726",
+    "name": "PANQUEHUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 481,
+  "fields": {
+    "code_dls": "2583",
+    "name": "PAPOSO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 482,
+  "fields": {
+    "code_dls": "2727",
+    "name": "PAPUDO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 483,
+  "fields": {
+    "code_dls": "3242",
+    "name": "PARCELA EL CARMEN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 484,
+  "fields": {
+    "code_dls": "2789",
+    "name": "PAREDONES",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 485,
+  "fields": {
+    "code_dls": "3040",
+    "name": "PARGUA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 486,
+  "fields": {
+    "code_dls": "2838",
+    "name": "PARRAL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 487,
+  "fields": {
+    "code_dls": "3066",
+    "name": "PAULDEO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 488,
+  "fields": {
+    "code_dls": "2659",
+    "name": "PEDREGAL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 489,
+  "fields": {
+    "code_dls": "3207",
+    "name": "PEDRO AGUIRRE CERDA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 490,
+  "fields": {
+    "code_dls": "2839",
+    "name": "PELARCO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 491,
+  "fields": {
+    "code_dls": "2794",
+    "name": "PELEQUEN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 492,
+  "fields": {
+    "code_dls": "2840",
+    "name": "PELLUHUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 493,
+  "fields": {
+    "code_dls": "2904",
+    "name": "PEMUCO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 494,
+  "fields": {
+    "code_dls": "2728",
+    "name": "PENABLANCA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 495,
+  "fields": {
+    "code_dls": "3158",
+    "name": "PENAFLOR",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 496,
+  "fields": {
+    "code_dls": "3208",
+    "name": "PENALOLEN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 497,
+  "fields": {
+    "code_dls": "2841",
+    "name": "PENCAHUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 498,
+  "fields": {
+    "code_dls": "2905",
+    "name": "PENCO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 499,
+  "fields": {
+    "code_dls": "3273",
+    "name": "PERALES",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 500,
+  "fields": {
+    "code_dls": "2793",
+    "name": "PERALILLO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 501,
+  "fields": {
+    "code_dls": "2979",
+    "name": "PERQUENCO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 502,
+  "fields": {
+    "code_dls": "2729",
+    "name": "PETORCA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 503,
+  "fields": {
+    "code_dls": "3041",
+    "name": "PETROHUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 504,
+  "fields": {
+    "code_dls": "3269",
+    "name": "PEULLA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 505,
+  "fields": {
+    "code_dls": "2790",
+    "name": "PEUMO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 506,
+  "fields": {
+    "code_dls": "2569",
+    "name": "PICA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 507,
+  "fields": {
+    "code_dls": "2662",
+    "name": "PICHASCA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 508,
+  "fields": {
+    "code_dls": "3085",
+    "name": "PICHI PELLUCO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 509,
+  "fields": {
+    "code_dls": "2661",
+    "name": "PICHICUY",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 510,
+  "fields": {
+    "code_dls": "2663",
+    "name": "PICHIDANGUI",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 511,
+  "fields": {
+    "code_dls": "2791",
+    "name": "PICHIDEGUA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 512,
+  "fields": {
+    "code_dls": "2792",
+    "name": "PICHILEMU",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 513,
+  "fields": {
+    "code_dls": "3247",
+    "name": "PIEDRA AZUL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 514,
+  "fields": {
+    "code_dls": "1283",
+    "name": "PILLANLELBUN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 515,
+  "fields": {
+    "code_dls": "2906",
+    "name": "PINGUERAL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 516,
+  "fields": {
+    "code_dls": "2907",
+    "name": "PINTO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 517,
+  "fields": {
+    "code_dls": "3159",
+    "name": "PIRQUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 518,
+  "fields": {
+    "code_dls": "3499",
+    "name": "PISAGUA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 519,
+  "fields": {
+    "code_dls": "2664",
+    "name": "PISCO ELQUI",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 520,
+  "fields": {
+    "code_dls": "2981",
+    "name": "PITRUFQUEN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 521,
+  "fields": {
+    "code_dls": "2795",
+    "name": "PLACILLA (SAN FERNANDO)",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 522,
+  "fields": {
+    "code_dls": "2694",
+    "name": "PLACILLA (VINA DEL MAR)",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 523,
+  "fields": {
+    "code_dls": "2730",
+    "name": "PLAYA ANCHA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 524,
+  "fields": {
+    "code_dls": "2547",
+    "name": "POCONCHILE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 525,
+  "fields": {
+    "code_dls": "2936",
+    "name": "POLCURA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 526,
+  "fields": {
+    "code_dls": "3185",
+    "name": "POLPAICO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 527,
+  "fields": {
+    "code_dls": "3186",
+    "name": "POMAIRE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 528,
+  "fields": {
+    "code_dls": "2796",
+    "name": "POPETA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 529,
+  "fields": {
+    "code_dls": "3254",
+    "name": "PORMA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 530,
+  "fields": {
+    "code_dls": "2908",
+    "name": "PORTEZUELO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 531,
+  "fields": {
+    "code_dls": "1367",
+    "name": "PORTILLO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 532,
+  "fields": {
+    "code_dls": "3116",
+    "name": "PORVENIR",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 533,
+  "fields": {
+    "code_dls": "2571",
+    "name": "POZO ALMONTE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 534,
+  "fields": {
+    "code_dls": "3117",
+    "name": "PRIMAVERA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 535,
+  "fields": {
+    "code_dls": "3209",
+    "name": "PROVIDENCIA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 536,
+  "fields": {
+    "code_dls": "3042",
+    "name": "PUAUCHO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 537,
+  "fields": {
+    "code_dls": "3043",
+    "name": "PUCATRIHUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 538,
+  "fields": {
+    "code_dls": "2731",
+    "name": "PUCHUNCAVI",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 539,
+  "fields": {
+    "code_dls": "2982",
+    "name": "PUCON",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 540,
+  "fields": {
+    "code_dls": "3210",
+    "name": "PUDAHUEL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 541,
+  "fields": {
+    "code_dls": "2937",
+    "name": "PUEBLO SECO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 542,
+  "fields": {
+    "code_dls": "3225",
+    "name": "PUELO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 543,
+  "fields": {
+    "code_dls": "18",
+    "name": "PUENTE ALTO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 544,
+  "fields": {
+    "code_dls": "3224",
+    "name": "PUENTE NEGRO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 545,
+  "fields": {
+    "code_dls": "3067",
+    "name": "PUENTE QUILO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 546,
+  "fields": {
+    "code_dls": "2797",
+    "name": "PUERTECILLO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 547,
+  "fields": {
+    "code_dls": "3100",
+    "name": "PUERTO AGUIRRE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 548,
+  "fields": {
+    "code_dls": "2665",
+    "name": "PUERTO ALDEA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 549,
+  "fields": {
+    "code_dls": "3107",
+    "name": "PUERTO AYSEN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 550,
+  "fields": {
+    "code_dls": "3101",
+    "name": "PUERTO BERTRAND",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 551,
+  "fields": {
+    "code_dls": "3118",
+    "name": "PUERTO BORIES",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 552,
+  "fields": {
+    "code_dls": "3102",
+    "name": "PUERTO CHACABUCO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 553,
+  "fields": {
+    "code_dls": "3108",
+    "name": "PUERTO CISNES",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 554,
+  "fields": {
+    "code_dls": "3227",
+    "name": "PUERTO DOMINGUEZ",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 555,
+  "fields": {
+    "code_dls": "3024",
+    "name": "PUERTO MONTT",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 556,
+  "fields": {
+    "code_dls": "3125",
+    "name": "PUERTO NATALES",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 557,
+  "fields": {
+    "code_dls": "3086",
+    "name": "PUERTO OCTAY",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 558,
+  "fields": {
+    "code_dls": "2983",
+    "name": "PUERTO SAAVEDRA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 559,
+  "fields": {
+    "code_dls": "3119",
+    "name": "PUERTO TORO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 560,
+  "fields": {
+    "code_dls": "3109",
+    "name": "PUERTO TRANQUILO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 561,
+  "fields": {
+    "code_dls": "3088",
+    "name": "PUERTO VARAS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 562,
+  "fields": {
+    "code_dls": "2666",
+    "name": "PUERTO VELERO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 563,
+  "fields": {
+    "code_dls": "3120",
+    "name": "PUERTO WILLIAMS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 564,
+  "fields": {
+    "code_dls": "2798",
+    "name": "PUMANQUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 565,
+  "fields": {
+    "code_dls": "2667",
+    "name": "PUNITAQUI",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 566,
+  "fields": {
+    "code_dls": "3111",
+    "name": "PUNTA ARENAS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 567,
+  "fields": {
+    "code_dls": "2668",
+    "name": "PUNTA COLORADA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 568,
+  "fields": {
+    "code_dls": "3068",
+    "name": "PUNTA CORONA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 569,
+  "fields": {
+    "code_dls": "2909",
+    "name": "PUNTA DE PARRA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 570,
+  "fields": {
+    "code_dls": "2732",
+    "name": "PUNTA DE TRALCA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 571,
+  "fields": {
+    "code_dls": "3121",
+    "name": "PUNTA DELGADA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 572,
+  "fields": {
+    "code_dls": "3234",
+    "name": "PUNTA LAVAPIE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 573,
+  "fields": {
+    "code_dls": "3013",
+    "name": "PUNUCAPA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 574,
+  "fields": {
+    "code_dls": "3071",
+    "name": "PUQUELDON",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 575,
+  "fields": {
+    "code_dls": "2984",
+    "name": "PUREN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 576,
+  "fields": {
+    "code_dls": "3089",
+    "name": "PURRANQUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 577,
+  "fields": {
+    "code_dls": "2733",
+    "name": "PUTAENDO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 578,
+  "fields": {
+    "code_dls": "2548",
+    "name": "PUTRE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 579,
+  "fields": {
+    "code_dls": "3087",
+    "name": "PUYEHUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 580,
+  "fields": {
+    "code_dls": "3110",
+    "name": "PUYUHUAPI",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 581,
+  "fields": {
+    "code_dls": "3459",
+    "name": "QUEBRADA DE ALVARADO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 582,
+  "fields": {
+    "code_dls": "2677",
+    "name": "QUEBRADA DE TALCA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 583,
+  "fields": {
+    "code_dls": "3069",
+    "name": "QUEILEN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 584,
+  "fields": {
+    "code_dls": "3090",
+    "name": "QUELLON",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 585,
+  "fields": {
+    "code_dls": "2734",
+    "name": "QUELON",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 586,
+  "fields": {
+    "code_dls": "3073",
+    "name": "QUEMCHI",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 587,
+  "fields": {
+    "code_dls": "1280",
+    "name": "QUEPE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 588,
+  "fields": {
+    "code_dls": "3070",
+    "name": "QUETALMAHUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 589,
+  "fields": {
+    "code_dls": "2995",
+    "name": "QUEULE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 590,
+  "fields": {
+    "code_dls": "2938",
+    "name": "QUIDICO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 591,
+  "fields": {
+    "code_dls": "2910",
+    "name": "QUILACO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 592,
+  "fields": {
+    "code_dls": "3240",
+    "name": "QUILCHE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 593,
+  "fields": {
+    "code_dls": "3212",
+    "name": "QUILICURA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 594,
+  "fields": {
+    "code_dls": "2669",
+    "name": "QUILIMARI",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 595,
+  "fields": {
+    "code_dls": "2584",
+    "name": "QUILLAGUA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 596,
+  "fields": {
+    "code_dls": "3248",
+    "name": "QUILLAIPE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 597,
+  "fields": {
+    "code_dls": "3359",
+    "name": "QUILLAITUN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 598,
+  "fields": {
+    "code_dls": "2911",
+    "name": "QUILLECO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 599,
+  "fields": {
+    "code_dls": "2912",
+    "name": "QUILLON",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 600,
+  "fields": {
+    "code_dls": "2735",
+    "name": "QUILLOTA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 601,
+  "fields": {
+    "code_dls": "2736",
+    "name": "QUILPUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 602,
+  "fields": {
+    "code_dls": "2939",
+    "name": "QUINCHAMALI",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 603,
+  "fields": {
+    "code_dls": "3076",
+    "name": "QUINCHAO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 604,
+  "fields": {
+    "code_dls": "2800",
+    "name": "QUINTA DE TILCOCO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 605,
+  "fields": {
+    "code_dls": "3213",
+    "name": "QUINTA NORMAL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 606,
+  "fields": {
+    "code_dls": "2737",
+    "name": "QUINTAY",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 607,
+  "fields": {
+    "code_dls": "2738",
+    "name": "QUINTERO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 608,
+  "fields": {
+    "code_dls": "2913",
+    "name": "QUIRIHUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 609,
+  "fields": {
+    "code_dls": "2914",
+    "name": "QUIRIQUINA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 610,
+  "fields": {
+    "code_dls": "3268",
+    "name": "RADAL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 611,
+  "fields": {
+    "code_dls": "2940",
+    "name": "RAFAEL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 612,
+  "fields": {
+    "code_dls": "2871",
+    "name": "RAMADILLAS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 613,
+  "fields": {
+    "code_dls": "2755",
+    "name": "RANCAGUA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 614,
+  "fields": {
+    "code_dls": "2941",
+    "name": "RANGUELMO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 615,
+  "fields": {
+    "code_dls": "2915",
+    "name": "RANQUIL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 616,
+  "fields": {
+    "code_dls": "2799",
+    "name": "RAPEL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 617,
+  "fields": {
+    "code_dls": "2842",
+    "name": "RAUCO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 618,
+  "fields": {
+    "code_dls": "2843",
+    "name": "RAUQUEN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 619,
+  "fields": {
+    "code_dls": "3244",
+    "name": "RAYENCURA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 620,
+  "fields": {
+    "code_dls": "3214",
+    "name": "RECOLETA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 621,
+  "fields": {
+    "code_dls": "2670",
+    "name": "RECOLETA IV",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 622,
+  "fields": {
+    "code_dls": "2739",
+    "name": "RENACA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 623,
+  "fields": {
+    "code_dls": "2985",
+    "name": "RENAICO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 624,
+  "fields": {
+    "code_dls": "3215",
+    "name": "RENCA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 625,
+  "fields": {
+    "code_dls": "2802",
+    "name": "RENGO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 626,
+  "fields": {
+    "code_dls": "2801",
+    "name": "REQUINOA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 627,
+  "fields": {
+    "code_dls": "2845",
+    "name": "RETIRO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 628,
+  "fields": {
+    "code_dls": "1319",
+    "name": "REUMEN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 629,
+  "fields": {
+    "code_dls": "2942",
+    "name": "RIHUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 630,
+  "fields": {
+    "code_dls": "2740",
+    "name": "RINCONADA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 631,
+  "fields": {
+    "code_dls": "2742",
+    "name": "RINCONADA DE GUZMAN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 632,
+  "fields": {
+    "code_dls": "2743",
+    "name": "RINCONADA DE SILVA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 633,
+  "fields": {
+    "code_dls": "3016",
+    "name": "RINIHUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 634,
+  "fields": {
+    "code_dls": "3014",
+    "name": "RININAHUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 635,
+  "fields": {
+    "code_dls": "3021",
+    "name": "RIO BUENO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 636,
+  "fields": {
+    "code_dls": "2844",
+    "name": "RIO CLARO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 637,
+  "fields": {
+    "code_dls": "2671",
+    "name": "RIO HURTADO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 638,
+  "fields": {
+    "code_dls": "1345",
+    "name": "RIO IBANEZ",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 639,
+  "fields": {
+    "code_dls": "3091",
+    "name": "RIO NEGRO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 640,
+  "fields": {
+    "code_dls": "3122",
+    "name": "RIO VERDE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 641,
+  "fields": {
+    "code_dls": "3019",
+    "name": "ROBLE HUACHO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 642,
+  "fields": {
+    "code_dls": "2741",
+    "name": "ROCAS DE SANTO DOMINGO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 643,
+  "fields": {
+    "code_dls": "2846",
+    "name": "ROMERAL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 644,
+  "fields": {
+    "code_dls": "2803",
+    "name": "ROSARIO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 645,
+  "fields": {
+    "code_dls": "3228",
+    "name": "RUCA RAQUI",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 646,
+  "fields": {
+    "code_dls": "2943",
+    "name": "RUCAPEQUEN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 647,
+  "fields": {
+    "code_dls": "3160",
+    "name": "RUNGUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 648,
+  "fields": {
+    "code_dls": "2847",
+    "name": "SAGRADA FAMILIA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 649,
+  "fields": {
+    "code_dls": "2744",
+    "name": "SALADILLO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 650,
+  "fields": {
+    "code_dls": "2672",
+    "name": "SALAMANCA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 651,
+  "fields": {
+    "code_dls": "3161",
+    "name": "SAN ALFONSO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 652,
+  "fields": {
+    "code_dls": "2745",
+    "name": "SAN ANTONIO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 653,
+  "fields": {
+    "code_dls": "3216",
+    "name": "SAN BERNARDO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 654,
+  "fields": {
+    "code_dls": "2916",
+    "name": "SAN CARLOS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 655,
+  "fields": {
+    "code_dls": "2848",
+    "name": "SAN CLEMENTE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 656,
+  "fields": {
+    "code_dls": "2746",
+    "name": "SAN ESTEBAN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 657,
+  "fields": {
+    "code_dls": "2917",
+    "name": "SAN FABIAN DE ALICO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 658,
+  "fields": {
+    "code_dls": "2747",
+    "name": "SAN FELIPE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 659,
+  "fields": {
+    "code_dls": "2804",
+    "name": "SAN FERNANDO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 660,
+  "fields": {
+    "code_dls": "2807",
+    "name": "SAN FRANCISCO DE MOSTAZAL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 661,
+  "fields": {
+    "code_dls": "3163",
+    "name": "SAN GABRIEL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 662,
+  "fields": {
+    "code_dls": "2918",
+    "name": "SAN GREGORIO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 663,
+  "fields": {
+    "code_dls": "2919",
+    "name": "SAN IGNACIO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 664,
+  "fields": {
+    "code_dls": "3401",
+    "name": "SAN ISIDRO DE QUILLOTA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 665,
+  "fields": {
+    "code_dls": "2849",
+    "name": "SAN JAVIER",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 666,
+  "fields": {
+    "code_dls": "3217",
+    "name": "SAN JOAQUIN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 667,
+  "fields": {
+    "code_dls": "3022",
+    "name": "SAN JOSE DE LA MARIQUINA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 668,
+  "fields": {
+    "code_dls": "3164",
+    "name": "SAN JOSE DE MAIPO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 669,
+  "fields": {
+    "code_dls": "3074",
+    "name": "SAN JUAN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 670,
+  "fields": {
+    "code_dls": "3044",
+    "name": "SAN JUAN DE LA COSTA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 671,
+  "fields": {
+    "code_dls": "2673",
+    "name": "SAN JULIAN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 672,
+  "fields": {
+    "code_dls": "3187",
+    "name": "SAN MANUEL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 673,
+  "fields": {
+    "code_dls": "1155",
+    "name": "SAN MARCOS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 674,
+  "fields": {
+    "code_dls": "3218",
+    "name": "SAN MIGUEL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 675,
+  "fields": {
+    "code_dls": "2920",
+    "name": "SAN NICOLAS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 676,
+  "fields": {
+    "code_dls": "3092",
+    "name": "SAN PABLO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 677,
+  "fields": {
+    "code_dls": "3257",
+    "name": "SAN PATRICIO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 678,
+  "fields": {
+    "code_dls": "3219",
+    "name": "SAN PEDRO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 679,
+  "fields": {
+    "code_dls": "2851",
+    "name": "SAN PEDRO DE ALCANTARA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 680,
+  "fields": {
+    "code_dls": "2585",
+    "name": "SAN PEDRO DE ATACAMA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 681,
+  "fields": {
+    "code_dls": "172",
+    "name": "SAN PEDRO DE LA PAZ",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 682,
+  "fields": {
+    "code_dls": "1381",
+    "name": "SAN PEDRO DE MELIPILLA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 683,
+  "fields": {
+    "code_dls": "3300",
+    "name": "SAN PEDRO DE QUILLOTA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 684,
+  "fields": {
+    "code_dls": "2850",
+    "name": "SAN RAFAEL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 685,
+  "fields": {
+    "code_dls": "3220",
+    "name": "SAN RAMON",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 686,
+  "fields": {
+    "code_dls": "2889",
+    "name": "SAN ROSENDO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 687,
+  "fields": {
+    "code_dls": "2748",
+    "name": "SAN SEBASTIAN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 688,
+  "fields": {
+    "code_dls": "2805",
+    "name": "SAN VICENTE DE TAGUATAGUA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 689,
+  "fields": {
+    "code_dls": "2922",
+    "name": "SANTA BARBARA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 690,
+  "fields": {
+    "code_dls": "2944",
+    "name": "SANTA CLARA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 691,
+  "fields": {
+    "code_dls": "2806",
+    "name": "SANTA CRUZ",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 692,
+  "fields": {
+    "code_dls": "2923",
+    "name": "SANTA JUANA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 693,
+  "fields": {
+    "code_dls": "2749",
+    "name": "SANTA MARIA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 694,
+  "fields": {
+    "code_dls": "3165",
+    "name": "SANTA ROSA DE CHENA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 695,
+  "fields": {
+    "code_dls": "3126",
+    "name": "SANTIAGO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 696,
+  "fields": {
+    "code_dls": "3241",
+    "name": "SECTOR LA PEÑA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 697,
+  "fields": {
+    "code_dls": "2808",
+    "name": "SEWELL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 698,
+  "fields": {
+    "code_dls": "2586",
+    "name": "SIERRA GORDA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 699,
+  "fields": {
+    "code_dls": "2587",
+    "name": "SOCAIRE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 700,
+  "fields": {
+    "code_dls": "2549",
+    "name": "SOCOROMA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 701,
+  "fields": {
+    "code_dls": "2674",
+    "name": "SOCOS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 702,
+  "fields": {
+    "code_dls": "2550",
+    "name": "SORA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 703,
+  "fields": {
+    "code_dls": "2676",
+    "name": "SOTAQUI",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 704,
+  "fields": {
+    "code_dls": "2570",
+    "name": "SOTOCA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 705,
+  "fields": {
+    "code_dls": "3270",
+    "name": "TABOLANGO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 706,
+  "fields": {
+    "code_dls": "3166",
+    "name": "TALAGANTE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 707,
+  "fields": {
+    "code_dls": "2812",
+    "name": "TALCA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 708,
+  "fields": {
+    "code_dls": "2924",
+    "name": "TALCAHUANO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 709,
+  "fields": {
+    "code_dls": "2588",
+    "name": "TALTAL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 710,
+  "fields": {
+    "code_dls": "2678",
+    "name": "TAMBILLO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 711,
+  "fields": {
+    "code_dls": "2945",
+    "name": "TANILVORO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 712,
+  "fields": {
+    "code_dls": "2952",
+    "name": "TEMUCO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 713,
+  "fields": {
+    "code_dls": "2852",
+    "name": "TENO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 714,
+  "fields": {
+    "code_dls": "2986",
+    "name": "TEODORO SCHMIDT",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 715,
+  "fields": {
+    "code_dls": "2604",
+    "name": "TIERRA AMARILLA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 716,
+  "fields": {
+    "code_dls": "1156",
+    "name": "TIERRAS BLANCAS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 717,
+  "fields": {
+    "code_dls": "2551",
+    "name": "TIGNAMAR",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 718,
+  "fields": {
+    "code_dls": "3167",
+    "name": "TILTIL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 719,
+  "fields": {
+    "code_dls": "3123",
+    "name": "TIMAUKEL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 720,
+  "fields": {
+    "code_dls": "2990",
+    "name": "TIRUA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 721,
+  "fields": {
+    "code_dls": "2589",
+    "name": "TOCONAO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 722,
+  "fields": {
+    "code_dls": "2590",
+    "name": "TOCOPILLA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 723,
+  "fields": {
+    "code_dls": "2987",
+    "name": "TOLTEN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 724,
+  "fields": {
+    "code_dls": "2925",
+    "name": "TOME",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 725,
+  "fields": {
+    "code_dls": "2679",
+    "name": "TONGOY",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 726,
+  "fields": {
+    "code_dls": "2809",
+    "name": "TOPOCALMA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 727,
+  "fields": {
+    "code_dls": "3278",
+    "name": "TOROICO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 728,
+  "fields": {
+    "code_dls": "3124",
+    "name": "TORRES DEL PAINE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 729,
+  "fields": {
+    "code_dls": "3103",
+    "name": "TORTEL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 730,
+  "fields": {
+    "code_dls": "2680",
+    "name": "TOTORALILLO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 731,
+  "fields": {
+    "code_dls": "2988",
+    "name": "TRAIGUEN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 732,
+  "fields": {
+    "code_dls": "2946",
+    "name": "TREGUALEMU",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 733,
+  "fields": {
+    "code_dls": "2926",
+    "name": "TREHUACO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 734,
+  "fields": {
+    "code_dls": "3361",
+    "name": "TRES PINOS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 735,
+  "fields": {
+    "code_dls": "2969",
+    "name": "TROVOLHUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 736,
+  "fields": {
+    "code_dls": "3045",
+    "name": "TRUMAO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 737,
+  "fields": {
+    "code_dls": "2947",
+    "name": "TRUPAN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 738,
+  "fields": {
+    "code_dls": "3235",
+    "name": "TUBUL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 739,
+  "fields": {
+    "code_dls": "2927",
+    "name": "TUCAPEL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 740,
+  "fields": {
+    "code_dls": "2681",
+    "name": "TULAHUEN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 741,
+  "fields": {
+    "code_dls": "3439",
+    "name": "TUNQUEN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 742,
+  "fields": {
+    "code_dls": "2997",
+    "name": "VALDIVIA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 743,
+  "fields": {
+    "code_dls": "3168",
+    "name": "VALDIVIA DE PAINE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 744,
+  "fields": {
+    "code_dls": "3188",
+    "name": "VALLE NEVADO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 745,
+  "fields": {
+    "code_dls": "3264",
+    "name": "VALLE SIMPSON",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 746,
+  "fields": {
+    "code_dls": "2605",
+    "name": "VALLENAR",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 747,
+  "fields": {
+    "code_dls": "2750",
+    "name": "VALPARAISO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 748,
+  "fields": {
+    "code_dls": "2948",
+    "name": "VEGAS DE ITATA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 749,
+  "fields": {
+    "code_dls": "2853",
+    "name": "VICHUQUEN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 750,
+  "fields": {
+    "code_dls": "2992",
+    "name": "VICTORIA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 751,
+  "fields": {
+    "code_dls": "2682",
+    "name": "VICUNA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 752,
+  "fields": {
+    "code_dls": "2993",
+    "name": "VILCUN",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 753,
+  "fields": {
+    "code_dls": "2854",
+    "name": "VILLA ALEGRE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 754,
+  "fields": {
+    "code_dls": "2752",
+    "name": "VILLA ALEMANA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 755,
+  "fields": {
+    "code_dls": "2810",
+    "name": "VILLA ALHUE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 756,
+  "fields": {
+    "code_dls": "3260",
+    "name": "VILLA AMENGUAL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 757,
+  "fields": {
+    "code_dls": "3253",
+    "name": "VILLA BOLDO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 758,
+  "fields": {
+    "code_dls": "3104",
+    "name": "VILLA CERRO CASTILLO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 759,
+  "fields": {
+    "code_dls": "3380",
+    "name": "VILLA LOS RIOS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 760,
+  "fields": {
+    "code_dls": "1338",
+    "name": "VILLA MANIHUALES",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 761,
+  "fields": {
+    "code_dls": "2949",
+    "name": "VILLA MERCEDES",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 762,
+  "fields": {
+    "code_dls": "1341",
+    "name": "VILLA OHIGGINS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 763,
+  "fields": {
+    "code_dls": "3261",
+    "name": "VILLA ORTEGA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 764,
+  "fields": {
+    "code_dls": "2855",
+    "name": "VILLA PRAT",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 765,
+  "fields": {
+    "code_dls": "3046",
+    "name": "VILLA SANTA LUCIA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 766,
+  "fields": {
+    "code_dls": "2996",
+    "name": "VILLARRICA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 767,
+  "fields": {
+    "code_dls": "2928",
+    "name": "VILLUCO",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 768,
+  "fields": {
+    "code_dls": "2683",
+    "name": "VINA DEL MAR",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 769,
+  "fields": {
+    "code_dls": "2552",
+    "name": "VISVIRI",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 770,
+  "fields": {
+    "code_dls": "3221",
+    "name": "VITACURA",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 771,
+  "fields": {
+    "code_dls": "3500",
+    "name": "YAPE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 772,
+  "fields": {
+    "code_dls": "2856",
+    "name": "YERBAS BUENAS",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 773,
+  "fields": {
+    "code_dls": "2951",
+    "name": "YUMBEL",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 774,
+  "fields": {
+    "code_dls": "2929",
+    "name": "YUNGAY",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 775,
+  "fields": {
+    "code_dls": "3075",
+    "name": "YUSTE",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 776,
+  "fields": {
+    "code_dls": "2753",
+    "name": "ZAPALLAR",
+    "changed_by": 1
+  }
+},
+{
+  "model": "general.munistarken",
+  "pk": 777,
+  "fields": {
+    "code_dls": "2950",
+    "name": "ZEMITA",
+    "changed_by": 1
+  }
+}
+]

@@ -1,0 +1,21 @@
+[
+    {
+      "model": "general.company",
+      "pk": 1,
+      "fields": {
+        "code": "BQ",
+        "name": "Bioquimica.cl",
+        "changed_by": 1
+      }
+    },
+    {
+      "model": "general.company",
+      "pk": 2,
+      "fields": {
+        "code": "TD",
+        "name": "Telediagnóstica",
+        "changed_by": 1
+      }
+    }
+]
+    
