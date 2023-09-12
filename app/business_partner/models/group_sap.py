@@ -8,7 +8,8 @@ class GroupSap(models.Model):
     code = models.CharField(max_length=100, unique=True)
     name = models.CharField(max_length=100)
     group = models.ForeignKey(to='business_partner.Group',
-                              on_delete=models.CASCADE)
+                              on_delete=models.CASCADE,
+                              null=True)
     # Object tracking
     changed_by = models.ForeignKey(to='auth.User', on_delete=models.CASCADE)
     history = HistoricalRecords(table_name='business_partner_group_sap_history')

@@ -7,7 +7,7 @@ class Muni(models.Model):
     # General
     code = models.CharField(max_length=100, unique=True)
     name = models.CharField(max_length=100)
-    city = models.ForeignKey(to='general.City', on_delete=models.CASCADE)
+    region = models.ForeignKey(to='general.Region', on_delete=models.CASCADE)
     # Object tracking
     changed_by = models.ForeignKey(to='auth.User', on_delete=models.CASCADE)
     history = HistoricalRecords(table_name='municipality_history')

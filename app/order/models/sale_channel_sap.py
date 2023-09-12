@@ -8,7 +8,8 @@ class SaleChannelSap(models.Model):
     code = models.CharField(max_length=100, unique=True)
     name = models.CharField(max_length=100)
     sale_channel = models.ForeignKey(to='order.SaleChannel',
-                                     on_delete=models.CASCADE)
+                                     on_delete=models.CASCADE,
+                                     null=True)
     # Object tracking
     changed_by = models.ForeignKey(to='auth.User', on_delete=models.CASCADE)
     history = HistoricalRecords(table_name='sale_channel_sap_history')

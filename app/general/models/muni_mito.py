@@ -7,7 +7,9 @@ class MuniMito(models.Model):
     # General
     code = models.CharField(max_length=100, unique=True)
     name = models.CharField(max_length=100)
-    muni = models.ForeignKey(to='general.Muni', on_delete=models.CASCADE)
+    muni = models.ForeignKey(to='general.Muni',
+                             on_delete=models.CASCADE,
+                             null=True)
     # Object tracking
     changed_by = models.ForeignKey(to='auth.User', on_delete=models.CASCADE)
     history = HistoricalRecords(table_name='municipality_mito_history')

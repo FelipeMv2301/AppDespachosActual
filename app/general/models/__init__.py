@@ -1,5 +1,4 @@
 from .address import Address
-from .city import City
 from .company import Company
 from .country import Country
 from .currency import Currency
