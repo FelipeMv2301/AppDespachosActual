@@ -1,0 +1,20 @@
+[
+{
+    "model": "business_partner.group",
+    "pk": 1,
+    "fields": {
+        "code": "CN",
+        "name": "Cliente nacional",
+        "changed_by": 1
+    }
+},
+{
+    "model": "business_partner.group",
+    "pk": 2,
+    "fields": {
+        "code": "CE",
+        "name": "Cliente extranjero",
+        "changed_by": 1
+    }
+}
+]

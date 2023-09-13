@@ -1,0 +1,65 @@
+[
+{
+    "model": "order.salechannel",
+    "pk": 1,
+    "fields": {
+        "code": "DIR",
+        "name": "Directa",
+        "changed_by": 1
+    }
+},
+{
+    "model": "order.salechannel",
+    "pk": 2,
+    "fields": {
+        "code": "WEB",
+        "name": "Web",
+        "changed_by": 1
+    }
+},
+{
+    "model": "order.salechannel",
+    "pk": 3,
+    "fields": {
+        "code": "ML",
+        "name": "Mercado Libre",
+        "changed_by": 1
+    }
+},
+{
+    "model": "order.salechannel",
+    "pk": 4,
+    "fields": {
+        "code": "CA",
+        "name": "Compra Ágil",
+        "changed_by": 1
+    }
+},
+{
+    "model": "order.salechannel",
+    "pk": 5,
+    "fields": {
+        "code": "LI",
+        "name": "Licitación",
+        "changed_by": 1
+    }
+},
+{
+    "model": "order.salechannel",
+    "pk": 6,
+    "fields": {
+        "code": "PRE",
+        "name": "Presencial",
+        "changed_by": 1
+    }
+},
+{
+    "model": "order.salechannel",
+    "pk": 7,
+    "fields": {
+        "code": "DM",
+        "name": "Dispositivos Médicos",
+        "changed_by": 1
+    }
+}
+]

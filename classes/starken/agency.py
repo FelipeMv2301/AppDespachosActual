@@ -56,6 +56,7 @@ class Agency(Starken):
     @loggable
     def app_sync(self, *args, **kwargs):
         model = AgencyMdl
+        addr_mdl = Address
         agencies = self.search_all()
         carrier_obj = Carrier.objects.get(name=self.carrier_name)
         user_obj = User.objects.get(username=APP_USERNAME)
@@ -63,7 +64,7 @@ class Agency(Starken):
         munis = {}
         ag_objs = {obj.code: obj
                    for obj in model.objects.filter(carrier=carrier_obj)}
-        ag_obj_cods = [ag_objs.keys()]
+        ag_obj_cods = list(ag_objs.keys())
         for ag in agencies:
             code = str(ag['code_dls'])
             name = ag['name']
@@ -83,6 +84,7 @@ class Agency(Starken):
                 if not stk_muni_obj:
                     error_msg = f'Comuna Starken {muni_code} no encontrada'
                     continue
+                stk_muni_obj = stk_muni_obj.first()
                 muni_obj = stk_muni_obj.muni
                 if not muni_obj:
                     error_msg = f'Comuna Starken {muni_code} sin comuna rel'
@@ -90,7 +92,7 @@ class Agency(Starken):
                 munis[muni_code] = muni_obj
             muni_obj = munis[muni_code]
 
-            addr_sync_kwargs = {'model': Address}
+            addr_sync_kwargs = {'model': addr_mdl}
             sync_kwargs = {'model': model}
             if code in ag_objs:
                 ag_obj = ag_objs[code]
@@ -117,7 +119,7 @@ class Agency(Starken):
             else:
                 sync_func = bulk_create_with_history
                 ag_obj = model()
-                addr_obj = Address()
+                addr_obj = addr_mdl()
 
             addr_obj.st_and_num = address
             addr_obj.muni = muni_obj
@@ -125,7 +127,8 @@ class Agency(Starken):
             addr_obj.longitude = longitude
             addr_obj.changed_by = user_obj
             addr_sync_kwargs['objs'] = [addr_obj]
-            sync_func(**addr_sync_kwargs)
+            addr_sync = sync_func(**addr_sync_kwargs)
+            addr_obj = addr_sync[0] if addr_sync else addr_obj
 
             ag_obj.code = code
             ag_obj.name = name

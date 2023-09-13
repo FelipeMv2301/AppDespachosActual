@@ -1,0 +1,32 @@
+[
+{
+    "model": "delivery.type",
+    "pk": 1,
+    "fields": {
+        "code": "RBQ",
+        "name": "Retiro BQ",
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.type",
+    "pk": 2,
+    "fields": {
+        "code": "RAG",
+        "name": "Retiro en agencia",
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.type",
+    "pk": 3,
+    "fields": {
+        "code": "ADOM",
+        "name": "A domicilio",
+        "enabled": true,
+        "changed_by": 1
+    }
+}
+]

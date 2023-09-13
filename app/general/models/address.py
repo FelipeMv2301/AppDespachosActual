@@ -15,7 +15,7 @@ class Address(models.Model):
             correlative = 1
         else:
             correlative = Address.objects.latest('id').id + 1
-        folio = f'{prefix} {correlative}'
+        folio = f'{prefix}{correlative}'
         return folio
 
     # General
@@ -23,7 +23,7 @@ class Address(models.Model):
                             unique=True,
                             default=new_code.__func__)
     ref = models.CharField(max_length=100, default=new_code.__func__)
-    st_and_num = models.CharField(max_length=100)
+    st_and_num = models.CharField(max_length=500)
     muni = models.ForeignKey(to='general.Muni', on_delete=models.CASCADE)
     latitude = models.FloatField()
     longitude = models.FloatField()

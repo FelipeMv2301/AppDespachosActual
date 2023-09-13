@@ -1,57 +1,57 @@
+import json
+from typing import Any, Dict
+
+import requests
 from django.contrib.auth.models import User
 from simple_history.utils import (bulk_create_with_history,
                                   bulk_update_with_history)
 
-from app.general.models.muni_mito import MuniMito
-from classes.mitocondria.mitocondria import Mitocondria
+from app.general.models.employee_sap import EmployeeSap
+from classes.sap.sap import Sap
 from core.settings.base import APP_USERNAME
 from helpers.decorator.loggable import loggable
 
 
-class Municipality(Mitocondria):
+class SalesPerson(Sap):
     def __init__(self,
-                 code: int | str = None,
+                 code: str = None,
                  name: str = None,
+                 enabled: bool = True,
                  *args,
                  **kwargs):
         super().__init__(*args, **kwargs)
 
         self.code = code
         self.name = name
+        self.enabled = enabled
 
     @loggable
-    @Mitocondria.conn_handling
-    def search_all(self, *args, **kwargs) -> list:
-        cursor = self.conn.cursor()
-        query = 'SELECT muni.sys_comuna_id code, muni.sys_comuna_nombre name '
-        query += f'FROM {self.schema}.{self.muni_mdl} muni'
+    @Sap.session_handling
+    def search_all(self, *args, **kwargs) -> Dict[str, Any]:
+        mdl = self.sales_person_mdl
 
-        cursor.execute(query)
-        results = cursor.fetchall()
-        # TODO: check response
-        description = cursor.description
-        cursor.close()
+        url = f'{self.host}{mdl}'
 
-        result = [
-            dict(
-                (description[i][0], value)
-                for i, value in enumerate(row)
-            ) for row in results
-        ]
+        self.change_max_page_size(qty=100)
+        response = requests.get(url=url, headers=self.headers)
+        self.check_response(response=response)
 
-        return result
+        return json.loads(s=response.text)['value']
 
     @loggable
     def app_sync(self, *args, **kwargs):
-        model = MuniMito
-        munis = self.search_all()
+        model = EmployeeSap
+        empls = self.search_all()
         user_obj = User.objects.get(username=APP_USERNAME)
 
         objs = {obj.code: obj
                 for obj in model.objects.all()}
-        for muni in munis:
-            code = str(muni['code'])
-            name = muni['name']
+        for empl in empls:
+            code = str(empl['SalesEmployeeCode'])
+            name = empl['SalesEmployeeName']
+            locked = empl['Locked'] == 'tNO'
+            active = empl['Active'] == 'tYES'
+            enabled = locked and active
 
             sync_kwargs = {'model': model}
             if code in objs:
@@ -60,6 +60,7 @@ class Municipality(Mitocondria):
                 sync_kwargs['fields'] = [
                     'code',
                     'name',
+                    'enabled',
                     'changed_by'
                 ]
             else:
@@ -68,6 +69,7 @@ class Municipality(Mitocondria):
 
             obj.code = code
             obj.name = name
+            obj.enabled = enabled
             obj.changed_by = user_obj
             sync_kwargs['objs'] = [obj]
             sync_func(**sync_kwargs)

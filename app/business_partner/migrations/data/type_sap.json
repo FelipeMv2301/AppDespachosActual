@@ -1,0 +1,22 @@
+[
+{
+    "model": "business_partner.typesap",
+    "pk": 1,
+    "fields": {
+        "code": "cCustomer",
+        "name": "Cliente",
+        "type": 1,
+        "changed_by": 1
+    }
+},
+{
+    "model": "business_partner.typesap",
+    "pk": 2,
+    "fields": {
+        "code": "cSupplier",
+        "name": "Proveedor",
+        "type": 2,
+        "changed_by": 1
+    }
+}
+]

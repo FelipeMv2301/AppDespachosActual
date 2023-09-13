@@ -1,0 +1,20 @@
+[
+{
+    "model": "business_partner.type",
+    "pk": 1,
+    "fields": {
+        "code": "CL",
+        "name": "Cliente",
+        "changed_by": 1
+    }
+},
+{
+    "model": "business_partner.type",
+    "pk": 2,
+    "fields": {
+        "code": "PR",
+        "name": "Proveedor",
+        "changed_by": 1
+    }
+}
+]

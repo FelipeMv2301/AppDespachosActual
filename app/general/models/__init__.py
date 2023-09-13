@@ -3,6 +3,7 @@ from .company import Company
 from .country import Country
 from .currency import Currency
 from .employee import Employee
+from .employee_sap import EmployeeSap
 from .muni import Muni
 from .muni_mito import MuniMito
 from .muni_sap import MuniSap

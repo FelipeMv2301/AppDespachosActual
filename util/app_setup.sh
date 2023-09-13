@@ -39,5 +39,5 @@ python3 "${MANAGE_PATH}" shell -c "from django.contrib.auth.models import User; 
 # Run the rest of migrations
 python3 "${MANAGE_PATH}" migrate
 
-# Print finished message
-echo "FINISHED" | boxes
+# # Print finished message
+# echo "FINISHED" | boxes

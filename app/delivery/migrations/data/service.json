@@ -1,0 +1,12 @@
+[
+{
+    "model": "delivery.service",
+    "pk": 1,
+    "fields": {
+        "code": "NO",
+        "name": "Normal",
+        "enabled": true,
+        "changed_by": 1
+    }
+}
+]

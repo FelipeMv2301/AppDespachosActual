@@ -50,7 +50,7 @@ class Municipality(Starken):
         objs = {obj.code: obj
                 for obj in model.objects.all()}
         for muni in munis:
-            code = muni['code_dls']
+            code = str(muni['code_dls'])
             name = muni['name']
 
             sync_kwargs = {'model': model}

@@ -1,0 +1,123 @@
+[
+{
+    "model": "general.employee",
+    "pk": 1,
+    "fields": {
+        "code": "OKDP1",
+        "first_name": "Daniela",
+        "last_name": "Araya",
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employee",
+    "pk": 2,
+    "fields": {
+        "code": "IRNM2",
+        "first_name": "Bianca",
+        "last_name": "Vargas",
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employee",
+    "pk": 3,
+    "fields": {
+        "code": "ZZLY3",
+        "first_name": "Johanna",
+        "last_name": "Palmegiani",
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employee",
+    "pk": 4,
+    "fields": {
+        "code": "OKEB4",
+        "first_name": "Jonathan",
+        "last_name": "Quintero",
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employee",
+    "pk": 5,
+    "fields": {
+        "code": "QRZO5",
+        "first_name": "Elsa",
+        "last_name": "Martínez",
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employee",
+    "pk": 6,
+    "fields": {
+        "code": "JIVF6",
+        "first_name": "Eileen",
+        "last_name": "Bellina",
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employee",
+    "pk": 7,
+    "fields": {
+        "code": "YQFB7",
+        "first_name": "Manuel",
+        "last_name": "Aracena",
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employee",
+    "pk": 8,
+    "fields": {
+        "code": "WBOF8",
+        "first_name": "Hermi",
+        "last_name": "Parra",
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employee",
+    "pk": 9,
+    "fields": {
+        "code": "FWJX9",
+        "first_name": "Maroa",
+        "last_name": "Peña",
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employee",
+    "pk": 10,
+    "fields": {
+        "code": "PTAN10",
+        "first_name": "WEB",
+        "last_name": "",
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employee",
+    "pk": 11,
+    "fields": {
+        "code": "ODNU11",
+        "first_name": "María",
+        "last_name": "Lobos",
+        "enabled": true,
+        "changed_by": 1
+    }
+}
+]

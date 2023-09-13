@@ -12,7 +12,9 @@ class Option(models.Model):
     type = models.ForeignKey(to='delivery.Type', on_delete=models.CASCADE)
     pay_type = models.ForeignKey(to='delivery.PayType',
                                  on_delete=models.CASCADE)
-    agency = models.ForeignKey(to='delivery.Agency', on_delete=models.CASCADE)
+    agency = models.ForeignKey(to='delivery.Agency',
+                               on_delete=models.CASCADE,
+                               null=True)
     # Status
     enabled = models.BooleanField(default=True)
     # Object tracking

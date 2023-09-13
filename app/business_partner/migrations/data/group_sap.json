@@ -1,0 +1,22 @@
+[
+{
+    "model": "business_partner.groupsap",
+    "pk": 1,
+    "fields": {
+        "code": "100",
+        "name": "01 Cliente Nacional",
+        "group": 1,
+        "changed_by": 1
+    }
+},
+{
+    "model": "business_partner.groupsap",
+    "pk": 2,
+    "fields": {
+        "code": "102",
+        "name": "02 Cliente Extranj",
+        "group": 2,
+        "changed_by": 1
+    }
+}
+]

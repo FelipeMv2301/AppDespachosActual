@@ -1,0 +1,82 @@
+[
+{
+    "model": "order.salechannelsap",
+    "pk": 1,
+    "fields": {
+        "code": "DIR",
+        "name": "Directa",
+        "sale_channel": 1,
+        "changed_by": 1
+    }
+},
+{
+    "model": "order.salechannelsap",
+    "pk": 2,
+    "fields": {
+        "code": "WEB",
+        "name": "WEB",
+        "sale_channel": 2,
+        "changed_by": 1
+    }
+},
+{
+    "model": "order.salechannelsap",
+    "pk": 3,
+    "fields": {
+        "code": "CA",
+        "name": "Compra Ágil",
+        "sale_channel": 4,
+        "changed_by": 1
+    }
+},
+{
+    "model": "order.salechannelsap",
+    "pk": 4,
+    "fields": {
+        "code": "LI",
+        "name": "Licitación",
+        "sale_channel": 5,
+        "changed_by": 1
+    }
+},
+{
+    "model": "order.salechannelsap",
+    "pk": 5,
+    "fields": {
+        "code": "ML",
+        "name": "Mercado Libre",
+        "sale_channel": 3,
+        "changed_by": 1
+    }
+},
+{
+    "model": "order.salechannelsap",
+    "pk": 6,
+    "fields": {
+        "code": "DM",
+        "name": "Disp Médicos",
+        "sale_channel": 7,
+        "changed_by": 1
+    }
+},
+{
+    "model": "order.salechannelsap",
+    "pk": 7,
+    "fields": {
+        "code": "CM",
+        "name": "Conv Marco",
+        "sale_channel": null,
+        "changed_by": 1
+    }
+},
+{
+    "model": "order.salechannelsap",
+    "pk": 8,
+    "fields": {
+        "code": "PR",
+        "name": "Presencial",
+        "sale_channel": 6,
+        "changed_by": 1
+    }
+}
+]

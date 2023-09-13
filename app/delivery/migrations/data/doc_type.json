@@ -1,0 +1,22 @@
+[
+{
+    "model": "delivery.documenttype",
+    "pk": 1,
+    "fields": {
+        "code": "33",
+        "name": "Factura electrónica",
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.documenttype",
+    "pk": 2,
+    "fields": {
+        "code": "39",
+        "name": "Boleta electrónica",
+        "enabled": true,
+        "changed_by": 1
+    }
+}
+]

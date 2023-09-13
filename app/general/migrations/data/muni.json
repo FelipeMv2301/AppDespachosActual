@@ -1,2770 +1,3462 @@
 [
 {
-  "model": "general.muni",
-  "fields": {
-    "code": "1107",
-    "name": "Alto Hospicio",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "1101",
-    "name": "Iquique",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "1402",
-    "name": "Camiña",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "1403",
-    "name": "Colchane",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "1404",
-    "name": "Huara",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "1405",
-    "name": "Pica",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "1401",
-    "name": "Pozo Almonte",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "2101",
-    "name": "Antofagasta",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "2102",
-    "name": "Mejillones",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "2103",
-    "name": "Sierra Gorda",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "2104",
-    "name": "Taltal",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "2201",
-    "name": "Calama",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "2202",
-    "name": "Ollagüe",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "2203",
-    "name": "San Pedro de Atacama",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "2302",
-    "name": "María Elena",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "2301",
-    "name": "Tocopilla",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "3201",
-    "name": "Chañaral",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "3202",
-    "name": "Diego de Almagro",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "3102",
-    "name": "Caldera",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "3101",
-    "name": "Copiapó",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "3103",
-    "name": "Tierra Amarilla",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "3302",
-    "name": "Alto del Carmen",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "3303",
-    "name": "Freirina",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "3304",
-    "name": "Huasco",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "3301",
-    "name": "Vallenar",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "4202",
-    "name": "Canela",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "4201",
-    "name": "Illapel",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "4203",
-    "name": "Los Vilos",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "4204",
-    "name": "Salamanca",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "4103",
-    "name": "Andacollo",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "4102",
-    "name": "Coquimbo",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "4104",
-    "name": "La Higuera",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "4101",
-    "name": "La Serena",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "4105",
-    "name": "Paihuano",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "4106",
-    "name": "Vicuña",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "4302",
-    "name": "Combarbalá",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "4303",
-    "name": "Monte Patria",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "4301",
-    "name": "Ovalle",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "4304",
-    "name": "Punitaqui",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "4305",
-    "name": "Río Hurtado",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "5201",
-    "name": "Isla de Pascua",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "5302",
-    "name": "Calle Larga",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "5301",
-    "name": "Los Andes",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "5303",
-    "name": "Rinconada",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "5304",
-    "name": "San Esteban",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "5802",
-    "name": "Limache",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "5803",
-    "name": "Olmué",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "5801",
-    "name": "Quilpué",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "5804",
-    "name": "Villa Alemana",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "5402",
-    "name": "Cabildo",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "5401",
-    "name": "La Ligua",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "5403",
-    "name": "Papudo",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "5404",
-    "name": "Petorca",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "5405",
-    "name": "Zapallar",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "5503",
-    "name": "Hijuelas",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "5502",
-    "name": "La Calera",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "5504",
-    "name": "La Cruz",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "5506",
-    "name": "Nogales",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "5501",
-    "name": "Quillota",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "5602",
-    "name": "Algarrobo",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "5603",
-    "name": "Cartagena",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "5604",
-    "name": "El Quisco",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "5605",
-    "name": "El Tabo",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "5601",
-    "name": "San Antonio",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "5606",
-    "name": "Santo Domingo",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "5702",
-    "name": "Catemu",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "5703",
-    "name": "Llay-Llay",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "5704",
-    "name": "Panquehue",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "5705",
-    "name": "Putaendo",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "5701",
-    "name": "San Felipe",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "5706",
-    "name": "Santa María",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "5102",
-    "name": "Casablanca",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "5103",
-    "name": "Concón",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "5104",
-    "name": "Juan Fernández",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "5105",
-    "name": "Puchuncaví",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "5107",
-    "name": "Quintero",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "5101",
-    "name": "Valparaíso",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "5109",
-    "name": "Viña del Mar",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "6102",
-    "name": "Codegua",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "6103",
-    "name": "Coinco",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "6104",
-    "name": "Coltauco",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "6105",
-    "name": "Doñihue",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "6106",
-    "name": "Graneros",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "6107",
-    "name": "Las Cabras",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "6108",
-    "name": "Machalí",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "6109",
-    "name": "Malloa",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "6110",
-    "name": "Mostazal",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "6111",
-    "name": "Olivar",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "6112",
-    "name": "Peumo",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "6113",
-    "name": "Pichidegua",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "6114",
-    "name": "Quinta de Tilcoco",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "6101",
-    "name": "Rancagua",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "6115",
-    "name": "Rengo",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "6116",
-    "name": "Requínoa",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "6117",
-    "name": "San Vicente",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "6202",
-    "name": "La Estrella",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "6203",
-    "name": "Litueche",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "6204",
-    "name": "Marchihue",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "6205",
-    "name": "Navidad",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "6206",
-    "name": "Paredones",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "6201",
-    "name": "Pichilemu",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "6302",
-    "name": "Chépica",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "6303",
-    "name": "Chimbarongo",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "6304",
-    "name": "Lolol",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "6305",
-    "name": "Nancagua",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "6306",
-    "name": "Palmilla",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "6307",
-    "name": "Peralillo",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "6308",
-    "name": "Placilla",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "6309",
-    "name": "Pumanque",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "6301",
-    "name": "San Fernando",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "6310",
-    "name": "Santa Cruz",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "7201",
-    "name": "Cauquenes",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "7202",
-    "name": "Chanco",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "7203",
-    "name": "Pelluhue",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "7301",
-    "name": "Curicó",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "7302",
-    "name": "Hualañé",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "7303",
-    "name": "Licantén",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "7304",
-    "name": "Molina",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "7305",
-    "name": "Rauco",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "7306",
-    "name": "Romeral",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "7307",
-    "name": "Sagrada Familia",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "7308",
-    "name": "Teno",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "7309",
-    "name": "Vichuquén",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "7402",
-    "name": "Colbún",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "7401",
-    "name": "Linares",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "7403",
-    "name": "Longaví",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "7404",
-    "name": "Parral",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "7405",
-    "name": "Retiro",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "7406",
-    "name": "San Javier",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "7407",
-    "name": "Villa Alegre",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "7408",
-    "name": "Yerbas Buenas",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "7102",
-    "name": "Constitución",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "7103",
-    "name": "Curepto",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "7104",
-    "name": "Empedrado",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "7105",
-    "name": "Maule",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "7106",
-    "name": "Pelarco",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "7107",
-    "name": "Pencahue",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "7108",
-    "name": "Río Claro",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "7109",
-    "name": "San Clemente",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "7110",
-    "name": "San Rafael",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "7101",
-    "name": "Talca",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "8202",
-    "name": "Arauco",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "8203",
-    "name": "Cañete",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "8204",
-    "name": "Contulmo",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "8205",
-    "name": "Curanilahue",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "8201",
-    "name": "Lebu",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "8206",
-    "name": "Los Álamos",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "8207",
-    "name": "Tirúa",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "8314",
-    "name": "Alto Biobío",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "8302",
-    "name": "Antuco",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "8303",
-    "name": "Cabrero",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "8304",
-    "name": "Laja",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "8301",
-    "name": "Los Ángeles",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "8305",
-    "name": "Mulchén",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "8306",
-    "name": "Nacimiento",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "8307",
-    "name": "Negrete",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "8308",
-    "name": "Quilaco",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "8309",
-    "name": "Quilleco",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "8310",
-    "name": "San Rosendo",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "8311",
-    "name": "Santa Bárbara",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "8312",
-    "name": "Tucapel",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "8313",
-    "name": "Yumbel",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "8103",
-    "name": "Chiguayante",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "8101",
-    "name": "Concepción",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "8102",
-    "name": "Coronel",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "8104",
-    "name": "Florida",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "8112",
-    "name": "Hualpén",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "8105",
-    "name": "Hualqui",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "8106",
-    "name": "Lota",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "8107",
-    "name": "Penco",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "8108",
-    "name": "San Pedro de La Paz",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "8109",
-    "name": "Santa Juana",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "8110",
-    "name": "Talcahuano",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "8111",
-    "name": "Tomé",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "9102",
-    "name": "Carahue",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "9121",
-    "name": "Cholchol",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "9103",
-    "name": "Cunco",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "9104",
-    "name": "Curarrehue",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "9105",
-    "name": "Freire",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "9106",
-    "name": "Galvarino",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "9107",
-    "name": "Gorbea",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "9108",
-    "name": "Lautaro",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "9109",
-    "name": "Loncoche",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "9110",
-    "name": "Melipeuco",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "9111",
-    "name": "Nueva Imperial",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "9112",
-    "name": "Padre Las Casas",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "9113",
-    "name": "Perquenco",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "9114",
-    "name": "Pitrufquén",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "9115",
-    "name": "Pucón",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "9116",
-    "name": "Saavedra",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "9101",
-    "name": "Temuco",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "9117",
-    "name": "Teodoro Schmidt",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "9118",
-    "name": "Toltén",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "9119",
-    "name": "Vilcún",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "9120",
-    "name": "Villarrica",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "9201",
-    "name": "Angol",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "9202",
-    "name": "Collipulli",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "9203",
-    "name": "Curacautín",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "9204",
-    "name": "Ercilla",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "9205",
-    "name": "Lonquimay",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "9206",
-    "name": "Los Sauces",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "9207",
-    "name": "Lumaco",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "9208",
-    "name": "Purén",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "9209",
-    "name": "Renaico",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "9210",
-    "name": "Traiguén",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "9211",
-    "name": "Victoria",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "10202",
-    "name": "Ancud",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "10201",
-    "name": "Castro",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "10203",
-    "name": "Chonchi",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "10204",
-    "name": "Curaco de Vélez",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "10205",
-    "name": "Dalcahue",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "10206",
-    "name": "Puqueldón",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "10207",
-    "name": "Queilén",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "10208",
-    "name": "Quellón",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "10209",
-    "name": "Quemchi",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "10210",
-    "name": "Quinchao",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "10102",
-    "name": "Calbuco",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "10103",
-    "name": "Cochamó",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "10104",
-    "name": "Fresia",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "10105",
-    "name": "Frutillar",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "10107",
-    "name": "Llanquihue",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "10106",
-    "name": "Los Muermos",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "10108",
-    "name": "Maullín",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "10101",
-    "name": "Puerto Montt",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "10109",
-    "name": "Puerto Varas",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "10301",
-    "name": "Osorno",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "10302",
-    "name": "Puerto Octay",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "10303",
-    "name": "Purranque",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "10304",
-    "name": "Puyehue",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "10305",
-    "name": "Río Negro",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "10306",
-    "name": "San Juan de la Costa",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "10307",
-    "name": "San Pablo",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "10401",
-    "name": "Chaitén",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "10402",
-    "name": "Futaleufú",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "10403",
-    "name": "Hualaihué",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "10404",
-    "name": "Palena",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "11201",
-    "name": "Aysén",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "11202",
-    "name": "Cisnes",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "11203",
-    "name": "Guaitecas",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "11301",
-    "name": "Cochrane",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "11302",
-    "name": "O'Higgins",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "11303",
-    "name": "Tortel",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "11101",
-    "name": "Coyhaique",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "11102",
-    "name": "Lago Verde",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "11401",
-    "name": "Chile Chico",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "11402",
-    "name": "Río Ibáñez",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "12202",
-    "name": "Antártica",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "12201",
-    "name": "Cabo de Hornos",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "12102",
-    "name": "Laguna Blanca",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "12101",
-    "name": "Punta Arenas",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "12103",
-    "name": "Río Verde",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "12104",
-    "name": "San Gregorio",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "12301",
-    "name": "Porvenir",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "12302",
-    "name": "Primavera",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "12303",
-    "name": "Timaukel",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "12401",
-    "name": "Natales",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "12402",
-    "name": "Torres del Paine",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "13301",
-    "name": "Colina",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "13302",
-    "name": "Lampa",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "13303",
-    "name": "Til Til",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "13202",
-    "name": "Pirque",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "13201",
-    "name": "Puente Alto",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "13203",
-    "name": "San José de Maipo",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "13402",
-    "name": "Buin",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "13403",
-    "name": "Calera de Tango",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "13404",
-    "name": "Paine",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "13401",
-    "name": "San Bernardo",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "13502",
-    "name": "Alhué",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "13503",
-    "name": "Curacaví",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "13504",
-    "name": "María Pinto",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "13501",
-    "name": "Melipilla",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "13505",
-    "name": "San Pedro",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "13102",
-    "name": "Cerrillos",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "13103",
-    "name": "Cerro Navia",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "13104",
-    "name": "Conchalí",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "13105",
-    "name": "El Bosque",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "13106",
-    "name": "Estación Central",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "13107",
-    "name": "Huechuraba",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "13108",
-    "name": "Independencia",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "13109",
-    "name": "La Cisterna",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "13110",
-    "name": "La Florida",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "13111",
-    "name": "La Granja",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "13112",
-    "name": "La Pintana",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "13113",
-    "name": "La Reina",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "13114",
-    "name": "Las Condes",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "13115",
-    "name": "Lo Barnechea",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "13116",
-    "name": "Lo Espejo",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "13117",
-    "name": "Lo Prado",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "13118",
-    "name": "Macul",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "13119",
-    "name": "Maipú",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "13120",
-    "name": "Ñuñoa",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "13121",
-    "name": "Pedro Aguirre Cerda",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "13122",
-    "name": "Peñalolén",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "13123",
-    "name": "Providencia",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "13124",
-    "name": "Pudahuel",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "13125",
-    "name": "Quilicura",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "13126",
-    "name": "Quinta Normal",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "13127",
-    "name": "Recoleta",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "13128",
-    "name": "Renca",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "13129",
-    "name": "San Joaquín",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "13130",
-    "name": "San Miguel",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "13131",
-    "name": "San Ramón",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "13101",
-    "name": "Santiago",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "13132",
-    "name": "Vitacura",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "13602",
-    "name": "El Monte",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "13603",
-    "name": "Isla de Maipo",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "13604",
-    "name": "Padre Hurtado",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "13605",
-    "name": "Peñaflor",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "13601",
-    "name": "Talagante",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "14202",
-    "name": "Futrono",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "14201",
-    "name": "La Unión",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "14203",
-    "name": "Lago Ranco",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "14204",
-    "name": "Río Bueno",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "14102",
-    "name": "Corral",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "14103",
-    "name": "Lanco",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "14104",
-    "name": "Los Lagos",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "14105",
-    "name": "Máfil",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "14106",
-    "name": "Mariquina",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "14107",
-    "name": "Paillaco",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "14108",
-    "name": "Panguipulli",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "14101",
-    "name": "Valdivia",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "15101",
-    "name": "Arica",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "15102",
-    "name": "Camarones",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "15202",
-    "name": "General Lagos",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "15201",
-    "name": "Putre",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "16102",
-    "name": "Bulnes",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "16101",
-    "name": "Chillán",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "16103",
-    "name": "Chillán Viejo",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "16104",
-    "name": "El Carmen",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "16105",
-    "name": "Pemuco",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "16106",
-    "name": "Pinto",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "16107",
-    "name": "Quillón",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "16108",
-    "name": "San Ignacio",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "16109",
-    "name": "Yungay",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "16202",
-    "name": "Cobquecura",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "16203",
-    "name": "Coelemu",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "16204",
-    "name": "Ninhue",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "16205",
-    "name": "Portezuelo",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "16201",
-    "name": "Quirihue",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "16206",
-    "name": "Ránquil",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "16207",
-    "name": "Treguaco",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "16302",
-    "name": "Coihueco",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "16303",
-    "name": "Ñiquén",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "16301",
-    "name": "San Carlos",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "16304",
-    "name": "San Fabián",
-    "changed_by": 1
-  }
-},
-{
-  "model": "general.muni",
-  "fields": {
-    "code": "16305",
-    "name": "San Nicolás",
-    "changed_by": 1
-  }
+    "model": "general.muni",
+    "pk": 1,
+    "fields": {
+        "code": "2101",
+        "name": "Antofagasta",
+        "state": 2,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 2,
+    "fields": {
+        "code": "2102",
+        "name": "Mejillones",
+        "state": 2,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 3,
+    "fields": {
+        "code": "2103",
+        "name": "Sierra Gorda",
+        "state": 2,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 4,
+    "fields": {
+        "code": "2104",
+        "name": "Taltal",
+        "state": 2,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 5,
+    "fields": {
+        "code": "2201",
+        "name": "Calama",
+        "state": 2,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 6,
+    "fields": {
+        "code": "2202",
+        "name": "Ollagüe",
+        "state": 2,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 7,
+    "fields": {
+        "code": "2203",
+        "name": "San Pedro de Atacama",
+        "state": 2,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 8,
+    "fields": {
+        "code": "2302",
+        "name": "María Elena",
+        "state": 2,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 9,
+    "fields": {
+        "code": "2301",
+        "name": "Tocopilla",
+        "state": 2,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 10,
+    "fields": {
+        "code": "15101",
+        "name": "Arica",
+        "state": 15,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 11,
+    "fields": {
+        "code": "15102",
+        "name": "Camarones",
+        "state": 15,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 12,
+    "fields": {
+        "code": "15202",
+        "name": "General Lagos",
+        "state": 15,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 13,
+    "fields": {
+        "code": "15201",
+        "name": "Putre",
+        "state": 15,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 14,
+    "fields": {
+        "code": "3201",
+        "name": "Chañaral",
+        "state": 3,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 15,
+    "fields": {
+        "code": "3202",
+        "name": "Diego de Almagro",
+        "state": 3,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 16,
+    "fields": {
+        "code": "3102",
+        "name": "Caldera",
+        "state": 3,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 17,
+    "fields": {
+        "code": "3101",
+        "name": "Copiapó",
+        "state": 3,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 18,
+    "fields": {
+        "code": "3103",
+        "name": "Tierra Amarilla",
+        "state": 3,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 19,
+    "fields": {
+        "code": "3302",
+        "name": "Alto del Carmen",
+        "state": 3,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 20,
+    "fields": {
+        "code": "3303",
+        "name": "Freirina",
+        "state": 3,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 21,
+    "fields": {
+        "code": "3304",
+        "name": "Huasco",
+        "state": 3,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 22,
+    "fields": {
+        "code": "3301",
+        "name": "Vallenar",
+        "state": 3,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 23,
+    "fields": {
+        "code": "11201",
+        "name": "Aysén",
+        "state": 11,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 24,
+    "fields": {
+        "code": "11202",
+        "name": "Cisnes",
+        "state": 11,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 25,
+    "fields": {
+        "code": "11203",
+        "name": "Guaitecas",
+        "state": 11,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 26,
+    "fields": {
+        "code": "11301",
+        "name": "Cochrane",
+        "state": 11,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 27,
+    "fields": {
+        "code": "11302",
+        "name": "O'Higgins",
+        "state": 11,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 28,
+    "fields": {
+        "code": "11303",
+        "name": "Tortel",
+        "state": 11,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 29,
+    "fields": {
+        "code": "11101",
+        "name": "Coyhaique",
+        "state": 11,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 30,
+    "fields": {
+        "code": "11102",
+        "name": "Lago Verde",
+        "state": 11,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 31,
+    "fields": {
+        "code": "11401",
+        "name": "Chile Chico",
+        "state": 11,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 32,
+    "fields": {
+        "code": "11402",
+        "name": "Río Ibáñez",
+        "state": 11,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 33,
+    "fields": {
+        "code": "8202",
+        "name": "Arauco",
+        "state": 8,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 34,
+    "fields": {
+        "code": "8203",
+        "name": "Cañete",
+        "state": 8,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 35,
+    "fields": {
+        "code": "8204",
+        "name": "Contulmo",
+        "state": 8,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 36,
+    "fields": {
+        "code": "8205",
+        "name": "Curanilahue",
+        "state": 8,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 37,
+    "fields": {
+        "code": "8201",
+        "name": "Lebu",
+        "state": 8,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 38,
+    "fields": {
+        "code": "8206",
+        "name": "Los Álamos",
+        "state": 8,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 39,
+    "fields": {
+        "code": "8207",
+        "name": "Tirúa",
+        "state": 8,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 40,
+    "fields": {
+        "code": "8314",
+        "name": "Alto Biobío",
+        "state": 8,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 41,
+    "fields": {
+        "code": "8302",
+        "name": "Antuco",
+        "state": 8,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 42,
+    "fields": {
+        "code": "8303",
+        "name": "Cabrero",
+        "state": 8,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 43,
+    "fields": {
+        "code": "8304",
+        "name": "Laja",
+        "state": 8,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 44,
+    "fields": {
+        "code": "8301",
+        "name": "Los Ángeles",
+        "state": 8,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 45,
+    "fields": {
+        "code": "8305",
+        "name": "Mulchén",
+        "state": 8,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 46,
+    "fields": {
+        "code": "8306",
+        "name": "Nacimiento",
+        "state": 8,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 47,
+    "fields": {
+        "code": "8307",
+        "name": "Negrete",
+        "state": 8,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 48,
+    "fields": {
+        "code": "8308",
+        "name": "Quilaco",
+        "state": 8,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 49,
+    "fields": {
+        "code": "8309",
+        "name": "Quilleco",
+        "state": 8,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 50,
+    "fields": {
+        "code": "8310",
+        "name": "San Rosendo",
+        "state": 8,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 51,
+    "fields": {
+        "code": "8311",
+        "name": "Santa Bárbara",
+        "state": 8,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 52,
+    "fields": {
+        "code": "8312",
+        "name": "Tucapel",
+        "state": 8,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 53,
+    "fields": {
+        "code": "8313",
+        "name": "Yumbel",
+        "state": 8,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 54,
+    "fields": {
+        "code": "8103",
+        "name": "Chiguayante",
+        "state": 8,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 55,
+    "fields": {
+        "code": "8101",
+        "name": "Concepción",
+        "state": 8,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 56,
+    "fields": {
+        "code": "8102",
+        "name": "Coronel",
+        "state": 8,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 57,
+    "fields": {
+        "code": "8104",
+        "name": "Florida",
+        "state": 8,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 58,
+    "fields": {
+        "code": "8112",
+        "name": "Hualpén",
+        "state": 8,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 59,
+    "fields": {
+        "code": "8105",
+        "name": "Hualqui",
+        "state": 8,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 60,
+    "fields": {
+        "code": "8106",
+        "name": "Lota",
+        "state": 8,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 61,
+    "fields": {
+        "code": "8107",
+        "name": "Penco",
+        "state": 8,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 62,
+    "fields": {
+        "code": "8108",
+        "name": "San Pedro de La Paz",
+        "state": 8,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 63,
+    "fields": {
+        "code": "8109",
+        "name": "Santa Juana",
+        "state": 8,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 64,
+    "fields": {
+        "code": "8110",
+        "name": "Talcahuano",
+        "state": 8,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 65,
+    "fields": {
+        "code": "8111",
+        "name": "Tomé",
+        "state": 8,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 66,
+    "fields": {
+        "code": "4202",
+        "name": "Canela",
+        "state": 4,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 67,
+    "fields": {
+        "code": "4201",
+        "name": "Illapel",
+        "state": 4,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 68,
+    "fields": {
+        "code": "4203",
+        "name": "Los Vilos",
+        "state": 4,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 69,
+    "fields": {
+        "code": "4204",
+        "name": "Salamanca",
+        "state": 4,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 70,
+    "fields": {
+        "code": "4103",
+        "name": "Andacollo",
+        "state": 4,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 71,
+    "fields": {
+        "code": "4102",
+        "name": "Coquimbo",
+        "state": 4,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 72,
+    "fields": {
+        "code": "4104",
+        "name": "La Higuera",
+        "state": 4,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 73,
+    "fields": {
+        "code": "4101",
+        "name": "La Serena",
+        "state": 4,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 74,
+    "fields": {
+        "code": "4105",
+        "name": "Paihuano",
+        "state": 4,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 75,
+    "fields": {
+        "code": "4106",
+        "name": "Vicuña",
+        "state": 4,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 76,
+    "fields": {
+        "code": "4302",
+        "name": "Combarbalá",
+        "state": 4,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 77,
+    "fields": {
+        "code": "4303",
+        "name": "Monte Patria",
+        "state": 4,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 78,
+    "fields": {
+        "code": "4301",
+        "name": "Ovalle",
+        "state": 4,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 79,
+    "fields": {
+        "code": "4304",
+        "name": "Punitaqui",
+        "state": 4,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 80,
+    "fields": {
+        "code": "4305",
+        "name": "Río Hurtado",
+        "state": 4,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 81,
+    "fields": {
+        "code": "9102",
+        "name": "Carahue",
+        "state": 9,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 82,
+    "fields": {
+        "code": "9121",
+        "name": "Cholchol",
+        "state": 9,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 83,
+    "fields": {
+        "code": "9103",
+        "name": "Cunco",
+        "state": 9,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 84,
+    "fields": {
+        "code": "9104",
+        "name": "Curarrehue",
+        "state": 9,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 85,
+    "fields": {
+        "code": "9105",
+        "name": "Freire",
+        "state": 9,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 86,
+    "fields": {
+        "code": "9106",
+        "name": "Galvarino",
+        "state": 9,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 87,
+    "fields": {
+        "code": "9107",
+        "name": "Gorbea",
+        "state": 9,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 88,
+    "fields": {
+        "code": "9108",
+        "name": "Lautaro",
+        "state": 9,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 89,
+    "fields": {
+        "code": "9109",
+        "name": "Loncoche",
+        "state": 9,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 90,
+    "fields": {
+        "code": "9110",
+        "name": "Melipeuco",
+        "state": 9,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 91,
+    "fields": {
+        "code": "9111",
+        "name": "Nueva Imperial",
+        "state": 9,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 92,
+    "fields": {
+        "code": "9112",
+        "name": "Padre Las Casas",
+        "state": 9,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 93,
+    "fields": {
+        "code": "9113",
+        "name": "Perquenco",
+        "state": 9,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 94,
+    "fields": {
+        "code": "9114",
+        "name": "Pitrufquén",
+        "state": 9,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 95,
+    "fields": {
+        "code": "9115",
+        "name": "Pucón",
+        "state": 9,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 96,
+    "fields": {
+        "code": "9116",
+        "name": "Saavedra",
+        "state": 9,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 97,
+    "fields": {
+        "code": "9101",
+        "name": "Temuco",
+        "state": 9,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 98,
+    "fields": {
+        "code": "9117",
+        "name": "Teodoro Schmidt",
+        "state": 9,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 99,
+    "fields": {
+        "code": "9118",
+        "name": "Toltén",
+        "state": 9,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 100,
+    "fields": {
+        "code": "9119",
+        "name": "Vilcún",
+        "state": 9,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 101,
+    "fields": {
+        "code": "9120",
+        "name": "Villarrica",
+        "state": 9,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 102,
+    "fields": {
+        "code": "9201",
+        "name": "Angol",
+        "state": 9,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 103,
+    "fields": {
+        "code": "9202",
+        "name": "Collipulli",
+        "state": 9,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 104,
+    "fields": {
+        "code": "9203",
+        "name": "Curacautín",
+        "state": 9,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 105,
+    "fields": {
+        "code": "9204",
+        "name": "Ercilla",
+        "state": 9,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 106,
+    "fields": {
+        "code": "9205",
+        "name": "Lonquimay",
+        "state": 9,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 107,
+    "fields": {
+        "code": "9206",
+        "name": "Los Sauces",
+        "state": 9,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 108,
+    "fields": {
+        "code": "9207",
+        "name": "Lumaco",
+        "state": 9,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 109,
+    "fields": {
+        "code": "9208",
+        "name": "Purén",
+        "state": 9,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 110,
+    "fields": {
+        "code": "9209",
+        "name": "Renaico",
+        "state": 9,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 111,
+    "fields": {
+        "code": "9210",
+        "name": "Traiguén",
+        "state": 9,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 112,
+    "fields": {
+        "code": "9211",
+        "name": "Victoria",
+        "state": 9,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 113,
+    "fields": {
+        "code": "10202",
+        "name": "Ancud",
+        "state": 10,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 114,
+    "fields": {
+        "code": "10201",
+        "name": "Castro",
+        "state": 10,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 115,
+    "fields": {
+        "code": "10203",
+        "name": "Chonchi",
+        "state": 10,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 116,
+    "fields": {
+        "code": "10204",
+        "name": "Curaco de Vélez",
+        "state": 10,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 117,
+    "fields": {
+        "code": "10205",
+        "name": "Dalcahue",
+        "state": 10,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 118,
+    "fields": {
+        "code": "10206",
+        "name": "Puqueldón",
+        "state": 10,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 119,
+    "fields": {
+        "code": "10207",
+        "name": "Queilén",
+        "state": 10,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 120,
+    "fields": {
+        "code": "10208",
+        "name": "Quellón",
+        "state": 10,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 121,
+    "fields": {
+        "code": "10209",
+        "name": "Quemchi",
+        "state": 10,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 122,
+    "fields": {
+        "code": "10210",
+        "name": "Quinchao",
+        "state": 10,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 123,
+    "fields": {
+        "code": "10102",
+        "name": "Calbuco",
+        "state": 10,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 124,
+    "fields": {
+        "code": "10103",
+        "name": "Cochamó",
+        "state": 10,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 125,
+    "fields": {
+        "code": "10104",
+        "name": "Fresia",
+        "state": 10,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 126,
+    "fields": {
+        "code": "10105",
+        "name": "Frutillar",
+        "state": 10,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 127,
+    "fields": {
+        "code": "10107",
+        "name": "Llanquihue",
+        "state": 10,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 128,
+    "fields": {
+        "code": "10106",
+        "name": "Los Muermos",
+        "state": 10,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 129,
+    "fields": {
+        "code": "10108",
+        "name": "Maullín",
+        "state": 10,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 130,
+    "fields": {
+        "code": "10101",
+        "name": "Puerto Montt",
+        "state": 10,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 131,
+    "fields": {
+        "code": "10109",
+        "name": "Puerto Varas",
+        "state": 10,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 132,
+    "fields": {
+        "code": "10301",
+        "name": "Osorno",
+        "state": 10,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 133,
+    "fields": {
+        "code": "10302",
+        "name": "Puerto Octay",
+        "state": 10,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 134,
+    "fields": {
+        "code": "10303",
+        "name": "Purranque",
+        "state": 10,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 135,
+    "fields": {
+        "code": "10304",
+        "name": "Puyehue",
+        "state": 10,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 136,
+    "fields": {
+        "code": "10305",
+        "name": "Río Negro",
+        "state": 10,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 137,
+    "fields": {
+        "code": "10306",
+        "name": "San Juan de la Costa",
+        "state": 10,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 138,
+    "fields": {
+        "code": "10307",
+        "name": "San Pablo",
+        "state": 10,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 139,
+    "fields": {
+        "code": "10401",
+        "name": "Chaitén",
+        "state": 10,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 140,
+    "fields": {
+        "code": "10402",
+        "name": "Futaleufú",
+        "state": 10,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 141,
+    "fields": {
+        "code": "10403",
+        "name": "Hualaihué",
+        "state": 10,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 142,
+    "fields": {
+        "code": "10404",
+        "name": "Palena",
+        "state": 10,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 143,
+    "fields": {
+        "code": "14202",
+        "name": "Futrono",
+        "state": 14,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 144,
+    "fields": {
+        "code": "14201",
+        "name": "La Unión",
+        "state": 14,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 145,
+    "fields": {
+        "code": "14203",
+        "name": "Lago Ranco",
+        "state": 14,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 146,
+    "fields": {
+        "code": "14204",
+        "name": "Río Bueno",
+        "state": 14,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 147,
+    "fields": {
+        "code": "14102",
+        "name": "Corral",
+        "state": 14,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 148,
+    "fields": {
+        "code": "14103",
+        "name": "Lanco",
+        "state": 14,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 149,
+    "fields": {
+        "code": "14104",
+        "name": "Los Lagos",
+        "state": 14,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 150,
+    "fields": {
+        "code": "14105",
+        "name": "Máfil",
+        "state": 14,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 151,
+    "fields": {
+        "code": "14106",
+        "name": "Mariquina",
+        "state": 14,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 152,
+    "fields": {
+        "code": "14107",
+        "name": "Paillaco",
+        "state": 14,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 153,
+    "fields": {
+        "code": "14108",
+        "name": "Panguipulli",
+        "state": 14,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 154,
+    "fields": {
+        "code": "14101",
+        "name": "Valdivia",
+        "state": 14,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 155,
+    "fields": {
+        "code": "12202",
+        "name": "Antártica",
+        "state": 12,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 156,
+    "fields": {
+        "code": "12201",
+        "name": "Cabo de Hornos",
+        "state": 12,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 157,
+    "fields": {
+        "code": "12102",
+        "name": "Laguna Blanca",
+        "state": 12,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 158,
+    "fields": {
+        "code": "12101",
+        "name": "Punta Arenas",
+        "state": 12,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 159,
+    "fields": {
+        "code": "12103",
+        "name": "Río Verde",
+        "state": 12,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 160,
+    "fields": {
+        "code": "12104",
+        "name": "San Gregorio",
+        "state": 12,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 161,
+    "fields": {
+        "code": "12301",
+        "name": "Porvenir",
+        "state": 12,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 162,
+    "fields": {
+        "code": "12302",
+        "name": "Primavera",
+        "state": 12,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 163,
+    "fields": {
+        "code": "12303",
+        "name": "Timaukel",
+        "state": 12,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 164,
+    "fields": {
+        "code": "12401",
+        "name": "Natales",
+        "state": 12,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 165,
+    "fields": {
+        "code": "12402",
+        "name": "Torres del Paine",
+        "state": 12,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 166,
+    "fields": {
+        "code": "7201",
+        "name": "Cauquenes",
+        "state": 7,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 167,
+    "fields": {
+        "code": "7202",
+        "name": "Chanco",
+        "state": 7,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 168,
+    "fields": {
+        "code": "7203",
+        "name": "Pelluhue",
+        "state": 7,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 169,
+    "fields": {
+        "code": "7301",
+        "name": "Curicó",
+        "state": 7,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 170,
+    "fields": {
+        "code": "7302",
+        "name": "Hualañé",
+        "state": 7,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 171,
+    "fields": {
+        "code": "7303",
+        "name": "Licantén",
+        "state": 7,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 172,
+    "fields": {
+        "code": "7304",
+        "name": "Molina",
+        "state": 7,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 173,
+    "fields": {
+        "code": "7305",
+        "name": "Rauco",
+        "state": 7,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 174,
+    "fields": {
+        "code": "7306",
+        "name": "Romeral",
+        "state": 7,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 175,
+    "fields": {
+        "code": "7307",
+        "name": "Sagrada Familia",
+        "state": 7,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 176,
+    "fields": {
+        "code": "7308",
+        "name": "Teno",
+        "state": 7,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 177,
+    "fields": {
+        "code": "7309",
+        "name": "Vichuquén",
+        "state": 7,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 178,
+    "fields": {
+        "code": "7402",
+        "name": "Colbún",
+        "state": 7,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 179,
+    "fields": {
+        "code": "7401",
+        "name": "Linares",
+        "state": 7,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 180,
+    "fields": {
+        "code": "7403",
+        "name": "Longaví",
+        "state": 7,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 181,
+    "fields": {
+        "code": "7404",
+        "name": "Parral",
+        "state": 7,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 182,
+    "fields": {
+        "code": "7405",
+        "name": "Retiro",
+        "state": 7,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 183,
+    "fields": {
+        "code": "7406",
+        "name": "San Javier",
+        "state": 7,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 184,
+    "fields": {
+        "code": "7407",
+        "name": "Villa Alegre",
+        "state": 7,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 185,
+    "fields": {
+        "code": "7408",
+        "name": "Yerbas Buenas",
+        "state": 7,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 186,
+    "fields": {
+        "code": "7102",
+        "name": "Constitución",
+        "state": 7,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 187,
+    "fields": {
+        "code": "7103",
+        "name": "Curepto",
+        "state": 7,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 188,
+    "fields": {
+        "code": "7104",
+        "name": "Empedrado",
+        "state": 7,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 189,
+    "fields": {
+        "code": "7105",
+        "name": "Maule",
+        "state": 7,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 190,
+    "fields": {
+        "code": "7106",
+        "name": "Pelarco",
+        "state": 7,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 191,
+    "fields": {
+        "code": "7107",
+        "name": "Pencahue",
+        "state": 7,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 192,
+    "fields": {
+        "code": "7108",
+        "name": "Río Claro",
+        "state": 7,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 193,
+    "fields": {
+        "code": "7109",
+        "name": "San Clemente",
+        "state": 7,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 194,
+    "fields": {
+        "code": "7110",
+        "name": "San Rafael",
+        "state": 7,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 195,
+    "fields": {
+        "code": "7101",
+        "name": "Talca",
+        "state": 7,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 196,
+    "fields": {
+        "code": "16102",
+        "name": "Bulnes",
+        "state": 16,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 197,
+    "fields": {
+        "code": "16101",
+        "name": "Chillán",
+        "state": 16,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 198,
+    "fields": {
+        "code": "16103",
+        "name": "Chillán Viejo",
+        "state": 16,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 199,
+    "fields": {
+        "code": "16104",
+        "name": "El Carmen",
+        "state": 16,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 200,
+    "fields": {
+        "code": "16105",
+        "name": "Pemuco",
+        "state": 16,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 201,
+    "fields": {
+        "code": "16106",
+        "name": "Pinto",
+        "state": 16,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 202,
+    "fields": {
+        "code": "16107",
+        "name": "Quillón",
+        "state": 16,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 203,
+    "fields": {
+        "code": "16108",
+        "name": "San Ignacio",
+        "state": 16,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 204,
+    "fields": {
+        "code": "16109",
+        "name": "Yungay",
+        "state": 16,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 205,
+    "fields": {
+        "code": "16202",
+        "name": "Cobquecura",
+        "state": 16,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 206,
+    "fields": {
+        "code": "16203",
+        "name": "Coelemu",
+        "state": 16,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 207,
+    "fields": {
+        "code": "16204",
+        "name": "Ninhue",
+        "state": 16,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 208,
+    "fields": {
+        "code": "16205",
+        "name": "Portezuelo",
+        "state": 16,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 209,
+    "fields": {
+        "code": "16201",
+        "name": "Quirihue",
+        "state": 16,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 210,
+    "fields": {
+        "code": "16206",
+        "name": "Ránquil",
+        "state": 16,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 211,
+    "fields": {
+        "code": "16207",
+        "name": "Treguaco",
+        "state": 16,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 212,
+    "fields": {
+        "code": "16302",
+        "name": "Coihueco",
+        "state": 16,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 213,
+    "fields": {
+        "code": "16303",
+        "name": "Ñiquén",
+        "state": 16,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 214,
+    "fields": {
+        "code": "16301",
+        "name": "San Carlos",
+        "state": 16,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 215,
+    "fields": {
+        "code": "16304",
+        "name": "San Fabián",
+        "state": 16,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 216,
+    "fields": {
+        "code": "16305",
+        "name": "San Nicolás",
+        "state": 16,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 217,
+    "fields": {
+        "code": "6102",
+        "name": "Codegua",
+        "state": 6,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 218,
+    "fields": {
+        "code": "6103",
+        "name": "Coinco",
+        "state": 6,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 219,
+    "fields": {
+        "code": "6104",
+        "name": "Coltauco",
+        "state": 6,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 220,
+    "fields": {
+        "code": "6105",
+        "name": "Doñihue",
+        "state": 6,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 221,
+    "fields": {
+        "code": "6106",
+        "name": "Graneros",
+        "state": 6,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 222,
+    "fields": {
+        "code": "6107",
+        "name": "Las Cabras",
+        "state": 6,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 223,
+    "fields": {
+        "code": "6108",
+        "name": "Machalí",
+        "state": 6,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 224,
+    "fields": {
+        "code": "6109",
+        "name": "Malloa",
+        "state": 6,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 225,
+    "fields": {
+        "code": "6110",
+        "name": "Mostazal",
+        "state": 6,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 226,
+    "fields": {
+        "code": "6111",
+        "name": "Olivar",
+        "state": 6,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 227,
+    "fields": {
+        "code": "6112",
+        "name": "Peumo",
+        "state": 6,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 228,
+    "fields": {
+        "code": "6113",
+        "name": "Pichidegua",
+        "state": 6,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 229,
+    "fields": {
+        "code": "6114",
+        "name": "Quinta de Tilcoco",
+        "state": 6,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 230,
+    "fields": {
+        "code": "6101",
+        "name": "Rancagua",
+        "state": 6,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 231,
+    "fields": {
+        "code": "6115",
+        "name": "Rengo",
+        "state": 6,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 232,
+    "fields": {
+        "code": "6116",
+        "name": "Requínoa",
+        "state": 6,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 233,
+    "fields": {
+        "code": "6117",
+        "name": "San Vicente",
+        "state": 6,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 234,
+    "fields": {
+        "code": "6202",
+        "name": "La Estrella",
+        "state": 6,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 235,
+    "fields": {
+        "code": "6203",
+        "name": "Litueche",
+        "state": 6,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 236,
+    "fields": {
+        "code": "6204",
+        "name": "Marchihue",
+        "state": 6,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 237,
+    "fields": {
+        "code": "6205",
+        "name": "Navidad",
+        "state": 6,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 238,
+    "fields": {
+        "code": "6206",
+        "name": "Paredones",
+        "state": 6,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 239,
+    "fields": {
+        "code": "6201",
+        "name": "Pichilemu",
+        "state": 6,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 240,
+    "fields": {
+        "code": "6302",
+        "name": "Chépica",
+        "state": 6,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 241,
+    "fields": {
+        "code": "6303",
+        "name": "Chimbarongo",
+        "state": 6,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 242,
+    "fields": {
+        "code": "6304",
+        "name": "Lolol",
+        "state": 6,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 243,
+    "fields": {
+        "code": "6305",
+        "name": "Nancagua",
+        "state": 6,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 244,
+    "fields": {
+        "code": "6306",
+        "name": "Palmilla",
+        "state": 6,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 245,
+    "fields": {
+        "code": "6307",
+        "name": "Peralillo",
+        "state": 6,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 246,
+    "fields": {
+        "code": "6308",
+        "name": "Placilla",
+        "state": 6,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 247,
+    "fields": {
+        "code": "6309",
+        "name": "Pumanque",
+        "state": 6,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 248,
+    "fields": {
+        "code": "6301",
+        "name": "San Fernando",
+        "state": 6,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 249,
+    "fields": {
+        "code": "6310",
+        "name": "Santa Cruz",
+        "state": 6,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 250,
+    "fields": {
+        "code": "1107",
+        "name": "Alto Hospicio",
+        "state": 1,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 251,
+    "fields": {
+        "code": "1101",
+        "name": "Iquique",
+        "state": 1,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 252,
+    "fields": {
+        "code": "1402",
+        "name": "Camiña",
+        "state": 1,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 253,
+    "fields": {
+        "code": "1403",
+        "name": "Colchane",
+        "state": 1,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 254,
+    "fields": {
+        "code": "1404",
+        "name": "Huara",
+        "state": 1,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 255,
+    "fields": {
+        "code": "1405",
+        "name": "Pica",
+        "state": 1,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 256,
+    "fields": {
+        "code": "1401",
+        "name": "Pozo Almonte",
+        "state": 1,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 257,
+    "fields": {
+        "code": "5201",
+        "name": "Isla de Pascua",
+        "state": 5,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 258,
+    "fields": {
+        "code": "5302",
+        "name": "Calle Larga",
+        "state": 5,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 259,
+    "fields": {
+        "code": "5301",
+        "name": "Los Andes",
+        "state": 5,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 260,
+    "fields": {
+        "code": "5303",
+        "name": "Rinconada",
+        "state": 5,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 261,
+    "fields": {
+        "code": "5304",
+        "name": "San Esteban",
+        "state": 5,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 262,
+    "fields": {
+        "code": "5802",
+        "name": "Limache",
+        "state": 5,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 263,
+    "fields": {
+        "code": "5803",
+        "name": "Olmué",
+        "state": 5,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 264,
+    "fields": {
+        "code": "5801",
+        "name": "Quilpué",
+        "state": 5,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 265,
+    "fields": {
+        "code": "5804",
+        "name": "Villa Alemana",
+        "state": 5,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 266,
+    "fields": {
+        "code": "5402",
+        "name": "Cabildo",
+        "state": 5,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 267,
+    "fields": {
+        "code": "5401",
+        "name": "La Ligua",
+        "state": 5,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 268,
+    "fields": {
+        "code": "5403",
+        "name": "Papudo",
+        "state": 5,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 269,
+    "fields": {
+        "code": "5404",
+        "name": "Petorca",
+        "state": 5,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 270,
+    "fields": {
+        "code": "5405",
+        "name": "Zapallar",
+        "state": 5,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 271,
+    "fields": {
+        "code": "5503",
+        "name": "Hijuelas",
+        "state": 5,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 272,
+    "fields": {
+        "code": "5502",
+        "name": "La Calera",
+        "state": 5,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 273,
+    "fields": {
+        "code": "5504",
+        "name": "La Cruz",
+        "state": 5,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 274,
+    "fields": {
+        "code": "5506",
+        "name": "Nogales",
+        "state": 5,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 275,
+    "fields": {
+        "code": "5501",
+        "name": "Quillota",
+        "state": 5,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 276,
+    "fields": {
+        "code": "5602",
+        "name": "Algarrobo",
+        "state": 5,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 277,
+    "fields": {
+        "code": "5603",
+        "name": "Cartagena",
+        "state": 5,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 278,
+    "fields": {
+        "code": "5604",
+        "name": "El Quisco",
+        "state": 5,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 279,
+    "fields": {
+        "code": "5605",
+        "name": "El Tabo",
+        "state": 5,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 280,
+    "fields": {
+        "code": "5601",
+        "name": "San Antonio",
+        "state": 5,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 281,
+    "fields": {
+        "code": "5606",
+        "name": "Santo Domingo",
+        "state": 5,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 282,
+    "fields": {
+        "code": "5702",
+        "name": "Catemu",
+        "state": 5,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 283,
+    "fields": {
+        "code": "5703",
+        "name": "Llay-Llay",
+        "state": 5,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 284,
+    "fields": {
+        "code": "5704",
+        "name": "Panquehue",
+        "state": 5,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 285,
+    "fields": {
+        "code": "5705",
+        "name": "Putaendo",
+        "state": 5,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 286,
+    "fields": {
+        "code": "5701",
+        "name": "San Felipe",
+        "state": 5,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 287,
+    "fields": {
+        "code": "5706",
+        "name": "Santa María",
+        "state": 5,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 288,
+    "fields": {
+        "code": "5102",
+        "name": "Casablanca",
+        "state": 5,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 289,
+    "fields": {
+        "code": "5103",
+        "name": "Concón",
+        "state": 5,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 290,
+    "fields": {
+        "code": "5104",
+        "name": "Juan Fernández",
+        "state": 5,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 291,
+    "fields": {
+        "code": "5105",
+        "name": "Puchuncaví",
+        "state": 5,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 292,
+    "fields": {
+        "code": "5107",
+        "name": "Quintero",
+        "state": 5,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 293,
+    "fields": {
+        "code": "5101",
+        "name": "Valparaíso",
+        "state": 5,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 294,
+    "fields": {
+        "code": "5109",
+        "name": "Viña del Mar",
+        "state": 5,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 295,
+    "fields": {
+        "code": "13301",
+        "name": "Colina",
+        "state": 13,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 296,
+    "fields": {
+        "code": "13302",
+        "name": "Lampa",
+        "state": 13,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 297,
+    "fields": {
+        "code": "13303",
+        "name": "Til Til",
+        "state": 13,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 298,
+    "fields": {
+        "code": "13202",
+        "name": "Pirque",
+        "state": 13,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 299,
+    "fields": {
+        "code": "13201",
+        "name": "Puente Alto",
+        "state": 13,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 300,
+    "fields": {
+        "code": "13203",
+        "name": "San José de Maipo",
+        "state": 13,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 301,
+    "fields": {
+        "code": "13402",
+        "name": "Buin",
+        "state": 13,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 302,
+    "fields": {
+        "code": "13403",
+        "name": "Calera de Tango",
+        "state": 13,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 303,
+    "fields": {
+        "code": "13404",
+        "name": "Paine",
+        "state": 13,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 304,
+    "fields": {
+        "code": "13401",
+        "name": "San Bernardo",
+        "state": 13,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 305,
+    "fields": {
+        "code": "13502",
+        "name": "Alhué",
+        "state": 13,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 306,
+    "fields": {
+        "code": "13503",
+        "name": "Curacaví",
+        "state": 13,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 307,
+    "fields": {
+        "code": "13504",
+        "name": "María Pinto",
+        "state": 13,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 308,
+    "fields": {
+        "code": "13501",
+        "name": "Melipilla",
+        "state": 13,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 309,
+    "fields": {
+        "code": "13505",
+        "name": "San Pedro",
+        "state": 13,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 310,
+    "fields": {
+        "code": "13102",
+        "name": "Cerrillos",
+        "state": 13,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 311,
+    "fields": {
+        "code": "13103",
+        "name": "Cerro Navia",
+        "state": 13,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 312,
+    "fields": {
+        "code": "13104",
+        "name": "Conchalí",
+        "state": 13,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 313,
+    "fields": {
+        "code": "13105",
+        "name": "El Bosque",
+        "state": 13,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 314,
+    "fields": {
+        "code": "13106",
+        "name": "Estación Central",
+        "state": 13,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 315,
+    "fields": {
+        "code": "13107",
+        "name": "Huechuraba",
+        "state": 13,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 316,
+    "fields": {
+        "code": "13108",
+        "name": "Independencia",
+        "state": 13,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 317,
+    "fields": {
+        "code": "13109",
+        "name": "La Cisterna",
+        "state": 13,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 318,
+    "fields": {
+        "code": "13110",
+        "name": "La Florida",
+        "state": 13,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 319,
+    "fields": {
+        "code": "13111",
+        "name": "La Granja",
+        "state": 13,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 320,
+    "fields": {
+        "code": "13112",
+        "name": "La Pintana",
+        "state": 13,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 321,
+    "fields": {
+        "code": "13113",
+        "name": "La Reina",
+        "state": 13,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 322,
+    "fields": {
+        "code": "13114",
+        "name": "Las Condes",
+        "state": 13,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 323,
+    "fields": {
+        "code": "13115",
+        "name": "Lo Barnechea",
+        "state": 13,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 324,
+    "fields": {
+        "code": "13116",
+        "name": "Lo Espejo",
+        "state": 13,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 325,
+    "fields": {
+        "code": "13117",
+        "name": "Lo Prado",
+        "state": 13,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 326,
+    "fields": {
+        "code": "13118",
+        "name": "Macul",
+        "state": 13,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 327,
+    "fields": {
+        "code": "13119",
+        "name": "Maipú",
+        "state": 13,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 328,
+    "fields": {
+        "code": "13120",
+        "name": "Ñuñoa",
+        "state": 13,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 329,
+    "fields": {
+        "code": "13121",
+        "name": "Pedro Aguirre Cerda",
+        "state": 13,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 330,
+    "fields": {
+        "code": "13122",
+        "name": "Peñalolén",
+        "state": 13,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 331,
+    "fields": {
+        "code": "13123",
+        "name": "Providencia",
+        "state": 13,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 332,
+    "fields": {
+        "code": "13124",
+        "name": "Pudahuel",
+        "state": 13,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 333,
+    "fields": {
+        "code": "13125",
+        "name": "Quilicura",
+        "state": 13,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 334,
+    "fields": {
+        "code": "13126",
+        "name": "Quinta Normal",
+        "state": 13,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 335,
+    "fields": {
+        "code": "13127",
+        "name": "Recoleta",
+        "state": 13,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 336,
+    "fields": {
+        "code": "13128",
+        "name": "Renca",
+        "state": 13,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 337,
+    "fields": {
+        "code": "13129",
+        "name": "San Joaquín",
+        "state": 13,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 338,
+    "fields": {
+        "code": "13130",
+        "name": "San Miguel",
+        "state": 13,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 339,
+    "fields": {
+        "code": "13131",
+        "name": "San Ramón",
+        "state": 13,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 340,
+    "fields": {
+        "code": "13101",
+        "name": "Santiago",
+        "state": 13,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 341,
+    "fields": {
+        "code": "13132",
+        "name": "Vitacura",
+        "state": 13,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 342,
+    "fields": {
+        "code": "13602",
+        "name": "El Monte",
+        "state": 13,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 343,
+    "fields": {
+        "code": "13603",
+        "name": "Isla de Maipo",
+        "state": 13,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 344,
+    "fields": {
+        "code": "13604",
+        "name": "Padre Hurtado",
+        "state": 13,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 345,
+    "fields": {
+        "code": "13605",
+        "name": "Peñaflor",
+        "state": 13,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.muni",
+    "pk": 346,
+    "fields": {
+        "code": "13601",
+        "name": "Talagante",
+        "state": 13,
+        "changed_by": 1
+    }
 }
 ]

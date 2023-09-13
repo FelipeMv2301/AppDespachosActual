@@ -28,6 +28,7 @@ class Sap:
         self.region_mdl = 'States'
         self.dispatch_mdl = 'DeliveryNotes'
         self.dispatch_lines_mdl = f'{self.dispatch_mdl}/DocumentLines'
+        self.sales_person_mdl = 'SalesPersons'
 
         # SAP's fixed vars
         self.country_code = 'CL'
@@ -138,5 +139,3 @@ class Sap:
                     e = CustomError(msg=self.no_sap_logout)
                     raise e
                 attempt += 1
-
-        return response

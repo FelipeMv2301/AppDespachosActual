@@ -2,8 +2,13 @@ import json
 from typing import Any, Dict
 
 import requests
+from django.contrib.auth.models import User
+from simple_history.utils import (bulk_create_with_history,
+                                  bulk_update_with_history)
 
+from app.general.models.muni_sap import MuniSap
 from classes.sap.sap import Sap
+from core.settings.base import APP_USERNAME
 from helpers.decorator.loggable import loggable
 
 
@@ -40,39 +45,47 @@ class MunicipalityAndCity(Sap):
 
         return json.loads(s=response.text)['value']
 
-    # @loggable
-    # @Sap.session_handling
-    # def app_sync(self, *args, **kwargs):
-    #     municipality_codes = list()
-    #     region_codes = list()
-    #     munis_and_regions = self.search_with_region()
-    #     for i in munis_and_regions:
-    #         regions_info = i[self.regions_model]
-    #         region_code = regions_info['Code']
-    #         region_name = regions_info['Name']
-    #         municipalities_info = i[self.municipality_city_model]
-    #         municipality_code = municipalities_info['Code']
-    #         municipality_name = municipalities_info['Name']
-    #         region_object = RegionSap.objects.filter(code=region_code)
-    #         if region_code not in region_codes:
-    #             region_codes.append(region_code)
-    #             if region_object.exists():
-    #                 region_object.update(code=region_code, name=region_name)
-    #             else:
-    #                 RegionSap(code=region_code, name=region_name).save()
-    #         if municipality_code not in municipality_codes:
-    #             municipality_codes.append(municipality_code)
-    #             municipality_object = MunicipalitySap.objects.filter(
-    #                 code=municipality_code)
-    #             if municipality_object.exists():
-    #                 municipality_object.update(
-    #                     code=municipality_code,
-    #                     name=municipality_name,
-    #                     region=region_object[0]
-    #                 )
-    #             else:
-    #                 MunicipalitySap(
-    #                     code=municipality_code,
-    #                     name=municipality_name,
-    #                     region=region_object[0]
-    #                 ).save()
+    @loggable
+    @Sap.session_handling
+    def search_all(self, *args, **kwargs) -> Dict[str, Any]:
+        mdl = self.muni_and_city_mdl
+
+        url = self.host
+        url += f'{mdl}?$select=Code, Name'
+
+        self.change_max_page_size(qty=700)
+        response = requests.get(url=url, headers=self.headers)
+        self.check_response(response=response)
+
+        return json.loads(s=response.text)['value']
+
+    @loggable
+    def app_sync(self, *args, **kwargs):
+        model = MuniSap
+        munis = self.search_all()
+        user_obj = User.objects.get(username=APP_USERNAME)
+
+        objs = {obj.code: obj
+                for obj in model.objects.all()}
+        for muni in munis:
+            code = str(muni['Code'])
+            name = muni['Name']
+
+            sync_kwargs = {'model': model}
+            if code in objs:
+                obj = objs[code]
+                sync_func = bulk_update_with_history
+                sync_kwargs['fields'] = [
+                    'code',
+                    'name',
+                    'changed_by'
+                ]
+            else:
+                sync_func = bulk_create_with_history
+                obj = model()
+
+            obj.code = code
+            obj.name = name
+            obj.changed_by = user_obj
+            sync_kwargs['objs'] = [obj]
+            sync_func(**sync_kwargs)

@@ -1,0 +1,22 @@
+[
+{
+    "model": "delivery.paytype",
+    "pk": 1,
+    "fields": {
+        "code": "PA",
+        "name": "Pagado",
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.paytype",
+    "pk": 2,
+    "fields": {
+        "code": "CE",
+        "name": "Contra entrega",
+        "enabled": true,
+        "changed_by": 1
+    }
+}
+]

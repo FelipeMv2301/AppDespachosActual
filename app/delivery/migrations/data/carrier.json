@@ -1,0 +1,24 @@
+[
+{
+    "model": "delivery.carrier",
+    "pk": 1,
+    "fields": {
+        "code": "BQ",
+        "name": "Bioquimica.cl",
+        "icon_name": "bq.png",
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.carrier",
+    "pk": 2,
+    "fields": {
+        "code": "STK",
+        "name": "Starken",
+        "icon_name": "starken.png",
+        "enabled": true,
+        "changed_by": 1
+    }
+}
+]
