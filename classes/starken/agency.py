@@ -13,6 +13,7 @@ from app.general.models.muni_starken import MuniStarken
 from classes.starken.starken import Starken
 from core.settings.base import APP_USERNAME
 from helpers.decorator.loggable import loggable
+from helpers.error.custom_error import CustomError
 
 
 class Agency(Starken):
@@ -82,12 +83,14 @@ class Agency(Starken):
             if muni_code not in munis:
                 stk_muni_obj = MuniStarken.objects.filter(code=muni_code)
                 if not stk_muni_obj:
-                    error_msg = f'Comuna Starken {muni_code} no encontrada'
+                    e_msg = f'Starken muni code {muni_code} does not exist'
+                    CustomError(msg=e_msg)
                     continue
                 stk_muni_obj = stk_muni_obj.first()
                 muni_obj = stk_muni_obj.muni
                 if not muni_obj:
-                    error_msg = f'Comuna Starken {muni_code} sin comuna rel'
+                    e_msg = f'Starken muni code {muni_code} has no equivalence'
+                    CustomError(msg=e_msg)
                     continue
                 munis[muni_code] = muni_obj
             muni_obj = munis[muni_code]

@@ -12,3 +12,6 @@ if not os.path.exists(path=OUTPUT_FOLDER_PATH):
 
 # Web app styles data
 INPUT_CLASS = 'textfield'
+
+# Sync data
+SYNC_DAYS = -30

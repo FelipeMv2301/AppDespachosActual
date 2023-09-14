@@ -24,9 +24,11 @@ class Address(models.Model):
                             default=new_code.__func__)
     ref = models.CharField(max_length=100, default=new_code.__func__)
     st_and_num = models.CharField(max_length=500)
-    muni = models.ForeignKey(to='general.Muni', on_delete=models.CASCADE)
-    latitude = models.FloatField()
-    longitude = models.FloatField()
+    muni = models.ForeignKey(to='general.Muni',
+                             on_delete=models.CASCADE,
+                             null=True)
+    latitude = models.FloatField(null=True)
+    longitude = models.FloatField(null=True)
     # Object tracking
     changed_by = models.ForeignKey(to='auth.User', on_delete=models.CASCADE)
     history = HistoricalRecords(table_name='address_history')

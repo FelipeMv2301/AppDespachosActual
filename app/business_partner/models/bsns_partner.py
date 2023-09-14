@@ -6,7 +6,7 @@ from simple_history.models import HistoricalRecords
 class BusinessPartner(models.Model):
     # General
     code = models.CharField(max_length=100, unique=True)
-    name = models.CharField(max_length=100, unique=True)
+    name = models.CharField(max_length=100)
     currency = models.ForeignKey(to='general.Currency',
                                  on_delete=models.CASCADE)
     group = models.ForeignKey(to='business_partner.Group',
