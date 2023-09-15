@@ -216,7 +216,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigIntegerField(auto_created=True, blank=True, db_index=True, verbose_name='ID')),
                 ('code', models.CharField(db_index=True, max_length=100)),
-                ('name', models.CharField(db_index=True, max_length=100)),
+                ('name', models.CharField(max_length=100)),
                 ('tax_id', models.CharField(max_length=100)),
                 ('phone1', models.CharField(max_length=100, null=True)),
                 ('phone2', models.CharField(max_length=100, null=True)),
@@ -286,7 +286,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('code', models.CharField(max_length=100, unique=True)),
-                ('name', models.CharField(max_length=100, unique=True)),
+                ('name', models.CharField(max_length=100)),
                 ('tax_id', models.CharField(max_length=100)),
                 ('phone1', models.CharField(max_length=100, null=True)),
                 ('phone2', models.CharField(max_length=100, null=True)),

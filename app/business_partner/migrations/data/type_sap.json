@@ -18,5 +18,25 @@
         "type": 2,
         "changed_by": 1
     }
+},
+{
+    "model": "business_partner.typesap",
+    "pk": 3,
+    "fields": {
+        "code": "C",
+        "name": "Cliente",
+        "type": 1,
+        "changed_by": 1
+    }
+},
+{
+    "model": "business_partner.typesap",
+    "pk": 4,
+    "fields": {
+        "code": "S",
+        "name": "Proveedor",
+        "type": 2,
+        "changed_by": 1
+    }
 }
 ]

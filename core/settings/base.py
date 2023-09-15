@@ -40,6 +40,16 @@ else:
     # https://docs.djangoproject.com/en/dev/ref/settings/#static-root
     STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
+# MEDIA
+# ------------------------------------------------------------------------------
+
+# https://docs.djangoproject.com/en/4.2/ref/settings/#media-url
+MEDIA_URL = '/media/'
+# https://docs.djangoproject.com/en/4.2/ref/settings/#std-setting-MEDIA_ROOT
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+if not os.path.exists(path=MEDIA_ROOT):
+    os.mkdir(path=MEDIA_ROOT)
+
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 LANGUAGE_CODE = env.str(var='LANGUAGE_CODE')

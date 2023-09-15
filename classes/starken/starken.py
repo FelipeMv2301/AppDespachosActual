@@ -6,8 +6,7 @@ from typing import Callable
 import requests
 from fake_useragent import UserAgent
 
-from core.settings.base import env
-from helpers import globals as gb
+from core.settings.base import MEDIA_ROOT, env
 from helpers.decorator.loggable import loggable
 from helpers.error.custom_error import CustomError
 
@@ -26,8 +25,7 @@ class Starken:
             'X-Requested-With': 'XMLHttpRequest'
         }
         self.report_url = f'{self.portal_host}webCtaCte/panel/informes/get_informe.php'
-        self.report_output_path = os.path.join(gb.OUTPUT_FOLDER_PATH,
-                                               'starken.txt')
+        self.report_output_path = os.path.join(MEDIA_ROOT, 'starken.txt')
 
         # Starken API data
         self.api_host = env.str(var='STARKEN_API_HOST')

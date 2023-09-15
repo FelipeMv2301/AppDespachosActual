@@ -113,14 +113,15 @@ class Order(Sap):
             bsns_partner_ccy_code = str(bsns_partner_info['Currency'])
             bsns_partner_group_code = str(bsns_partner_info['GroupCode'])
             bsns_partner_tax_id = bsns_partner_info['FederalTaxID']
-            bsns_partner_type_code = str(bsns_partner_info['GroupCode'])
+            bsns_partner_type_code = str(bsns_partner_info['CardType'])
             bsns_partner_phone1 = bsns_partner_info['Phone1']
             bsns_partner_phone2 = bsns_partner_info['Phone2']
             bsns_partner_email_addr = bsns_partner_info['EmailAddress']
 
             # Extraction of business partner contact information
             contact_info = order[sap_bsns_partner_contact_mdl]
-            contact_code = contact_info['Name']
+            contact_code = str(ordr_info['ContactPersonCode'])
+            contact_ref = contact_info['Name']
             contact_first_name = contact_info['FirstName'] or ''
             contact_middle_name = contact_info['MiddleName'] or ''
             contact_last_name = contact_info['LastName'] or ''
@@ -128,7 +129,7 @@ class Order(Sap):
             contact_phone2 = contact_info['Phone2']
             contact_mobile_phone = contact_info['MobilePhone']
             contact_email_addr = contact_info['E_Mail']
-            contact_addr = contact_info['Address']
+            contact_st_and_num = contact_info['Address'] or ''
 
             # validations start
             # ----------------------------------------------------------------
@@ -281,11 +282,12 @@ class Order(Sap):
 
             sync_kwargs = {'model': mdl}
             addr_sync_kwargs = {'model': addr_mdl}
+            contact_addr_sync_kwargs = {'model': addr_mdl}
             bsns_partner_sync_kwargs = {'model': bsns_partner_mdl}
             contact_sync_kwargs = {'model': contact_mdl}
             try:
                 bsns_partner = (bsns_partner_mdl.objects
-                                .get(ref=bsns_partner_code))
+                                .get(code=bsns_partner_code))
                 bsns_partner_sync_func = bulk_update_with_history
                 bsns_partner_sync_kwargs['fields'] = [
                     'name',
@@ -303,20 +305,44 @@ class Order(Sap):
                 bsns_partner.code = bsns_partner_code
                 bsns_partner_sync_func = bulk_create_with_history
             try:
+                contact = contact_mdl.objects.get(code=contact_code)
+                contact_sync_func = bulk_update_with_history
+                contact_sync_kwargs['fields'] = [
+                    'ref',
+                    'first_name',
+                    'last_name',
+                    'addr',
+                    'phone1',
+                    'phone2',
+                    'mobile_phone',
+                    'email_addr',
+                    'changed_by',
+                ]
+
+                contact_addr = contact.addr
+                contact_addr_sync_kwargs['fields'] = [
+                    'ref',
+                    'st_and_num',
+                    'muni',
+                    'changed_by',
+                ]
+            except contact_mdl.DoesNotExist:
+                contact = contact_mdl()
+                contact.code = contact_code
+
+                contact_addr = addr_mdl()
+
+                contact_sync_func = bulk_create_with_history
+            try:
                 ordr = (mdl.objects
                         .select_related(
                             'ship_addr',
                             'bill_addr',
-                            'customer',
-                            'contact',
-                            'contact__addr',
                         )
                         .get(ref=ref))
                 ordr_ship_addr = ordr.ship_addr
                 ordr_bill_addr = ordr.bill_addr
 
-                contact = ordr.contact
-                contact_addr = contact.addr
                 sync_func = bulk_update_with_history
                 sync_kwargs['fields'] = [
                     'currency',
@@ -343,37 +369,24 @@ class Order(Sap):
                     'muni',
                     'changed_by',
                 ]
-                contact_sync_kwargs['fields'] = [
-                    'ref',
-                    'first_name',
-                    'last_name',
-                    'addr',
-                    'phone1',
-                    'phone2',
-                    'mobile_phone',
-                    'email_addr',
-                    'changed_by',
-                ]
             except mdl.DoesNotExist:
                 ordr = mdl()
                 ordr.ref = ref
                 ordr_ship_addr = addr_mdl()
                 ordr_bill_addr = addr_mdl()
 
-                contact = contact_mdl()
-                contact_addr = addr_mdl()
                 sync_func = bulk_create_with_history
 
-            contact_addr.st_and_num = contact_addr
+            contact_addr.st_and_num = contact_st_and_num
             contact_addr.muni = None
             contact_addr.changed_by = user_obj
-            addr_sync_kwargs['objs'] = [contact_addr]
-            contact_addr_sync = sync_func(**addr_sync_kwargs)
+            contact_addr_sync_kwargs['objs'] = [contact_addr]
+            contact_addr_sync = contact_sync_func(**contact_addr_sync_kwargs)
             contact_addr = (contact_addr_sync[0]
                             if contact_addr_sync
                             else contact_addr)
 
-            contact.ref = contact_code
+            contact.ref = contact_ref
             contact.first_name = ' '.join([
                 contact_first_name,
                 contact_middle_name
@@ -386,7 +399,7 @@ class Order(Sap):
             contact.addr = contact_addr
             contact.changed_by = user_obj
             contact_sync_kwargs['objs'] = [contact]
-            contact_sync = sync_func(**contact_sync_kwargs)
+            contact_sync = contact_sync_func(**contact_sync_kwargs)
             contact = contact_sync[0] if contact_sync else contact
 
             ordr_ship_addr.ref = ordr_ship_addr_ref
@@ -426,13 +439,14 @@ class Order(Sap):
                             if bsns_partner_sync
                             else bsns_partner)
 
-            ordr.currency = ref
+            ordr.currency = ccy
             ordr.web_order_ref = web_ordr_ref
             ordr.sale_channel = sale_channel
             ordr.seller = seller
             ordr.create_date = create_date
             ordr.tax_date = tax_date
             ordr.commit_date = commit_date
+            ordr.updtd_commit_date = commit_date
             ordr.ship_addr = ordr_ship_addr
             ordr.bill_addr = ordr_bill_addr
             ordr.customer = bsns_partner
