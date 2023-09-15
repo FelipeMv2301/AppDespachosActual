@@ -18,5 +18,15 @@
         "enabled": true,
         "changed_by": 1
     }
+},
+{
+    "model": "delivery.paytype",
+    "pk": 3,
+    "fields": {
+        "code": "FREE",
+        "name": "Gratis",
+        "enabled": true,
+        "changed_by": 1
+    }
 }
 ]

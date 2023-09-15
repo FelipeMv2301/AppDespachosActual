@@ -1,4 +1,6 @@
+import os
 import traceback
+from pathlib import Path
 from typing import Callable
 
 import MySQLdb as mysql
@@ -6,6 +8,8 @@ import MySQLdb as mysql
 from core.settings.base import env
 from helpers.decorator.loggable import loggable
 from helpers.error.custom_error import CustomError
+
+CURRENT_DIR = Path(__file__).resolve().parent
 
 
 class Mitocondria:
@@ -23,6 +27,26 @@ class Mitocondria:
         self.muni_mdl = 'sys_comunas'
         self.ship_type_mdl = 'ad_despachos_param_tipo_entrega'
         self.ship_pay_type_mdl = 'ad_despachos_param_tipo_pago'
+
+        # Mitocondria's database queries data
+        self.queries_folder_path = os.path.join(CURRENT_DIR, 'sql')
+
+        # Mitocondria object equivalences
+        self.doc_types_equiv_by_code = {
+            26: 1,  # Factura electrónica
+            27: 3,  # Guía de despacho electrónica
+            28: 2,  # Boleta electrónica
+        }
+        self.deliv_types_equiv_by_code = {
+            1: 2,  # Starken agencia
+            2: 3,  # Starken domicilio
+            3: 1,  # Bioquimica.cl
+        }
+        self.pay_types_equiv_by_code = {
+            1: 3,  # Retira en Bioquimica.cl
+            2: 1,  # Cobrado en cotización
+            3: 2,  # Paga contra entrega
+        }
 
     @staticmethod
     def conn_handling(f: Callable):

@@ -1,3 +1,6 @@
+import os
+from typing import Dict, List
+
 from django.contrib.auth.models import User
 from simple_history.utils import (bulk_create_with_history,
                                   bulk_update_with_history)
@@ -21,23 +24,19 @@ class Municipality(Mitocondria):
 
     @loggable
     @Mitocondria.conn_handling
-    def search_all(self, *args, **kwargs) -> list:
+    def search_all(self, *args, **kwargs) -> List[Dict[str, str | int]]:
         cursor = self.conn.cursor()
-        query = 'SELECT muni.sys_comuna_id code, muni.sys_comuna_nombre name '
-        query += f'FROM {self.schema}.{self.muni_mdl} muni'
-
+        query_filepath = os.path.join(self.queries_folder_path,
+                                      'search_all_muni.sql')
+        with open(file=query_filepath, mode='r') as file:
+            query = file.read()
+        query = query.format(schema=self.schema)
         cursor.execute(query)
-        results = cursor.fetchall()
-        # TODO: check response
-        description = cursor.description
+        result = cursor.fetchall()
         cursor.close()
 
-        result = [
-            dict(
-                (description[i][0], value)
-                for i, value in enumerate(row)
-            ) for row in results
-        ]
+        headers = [header[0] for header in cursor.description]
+        result = [dict(zip(headers, row)) for row in result]
 
         return result
 

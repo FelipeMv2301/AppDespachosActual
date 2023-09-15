@@ -1,10 +1,26 @@
+import random
+import string
+
 from django.db import models
 from django.utils import timezone
 from simple_history.models import HistoricalRecords
 
 
 class Grouping(models.Model):
-    code = models.CharField(max_length=100)
+    @staticmethod
+    def new_code():
+        chars = string.ascii_uppercase
+        prefix = ''.join(random.choice(chars) for _ in range(4))
+        if Grouping.objects.count() == 0:
+            correlative = 1
+        else:
+            correlative = Grouping.objects.latest('id').id + 1
+        code = f'{prefix}{correlative}'
+        return code
+
+    code = models.CharField(max_length=100,
+                            default=new_code.__func__,
+                            unique=True)
     # Relationship
     order = models.ForeignKey(to='order.Order',
                               on_delete=models.CASCADE)

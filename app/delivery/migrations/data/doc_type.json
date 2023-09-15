@@ -18,5 +18,15 @@
         "enabled": true,
         "changed_by": 1
     }
+},
+{
+    "model": "delivery.documenttype",
+    "pk": 3,
+    "fields": {
+        "code": "52",
+        "name": "Guía de despacho electrónica",
+        "enabled": true,
+        "changed_by": 1
+    }
 }
 ]

@@ -10,6 +10,8 @@ from django.conf import settings
 from django.core.management import call_command
 from django.db import migrations, models
 
+import app.order.models.grouping
+
 
 def forwards_func(apps, schema_editor):
     current_path = pathlib.Path(__file__).parent.resolve()
@@ -196,7 +198,7 @@ class Migration(migrations.Migration):
             name='HistoricalGrouping',
             fields=[
                 ('id', models.BigIntegerField(auto_created=True, blank=True, db_index=True, verbose_name='ID')),
-                ('code', models.CharField(max_length=100)),
+                ('code', models.CharField(db_index=True, default=app.order.models.grouping.Grouping.new_code, max_length=100)),
                 ('enabled', models.BooleanField(default=True)),
                 ('deliv_obs', models.TextField(null=True)),
                 ('created_at', models.DateTimeField(default=django.utils.timezone.now)),
@@ -224,7 +226,7 @@ class Migration(migrations.Migration):
             name='Grouping',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('code', models.CharField(max_length=100)),
+                ('code', models.CharField(default=app.order.models.grouping.Grouping.new_code, max_length=100, unique=True)),
                 ('enabled', models.BooleanField(default=True)),
                 ('deliv_obs', models.TextField(null=True)),
                 ('created_at', models.DateTimeField(default=django.utils.timezone.now)),

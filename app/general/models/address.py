@@ -24,6 +24,7 @@ class Address(models.Model):
                             default=new_code.__func__)
     ref = models.CharField(max_length=100, default=new_code.__func__)
     st_and_num = models.CharField(max_length=500)
+    complement = models.CharField(max_length=500, null=True)
     muni = models.ForeignKey(to='general.Muni',
                              on_delete=models.CASCADE,
                              null=True)
