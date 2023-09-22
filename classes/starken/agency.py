@@ -10,8 +10,10 @@ from app.delivery.models.agency import Agency as AgencyMdl
 from app.delivery.models.carrier import Carrier
 from app.general.models.address import Address
 from app.general.models.muni_starken import MuniStarken
+from app.general.models.muni import Muni
 from classes.starken.starken import Starken
 from core.settings.base import APP_USERNAME
+from classes.google_maps.gmaps import GoogleMaps
 from helpers.decorator.loggable import loggable
 from helpers.error.custom_error import CustomError
 
@@ -58,9 +60,12 @@ class Agency(Starken):
     def app_sync(self, *args, **kwargs):
         model = AgencyMdl
         addr_mdl = Address
+        stk_muni_mdl = MuniStarken
+        muni_mdl = Muni
         agencies = self.search_all()
         carrier_obj = Carrier.objects.get(name=self.carrier_name)
         user_obj = User.objects.get(username=APP_USERNAME)
+        gmaps = GoogleMaps()
 
         munis = {}
         ag_objs = {obj.code: obj
@@ -81,7 +86,7 @@ class Agency(Starken):
             muni_code = muni['code_dls']
 
             if muni_code not in munis:
-                stk_muni_obj = MuniStarken.objects.filter(code=muni_code)
+                stk_muni_obj = stk_muni_mdl.objects.filter(code=muni_code)
                 if not stk_muni_obj:
                     e_msg = f'Starken muni code {muni_code} does not exist'
                     CustomError(msg=e_msg)
@@ -89,9 +94,15 @@ class Agency(Starken):
                 stk_muni_obj = stk_muni_obj.first()
                 muni_obj = stk_muni_obj.muni
                 if not muni_obj:
-                    e_msg = f'Starken muni code {muni_code} has no equivalence'
-                    CustomError(msg=e_msg)
-                    continue
+                    muni_name_from_gmaps = gmaps.get_muni_by_latlng(
+                        lat=latitude, lng=longitude)
+                    try:
+                        muni_obj = muni_mdl.objects.get(
+                            name=muni_name_from_gmaps)
+                    except muni_mdl.DoesNotExist:
+                        e_msg = f'Starken muni code {muni_code} has no equivalence'
+                        CustomError(msg=e_msg)
+                        continue
                 munis[muni_code] = muni_obj
             muni_obj = munis[muni_code]
 

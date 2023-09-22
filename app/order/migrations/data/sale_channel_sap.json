@@ -65,7 +65,7 @@
     "fields": {
         "code": "CM",
         "name": "Conv Marco",
-        "sale_channel": null,
+        "sale_channel": 8,
         "changed_by": 1
     }
 },

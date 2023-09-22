@@ -51,10 +51,10 @@ class Order(Sap):
         url += f'{mdl}/CardCode eq  {bsns_partner_mdl}/CardCode and '
         url += f'{mdl}/ContactPersonCode eq {bsns_partner_contact_mdl}/'
         url += f'InternalCode and {mdl}/UpdateDate ge \'{from_date}\' and '
-        url += f'{mdl}/DocumentStatus eq \'O\' and '
+        # url += f'{mdl}/DocumentStatus eq \'O\' and '
         url += f'{mdl}/Cancelled eq \'tNO\'&$orderby={mdl}/DocEntry asc'
 
-        self.change_max_page_size(qty=1000)
+        self.change_max_page_size(qty=3000)
         response = requests.get(url=url, headers=self.headers)
         self.check_response(response=response)
 
@@ -204,6 +204,10 @@ class Order(Sap):
                 e_msg += f'\nOrder: {ref}'
                 CustomError(msg=e_msg)
                 continue
+            except muni_mdl.MultipleObjectsReturned:
+                ordr_bill_muni = (muni_mdl.objects
+                                  .filter(name=ordr_bill_muni_name)
+                                  .first())
 
             # validation of existence of equivalence for SAP muni
             ordr_bill_muni = ordr_bill_muni.muni
@@ -228,6 +232,10 @@ class Order(Sap):
                     e_msg += f'\nOrder: {ref}'
                     CustomError(msg=e_msg)
                     continue
+                except muni_mdl.MultipleObjectsReturned:
+                    ordr_ship_muni = (muni_mdl.objects
+                                      .filter(name=ordr_ship_muni_name)
+                                      .first())
 
                 # validation of existence of equivalence for SAP muni
                 ordr_ship_muni = ordr_ship_muni.muni

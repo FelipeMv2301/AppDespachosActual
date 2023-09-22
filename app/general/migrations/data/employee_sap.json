@@ -1,343 +1,344 @@
 [
-{
-    "model": "general.employeesap",
-    "pk": 1,
-    "fields": {
-        "code": "-1",
-        "name": "-Ningún empleado del departamento de ventas-",
-        "enabled": false,
-        "employee": null,
-        "changed_by": 1
+    {
+        "model": "general.employeesap",
+        "pk": 1,
+        "fields": {
+            "code": "-1",
+            "name": "-Ningún empleado del departamento de ventas-",
+            "enabled": false,
+            "employee": null,
+            "changed_by": 1
+        }
+    },
+    {
+        "model": "general.employeesap",
+        "pk": 2,
+        "fields": {
+            "code": "1",
+            "name": "Daniela Araya",
+            "enabled": true,
+            "employee": 1,
+            "changed_by": 1
+        }
+    },
+    {
+        "model": "general.employeesap",
+        "pk": 3,
+        "fields": {
+            "code": "2",
+            "name": "Pamela López",
+            "enabled": false,
+            "employee": 13,
+            "changed_by": 1
+        }
+    },
+    {
+        "model": "general.employeesap",
+        "pk": 4,
+        "fields": {
+            "code": "3",
+            "name": "Bianca Vargas",
+            "enabled": true,
+            "employee": 2,
+            "changed_by": 1
+        }
+    },
+    {
+        "model": "general.employeesap",
+        "pk": 5,
+        "fields": {
+            "code": "13",
+            "name": "Mariana Vera",
+            "enabled": false,
+            "employee": 14,
+            "changed_by": 1
+        }
+    },
+    {
+        "model": "general.employeesap",
+        "pk": 6,
+        "fields": {
+            "code": "5",
+            "name": "Johanna Palmegiani",
+            "enabled": true,
+            "employee": 3,
+            "changed_by": 1
+        }
+    },
+    {
+        "model": "general.employeesap",
+        "pk": 7,
+        "fields": {
+            "code": "16",
+            "name": "Jorge Londoño",
+            "enabled": false,
+            "employee": 15,
+            "changed_by": 1
+        }
+    },
+    {
+        "model": "general.employeesap",
+        "pk": 8,
+        "fields": {
+            "code": "7",
+            "name": "Andrés Ravelo",
+            "enabled": false,
+            "employee": null,
+            "changed_by": 1
+        }
+    },
+    {
+        "model": "general.employeesap",
+        "pk": 9,
+        "fields": {
+            "code": "8",
+            "name": "Florencia Gómez",
+            "enabled": false,
+            "employee": 16,
+            "changed_by": 1
+        }
+    },
+    {
+        "model": "general.employeesap",
+        "pk": 10,
+        "fields": {
+            "code": "9",
+            "name": "Jonathan Quintero",
+            "enabled": true,
+            "employee": 4,
+            "changed_by": 1
+        }
+    },
+    {
+        "model": "general.employeesap",
+        "pk": 11,
+        "fields": {
+            "code": "10",
+            "name": "Elsa Martínez",
+            "enabled": true,
+            "employee": 5,
+            "changed_by": 1
+        }
+    },
+    {
+        "model": "general.employeesap",
+        "pk": 12,
+        "fields": {
+            "code": "11",
+            "name": "Eileen Bellina",
+            "enabled": true,
+            "employee": 6,
+            "changed_by": 1
+        }
+    },
+    {
+        "model": "general.employeesap",
+        "pk": 13,
+        "fields": {
+            "code": "12",
+            "name": "Manuel Aracena",
+            "enabled": true,
+            "employee": 7,
+            "changed_by": 1
+        }
+    },
+    {
+        "model": "general.employeesap",
+        "pk": 14,
+        "fields": {
+            "code": "19",
+            "name": "Alejandra Perez",
+            "enabled": false,
+            "employee": 17,
+            "changed_by": 1
+        }
+    },
+    {
+        "model": "general.employeesap",
+        "pk": 15,
+        "fields": {
+            "code": "14",
+            "name": "Mabel Lopez",
+            "enabled": false,
+            "employee": 18,
+            "changed_by": 1
+        }
+    },
+    {
+        "model": "general.employeesap",
+        "pk": 16,
+        "fields": {
+            "code": "15",
+            "name": "Yandrelis Paz",
+            "enabled": false,
+            "employee": 19,
+            "changed_by": 1
+        }
+    },
+    {
+        "model": "general.employeesap",
+        "pk": 17,
+        "fields": {
+            "code": "21",
+            "name": "Web Elsa",
+            "enabled": true,
+            "employee": 20,
+            "changed_by": 1
+        }
+    },
+    {
+        "model": "general.employeesap",
+        "pk": 18,
+        "fields": {
+            "code": "20",
+            "name": "Cheryl Aguilera",
+            "enabled": false,
+            "employee": 21,
+            "changed_by": 1
+        }
+    },
+    {
+        "model": "general.employeesap",
+        "pk": 19,
+        "fields": {
+            "code": "18",
+            "name": "Hermi Parra",
+            "enabled": true,
+            "employee": 8,
+            "changed_by": 1
+        }
+    },
+    {
+        "model": "general.employeesap",
+        "pk": 20,
+        "fields": {
+            "code": "23",
+            "name": "Fernanda Guerrero",
+            "enabled": false,
+            "employee": 22,
+            "changed_by": 1
+        }
+    },
+    {
+        "model": "general.employeesap",
+        "pk": 21,
+        "fields": {
+            "code": "24",
+            "name": "Pablo Marin",
+            "enabled": true,
+            "employee": 23,
+            "changed_by": 1
+        }
+    },
+    {
+        "model": "general.employeesap",
+        "pk": 22,
+        "fields": {
+            "code": "22",
+            "name": "Web Jonathan",
+            "enabled": true,
+            "employee": 24,
+            "changed_by": 1
+        }
+    },
+    {
+        "model": "general.employeesap",
+        "pk": 23,
+        "fields": {
+            "code": "27",
+            "name": "Gabriela Tapia",
+            "enabled": true,
+            "employee": 25,
+            "changed_by": 1
+        }
+    },
+    {
+        "model": "general.employeesap",
+        "pk": 24,
+        "fields": {
+            "code": "17",
+            "name": "Adriana Larios",
+            "enabled": false,
+            "employee": 26,
+            "changed_by": 1
+        }
+    },
+    {
+        "model": "general.employeesap",
+        "pk": 25,
+        "fields": {
+            "code": "28",
+            "name": "Maroa Peña",
+            "enabled": true,
+            "employee": 9,
+            "changed_by": 1
+        }
+    },
+    {
+        "model": "general.employeesap",
+        "pk": 26,
+        "fields": {
+            "code": "25",
+            "name": "WEB",
+            "enabled": true,
+            "employee": 10,
+            "changed_by": 1
+        }
+    },
+    {
+        "model": "general.employeesap",
+        "pk": 27,
+        "fields": {
+            "code": "4",
+            "name": "Adelmaris Cisneros",
+            "enabled": false,
+            "employee": 12,
+            "changed_by": 1
+        }
+    },
+    {
+        "model": "general.employeesap",
+        "pk": 28,
+        "fields": {
+            "code": "6",
+            "name": "María Lobos",
+            "enabled": true,
+            "employee": 11,
+            "changed_by": 1
+        }
+    },
+    {
+        "model": "general.employeesap",
+        "pk": 29,
+        "fields": {
+            "code": "29",
+            "name": "Carlos Puga",
+            "enabled": true,
+            "employee": 27,
+            "changed_by": 1
+        }
+    },
+    {
+        "model": "general.employeesap",
+        "pk": 30,
+        "fields": {
+            "code": "30",
+            "name": "Natalia Olivos",
+            "enabled": true,
+            "employee": 28,
+            "changed_by": 1
+        }
+    },
+    {
+        "model": "general.employeesap",
+        "pk": 31,
+        "fields": {
+            "code": "31",
+            "name": "Juliana Olivares",
+            "enabled": true,
+            "employee": 29,
+            "changed_by": 1
+        }
     }
-},
-{
-    "model": "general.employeesap",
-    "pk": 2,
-    "fields": {
-        "code": "1",
-        "name": "Daniela Araya",
-        "enabled": true,
-        "employee": 1,
-        "changed_by": 1
-    }
-},
-{
-    "model": "general.employeesap",
-    "pk": 3,
-    "fields": {
-        "code": "2",
-        "name": "Pamela López",
-        "enabled": false,
-        "employee": null,
-        "changed_by": 1
-    }
-},
-{
-    "model": "general.employeesap",
-    "pk": 4,
-    "fields": {
-        "code": "3",
-        "name": "Bianca Vargas",
-        "enabled": true,
-        "employee": 2,
-        "changed_by": 1
-    }
-},
-{
-    "model": "general.employeesap",
-    "pk": 5,
-    "fields": {
-        "code": "13",
-        "name": "Mariana Vera",
-        "enabled": false,
-        "employee": null,
-        "changed_by": 1
-    }
-},
-{
-    "model": "general.employeesap",
-    "pk": 6,
-    "fields": {
-        "code": "5",
-        "name": "Johanna Palmegiani",
-        "enabled": true,
-        "employee": 3,
-        "changed_by": 1
-    }
-},
-{
-    "model": "general.employeesap",
-    "pk": 7,
-    "fields": {
-        "code": "16",
-        "name": "Jorge Londoño",
-        "enabled": false,
-        "employee": null,
-        "changed_by": 1
-    }
-},
-{
-    "model": "general.employeesap",
-    "pk": 8,
-    "fields": {
-        "code": "7",
-        "name": "Andrés Ravelo",
-        "enabled": false,
-        "employee": null,
-        "changed_by": 1
-    }
-},
-{
-    "model": "general.employeesap",
-    "pk": 9,
-    "fields": {
-        "code": "8",
-        "name": "Florencia Gómez",
-        "enabled": false,
-        "employee": null,
-        "changed_by": 1
-    }
-},
-{
-    "model": "general.employeesap",
-    "pk": 10,
-    "fields": {
-        "code": "9",
-        "name": "Jonathan Quintero",
-        "enabled": true,
-        "employee": 4,
-        "changed_by": 1
-    }
-},
-{
-    "model": "general.employeesap",
-    "pk": 11,
-    "fields": {
-        "code": "10",
-        "name": "Elsa Martínez",
-        "enabled": true,
-        "employee": 5,
-        "changed_by": 1
-    }
-},
-{
-    "model": "general.employeesap",
-    "pk": 12,
-    "fields": {
-        "code": "11",
-        "name": "Eileen Bellina",
-        "enabled": true,
-        "employee": 6,
-        "changed_by": 1
-    }
-},
-{
-    "model": "general.employeesap",
-    "pk": 13,
-    "fields": {
-        "code": "12",
-        "name": "Manuel Aracena",
-        "enabled": true,
-        "employee": 7,
-        "changed_by": 1
-    }
-},
-{
-    "model": "general.employeesap",
-    "pk": 14,
-    "fields": {
-        "code": "19",
-        "name": "Alejandra Perez",
-        "enabled": false,
-        "employee": null,
-        "changed_by": 1
-    }
-},
-{
-    "model": "general.employeesap",
-    "pk": 15,
-    "fields": {
-        "code": "14",
-        "name": "Mabel Lopez",
-        "enabled": false,
-        "employee": null,
-        "changed_by": 1
-    }
-},
-{
-    "model": "general.employeesap",
-    "pk": 16,
-    "fields": {
-        "code": "15",
-        "name": "Yandrelis Paz",
-        "enabled": false,
-        "employee": null,
-        "changed_by": 1
-    }
-},
-{
-    "model": "general.employeesap",
-    "pk": 17,
-    "fields": {
-        "code": "21",
-        "name": "Web Elsa",
-        "enabled": true,
-        "employee": null,
-        "changed_by": 1
-    }
-},
-{
-    "model": "general.employeesap",
-    "pk": 18,
-    "fields": {
-        "code": "20",
-        "name": "Cheryl Aguilera",
-        "enabled": false,
-        "employee": null,
-        "changed_by": 1
-    }
-},
-{
-    "model": "general.employeesap",
-    "pk": 19,
-    "fields": {
-        "code": "18",
-        "name": "Hermi Parra",
-        "enabled": true,
-        "employee": 8,
-        "changed_by": 1
-    }
-},
-{
-    "model": "general.employeesap",
-    "pk": 20,
-    "fields": {
-        "code": "23",
-        "name": "Fernanda Guerrero",
-        "enabled": false,
-        "employee": null,
-        "changed_by": 1
-    }
-},
-{
-    "model": "general.employeesap",
-    "pk": 21,
-    "fields": {
-        "code": "24",
-        "name": "Pablo Marin",
-        "enabled": true,
-        "employee": null,
-        "changed_by": 1
-    }
-},
-{
-    "model": "general.employeesap",
-    "pk": 22,
-    "fields": {
-        "code": "22",
-        "name": "Web Jonathan",
-        "enabled": true,
-        "employee": null,
-        "changed_by": 1
-    }
-},
-{
-    "model": "general.employeesap",
-    "pk": 23,
-    "fields": {
-        "code": "27",
-        "name": "Gabriela Tapia",
-        "enabled": true,
-        "employee": null,
-        "changed_by": 1
-    }
-},
-{
-    "model": "general.employeesap",
-    "pk": 24,
-    "fields": {
-        "code": "17",
-        "name": "Adriana Larios",
-        "enabled": false,
-        "employee": null,
-        "changed_by": 1
-    }
-},
-{
-    "model": "general.employeesap",
-    "pk": 25,
-    "fields": {
-        "code": "28",
-        "name": "Maroa Peña",
-        "enabled": true,
-        "employee": 9,
-        "changed_by": 1
-    }
-},
-{
-    "model": "general.employeesap",
-    "pk": 26,
-    "fields": {
-        "code": "25",
-        "name": "WEB",
-        "enabled": true,
-        "employee": 10,
-        "changed_by": 1
-    }
-},
-{
-    "model": "general.employeesap",
-    "pk": 27,
-    "fields": {
-        "code": "4",
-        "name": "Adelmaris Cisneros",
-        "enabled": false,
-        "employee": null,
-        "changed_by": 1
-    }
-},
-{
-    "model": "general.employeesap",
-    "pk": 28,
-    "fields": {
-        "code": "6",
-        "name": "María Lobos",
-        "enabled": true,
-        "employee": 11,
-        "changed_by": 1
-    }
-},
-{
-    "model": "general.employeesap",
-    "pk": 29,
-    "fields": {
-        "code": "29",
-        "name": "Carlos Puga",
-        "enabled": true,
-        "employee": null,
-        "changed_by": 1
-    }
-},
-{
-    "model": "general.employeesap",
-    "pk": 30,
-    "fields": {
-        "code": "30",
-        "name": "Natalia Olivos",
-        "enabled": true,
-        "employee": null,
-        "changed_by": 1
-    }
-},
-{
-    "model": "general.employeesap",
-    "pk": 31,
-    "fields": {
-        "code": "31",
-        "name": "Juliana Olivares",
-        "enabled": true,
-        "employee": null,
-        "changed_by": 1
-    }
-}
 ]
+    

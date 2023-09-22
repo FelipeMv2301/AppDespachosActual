@@ -1305,7 +1305,7 @@
     "fields": {
         "code": "446",
         "name": "SAN VTE TAGUA TAGUA",
-        "muni": null,
+        "muni": 233,
         "changed_by": 1
     }
 },
@@ -3505,7 +3505,7 @@
     "fields": {
         "code": "451",
         "name": "San Vcte. TaguaTagua",
-        "muni": null,
+        "muni": 233,
         "changed_by": 1
     }
 }

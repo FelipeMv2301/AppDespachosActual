@@ -9,9 +9,13 @@ SELECT
     dadm.largo length,
     dadm.kilos_total weight,
     dadm.numero_bultos packages,
-    dadm.valor_declarado reported_value,
-    GROUP_CONCAT(doc.n_documento) doc_num,
-    GROUP_CONCAT(doc_type.despachos_param_tipo_documento_id) doc_type,
+    dadm.valor_declarado valuation,
+    CONCAT('[',
+            GROUP_CONCAT(DISTINCT JSON_OBJECT('folio',
+                        doc.n_documento,
+                        'type',
+                        doc_type.despachos_param_tipo_documento_id)),
+            ']') docs,
     ordr.pedido_referencia ordr_ref,
     -- ordr.pedido_total ordr_total_amt,
     -- ordr.pedido_impuesto ordr_total_tax,
@@ -32,10 +36,10 @@ FROM
     {schema}.ad_despachos d
         INNER JOIN
     {schema}.ad_despachos_admin dadm ON d.despachos_admin_id = dadm.despachos_admin_id
-        INNER JOIN
-    {schema}.ad_despachos_doc_admin doc ON doc.despachos_admin_id = dadm.despachos_admin_id
-        INNER JOIN
-    {schema}.ad_despachos_param_tipo_documento doc_type ON doc_type.despachos_param_tipo_documento_id = doc.despachos_param_tipo_documento_id
+        LEFT JOIN
+    {schema}.ad_despachos_doc_admin doc ON dadm.despachos_admin_id = doc.despachos_admin_id
+        LEFT JOIN
+    {schema}.ad_despachos_param_tipo_documento doc_type ON doc.despachos_param_tipo_documento_id = doc_type.despachos_param_tipo_documento_id
         INNER JOIN
     {schema}.ad_pedido_detalle order_detail ON dadm.pedido_detalle_id = order_detail.pedido_detalle_id
         INNER JOIN

@@ -33,19 +33,19 @@ class Mitocondria:
 
         # Mitocondria object equivalences
         self.doc_types_equiv_by_code = {
-            26: 1,  # Factura electrónica
-            27: 3,  # Guía de despacho electrónica
-            28: 2,  # Boleta electrónica
+            26: '33',  # Factura electrónica
+            27: '52',  # Guía de despacho electrónica
+            28: '39',  # Boleta electrónica
         }
         self.deliv_types_equiv_by_code = {
-            1: 2,  # Starken agencia
-            2: 3,  # Starken domicilio
-            3: 1,  # Bioquimica.cl
+            1: 'RAG',  # Starken agencia
+            2: 'ADOM',  # Starken domicilio
+            3: 'RBQ',  # Bioquimica.cl
         }
         self.pay_types_equiv_by_code = {
-            1: 3,  # Retira en Bioquimica.cl
-            2: 1,  # Cobrado en cotización
-            3: 2,  # Paga contra entrega
+            1: 'FREE',  # Retira en Bioquimica.cl
+            2: 'CE',  # Cobrado en cotización
+            3: 'PA',  # Paga contra entrega
         }
 
     @staticmethod

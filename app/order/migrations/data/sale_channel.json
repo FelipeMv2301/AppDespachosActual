@@ -61,5 +61,14 @@
         "name": "Dispositivos Médicos",
         "changed_by": 1
     }
+},
+{
+    "model": "order.salechannel",
+    "pk": 8,
+    "fields": {
+        "code": "CM",
+        "name": "Convenio Marco",
+        "changed_by": 1
+    }
 }
 ]
