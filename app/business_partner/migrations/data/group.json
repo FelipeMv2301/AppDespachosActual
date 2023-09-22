@@ -1,147 +1,146 @@
 [
-    {
-        "model": "business_partner.group",
-        "pk": 1,
-        "fields": {
-            "code": "CN",
-            "name": "Cliente nacional",
-            "changed_by": 1
-        }
-    },
-    {
-        "model": "business_partner.group",
-        "pk": 2,
-        "fields": {
-            "code": "CE",
-            "name": "Cliente extranjero",
-            "changed_by": 1
-        }
-    },
-    {
-        "model": "business_partner.group",
-        "pk": 3,
-        "fields": {
-            "code": "CM",
-            "name": "Corporación Municipal",
-            "changed_by": 1
-        }
-    },
-    {
-        "model": "business_partner.group",
-        "pk": 4,
-        "fields": {
-            "code": "FR",
-            "name": "Fondo Por Rendir",
-            "changed_by": 1
-        }
-    },
-    {
-        "model": "business_partner.group",
-        "pk": 5,
-        "fields": {
-            "code": "PR",
-            "name": "Prestamos",
-            "changed_by": 1
-        }
-    },
-    {
-        "model": "business_partner.group",
-        "pk": 6,
-        "fields": {
-            "code": "PN",
-            "name": "Proveedor Nacional",
-            "changed_by": 1
-        }
-    },
-    {
-        "model": "business_partner.group",
-        "pk": 7,
-        "fields": {
-            "code": "PE",
-            "name": "Proveedor Extranjero",
-            "changed_by": 1
-        }
-    },
-    {
-        "model": "business_partner.group",
-        "pk": 8,
-        "fields": {
-            "code": "HN",
-            "name": "Honorarios",
-            "changed_by": 1
-        }
-    },
-    {
-        "model": "business_partner.group",
-        "pk": 9,
-        "fields": {
-            "code": "MD",
-            "name": "Municipal DAEM",
-            "changed_by": 1
-        }
-    },
-    {
-        "model": "business_partner.group",
-        "pk": 10,
-        "fields": {
-            "code": "PS",
-            "name": "Particular Subvencionado",
-            "changed_by": 1
-        }
-    },
-    {
-        "model": "business_partner.group",
-        "pk": 11,
-        "fields": {
-            "code": "PPNS",
-            "name": "Particular Pagado (No subvencionado)",
-            "changed_by": 1
-        }
-    },
-    {
-        "model": "business_partner.group",
-        "pk": 12,
-        "fields": {
-            "code": "CAD",
-            "name": "Corporación de Administración Delegada",
-            "changed_by": 1
-        }
-    },
-    {
-        "model": "business_partner.group",
-        "pk": 13,
-        "fields": {
-            "code": "SLE",
-            "name": "Servicio Local de Educación",
-            "changed_by": 1
-        }
-    },
-    {
-        "model": "business_partner.group",
-        "pk": 14,
-        "fields": {
-            "code": "PNE",
-            "name": "Persona Natura Educación",
-            "changed_by": 1
-        }
-    },
-    {
-        "model": "business_partner.group",
-        "pk": 15,
-        "fields": {
-            "code": "PRIV",
-            "name": "Privado",
-            "changed_by": 1
-        }
-    },
-    {
-        "model": "business_partner.group",
-        "pk": 16,
-        "fields": {
-            "code": "ONG",
-            "name": "Fundación / ONG",
-            "changed_by": 1
-        }
+{
+    "model": "business_partner.group",
+    "pk": 1,
+    "fields": {
+        "code": "CN",
+        "name": "Cliente nacional",
+        "changed_by": 1
     }
-    ]
-    
+},
+{
+    "model": "business_partner.group",
+    "pk": 2,
+    "fields": {
+        "code": "CE",
+        "name": "Cliente extranjero",
+        "changed_by": 1
+    }
+},
+{
+    "model": "business_partner.group",
+    "pk": 3,
+    "fields": {
+        "code": "CM",
+        "name": "Corporación Municipal",
+        "changed_by": 1
+    }
+},
+{
+    "model": "business_partner.group",
+    "pk": 4,
+    "fields": {
+        "code": "FR",
+        "name": "Fondo Por Rendir",
+        "changed_by": 1
+    }
+},
+{
+    "model": "business_partner.group",
+    "pk": 5,
+    "fields": {
+        "code": "PR",
+        "name": "Prestamos",
+        "changed_by": 1
+    }
+},
+{
+    "model": "business_partner.group",
+    "pk": 6,
+    "fields": {
+        "code": "PN",
+        "name": "Proveedor Nacional",
+        "changed_by": 1
+    }
+},
+{
+    "model": "business_partner.group",
+    "pk": 7,
+    "fields": {
+        "code": "PE",
+        "name": "Proveedor Extranjero",
+        "changed_by": 1
+    }
+},
+{
+    "model": "business_partner.group",
+    "pk": 8,
+    "fields": {
+        "code": "HN",
+        "name": "Honorarios",
+        "changed_by": 1
+    }
+},
+{
+    "model": "business_partner.group",
+    "pk": 9,
+    "fields": {
+        "code": "MD",
+        "name": "Municipal DAEM",
+        "changed_by": 1
+    }
+},
+{
+    "model": "business_partner.group",
+    "pk": 10,
+    "fields": {
+        "code": "PS",
+        "name": "Particular Subvencionado",
+        "changed_by": 1
+    }
+},
+{
+    "model": "business_partner.group",
+    "pk": 11,
+    "fields": {
+        "code": "PPNS",
+        "name": "Particular Pagado (No subvencionado)",
+        "changed_by": 1
+    }
+},
+{
+    "model": "business_partner.group",
+    "pk": 12,
+    "fields": {
+        "code": "CAD",
+        "name": "Corporación de Administración Delegada",
+        "changed_by": 1
+    }
+},
+{
+    "model": "business_partner.group",
+    "pk": 13,
+    "fields": {
+        "code": "SLE",
+        "name": "Servicio Local de Educación",
+        "changed_by": 1
+    }
+},
+{
+    "model": "business_partner.group",
+    "pk": 14,
+    "fields": {
+        "code": "PNE",
+        "name": "Persona Natura Educación",
+        "changed_by": 1
+    }
+},
+{
+    "model": "business_partner.group",
+    "pk": 15,
+    "fields": {
+        "code": "PRIV",
+        "name": "Privado",
+        "changed_by": 1
+    }
+},
+{
+    "model": "business_partner.group",
+    "pk": 16,
+    "fields": {
+        "code": "ONG",
+        "name": "Fundación / ONG",
+        "changed_by": 1
+    }
+}
+]

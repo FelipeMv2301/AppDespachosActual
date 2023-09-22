@@ -1,162 +1,162 @@
 [
 {
-  "model": "general.state",
-  "pk": 1,
-  "fields": {
-    "name": "Región de Tarapacá",
-    "code": "1",
-    "country": 1,
-    "changed_by": 1
-  }
+    "model": "general.state",
+    "pk": 1,
+    "fields": {
+        "code": "1",
+        "name": "Región de Tarapacá",
+        "country": 1,
+        "changed_by": 1
+    }
 },
 {
-  "model": "general.state",
-  "pk": 2,
-  "fields": {
-    "name": "Región de Antofagasta",
-    "code": "2",
-    "country": 1,
-    "changed_by": 1
-  }
+    "model": "general.state",
+    "pk": 2,
+    "fields": {
+        "code": "2",
+        "name": "Región de Antofagasta",
+        "country": 1,
+        "changed_by": 1
+    }
 },
 {
-  "model": "general.state",
-  "pk": 3,
-  "fields": {
-    "name": "Región de Atacama",
-    "code": "3",
-    "country": 1,
-    "changed_by": 1
-  }
+    "model": "general.state",
+    "pk": 3,
+    "fields": {
+        "code": "3",
+        "name": "Región de Atacama",
+        "country": 1,
+        "changed_by": 1
+    }
 },
 {
-  "model": "general.state",
-  "pk": 4,
-  "fields": {
-    "name": "Región de Coquimbo",
-    "code": "4",
-    "country": 1,
-    "changed_by": 1
-  }
+    "model": "general.state",
+    "pk": 4,
+    "fields": {
+        "code": "4",
+        "name": "Región de Coquimbo",
+        "country": 1,
+        "changed_by": 1
+    }
 },
 {
-  "model": "general.state",
-  "pk": 5,
-  "fields": {
-    "name": "Región de Valparaíso",
-    "code": "5",
-    "country": 1,
-    "changed_by": 1
-  }
+    "model": "general.state",
+    "pk": 5,
+    "fields": {
+        "code": "5",
+        "name": "Región de Valparaíso",
+        "country": 1,
+        "changed_by": 1
+    }
 },
 {
-  "model": "general.state",
-  "pk": 6,
-  "fields": {
-    "name": "Región de O'Higgins",
-    "code": "6",
-    "country": 1,
-    "changed_by": 1
-  }
+    "model": "general.state",
+    "pk": 6,
+    "fields": {
+        "code": "6",
+        "name": "Región de O'Higgins",
+        "country": 1,
+        "changed_by": 1
+    }
 },
 {
-  "model": "general.state",
-  "pk": 7,
-  "fields": {
-    "name": "Región de Maule",
-    "code": "7",
-    "country": 1,
-    "changed_by": 1
-  }
+    "model": "general.state",
+    "pk": 7,
+    "fields": {
+        "code": "7",
+        "name": "Región de Maule",
+        "country": 1,
+        "changed_by": 1
+    }
 },
 {
-  "model": "general.state",
-  "pk": 8,
-  "fields": {
-    "name": "Región de Biobío",
-    "code": "8",
-    "country": 1,
-    "changed_by": 1
-  }
+    "model": "general.state",
+    "pk": 8,
+    "fields": {
+        "code": "8",
+        "name": "Región de Biobío",
+        "country": 1,
+        "changed_by": 1
+    }
 },
 {
-  "model": "general.state",
-  "pk": 9,
-  "fields": {
-    "name": "Región de La Araucanía",
-    "code": "9",
-    "country": 1,
-    "changed_by": 1
-  }
+    "model": "general.state",
+    "pk": 9,
+    "fields": {
+        "code": "9",
+        "name": "Región de La Araucanía",
+        "country": 1,
+        "changed_by": 1
+    }
 },
 {
-  "model": "general.state",
-  "pk": 10,
-  "fields": {
-    "name": "Región de Los Lagos",
-    "code": "10",
-    "country": 1,
-    "changed_by": 1
-  }
+    "model": "general.state",
+    "pk": 10,
+    "fields": {
+        "code": "10",
+        "name": "Región de Los Lagos",
+        "country": 1,
+        "changed_by": 1
+    }
 },
 {
-  "model": "general.state",
-  "pk": 11,
-  "fields": {
-    "name": "Región de Aysén",
-    "code": "11",
-    "country": 1,
-    "changed_by": 1
-  }
+    "model": "general.state",
+    "pk": 11,
+    "fields": {
+        "code": "11",
+        "name": "Región de Aysén",
+        "country": 1,
+        "changed_by": 1
+    }
 },
 {
-  "model": "general.state",
-  "pk": 12,
-  "fields": {
-    "name": "Región de Magallanes",
-    "code": "12",
-    "country": 1,
-    "changed_by": 1
-  }
+    "model": "general.state",
+    "pk": 12,
+    "fields": {
+        "code": "12",
+        "name": "Región de Magallanes",
+        "country": 1,
+        "changed_by": 1
+    }
 },
 {
-  "model": "general.state",
-  "pk": 13,
-  "fields": {
-    "name": "Región Metropolitana de Santiago",
-    "code": "13",
-    "country": 1,
-    "changed_by": 1
-  }
+    "model": "general.state",
+    "pk": 13,
+    "fields": {
+        "code": "13",
+        "name": "Región Metropolitana de Santiago",
+        "country": 1,
+        "changed_by": 1
+    }
 },
 {
-  "model": "general.state",
-  "pk": 14,
-  "fields": {
-    "name": "Región de Los Ríos",
-    "code": "14",
-    "country": 1,
-    "changed_by": 1
-  }
+    "model": "general.state",
+    "pk": 14,
+    "fields": {
+        "code": "14",
+        "name": "Región de Los Ríos",
+        "country": 1,
+        "changed_by": 1
+    }
 },
 {
-  "model": "general.state",
-  "pk": 15,
-  "fields": {
-    "name": "Región de Arica y Parinacota",
-    "code": "15",
-    "country": 1,
-    "changed_by": 1
-  }
+    "model": "general.state",
+    "pk": 15,
+    "fields": {
+        "code": "15",
+        "name": "Región de Arica y Parinacota",
+        "country": 1,
+        "changed_by": 1
+    }
 },
 {
-  "model": "general.state",
-  "pk": 16,
-  "fields": {
-    "name": "Región de Ñuble",
-    "code": "16",
-    "country": 1,
-    "changed_by": 1
-  }
+    "model": "general.state",
+    "pk": 16,
+    "fields": {
+        "code": "16",
+        "name": "Región de Ñuble",
+        "country": 1,
+        "changed_by": 1
+    }
 }
 ]

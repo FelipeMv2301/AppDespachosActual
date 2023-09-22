@@ -1,12 +1,11 @@
 [
-    {
-      "model": "general.country",
-      "pk": 1,
-      "fields": {
+{
+    "model": "general.country",
+    "pk": 1,
+    "fields": {
         "code": "CL",
         "name": "Chile",
         "changed_by": 1
-      }
     }
+}
 ]
-    

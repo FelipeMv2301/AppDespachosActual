@@ -1,30 +1,29 @@
 [
-    {
-      "model": "general.currency",
-      "pk": 1,
-      "fields": {
+{
+    "model": "general.currency",
+    "pk": 1,
+    "fields": {
         "code": "CLP",
         "name": "Pesos chilenos",
         "changed_by": 1
-      }
-    },
-    {
-      "model": "general.currency",
-      "pk": 2,
-      "fields": {
+    }
+},
+{
+    "model": "general.currency",
+    "pk": 2,
+    "fields": {
         "code": "USD",
         "name": "Dólares estadounidenses",
         "changed_by": 1
-      }
-    },
-    {
-      "model": "general.currency",
-      "pk": 3,
-      "fields": {
+    }
+},
+{
+    "model": "general.currency",
+    "pk": 3,
+    "fields": {
         "code": "EUR",
         "name": "Euro",
         "changed_by": 1
-      }
     }
+}
 ]
-    
