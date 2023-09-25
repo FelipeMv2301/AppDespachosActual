@@ -200,9 +200,11 @@ class Delivery(Mitocondria):
             addr = bulk_create_with_history(objs=[addr],
                                             model=addr_mdl)[0]
 
+            ordr_group_code = ordr_group_mdl.new_code()
             ordr_groups_to_create = []
             for ordr in ordrs:
                 ordr_groups_to_create.append(ordr_group_mdl(
+                    code=ordr_group_code,
                     order=ordr_objs[ordr],
                     delivery_option=opt,
                     addr=addr,

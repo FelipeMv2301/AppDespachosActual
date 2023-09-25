@@ -2,4 +2,4 @@
 INPUT_CLASS = 'textfield'
 
 # Sync data
-SYNC_DAYS = -270
+SYNC_DAYS = -280
