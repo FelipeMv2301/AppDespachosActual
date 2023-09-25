@@ -59,7 +59,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('folio', models.CharField(default=app.delivery.models.delivery.Delivery.new_folio, max_length=100, unique=True)),
-                ('status', models.CharField(choices=[('Emitido', 'Issued'), ('Recepcionado', 'Received'), ('Anulado', 'Canceled')], default='Emitido', max_length=100)),
+                ('status', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='delivery.status')),
                 ('issue_date', models.DateField(default=django.utils.timezone.now)),
                 ('assembly_date', models.DateField()),
                 ('rcpt_commit_date', models.DateField(null=True)),
@@ -397,7 +397,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigIntegerField(auto_created=True, blank=True, db_index=True, verbose_name='ID')),
                 ('folio', models.CharField(db_index=True, default=app.delivery.models.delivery.Delivery.new_folio, max_length=100)),
-                ('status', models.CharField(choices=[('Emitido', 'Issued'), ('Recepcionado', 'Received'), ('Anulado', 'Canceled')], default='Emitido', max_length=100)),
+                ('status', models.ForeignKey(blank=True, db_constraint=False, null=True, on_delete=django.db.models.deletion.DO_NOTHING, related_name='+', to='delivery.status')),
                 ('issue_date', models.DateField(default=django.utils.timezone.now)),
                 ('assembly_date', models.DateField()),
                 ('rcpt_commit_date', models.DateField(null=True)),

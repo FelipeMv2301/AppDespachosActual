@@ -7,11 +7,6 @@ from simple_history.models import HistoricalRecords
 
 
 class Delivery(models.Model):
-    class Status(models.TextChoices):
-        ISSUED = 'Emitido'
-        RECEIVED = 'Recepcionado'
-        CANCELED = 'Anulado'
-
     @staticmethod
     def new_folio():
         chars = string.ascii_uppercase
@@ -29,9 +24,7 @@ class Delivery(models.Model):
                              unique=True)
     order_delivery = models.ManyToManyField(to='order.Grouping',
                                             through='order.OrderDelivery')
-    status = models.CharField(max_length=100,
-                              choices=Status.choices,
-                              default=Status.ISSUED)
+    status = models.ForeignKey(to='delivery.Status', on_delete=models.CASCADE)
     # Dates
     issue_date = models.DateField(default=timezone.now)
     assembly_date = models.DateField()

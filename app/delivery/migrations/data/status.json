@@ -1,0 +1,12 @@
+[
+{
+    "model": "delivery.status",
+    "pk": 1,
+    "fields": {
+        "code": "ISSUED",
+        "name": "Emitido",
+        "enabled": true,
+        "changed_by": 1
+    }
+}
+]
