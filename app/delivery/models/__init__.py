@@ -6,4 +6,6 @@ from .doc_type import DocumentType
 from .opt import Option
 from .pay_type import PayType
 from .service import Service
+from .status import Status
+from .status_starken import StatusStarken
 from .type import Type

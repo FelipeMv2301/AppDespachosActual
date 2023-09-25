@@ -3,8 +3,6 @@
 import os
 import pathlib
 
-import django.db.models.deletion
-import django.utils.timezone
 from django.conf import settings
 from django.core.management import call_command
 from django.db import migrations, models
@@ -42,7 +40,6 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('order', '0001_initial'),
-        ('general', '0001_initial'),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
         ('delivery', '0001_initial'),
     ]
@@ -52,26 +49,6 @@ class Migration(migrations.Migration):
             model_name='delivery',
             name='order_delivery',
             field=models.ManyToManyField(through='order.OrderDelivery', to='order.grouping'),
-        ),
-        migrations.AddField(
-            model_name='carrier',
-            name='changed_by',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL),
-        ),
-        migrations.AddField(
-            model_name='agency',
-            name='addr',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='general.address'),
-        ),
-        migrations.AddField(
-            model_name='agency',
-            name='carrier',
-            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='delivery.carrier'),
-        ),
-        migrations.AddField(
-            model_name='agency',
-            name='changed_by',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL),
         ),
         migrations.RunPython(code=forwards_func, reverse_code=reverse_func),
     ]
