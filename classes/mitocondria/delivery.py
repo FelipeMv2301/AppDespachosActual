@@ -86,7 +86,7 @@ class Delivery(Mitocondria):
             ship_complement = d['ship_addr_cpl'] or ''
             ship_dpto = d['ship_dpto'] or ''
             ship_muni_name = d['ship_muni_name']
-            ordr_ref = d['ordr_ref']
+            ordrs = [str(o['ref']) for o in json.loads(s=d['orders'])]
             deliv_type_code = d['deliv_type_id']
             pay_type_code = d['pay_type_id']
             height = d['height']
@@ -104,11 +104,16 @@ class Delivery(Mitocondria):
                 pass
 
             try:
-                ordr = ordr_mdl.objects.get(ref=ordr_ref)
-            except ordr_mdl.DoesNotExist:
-                e_msg = f'Error: order ref \'{ordr_ref}\' does not exist'
-                e_msg += f'\nFolio: {folio}'
-                CustomError(msg=e_msg)
+                ordr_objs = {o.ref: o
+                             for o in ordr_mdl.objects.filter(ref__in=ordrs)}
+                for ordr in ordrs:
+                    if ordr not in ordr_objs:
+                        e_msg = f'Error: order ref \'{ordr}\' '
+                        e_msg += 'does not exist'
+                        e_msg += f'\nFolio: {folio}'
+                        e = CustomError(msg=e_msg)
+                        raise e
+            except CustomError:
                 continue
 
             try:
@@ -168,6 +173,7 @@ class Delivery(Mitocondria):
                 e_msg += f'\nQuery: {opt.query}'
                 CustomError(msg=e_msg)
                 continue
+            opt = opt.first()
 
             try:
                 for doc in docs:
@@ -194,20 +200,21 @@ class Delivery(Mitocondria):
             addr = bulk_create_with_history(objs=[addr],
                                             model=addr_mdl)[0]
 
-            ordr_group = ordr_group_mdl(
-                order=ordr,
-                delivery_option=opt,
-                addr=addr,
-                changed_by=user_obj
-            )
-            ordr_group = bulk_create_with_history(
-                objs=[ordr_group],
+            ordr_groups_to_create = []
+            for ordr in ordrs:
+                ordr_groups_to_create.append(ordr_group_mdl(
+                    order=ordr_objs[ordr],
+                    delivery_option=opt,
+                    addr=addr,
+                    changed_by=user_obj
+                ))
+            ordr_groups = bulk_create_with_history(
+                objs=ordr_groups_to_create,
                 model=ordr_group_mdl
-            )[0]
+            )
 
             deliv = mdl(
                 folio=folio,
-                order_grouping=ordr_group,
                 issue_date=issue_date,
                 assembly_date=assy_date,
                 rcpt_commit_date=rcpt_commit_date,
@@ -225,6 +232,9 @@ class Delivery(Mitocondria):
                 objs=[deliv],
                 model=mdl
             )[0]
+
+            for ordr_group in ordr_groups:
+                deliv.order_delivery.add(ordr_group)
 
             for doc in docs:
                 doc_folio = doc['folio']

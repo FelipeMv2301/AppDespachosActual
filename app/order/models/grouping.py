@@ -18,9 +18,7 @@ class Grouping(models.Model):
         code = f'{prefix}{correlative}'
         return code
 
-    code = models.CharField(max_length=100,
-                            default=new_code.__func__,
-                            unique=True)
+    code = models.CharField(max_length=100)
     # Relationship
     order = models.ForeignKey(to='order.Order',
                               on_delete=models.CASCADE)

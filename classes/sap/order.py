@@ -1,4 +1,5 @@
 import json
+import traceback
 from typing import Any, Dict
 
 import requests
@@ -19,7 +20,7 @@ from app.order.models.sale_channel_sap import SaleChannelSap
 from classes.sap.sap import Sap
 from core.settings.base import APP_USERNAME
 from helpers.decorator.loggable import loggable
-from helpers.error.custom_error import CustomError
+from helpers.error.custom_error import UNEXP_ERROR, CustomError
 
 
 class Order(Sap):
@@ -389,7 +390,16 @@ class Order(Sap):
             contact_addr.muni = None
             contact_addr.changed_by = user_obj
             contact_addr_sync_kwargs['objs'] = [contact_addr]
-            contact_addr_sync = contact_sync_func(**contact_addr_sync_kwargs)
+            try:
+                contact_addr_sync = contact_sync_func(
+                    **contact_addr_sync_kwargs)
+            except Exception:
+                tb = traceback.format_exc()
+                tb += f'\nOrder: {ref}'
+                e_msg = f'Error: {UNEXP_ERROR}'
+                e_msg += f'\nOrder: {ref}'
+                CustomError(msg=e_msg, log=tb)
+                continue
             contact_addr = (contact_addr_sync[0]
                             if contact_addr_sync
                             else contact_addr)
@@ -407,7 +417,15 @@ class Order(Sap):
             contact.addr = contact_addr
             contact.changed_by = user_obj
             contact_sync_kwargs['objs'] = [contact]
-            contact_sync = contact_sync_func(**contact_sync_kwargs)
+            try:
+                contact_sync = contact_sync_func(**contact_sync_kwargs)
+            except Exception:
+                tb = traceback.format_exc()
+                tb += f'\nOrder: {ref}'
+                e_msg = f'Error: {UNEXP_ERROR}'
+                e_msg += f'\nOrder: {ref}'
+                CustomError(msg=e_msg, log=tb)
+                continue
             contact = contact_sync[0] if contact_sync else contact
 
             ordr_ship_addr.ref = ordr_ship_addr_ref
@@ -415,7 +433,16 @@ class Order(Sap):
             ordr_ship_addr.muni = ordr_ship_muni
             ordr_ship_addr.changed_by = user_obj
             addr_sync_kwargs['objs'] = [ordr_ship_addr]
-            ordr_ship_addr_sync = sync_func(**addr_sync_kwargs)
+            try:
+                ordr_ship_addr_sync = sync_func(**addr_sync_kwargs)
+            except Exception:
+                tb = traceback.format_exc()
+                tb += f'\nOrder: {ref}'
+                e_msg = f'Error: {UNEXP_ERROR}'
+                e_msg += f'\nOrder: {ref}'
+                CustomError(msg=e_msg, log=tb)
+                continue
+
             ordr_ship_addr = (ordr_ship_addr_sync[0]
                               if ordr_ship_addr_sync
                               else ordr_ship_addr)
@@ -425,7 +452,15 @@ class Order(Sap):
             ordr_bill_addr.muni = ordr_bill_muni
             ordr_bill_addr.changed_by = user_obj
             addr_sync_kwargs['objs'] = [ordr_bill_addr]
-            ordr_bill_addr_sync = sync_func(**addr_sync_kwargs)
+            try:
+                ordr_bill_addr_sync = sync_func(**addr_sync_kwargs)
+            except Exception:
+                tb = traceback.format_exc()
+                tb += f'\nOrder: {ref}'
+                e_msg = f'Error: {UNEXP_ERROR}'
+                e_msg += f'\nOrder: {ref}'
+                CustomError(msg=e_msg, log=tb)
+                continue
             ordr_bill_addr = (ordr_bill_addr_sync[0]
                               if ordr_bill_addr_sync
                               else ordr_bill_addr)
@@ -440,9 +475,17 @@ class Order(Sap):
             bsns_partner.email_addr = bsns_partner_email_addr
             bsns_partner.changed_by = user_obj
             bsns_partner_sync_kwargs['objs'] = [bsns_partner]
-            bsns_partner_sync = bsns_partner_sync_func(
-                **bsns_partner_sync_kwargs
-            )
+            try:
+                bsns_partner_sync = bsns_partner_sync_func(
+                    **bsns_partner_sync_kwargs
+                )
+            except Exception:
+                tb = traceback.format_exc()
+                tb += f'\nOrder: {ref}'
+                e_msg = f'Error: {UNEXP_ERROR}'
+                e_msg += f'\nOrder: {ref}'
+                CustomError(msg=e_msg, log=tb)
+                continue
             bsns_partner = (bsns_partner_sync[0]
                             if bsns_partner_sync
                             else bsns_partner)
@@ -467,5 +510,13 @@ class Order(Sap):
             ordr.doc_total_amt = sys_total_amt
             ordr.changed_by = user_obj
             sync_kwargs['objs'] = [ordr]
-            ordr_sync = sync_func(**sync_kwargs)
+            try:
+                ordr_sync = sync_func(**sync_kwargs)
+            except Exception:
+                tb = traceback.format_exc()
+                tb += f'\nOrder: {ref}'
+                e_msg = f'Error: {UNEXP_ERROR}'
+                e_msg += f'\nOrder: {ref}'
+                CustomError(msg=e_msg, log=tb)
+                continue
             ordr = ordr_sync[0] if ordr_sync else ordr
