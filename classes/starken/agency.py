@@ -6,20 +6,22 @@ from django.contrib.auth.models import User
 from simple_history.utils import (bulk_create_with_history,
                                   bulk_update_with_history)
 
+from app.delivery.models.account import Account
 from app.delivery.models.agency import Agency as AgencyMdl
 from app.delivery.models.carrier import Carrier
 from app.general.models.address import Address
-from app.general.models.muni_starken import MuniStarken
 from app.general.models.muni import Muni
+from app.general.models.muni_starken import MuniStarken
+from classes.google_maps.gmaps import GoogleMaps
 from classes.starken.starken import Starken
 from core.settings.base import APP_USERNAME
-from classes.google_maps.gmaps import GoogleMaps
 from helpers.decorator.loggable import loggable
 from helpers.error.custom_error import CustomError
 
 
 class Agency(Starken):
     def __init__(self,
+                 account: Account = None,
                  code: int = None,
                  name: str = None,
                  code_dls: int = None,
@@ -30,7 +32,7 @@ class Agency(Starken):
                  muni: object = None,
                  *args,
                  **kwargs):
-        super().__init__(*args, **kwargs)
+        super().__init__(account=account, *args, **kwargs)
 
         self.code = code
         self.name = name
@@ -63,7 +65,7 @@ class Agency(Starken):
         stk_muni_mdl = MuniStarken
         muni_mdl = Muni
         agencies = self.search_all()
-        carrier_obj = Carrier.objects.get(name=self.carrier_name)
+        carrier_obj = Carrier.objects.get(code=self.carrier_code)
         user_obj = User.objects.get(username=APP_USERNAME)
         gmaps = GoogleMaps()
 

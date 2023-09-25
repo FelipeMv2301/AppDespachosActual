@@ -1,0 +1,21 @@
+[
+{
+    "model": "delivery.account",
+    "pk": 1,
+    "fields": {
+        "code": "BQ001",
+        "name": "Bioquimica.cl",
+        "desc": "Normal",
+        "rut": "76211240-K",
+        "username": "1",
+        "number": "19154-K",
+        "cost_center": 0,
+        "password": "IlNPUE9SVEUi:3uDcoJdVWDH-uZibtExjCq2v5StL8YXJknyiu2h7dWI",
+        "api_key": "IkFZWDlmajYyeTBPT2F4aXF2Tnk2eUdUQ0E0aDY2QU9yIg:5wA9X9qitgOCznEpWjit9gqkWNzsYHkr_cbqcxsdlMc",
+        "carrier": 2,
+        "company": 1,
+        "enabled": true,
+        "changed_by": 1
+    }
+}
+]

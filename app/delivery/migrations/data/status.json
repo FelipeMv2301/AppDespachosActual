@@ -1,12 +1,43 @@
 [
-{
-    "model": "delivery.status",
-    "pk": 1,
-    "fields": {
-        "code": "ISSUED",
-        "name": "Emitido",
-        "enabled": true,
-        "changed_by": 1
+    {
+        "model": "delivery.status",
+        "pk": 1,
+        "fields": {
+            "code": "ISSUED",
+            "name": "Emitido",
+            "enabled": true,
+            "changed_by": 1
+        }
+    },
+    {
+        "model": "delivery.status",
+        "pk": 2,
+        "fields": {
+            "code": "RCVD",
+            "name": "Recepcionado",
+            "enabled": true,
+            "changed_by": 1
+        }
+    },
+    {
+        "model": "delivery.status",
+        "pk": 3,
+        "fields": {
+            "code": "CANCEL",
+            "name": "Cancelado",
+            "enabled": true,
+            "changed_by": 1
+        }
+    },
+    {
+        "model": "delivery.status",
+        "pk": 4,
+        "fields": {
+            "code": "CLOSE",
+            "name": "Cerrado",
+            "enabled": true,
+            "changed_by": 1
+        }
     }
-}
-]
+    ]
+    

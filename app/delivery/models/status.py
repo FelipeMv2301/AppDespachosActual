@@ -4,6 +4,8 @@ from simple_history.models import HistoricalRecords
 
 
 class Status(models.Model):
+    receiv_code = 'RCVD'
+
     # General
     code = models.CharField(max_length=100, unique=True)
     name = models.CharField(max_length=100)

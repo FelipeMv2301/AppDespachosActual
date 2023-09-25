@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from simple_history.utils import (bulk_create_with_history,
                                   bulk_update_with_history)
 
+from app.delivery.models.account import Account
 from app.general.models.muni_starken import MuniStarken
 from classes.starken.starken import Starken
 from core.settings.base import APP_USERNAME
@@ -14,6 +15,7 @@ from helpers.decorator.loggable import loggable
 
 class Municipality(Starken):
     def __init__(self,
+                 account: Account = None,
                  code: int = None,
                  name: str = None,
                  code_dls: int = None,
@@ -21,7 +23,7 @@ class Municipality(Starken):
                  agencies: List[object] = None,
                  *args,
                  **kwargs):
-        super().__init__(*args, **kwargs)
+        super().__init__(account=account, *args, **kwargs)
 
         self.code = code
         self.name = name

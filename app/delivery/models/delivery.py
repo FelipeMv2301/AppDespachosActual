@@ -24,11 +24,18 @@ class Delivery(models.Model):
                              unique=True)
     order_delivery = models.ManyToManyField(to='order.Grouping',
                                             through='order.OrderDelivery')
-    status = models.ForeignKey(to='delivery.Status', on_delete=models.CASCADE)
+    status = models.ForeignKey(to='delivery.Status',
+                               on_delete=models.CASCADE,
+                               null=True)
+    third_status = models.CharField(max_length=100, null=True)
+    account = models.ForeignKey(to='delivery.Account',
+                                on_delete=models.CASCADE,
+                                null=True)
     # Dates
     issue_date = models.DateField(default=timezone.now)
     assembly_date = models.DateField()
     rcpt_commit_date = models.DateField(null=True)
+    rcpt_date = models.DateField(null=True)
     # Mitocondria info
     mito_id = models.IntegerField(null=True)
     from_mito = models.BooleanField(default=False)

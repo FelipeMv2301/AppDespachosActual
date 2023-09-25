@@ -13,12 +13,14 @@ from app.delivery.models.doc_type import DocumentType
 from app.delivery.models.opt import Option
 from app.delivery.models.pay_type import PayType
 from app.delivery.models.service import Service
+from app.delivery.models.status import Status
 from app.delivery.models.type import Type
 from app.general.models.address import Address
 from app.general.models.muni_mito import MuniMito
 from app.order.models.grouping import Grouping
 from app.order.models.order import Order
 from classes.mitocondria.mitocondria import Mitocondria
+from classes.starken.starken import Starken
 from core.settings.base import APP_USERNAME
 from helpers.decorator.loggable import loggable
 from helpers.error.custom_error import CustomError
@@ -66,6 +68,8 @@ class Delivery(Mitocondria):
         ag_mdl = Agency
         delivs = self.search_all(from_date=from_date)
         user_obj = User.objects.get(username=APP_USERNAME)
+        status_obj = Status.objects.get(code='ISSUED')
+        stk_acct = Starken().account
 
         doc_types_equiv = {k: doc_type_mdl.objects.get(code=v)
                            for k, v in self.doc_types_equiv_by_code.items()}
@@ -118,12 +122,19 @@ class Delivery(Mitocondria):
 
             try:
                 deliv_type = deliv_types_equiv[deliv_type_code]
+                carrier_is_stk = (deliv_type.code == 'RAG' or
+                                  deliv_type.code == 'ADOM')
             except KeyError:
                 e_msg = f'Error: delivery type code \'{deliv_type_code}\' '
                 e_msg += 'has no equivalence'
                 e_msg += f'\nFolio: {folio}'
                 CustomError(msg=e_msg)
                 continue
+
+            if carrier_is_stk:
+                acct = stk_acct
+            else:
+                acct = None
 
             try:
                 pay_type = pay_types_equiv[pay_type_code]
@@ -228,6 +239,8 @@ class Delivery(Mitocondria):
                 weight=weight,
                 packages_qty=packages,
                 valuation=valuation,
+                status=status_obj,
+                account=acct,
                 changed_by=user_obj
             )
             deliv = bulk_create_with_history(

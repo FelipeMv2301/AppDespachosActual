@@ -1,0 +1,74 @@
+[
+{
+    "model": "delivery.statusthird",
+    "pk": 1,
+    "fields": {
+        "code": "1",
+        "name": "ENTREGADO",
+        "status": 2,
+        "carrier": 2,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusthird",
+    "pk": 2,
+    "fields": {
+        "code": "7",
+        "name": "PENDIENTE ENTREGA",
+        "status": null,
+        "carrier": 2,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusthird",
+    "pk": 3,
+    "fields": {
+        "code": "10",
+        "name": "PENDIENTE ENTREGA C. EXCEPCION",
+        "status": null,
+        "carrier": 2,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusthird",
+    "pk": 4,
+    "fields": {
+        "code": "11",
+        "name": "CERRADO CON EXCEPCION",
+        "status": 4,
+        "carrier": 2,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusthird",
+    "pk": 5,
+    "fields": {
+        "code": "13",
+        "name": "REDESTINADO",
+        "status": null,
+        "carrier": 2,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusthird",
+    "pk": 6,
+    "fields": {
+        "code": "15",
+        "name": "ANULADO",
+        "status": 3,
+        "carrier": 2,
+        "enabled": true,
+        "changed_by": 1
+    }
+}
+]

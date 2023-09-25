@@ -7,7 +7,9 @@ from django.conf import settings
 from django.core.management import call_command
 from django.db import migrations, models
 
+from app.delivery.models.account import Account
 from classes.starken.agency import Agency
+from classes.starken.starken import Starken
 
 
 def forwards_func(apps, schema_editor):
@@ -20,15 +22,18 @@ def forwards_func(apps, schema_editor):
         'service.json',
         'type.json',
         'status.json',
+        'status_third.json',
+        'account.json',
     ]
     for filename in data_file_names:
         call_command('loaddata', os.path.join(data_path, filename))
+    acct = Account.objects.filter(carrier__code=Starken.carrier_code).first()
     Agency().app_sync()
-    data_file_names = [
-        'option.json',
-    ]
-    for filename in data_file_names:
-        call_command('loaddata', os.path.join(data_path, filename))
+    # data_file_names = [
+    #     'option.json',
+    # ]
+    # for filename in data_file_names:
+    #     call_command('loaddata', os.path.join(data_path, filename))
 
 
 def reverse_func(apps, schema_editor):
