@@ -5,6 +5,7 @@ from typing import Any, Dict, List
 from django.contrib.auth.models import User
 from simple_history.utils import bulk_create_with_history
 
+from app.business_partner.models.contact import Contact
 from app.delivery.models.agency import Agency
 from app.delivery.models.carrier import Carrier
 from app.delivery.models.delivery import Delivery as DelivMdl
@@ -66,6 +67,7 @@ class Delivery(Mitocondria):
         opt_mdl = Option
         carrier_mdl = Carrier
         ag_mdl = Agency
+        contact_mdl = Contact
         delivs = self.search_all(from_date=from_date)
         user_obj = User.objects.get(username=APP_USERNAME)
         status_obj = Status.objects.get(code='ISSUED')
@@ -89,6 +91,14 @@ class Delivery(Mitocondria):
             ship_st_and_num = d['ship_st_and_num']
             ship_complement = d['ship_addr_cpl'] or ''
             ship_dpto = d['ship_dpto'] or ''
+            contact_phone_num = d['phone_number']
+            contact_email_addr = d['email_addr']
+            contact_name = d['contact_name']
+            cntct_first_name, *cntct_last_name = contact_name.split()
+            cntct_last_name = (' '.join(cntct_last_name)
+                               if cntct_last_name
+                               else
+                               None)
             ship_muni_name = d['ship_muni_name']
             ordrs = [str(o['ref']) for o in json.loads(s=d['orders'])]
             deliv_type_code = d['deliv_type_id']
@@ -211,14 +221,28 @@ class Delivery(Mitocondria):
             addr = bulk_create_with_history(objs=[addr],
                                             model=addr_mdl)[0]
 
+            contact = contact_mdl(
+                first_name=cntct_first_name,
+                last_name=cntct_last_name,
+                addr=addr,
+                mobile_phone=contact_phone_num,
+                email_addr=contact_email_addr,
+                changed_by=user_obj
+            )
+            contact = bulk_create_with_history(objs=[contact],
+                                               model=contact_mdl)[0]
+
             ordr_group_code = ordr_group_mdl.new_code()
             ordr_groups_to_create = []
             for ordr in ordrs:
+                ordr_obj = ordr_objs[ordr]
                 ordr_groups_to_create.append(ordr_group_mdl(
                     code=ordr_group_code,
-                    order=ordr_objs[ordr],
+                    order=ordr_obj,
                     delivery_option=opt,
                     addr=addr,
+                    contact=contact,
+                    customer=ordr_obj.customer,
                     changed_by=user_obj
                 ))
             ordr_groups = bulk_create_with_history(
@@ -241,6 +265,7 @@ class Delivery(Mitocondria):
                 valuation=valuation,
                 status=status_obj,
                 account=acct,
+                locked=True,
                 changed_by=user_obj
             )
             deliv = bulk_create_with_history(

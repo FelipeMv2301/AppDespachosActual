@@ -26,6 +26,10 @@ class Grouping(models.Model):
                                         on_delete=models.CASCADE)
     addr = models.ForeignKey(to='general.Address',
                              on_delete=models.CASCADE)
+    customer = models.ForeignKey(to='business_partner.BusinessPartner',
+                                 on_delete=models.CASCADE)
+    contact = models.ForeignKey(to='business_partner.Contact',
+                                on_delete=models.CASCADE)
     # Status
     enabled = models.BooleanField(default=True)
     # Observations

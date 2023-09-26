@@ -27,10 +27,11 @@ class Delivery(models.Model):
     status = models.ForeignKey(to='delivery.Status',
                                on_delete=models.CASCADE,
                                null=True)
-    third_status = models.CharField(max_length=100, null=True)
+    carrier_status = models.CharField(max_length=100, null=True)
     account = models.ForeignKey(to='delivery.Account',
                                 on_delete=models.CASCADE,
                                 null=True)
+    locked = models.BooleanField(default=False)
     # Dates
     issue_date = models.DateField(default=timezone.now)
     assembly_date = models.DateField()

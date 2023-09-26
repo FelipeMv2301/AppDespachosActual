@@ -1,6 +1,6 @@
 [
 {
-    "model": "delivery.statusthird",
+    "model": "delivery.statuscarrier",
     "pk": 1,
     "fields": {
         "code": "1",
@@ -12,7 +12,7 @@
     }
 },
 {
-    "model": "delivery.statusthird",
+    "model": "delivery.statuscarrier",
     "pk": 2,
     "fields": {
         "code": "7",
@@ -24,7 +24,7 @@
     }
 },
 {
-    "model": "delivery.statusthird",
+    "model": "delivery.statuscarrier",
     "pk": 3,
     "fields": {
         "code": "10",
@@ -36,7 +36,7 @@
     }
 },
 {
-    "model": "delivery.statusthird",
+    "model": "delivery.statuscarrier",
     "pk": 4,
     "fields": {
         "code": "11",
@@ -48,7 +48,7 @@
     }
 },
 {
-    "model": "delivery.statusthird",
+    "model": "delivery.statuscarrier",
     "pk": 5,
     "fields": {
         "code": "13",
@@ -60,7 +60,7 @@
     }
 },
 {
-    "model": "delivery.statusthird",
+    "model": "delivery.statuscarrier",
     "pk": 6,
     "fields": {
         "code": "15",

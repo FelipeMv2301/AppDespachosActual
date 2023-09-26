@@ -6,7 +6,9 @@ from .doc import Document
 from .doc_type import DocumentType
 from .opt import Option
 from .pay_type import PayType
+from .pay_type_carrier import PayTypeCarrier
 from .service import Service
 from .status import Status
-from .status_third import StatusThird
+from .status_carrier import StatusCarrier
 from .type import Type
+from .type_carrier import TypeCarrier

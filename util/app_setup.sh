@@ -39,5 +39,8 @@ python3 "${MANAGE_PATH}" shell -c "from django.contrib.auth.models import User; 
 # Run the rest of migrations
 python3 "${MANAGE_PATH}" migrate
 
+python3 "${MANAGE_PATH}" shell < "${BASE_DIR}/jobs/stk_agency_sync.py"
+python3 "${MANAGE_PATH}" shell < "${BASE_DIR}/jobs/deliv_opt_sync.py"
+
 # # Print finished message
 # echo "FINISHED" | boxes

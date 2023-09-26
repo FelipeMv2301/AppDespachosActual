@@ -32,11 +32,15 @@ class Starken:
         # Starken web services data
         self.ws_url = env.str(var='STARKEN_WS_URL')
         self.ws_rut = self.account.rut
-        self.ws_rut_verifier = self.ws_rut.split('-')[-1]
+        ws_rut_split = self.ws_rut.split('-')
+        self.ws_rut_wo_verifier = ws_rut_split[0]
+        self.ws_rut_verifier = ws_rut_split[-1]
         self.ws_user = self.account.username
         self.ws_pwd = self.account.get_password()
         self.ws_acct = self.account.number
-        self.ws_acct_verifier = self.ws_acct.split('-')[-1]
+        ws_acct_split = self.ws_acct.split('-')
+        self.ws_acct_wo_verifier = ws_acct_split[-1]
+        self.ws_acct_verifier = ws_acct_split[-1]
         self.ws_cost_center = self.account.cost_center
 
         # Starken custom errors

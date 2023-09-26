@@ -1,12 +1,28 @@
+import random
+import string
+
 from django.db import models
 from django.utils import timezone
 from simple_history.models import HistoricalRecords
 
 
 class Contact(models.Model):
+    @staticmethod
+    def new_code():
+        chars = string.ascii_uppercase
+        prefix = ''.join(random.choice(chars) for _ in range(4))
+        if Contact.objects.count() == 0:
+            correlative = 1
+        else:
+            correlative = Contact.objects.latest('id').id + 1
+        code = f'{prefix}{correlative}'
+        return code
+
     # General
-    code = models.CharField(max_length=100, unique=True)
-    ref = models.CharField(max_length=100)
+    code = models.CharField(max_length=100,
+                            unique=True,
+                            default=new_code.__func__)
+    ref = models.CharField(max_length=100, default=new_code.__func__)
     first_name = models.CharField(max_length=100, null=True)
     last_name = models.CharField(max_length=100, null=True)
     # Address info
