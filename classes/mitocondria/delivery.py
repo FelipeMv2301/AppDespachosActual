@@ -140,8 +140,6 @@ class Delivery(Mitocondria):
 
             try:
                 deliv_type = deliv_types_equiv[deliv_type_code]
-                carrier_is_stk = (deliv_type.code == 'RAG' or
-                                  deliv_type.code == 'ADOM')
             except KeyError:
                 e_msg = f'Error: delivery type code \'{deliv_type_code}\' '
                 e_msg += 'has no equivalence'
@@ -157,10 +155,8 @@ class Delivery(Mitocondria):
                 CustomError(msg=e_msg)
                 continue
 
-            # if carrier_is_stk:
-            #     acct = stk_acct
-            # else:
-            #     acct = None
+            carrier_is_stk = (deliv_type.code == 'RAG' or
+                              deliv_type.code == 'ADOM')
 
             try:
                 pay_type = pay_types_equiv[pay_type_code]
