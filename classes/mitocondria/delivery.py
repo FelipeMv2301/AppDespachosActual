@@ -11,15 +11,13 @@ from app.delivery.models.delivery import Delivery as DelivMdl
 from app.delivery.models.doc import Document
 from app.delivery.models.doc_type import DocumentType
 from app.delivery.models.opt import Option
-from app.delivery.models.pay_type import PayType
 from app.delivery.models.pay_type_service import PayTypeService
 from app.delivery.models.service import Service as DelivService
-from app.general.models.service import Service
 from app.delivery.models.status import Status
-from app.delivery.models.type import Type
 from app.delivery.models.type_service import TypeService
 from app.general.models.address import Address
 from app.general.models.muni_service import MuniService
+from app.general.models.service import Service
 from app.general.models.service_account import ServiceAccount
 from app.order.models.grouping import Grouping
 from app.order.models.order import Order
@@ -175,9 +173,8 @@ class Delivery(Mitocondria):
                 CustomError(msg=e_msg)
                 continue
 
-            if carrier_is_stk and str(ship_muni_name).startswith('@'):
+            if str(ship_muni_name).startswith('@'):
                 service = stk_service
-                acct = stk_acct
                 ag_code = str(ship_muni_name).replace('@', '')
                 try:
                     ag = (ag_mdl.objects.select_related('addr')
@@ -191,15 +188,21 @@ class Delivery(Mitocondria):
                     continue
             else:
                 service = bq_service
-                acct = None
                 ag = None
                 try:
                     muni = serv_muni_mdl.objects.get(
                         name=ship_muni_name, service_acct=self.serv_account)
-                    muni = muni.muni
                 except serv_muni_mdl.DoesNotExist:
                     e_msg = f'Error: ship muni name \'{ship_muni_name}\' '
                     e_msg += 'does not exist'
+                    e_msg += f'\nFolio: {folio}'
+                    CustomError(msg=e_msg)
+                    continue
+
+                muni = muni.muni
+                if not muni:
+                    e_msg = 'Error: ship muni name '
+                    e_msg += f'\'{ship_muni_name}\' has no equivalence'
                     e_msg += f'\nFolio: {folio}'
                     CustomError(msg=e_msg)
                     continue
@@ -276,7 +279,7 @@ class Delivery(Mitocondria):
 
             deliv = mdl(
                 folio=folio,
-                service_acct=acct,
+                service_acct=stk_acct if carrier_is_stk else None,
                 issue_date=issue_date,
                 assembly_date=assy_date,
                 rcpt_commit_date=rcpt_commit_date,

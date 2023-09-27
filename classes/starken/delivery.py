@@ -11,10 +11,10 @@ from simple_history.utils import (bulk_create_with_history,
                                   bulk_update_with_history)
 from zeep import Client
 
-from app.delivery.models.account import Account
 from app.delivery.models.delivery import Delivery as DelivMdl
 from app.delivery.models.status import Status
-from app.delivery.models.status_service import StatusCarrier
+from app.delivery.models.status_service import StatusService
+from app.general.models.service_account import ServiceAccount
 from app.order.models.delivery import OrderDelivery
 from classes.starken.starken import Starken
 from core.settings.base import APP_USERNAME
@@ -24,7 +24,7 @@ from helpers.error.custom_error import UNEXP_ERROR, CustomError
 
 class Delivery(Starken):
     def __init__(self,
-                 account: Account = None,
+                 account: ServiceAccount,
                  folio: int = None,
                  *args,
                  **kwargs):
@@ -43,13 +43,13 @@ class Delivery(Starken):
     @loggable
     def app_sync(self, *args, **kwargs):
         mdl = DelivMdl
-        status_mdl = StatusCarrier
+        status_mdl = StatusService
         user_obj = User.objects.get(username=APP_USERNAME)
-        carrier = self.account.carrier
+        carrier = self.serv_account.service
 
-        delivs = mdl.objects.filter(account=self.account)
+        delivs = mdl.objects.filter(service_acct=self.serv_account)
         status = {st.code: st
-                  for st in status_mdl.objects.filter(carrier=carrier)}
+                  for st in status_mdl.objects.filter(service_acct=self.serv_account)}
         for deliv in delivs:
             self.folio = deliv.folio
             try:
@@ -98,6 +98,7 @@ class Delivery(Starken):
                 status_obj = status_mdl(
                     code=status_id,
                     name=status_desc,
+                    service_acct=self.serv_account,
                     carrier=carrier,
                     changed_by=user_obj
                 )
@@ -113,14 +114,14 @@ class Delivery(Starken):
                     continue
                 status[status_id] = status_obj
 
-            fields_to_upd = ['carrier_status', 'changed_by']
+            fields_to_upd = ['service_status', 'changed_by']
             if status_obj.status:
                 deliv.status = status_obj.status
                 fields_to_upd.append('status')
                 if status_obj.status.code == Status.receiv_code:
                     deliv.rcpt_date = update_date
                     fields_to_upd.append('rcpt_date')
-            deliv.carrier_status = status_desc
+            deliv.service_status = status_desc
             deliv.changed_by = user_obj
             try:
                 bulk_update_with_history(objs=[deliv],
@@ -140,6 +141,7 @@ class Delivery(Starken):
                  .filter(delivery__id=delivery.id)
                  .values(
                      cust_name=F('order_grouping__customer__name'),
+                     test=F('order_grouping__delivery_option__name'),
                      addr=Concat('order_grouping__addr__st_and_num',
                                  Value(' '),
                                  'order_grouping__addr__complement',
