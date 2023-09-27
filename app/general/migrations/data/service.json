@@ -1,0 +1,53 @@
+[
+{
+    "model": "general.service",
+    "pk": 1,
+    "fields": {
+        "code": "BQ",
+        "name": "Bioquimica.cl",
+        "is_carrier": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.service",
+    "pk": 2,
+    "fields": {
+        "code": "TD",
+        "name": "Telediagnóstica",
+        "is_carrier": false,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.service",
+    "pk": 3,
+    "fields": {
+        "code": "SAP",
+        "name": "SAP Business One",
+        "is_carrier": false,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.service",
+    "pk": 4,
+    "fields": {
+        "code": "STK",
+        "name": "Starken",
+        "is_carrier": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.service",
+    "pk": 5,
+    "fields": {
+        "code": "MITO",
+        "name": "Mitocondria",
+        "is_carrier": false,
+        "changed_by": 1
+    }
+}
+]
+    

@@ -39,3 +39,19 @@ class BusinessPartner(models.Model):
 
     class Meta:
         db_table = 'business_partner'
+        ordering = [
+            'code',
+            'name',
+            'currency',
+            'group',
+            'tax_id',
+            'type',
+            'phone1',
+            'phone2',
+            'mobile_phone',
+            'email_addr',
+            'enabled',
+            'changed_by',
+            'created_at',
+            'updated_at',
+        ]

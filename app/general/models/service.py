@@ -3,21 +3,17 @@ from django.utils import timezone
 from simple_history.models import HistoricalRecords
 
 
-class TypeCarrier(models.Model):
+class Service(models.Model):
     # General
-    code = models.CharField(max_length=100)
+    code = models.CharField(max_length=100, unique=True)
     name = models.CharField(max_length=100)
-    type = models.ForeignKey(to='delivery.Type',
-                             on_delete=models.CASCADE,
-                             null=True)
-    carrier = models.ForeignKey(to='delivery.Carrier',
-                                on_delete=models.CASCADE)
+    is_carrier = models.BooleanField(default=False)
     enabled = models.BooleanField(default=True)
     # Object tracking
     changed_by = models.ForeignKey(to='auth.User',
                                    on_delete=models.CASCADE,
-                                   related_name='deliv_type_carrier_changed_by')
-    history = HistoricalRecords(table_name='delivery_type_carrier_history')
+                                   related_name='general_serv_changed_by')
+    history = HistoricalRecords(table_name='service_history')
     # Object timestamps
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True, null=True)
@@ -31,4 +27,13 @@ class TypeCarrier(models.Model):
         self.changed_by = value
 
     class Meta:
-        db_table = 'delivery_type_carrier'
+        db_table = 'service'
+        ordering = [
+            'code',
+            'name',
+            'is_carrier',
+            'enabled',
+            'changed_by',
+            'created_at',
+            'updated_at',
+        ]

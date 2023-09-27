@@ -4,13 +4,20 @@ from typing import Callable
 
 import requests
 
+from app.general.models.service_account import ServiceAccount
 from core.settings.base import env
 from helpers.decorator.loggable import loggable
 from helpers.error.custom_error import CustomError
 
+SERV_CODE = 'SAP'
+
 
 class Sap:
-    def __init__(self, *args, **kwargs):
+    def __init__(self, account: ServiceAccount, *args, **kwargs):
+        # Sap service account info
+        self.serv_code = SERV_CODE
+        self.serv_account = account
+
         # SAP's service layer data
         self.host = env.str(var='SAP_HOST')
         self.max_page_size_var = 'odata.maxpagesize={qty}'
@@ -94,9 +101,9 @@ class Sap:
     def login(self, *args, **kwargs) -> requests.Response:
         url = f'{self.host}Login'
         payload = json.dumps({
-            'CompanyDB': env.str(var='SAP_DATABASE'),
-            'UserName': env.str(var='SAP_USER'),
-            'Password': env.str(var='SAP_PASS')
+            'CompanyDB': self.serv_account.database,
+            'UserName': self.serv_account.username,
+            'Password': self.serv_account.get_password()
         })
 
         session_id_key = 'SessionId'

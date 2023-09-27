@@ -42,3 +42,12 @@ class Employee(models.Model):
 
     class Meta:
         db_table = 'employee'
+        ordering = [
+            'code',
+            'first_name',
+            'last_name',
+            'enabled',
+            'changed_by',
+            'created_at',
+            'updated_at',
+        ]

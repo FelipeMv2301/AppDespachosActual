@@ -3,17 +3,19 @@ from django.utils import timezone
 from simple_history.models import HistoricalRecords
 
 
-class EmployeeSap(models.Model):
+class CurrencyService(models.Model):
     # General
-    code = models.CharField(max_length=100, unique=True)
+    code = models.CharField(max_length=100)
     name = models.CharField(max_length=100)
-    enabled = models.BooleanField(default=True)
-    employee = models.ForeignKey(to='general.Employee',
+    currency = models.ForeignKey(to='general.Currency',
                                  on_delete=models.CASCADE,
                                  null=True)
+    service_acct = models.ForeignKey(to='general.ServiceAccount',
+                                     on_delete=models.CASCADE)
+    enabled = models.BooleanField(default=True)
     # Object tracking
     changed_by = models.ForeignKey(to='auth.User', on_delete=models.CASCADE)
-    history = HistoricalRecords(table_name='employee_sap_history')
+    history = HistoricalRecords(table_name='currency_service_history')
     # Object timestamps
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True, null=True)
@@ -27,4 +29,14 @@ class EmployeeSap(models.Model):
         self.changed_by = value
 
     class Meta:
-        db_table = 'employee_sap'
+        db_table = 'currency_service'
+        ordering = [
+            'code',
+            'name',
+            'currency',
+            'service_acct',
+            'enabled',
+            'changed_by',
+            'created_at',
+            'updated_at',
+        ]

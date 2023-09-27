@@ -25,3 +25,12 @@ class City(models.Model):
 
     class Meta:
         db_table = 'city'
+        ordering = [
+            'code',
+            'name',
+            'state',
+            'enabled',
+            'changed_by',
+            'created_at',
+            'updated_at',
+        ]

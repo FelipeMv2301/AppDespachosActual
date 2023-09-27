@@ -6,12 +6,11 @@ from django.contrib.auth.models import User
 from simple_history.utils import (bulk_create_with_history,
                                   bulk_update_with_history)
 
-from app.delivery.models.account import Account
 from app.delivery.models.agency import Agency as AgencyMdl
-from app.delivery.models.carrier import Carrier
 from app.general.models.address import Address
 from app.general.models.muni import Muni
-from app.general.models.muni_starken import MuniStarken
+from app.general.models.muni_service import MuniService
+from app.general.models.service_account import ServiceAccount
 from classes.google_maps.gmaps import GoogleMaps
 from classes.starken.starken import Starken
 from core.settings.base import APP_USERNAME
@@ -20,35 +19,8 @@ from helpers.error.custom_error import CustomError
 
 
 class Agency(Starken):
-    def __init__(self,
-                 account: Account = None,
-                 code: int = None,
-                 name: str = None,
-                 code_dls: int = None,
-                 address: str = None,
-                 shipping: bool = False,
-                 delivery: bool = False,
-                 phone_num: str = None,
-                 muni: object = None,
-                 *args,
-                 **kwargs):
+    def __init__(self, account: ServiceAccount, *args, **kwargs):
         super().__init__(account=account, *args, **kwargs)
-
-        self.code = code
-        self.name = name
-        self.code_dls = code_dls
-        self.address = address
-        self.shipping = shipping
-        self.delivery = delivery
-        self.phone_num = phone_num
-        self.muni = muni
-
-        self.join_municipality()
-
-    @loggable
-    def join_municipality(self, *args, **kwargs):
-        if self.muni:
-            self.muni.add_agency(agency=self)
 
     @loggable
     def search_all(self, *args, **kwargs) -> Dict[str, Any]:
@@ -60,18 +32,17 @@ class Agency(Starken):
 
     @loggable
     def app_sync(self, *args, **kwargs):
-        model = AgencyMdl
+        mdl = AgencyMdl
         addr_mdl = Address
-        stk_muni_mdl = MuniStarken
+        serv_muni_mdl = MuniService
         muni_mdl = Muni
         agencies = self.search_all()
-        carrier_obj = Carrier.objects.get(code=self.carrier_code)
         user_obj = User.objects.get(username=APP_USERNAME)
         gmaps = GoogleMaps()
 
         munis = {}
-        ag_objs = {obj.code: obj
-                   for obj in model.objects.filter(carrier=carrier_obj)}
+        ag_objs = mdl.objects.filter(service_acct=self.serv_account)
+        ag_objs = {obj.code: obj for obj in ag_objs}
         ag_obj_cods = list(ag_objs.keys())
         for ag in agencies:
             code = str(ag['code_dls'])
@@ -88,7 +59,9 @@ class Agency(Starken):
             muni_code = muni['code_dls']
 
             if muni_code not in munis:
-                stk_muni_obj = stk_muni_mdl.objects.filter(code=muni_code)
+                stk_muni_obj = (serv_muni_mdl.objects
+                                .filter(code=muni_code,
+                                        service_acct=self.serv_account))
                 if not stk_muni_obj:
                     e_msg = f'Starken muni code {muni_code} does not exist'
                     CustomError(msg=e_msg)
@@ -102,14 +75,15 @@ class Agency(Starken):
                         muni_obj = muni_mdl.objects.get(
                             name=muni_name_from_gmaps)
                     except muni_mdl.DoesNotExist:
-                        e_msg = f'Starken muni code {muni_code} has no equivalence'
+                        e_msg = f'Starken muni code {muni_code} '
+                        e_msg += 'has no equivalence'
                         CustomError(msg=e_msg)
                         continue
                 munis[muni_code] = muni_obj
             muni_obj = munis[muni_code]
 
             addr_sync_kwargs = {'model': addr_mdl}
-            sync_kwargs = {'model': model}
+            sync_kwargs = {'model': mdl}
             if code in ag_objs:
                 ag_obj = ag_objs[code]
                 addr_obj = ag_obj.addr
@@ -134,7 +108,7 @@ class Agency(Starken):
                 ]
             else:
                 sync_func = bulk_create_with_history
-                ag_obj = model()
+                ag_obj = mdl()
                 addr_obj = addr_mdl()
 
             addr_obj.st_and_num = address
@@ -150,7 +124,7 @@ class Agency(Starken):
             ag_obj.name = name
             ag_obj.addr = addr_obj
             ag_obj.phone = phone
-            ag_obj.carrier = carrier_obj
+            ag_obj.service_acct = self.serv_account
             ag_obj.shipping = shipping
             ag_obj.delivery = delivery
             ag_obj.enabled = enabled
@@ -167,6 +141,6 @@ class Agency(Starken):
             ag.changed_by = user_obj
         bulk_update_with_history(
             objs=unsync_ags,
-            model=model,
+            model=mdl,
             fields=['enabled', 'changed_by']
         )

@@ -6,24 +6,16 @@ from django.contrib.auth.models import User
 from simple_history.utils import (bulk_create_with_history,
                                   bulk_update_with_history)
 
-from app.general.models.muni_sap import MuniSap
+from app.general.models.muni_service import MuniService
+from app.general.models.service_account import ServiceAccount
 from classes.sap.sap import Sap
 from core.settings.base import APP_USERNAME
 from helpers.decorator.loggable import loggable
 
 
 class MunicipalityAndCity(Sap):
-    def __init__(self,
-                 muni_name: str = None,
-                 city_name: str = None,
-                 region_code: str = None,
-                 *args,
-                 **kwargs):
-        super().__init__(*args, **kwargs)
-
-        self.muni_name = muni_name
-        self.city_name = city_name
-        self.region_code = region_code
+    def __init__(self, account: ServiceAccount, *args, **kwargs):
+        super().__init__(account=account, *args, **kwargs)
 
     @loggable
     @Sap.session_handling
@@ -61,31 +53,33 @@ class MunicipalityAndCity(Sap):
 
     @loggable
     def app_sync(self, *args, **kwargs):
-        model = MuniSap
+        mdl = MuniService
         munis = self.search_all()
         user_obj = User.objects.get(username=APP_USERNAME)
 
         objs = {obj.code: obj
-                for obj in model.objects.all()}
+                for obj in mdl.objects.filter(service_acct=self.serv_account)}
         for muni in munis:
             code = str(muni['Code'])
             name = muni['Name']
 
-            sync_kwargs = {'model': model}
+            sync_kwargs = {'model': mdl}
             if code in objs:
                 obj = objs[code]
                 sync_func = bulk_update_with_history
                 sync_kwargs['fields'] = [
                     'code',
                     'name',
+                    'service_acct',
                     'changed_by'
                 ]
             else:
                 sync_func = bulk_create_with_history
-                obj = model()
+                obj = mdl()
 
             obj.code = code
             obj.name = name
+            obj.service_acct = self.serv_account
             obj.changed_by = user_obj
             sync_kwargs['objs'] = [obj]
             sync_func(**sync_kwargs)

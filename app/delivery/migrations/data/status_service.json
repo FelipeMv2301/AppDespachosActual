@@ -1,0 +1,147 @@
+[
+{
+    "model": "delivery.statusservice",
+    "pk": 1,
+    "fields": {
+        "code": "1",
+        "name": "ENTREGADO",
+        "status": 2,
+        "service_acct": 1,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 2,
+    "fields": {
+        "code": "7",
+        "name": "PENDIENTE ENTREGA",
+        "status": null,
+        "service_acct": 1,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 3,
+    "fields": {
+        "code": "10",
+        "name": "PENDIENTE ENTREGA C. EXCEPCION",
+        "status": null,
+        "service_acct": 1,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 4,
+    "fields": {
+        "code": "11",
+        "name": "CERRADO CON EXCEPCION",
+        "status": 4,
+        "service_acct": 1,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 5,
+    "fields": {
+        "code": "13",
+        "name": "REDESTINADO",
+        "status": null,
+        "service_acct": 1,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 6,
+    "fields": {
+        "code": "15",
+        "name": "ANULADO",
+        "status": 3,
+        "service_acct": 1,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+
+{
+    "model": "delivery.statusservice",
+    "pk": 7,
+    "fields": {
+        "code": "1",
+        "name": "ENTREGADO",
+        "status": 2,
+        "service_acct": 2,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 8,
+    "fields": {
+        "code": "7",
+        "name": "PENDIENTE ENTREGA",
+        "status": null,
+        "service_acct": 2,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 9,
+    "fields": {
+        "code": "10",
+        "name": "PENDIENTE ENTREGA C. EXCEPCION",
+        "status": null,
+        "service_acct": 2,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 10,
+    "fields": {
+        "code": "11",
+        "name": "CERRADO CON EXCEPCION",
+        "status": 4,
+        "service_acct": 2,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 11,
+    "fields": {
+        "code": "13",
+        "name": "REDESTINADO",
+        "status": null,
+        "service_acct": 2,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 12,
+    "fields": {
+        "code": "15",
+        "name": "ANULADO",
+        "status": 3,
+        "service_acct": 2,
+        "enabled": true,
+        "changed_by": 1
+    }
+}
+]

@@ -6,10 +6,10 @@ from simple_history.models import HistoricalRecords
 class Document(models.Model):
     # General
     folio = models.CharField(max_length=100)
-    delivery = models.ForeignKey(to='delivery.Delivery',
-                                 on_delete=models.CASCADE)
     type = models.ForeignKey(to='delivery.DocumentType',
                              on_delete=models.CASCADE)
+    delivery = models.ForeignKey(to='delivery.Delivery',
+                                 on_delete=models.CASCADE)
     # Object tracking
     changed_by = models.ForeignKey(to='auth.User', on_delete=models.CASCADE)
     history = HistoricalRecords(table_name='delivery_document_history')
@@ -27,3 +27,11 @@ class Document(models.Model):
 
     class Meta:
         db_table = 'delivery_document'
+        ordering = [
+            'folio',
+            'type',
+            'delivery',
+            'changed_by',
+            'created_at',
+            'updated_at',
+        ]

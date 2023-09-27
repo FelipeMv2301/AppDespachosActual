@@ -24,22 +24,14 @@ class Delivery(models.Model):
                              unique=True)
     order_delivery = models.ManyToManyField(to='order.Grouping',
                                             through='order.OrderDelivery')
-    status = models.ForeignKey(to='delivery.Status',
-                               on_delete=models.CASCADE,
-                               null=True)
-    carrier_status = models.CharField(max_length=100, null=True)
-    account = models.ForeignKey(to='delivery.Account',
-                                on_delete=models.CASCADE,
-                                null=True)
-    locked = models.BooleanField(default=False)
+    service_acct = models.ForeignKey(to='general.ServiceAccount',
+                                     on_delete=models.CASCADE,
+                                     null=True)
     # Dates
     issue_date = models.DateField(default=timezone.now)
     assembly_date = models.DateField()
     rcpt_commit_date = models.DateField(null=True)
     rcpt_date = models.DateField(null=True)
-    # Mitocondria info
-    mito_id = models.IntegerField(null=True)
-    from_mito = models.BooleanField(default=False)
     # Dimensions and weight
     height = models.FloatField()
     width = models.FloatField()
@@ -49,6 +41,15 @@ class Delivery(models.Model):
     packages_qty = models.IntegerField()
     # Valuation
     valuation = models.FloatField()
+    # Status
+    status = models.ForeignKey(to='delivery.Status',
+                               on_delete=models.CASCADE,
+                               null=True)
+    service_status = models.CharField(max_length=100, null=True)
+    locked = models.BooleanField(default=False)
+    # Mitocondria info
+    mito_id = models.IntegerField(null=True)
+    from_mito = models.BooleanField(default=False)
     # Object tracking
     changed_by = models.ForeignKey(to='auth.User', on_delete=models.CASCADE)
     history = HistoricalRecords(table_name='delivery_history')
@@ -66,3 +67,25 @@ class Delivery(models.Model):
 
     class Meta:
         db_table = 'delivery'
+        ordering = [
+            'folio',
+            'service_acct',
+            'issue_date',
+            'assembly_date',
+            'rcpt_commit_date',
+            'rcpt_date',
+            'height',
+            'width',
+            'length',
+            'weight',
+            'packages_qty',
+            'valuation',
+            'status',
+            'service_status',
+            'locked',
+            'mito_id',
+            'from_mito',
+            'changed_by',
+            'created_at',
+            'updated_at',
+        ]

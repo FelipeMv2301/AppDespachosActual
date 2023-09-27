@@ -3,16 +3,19 @@ from django.utils import timezone
 from simple_history.models import HistoricalRecords
 
 
-class MuniStarken(models.Model):
+class TypeService(models.Model):
     # General
-    code = models.CharField(max_length=100, unique=True)
+    code = models.CharField(max_length=100)
     name = models.CharField(max_length=100)
-    muni = models.ForeignKey(to='general.Muni',
+    type = models.ForeignKey(to='business_partner.Type',
                              on_delete=models.CASCADE,
                              null=True)
+    service_acct = models.ForeignKey(to='general.ServiceAccount',
+                                     on_delete=models.CASCADE,
+                                     related_name='bsns_partner_type_serv_serv_acct')
     # Object tracking
     changed_by = models.ForeignKey(to='auth.User', on_delete=models.CASCADE)
-    history = HistoricalRecords(table_name='municipality_starken_history')
+    history = HistoricalRecords(table_name='business_partner_type_service_history')
     # Object timestamps
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True, null=True)
@@ -26,4 +29,12 @@ class MuniStarken(models.Model):
         self.changed_by = value
 
     class Meta:
-        db_table = 'municipality_starken'
+        db_table = 'business_partner_type_service'
+        ordering = [
+            'code',
+            'name',
+            'type',
+            'changed_by',
+            'created_at',
+            'updated_at',
+        ]

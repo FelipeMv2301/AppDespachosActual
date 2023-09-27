@@ -1,0 +1,86 @@
+[
+{
+    "model": "delivery.typeservice",
+    "pk": 1,
+    "fields": {
+        "code": "1",
+        "name": "A domicilio",
+        "type": 3,
+        "service_acct": 1,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.typeservice",
+    "pk": 2,
+    "fields": {
+        "code": "2",
+        "name": "Retiro en agencia",
+        "type": 2,
+        "service_acct": 1,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.typeservice",
+    "pk": 3,
+    "fields": {
+        "code": "1",
+        "name": "A domicilio",
+        "type": 3,
+        "service_acct": 2,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.typeservice",
+    "pk": 4,
+    "fields": {
+        "code": "2",
+        "name": "Retiro en agencia",
+        "type": 2,
+        "service_acct": 2,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.typeservice",
+    "pk": 5,
+    "fields": {
+        "code": "1",
+        "name": "Retiro en agencia",
+        "type": 2,
+        "service_acct": 4,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.typeservice",
+    "pk": 6,
+    "fields": {
+        "code": "2",
+        "name": "A domicilio",
+        "type": 3,
+        "service_acct": 4,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.typeservice",
+    "pk": 7,
+    "fields": {
+        "code": "3",
+        "name": "Retiro BQ",
+        "type": 1,
+        "service_acct": 4,
+        "enabled": true,
+        "changed_by": 1
+    }
+}
+]

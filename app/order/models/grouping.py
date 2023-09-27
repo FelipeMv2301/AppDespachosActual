@@ -51,3 +51,16 @@ class Grouping(models.Model):
 
     class Meta:
         db_table = 'order_grouping'
+        ordering = [
+            'code',
+            'order',
+            'delivery_option',
+            'addr',
+            'customer',
+            'contact',
+            'enabled',
+            'deliv_obs',
+            'changed_by',
+            'created_at',
+            'updated_at',
+        ]

@@ -5,6 +5,7 @@
     "fields": {
         "code": "CLP",
         "name": "Pesos chilenos",
+        "enabled": true,
         "changed_by": 1
     }
 },
@@ -14,6 +15,7 @@
     "fields": {
         "code": "USD",
         "name": "Dólares estadounidenses",
+        "enabled": true,
         "changed_by": 1
     }
 },
@@ -23,6 +25,7 @@
     "fields": {
         "code": "EUR",
         "name": "Euro",
+        "enabled": true,
         "changed_by": 1
     }
 }

@@ -5,15 +5,21 @@ from typing import Callable
 
 import MySQLdb as mysql
 
+from app.general.models.service_account import ServiceAccount
 from core.settings.base import env
 from helpers.decorator.loggable import loggable
 from helpers.error.custom_error import CustomError
 
 CURRENT_DIR = Path(__file__).resolve().parent
+SERV_CODE = 'MITO'
 
 
 class Mitocondria:
-    def __init__(self, *args, **kwargs):
+    def __init__(self, account: ServiceAccount, *args, **kwargs):
+        # Starken service account info
+        self.serv_code = SERV_CODE
+        self.serv_account = account
+
         # Mitocondria's database data
         self.schema = env.str(var='MITOCONDRIA_DB_SCHEMA')
         self.conn = None
@@ -37,16 +43,16 @@ class Mitocondria:
             27: '52',  # Guía de despacho electrónica
             28: '39',  # Boleta electrónica
         }
-        self.deliv_types_equiv_by_code = {
-            1: 'RAG',  # Starken agencia
-            2: 'ADOM',  # Starken domicilio
-            3: 'RBQ',  # Bioquimica.cl
-        }
-        self.pay_types_equiv_by_code = {
-            1: 'FREE',  # Retira en Bioquimica.cl
-            2: 'CE',  # Cobrado en cotización
-            3: 'PA',  # Paga contra entrega
-        }
+        # self.deliv_types_equiv_by_code = {
+        #     1: 'RAG',  # Starken agencia
+        #     2: 'ADOM',  # Starken domicilio
+        #     3: 'RBQ',  # Bioquimica.cl
+        # }
+        # self.pay_types_equiv_by_code = {
+        #     1: 'FREE',  # Retira en Bioquimica.cl
+        #     2: 'CE',  # Cobrado en cotización
+        #     3: 'PA',  # Paga contra entrega
+        # }
 
     @staticmethod
     def conn_handling(f: Callable):
@@ -68,10 +74,10 @@ class Mitocondria:
     @loggable
     def connect(self, *args, **kwargs) -> object:
         conn = mysql.connect(
-            host=env.str(var='MITOCONDRIA_DB_HOST'),
-            port=env.int(var='MITOCONDRIA_DB_PORT'),
-            user=env.str(var='MITOCONDRIA_DB_USER'),
-            passwd=env.str(var='MITOCONDRIA_DB_PASS'),
+            host=self.serv_account.host,
+            port=int(self.serv_account.port),
+            user=self.serv_account.username,
+            passwd=self.serv_account.get_password(),
             db=self.schema
         )
         # TODO: check connection

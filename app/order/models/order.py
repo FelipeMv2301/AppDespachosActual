@@ -5,7 +5,10 @@ from simple_history.models import HistoricalRecords
 
 class Order(models.Model):
     # General
-    ref = models.CharField(max_length=100, unique=True)
+    doc_num = models.CharField(max_length=100)
+    reference = models.CharField(max_length=100, unique=True)
+    service_acct = models.ForeignKey(to='general.ServiceAccount',
+                                     on_delete=models.CASCADE)
     currency = models.ForeignKey(to='general.Currency',
                                  on_delete=models.CASCADE)
     web_order_ref = models.CharField(max_length=100)
@@ -61,3 +64,30 @@ class Order(models.Model):
 
     class Meta:
         db_table = 'order'
+        ordering = [
+            'doc_num',
+            'reference',
+            'currency',
+            'web_order_ref',
+            'sale_channel',
+            'seller',
+            'create_date',
+            'tax_date',
+            'commit_date',
+            'updtd_commit_date',
+            'ship_addr',
+            'bill_addr',
+            'customer',
+            'contact',
+            'local_total_dcnt',
+            'doc_total_dcnt',
+            'local_total_tax',
+            'doc_total_tax',
+            'local_total_amt',
+            'doc_total_amt',
+            'enabled',
+            'obs',
+            'changed_by',
+            'created_at',
+            'updated_at',
+        ]

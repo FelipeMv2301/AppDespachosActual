@@ -1,0 +1,194 @@
+[
+{
+    "model": "order.salechannelservice",
+    "pk": 1,
+    "fields": {
+        "code": "DIR",
+        "name": "Directa",
+        "sale_channel": 1,
+        "service_acct": 3,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "order.salechannelservice",
+    "pk": 2,
+    "fields": {
+        "code": "WEB",
+        "name": "WEB",
+        "sale_channel": 2,
+        "service_acct": 3,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "order.salechannelservice",
+    "pk": 3,
+    "fields": {
+        "code": "CA",
+        "name": "Compra Ágil",
+        "sale_channel": 4,
+        "service_acct": 3,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "order.salechannelservice",
+    "pk": 4,
+    "fields": {
+        "code": "LI",
+        "name": "Licitación",
+        "sale_channel": 5,
+        "service_acct": 3,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "order.salechannelservice",
+    "pk": 5,
+    "fields": {
+        "code": "ML",
+        "name": "Mercado Libre",
+        "sale_channel": 3,
+        "service_acct": 3,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "order.salechannelservice",
+    "pk": 6,
+    "fields": {
+        "code": "DM",
+        "name": "Disp Médicos",
+        "sale_channel": 7,
+        "service_acct": 3,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "order.salechannelservice",
+    "pk": 7,
+    "fields": {
+        "code": "CM",
+        "name": "Conv Marco",
+        "sale_channel": 8,
+        "service_acct": 3,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "order.salechannelservice",
+    "pk": 8,
+    "fields": {
+        "code": "PR",
+        "name": "Presencial",
+        "sale_channel": 6,
+        "service_acct": 3,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "order.salechannelservice",
+    "pk": 10,
+    "fields": {
+        "code": "DIR",
+        "name": "Directa",
+        "sale_channel": 1,
+        "service_acct": 5,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "order.salechannelservice",
+    "pk": 11,
+    "fields": {
+        "code": "WEB",
+        "name": "WEB",
+        "sale_channel": 2,
+        "service_acct": 5,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "order.salechannelservice",
+    "pk": 12,
+    "fields": {
+        "code": "CA",
+        "name": "Compra Ágil",
+        "sale_channel": 4,
+        "service_acct": 5,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "order.salechannelservice",
+    "pk": 13,
+    "fields": {
+        "code": "LI",
+        "name": "Licitación",
+        "sale_channel": 5,
+        "service_acct": 5,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "order.salechannelservice",
+    "pk": 14,
+    "fields": {
+        "code": "ML",
+        "name": "Mercado Libre",
+        "sale_channel": 3,
+        "service_acct": 5,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "order.salechannelservice",
+    "pk": 15,
+    "fields": {
+        "code": "DM",
+        "name": "Disp Médicos",
+        "sale_channel": 7,
+        "service_acct": 5,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "order.salechannelservice",
+    "pk": 16,
+    "fields": {
+        "code": "CM",
+        "name": "Conv Marco",
+        "sale_channel": 8,
+        "service_acct": 5,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "order.salechannelservice",
+    "pk": 17,
+    "fields": {
+        "code": "PR",
+        "name": "Presencial",
+        "sale_channel": 6,
+        "service_acct": 5,
+        "enabled": true,
+        "changed_by": 1
+    }
+}
+]

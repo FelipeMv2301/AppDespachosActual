@@ -8,6 +8,7 @@ class Muni(models.Model):
     code = models.CharField(max_length=100, unique=True)
     name = models.CharField(max_length=100)
     state = models.ForeignKey(to='general.State', on_delete=models.CASCADE)
+    enabled = models.BooleanField(default=True)
     # Object tracking
     changed_by = models.ForeignKey(to='auth.User', on_delete=models.CASCADE)
     history = HistoricalRecords(table_name='municipality_history')
@@ -25,3 +26,11 @@ class Muni(models.Model):
 
     class Meta:
         db_table = 'municipality'
+        ordering = [
+            'code',
+            'name',
+            'enabled',
+            'changed_by',
+            'created_at',
+            'updated_at',
+        ]

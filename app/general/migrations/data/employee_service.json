@@ -1,0 +1,662 @@
+[
+{
+    "model": "general.employeeservice",
+    "pk": 1,
+    "fields": {
+        "code": "-1",
+        "name": "-Ningún empleado del departamento de ventas-",
+        "employee": null,
+        "service_acct": 3,
+        "enabled": false,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 2,
+    "fields": {
+        "code": "1",
+        "name": "Daniela Araya",
+        "employee": 1,
+        "service_acct": 3,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 3,
+    "fields": {
+        "code": "2",
+        "name": "Pamela López",
+        "employee": 13,
+        "service_acct": 3,
+        "enabled": false,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 4,
+    "fields": {
+        "code": "3",
+        "name": "Bianca Vargas",
+        "employee": 2,
+        "service_acct": 3,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 5,
+    "fields": {
+        "code": "13",
+        "name": "Mariana Vera",
+        "employee": 14,
+        "service_acct": 3,
+        "enabled": false,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 6,
+    "fields": {
+        "code": "5",
+        "name": "Johanna Palmegiani",
+        "employee": 3,
+        "service_acct": 3,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 7,
+    "fields": {
+        "code": "16",
+        "name": "Jorge Londoño",
+        "employee": 15,
+        "service_acct": 3,
+        "enabled": false,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 8,
+    "fields": {
+        "code": "7",
+        "name": "Andrés Ravelo",
+        "employee": null,
+        "service_acct": 3,
+        "enabled": false,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 9,
+    "fields": {
+        "code": "8",
+        "name": "Florencia Gómez",
+        "employee": 16,
+        "service_acct": 3,
+        "enabled": false,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 10,
+    "fields": {
+        "code": "9",
+        "name": "Jonathan Quintero",
+        "employee": 4,
+        "service_acct": 3,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 11,
+    "fields": {
+        "code": "10",
+        "name": "Elsa Martínez",
+        "employee": 5,
+        "service_acct": 3,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 12,
+    "fields": {
+        "code": "11",
+        "name": "Eileen Bellina",
+        "employee": 6,
+        "service_acct": 3,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 13,
+    "fields": {
+        "code": "12",
+        "name": "Manuel Aracena",
+        "employee": 7,
+        "service_acct": 3,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 14,
+    "fields": {
+        "code": "19",
+        "name": "Alejandra Perez",
+        "employee": 17,
+        "service_acct": 3,
+        "enabled": false,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 15,
+    "fields": {
+        "code": "14",
+        "name": "Mabel Lopez",
+        "employee": 18,
+        "service_acct": 3,
+        "enabled": false,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 16,
+    "fields": {
+        "code": "15",
+        "name": "Yandrelis Paz",
+        "employee": 19,
+        "service_acct": 3,
+        "enabled": false,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 17,
+    "fields": {
+        "code": "21",
+        "name": "Web Elsa",
+        "employee": 20,
+        "service_acct": 3,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 18,
+    "fields": {
+        "code": "20",
+        "name": "Cheryl Aguilera",
+        "employee": 21,
+        "service_acct": 3,
+        "enabled": false,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 19,
+    "fields": {
+        "code": "18",
+        "name": "Hermi Parra",
+        "employee": 8,
+        "service_acct": 3,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 20,
+    "fields": {
+        "code": "23",
+        "name": "Fernanda Guerrero",
+        "employee": 22,
+        "service_acct": 3,
+        "enabled": false,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 21,
+    "fields": {
+        "code": "24",
+        "name": "Pablo Marin",
+        "employee": 23,
+        "service_acct": 3,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 22,
+    "fields": {
+        "code": "22",
+        "name": "Web Jonathan",
+        "employee": 24,
+        "service_acct": 3,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 23,
+    "fields": {
+        "code": "27",
+        "name": "Gabriela Tapia",
+        "employee": 25,
+        "service_acct": 3,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 24,
+    "fields": {
+        "code": "17",
+        "name": "Adriana Larios",
+        "employee": 26,
+        "service_acct": 3,
+        "enabled": false,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 25,
+    "fields": {
+        "code": "28",
+        "name": "Maroa Peña",
+        "employee": 9,
+        "service_acct": 3,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 26,
+    "fields": {
+        "code": "25",
+        "name": "WEB",
+        "employee": 10,
+        "service_acct": 3,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 27,
+    "fields": {
+        "code": "4",
+        "name": "Adelmaris Cisneros",
+        "employee": 12,
+        "service_acct": 3,
+        "enabled": false,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 28,
+    "fields": {
+        "code": "6",
+        "name": "María Lobos",
+        "employee": 11,
+        "service_acct": 3,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 29,
+    "fields": {
+        "code": "29",
+        "name": "Carlos Puga",
+        "employee": 27,
+        "service_acct": 3,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 30,
+    "fields": {
+        "code": "30",
+        "name": "Natalia Olivos",
+        "employee": 28,
+        "service_acct": 3,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 31,
+    "fields": {
+        "code": "31",
+        "name": "Juliana Olivares",
+        "employee": 29,
+        "service_acct": 3,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 32,
+    "fields": {
+        "code": "-1",
+        "name": "-Ningún empleado del departamento de ventas-",
+        "employee": null,
+        "service_acct": 5,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 33,
+    "fields": {
+        "code": "1",
+        "name": "Pablo Marin",
+        "employee": 23,
+        "service_acct": 5,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 34,
+    "fields": {
+        "code": "25",
+        "name": "Web",
+        "employee": 10,
+        "service_acct": 5,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 35,
+    "fields": {
+        "code": "6",
+        "name": "Bianca Vargas",
+        "employee": 2,
+        "service_acct": 5,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 36,
+    "fields": {
+        "code": "7",
+        "name": "Daniela Araya",
+        "employee": 1,
+        "service_acct": 5,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 37,
+    "fields": {
+        "code": "10",
+        "name": "Eileen Bellina",
+        "employee": 6,
+        "service_acct": 5,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 38,
+    "fields": {
+        "code": "11",
+        "name": "Rafael Carvacho",
+        "employee": null,
+        "service_acct": 5,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 39,
+    "fields": {
+        "code": "28",
+        "name": "Jorge Londoño",
+        "employee": 15,
+        "service_acct": 5,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 40,
+    "fields": {
+        "code": "13",
+        "name": "Alejandra Perez",
+        "employee": 17,
+        "service_acct": 5,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 41,
+    "fields": {
+        "code": "14",
+        "name": "Vannesa Novoa",
+        "employee": null,
+        "service_acct": 5,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 42,
+    "fields": {
+        "code": "29",
+        "name": "Juliana Olivares",
+        "employee": 29,
+        "service_acct": 5,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 43,
+    "fields": {
+        "code": "16",
+        "name": "Carlos Semir",
+        "employee": null,
+        "service_acct": 5,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 44,
+    "fields": {
+        "code": "17",
+        "name": "Daniela Romero",
+        "employee": null,
+        "service_acct": 5,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 45,
+    "fields": {
+        "code": "18",
+        "name": "Geraldine Albornoz",
+        "employee": null,
+        "service_acct": 5,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 46,
+    "fields": {
+        "code": "19",
+        "name": "Yandrelis Paz",
+        "employee": 19,
+        "service_acct": 5,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 47,
+    "fields": {
+        "code": "20",
+        "name": "Sebastián Durán",
+        "employee": null,
+        "service_acct": 5,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 48,
+    "fields": {
+        "code": "30",
+        "name": "Natalia Olivos",
+        "employee": 28,
+        "service_acct": 5,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 49,
+    "fields": {
+        "code": "22",
+        "name": "Hermi Parra",
+        "employee": 8,
+        "service_acct": 5,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 50,
+    "fields": {
+        "code": "23",
+        "name": "Mariana Vera",
+        "employee": 14,
+        "service_acct": 5,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 51,
+    "fields": {
+        "code": "24",
+        "name": "Cheryl Aguilera",
+        "employee": 21,
+        "service_acct": 5,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 52,
+    "fields": {
+        "code": "2",
+        "name": "Javiera Masmann",
+        "employee": null,
+        "service_acct": 5,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 53,
+    "fields": {
+        "code": "12",
+        "name": "Mauricio Silva",
+        "employee": null,
+        "service_acct": 5,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 54,
+    "fields": {
+        "code": "15",
+        "name": "Mabel Lopez",
+        "employee": 18,
+        "service_acct": 5,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 55,
+    "fields": {
+        "code": "21",
+        "name": "Adriana Larios",
+        "employee": 26,
+        "service_acct": 5,
+        "enabled": true,
+        "changed_by": 1
+    }
+}
+]

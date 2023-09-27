@@ -3,13 +3,19 @@ from django.utils import timezone
 from simple_history.models import HistoricalRecords
 
 
-class Group(models.Model):
+class EmployeeService(models.Model):
     # General
-    code = models.CharField(max_length=100, unique=True)
+    code = models.CharField(max_length=100)
     name = models.CharField(max_length=100)
+    employee = models.ForeignKey(to='general.Employee',
+                                 on_delete=models.CASCADE,
+                                 null=True)
+    service_acct = models.ForeignKey(to='general.ServiceAccount',
+                                     on_delete=models.CASCADE)
+    enabled = models.BooleanField(default=True)
     # Object tracking
     changed_by = models.ForeignKey(to='auth.User', on_delete=models.CASCADE)
-    history = HistoricalRecords(table_name='business_partner_group_history')
+    history = HistoricalRecords(table_name='employee_service_history')
     # Object timestamps
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True, null=True)
@@ -23,10 +29,13 @@ class Group(models.Model):
         self.changed_by = value
 
     class Meta:
-        db_table = 'business_partner_group'
+        db_table = 'employee_service'
         ordering = [
             'code',
             'name',
+            'employee',
+            'service_acct',
+            'enabled',
             'changed_by',
             'created_at',
             'updated_at',

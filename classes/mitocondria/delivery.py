@@ -7,29 +7,32 @@ from simple_history.utils import bulk_create_with_history
 
 from app.business_partner.models.contact import Contact
 from app.delivery.models.agency import Agency
-from app.delivery.models.carrier import Carrier
 from app.delivery.models.delivery import Delivery as DelivMdl
 from app.delivery.models.doc import Document
 from app.delivery.models.doc_type import DocumentType
 from app.delivery.models.opt import Option
 from app.delivery.models.pay_type import PayType
-from app.delivery.models.service import Service
+from app.delivery.models.pay_type_service import PayTypeService
+from app.delivery.models.service import Service as DelivService
+from app.general.models.service import Service
 from app.delivery.models.status import Status
 from app.delivery.models.type import Type
+from app.delivery.models.type_service import TypeService
 from app.general.models.address import Address
-from app.general.models.muni_mito import MuniMito
+from app.general.models.muni_service import MuniService
+from app.general.models.service_account import ServiceAccount
 from app.order.models.grouping import Grouping
 from app.order.models.order import Order
 from classes.mitocondria.mitocondria import Mitocondria
-from classes.starken.starken import Starken
+from classes.starken.starken import SERV_CODE as STK_SERV_CODE
 from core.settings.base import APP_USERNAME
 from helpers.decorator.loggable import loggable
 from helpers.error.custom_error import CustomError
 
 
 class Delivery(Mitocondria):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+    def __init__(self, account: ServiceAccount, *args, **kwargs):
+        super().__init__(account=account, *args, **kwargs)
 
     @loggable
     @Mitocondria.conn_handling
@@ -59,28 +62,32 @@ class Delivery(Mitocondria):
         ordr_group_mdl = Grouping
         doc_mdl = Document
         addr_mdl = Address
-        mito_muni_mdl = MuniMito
+        serv_muni_mdl = MuniService
         doc_type_mdl = DocumentType
-        pay_type_mdl = PayType
-        type_mdl = Type
-        serv_mdl = Service
         opt_mdl = Option
-        carrier_mdl = Carrier
         ag_mdl = Agency
         contact_mdl = Contact
         delivs = self.search_all(from_date=from_date)
         user_obj = User.objects.get(username=APP_USERNAME)
         status_obj = Status.objects.get(code='ISSUED')
-        stk_acct = Starken().account
+        stk_acct = ServiceAccount.objects.get(code='STKBQ01')
+        sap_acct = ServiceAccount.objects.get(code='SAPBQ01')
+        bq_service = Service.objects.get(code='BQ')
+        stk_service = Service.objects.get(code=STK_SERV_CODE)
+        deliv_service = DelivService.objects.get(code='NO')
 
         doc_types_equiv = {k: doc_type_mdl.objects.get(code=v)
                            for k, v in self.doc_types_equiv_by_code.items()}
-        deliv_types_equiv = {k: type_mdl.objects.get(code=v)
-                             for k, v in self.deliv_types_equiv_by_code.items()}
-        pay_types_equiv = {k: pay_type_mdl.objects.get(code=v)
-                           for k, v in self.pay_types_equiv_by_code.items()}
-        service = serv_mdl.objects.get(code='NO')
-        carrier = carrier_mdl.objects.get(code='STK')
+
+        deliv_types_equiv = (TypeService.objects
+                             .filter(service_acct=self.serv_account))
+        deliv_types_equiv = {t.code: t for t in deliv_types_equiv}
+
+        pay_types_equiv = (PayTypeService.objects
+                           .filter(service_acct=self.serv_account))
+        pay_types_equiv = {t.code: t for t in pay_types_equiv}
+
+        # carrier = carrier_mdl.objects.get(code='STK')
 
         for d in delivs:
             deliv_id = d['id']
@@ -101,8 +108,8 @@ class Delivery(Mitocondria):
                                None)
             ship_muni_name = d['ship_muni_name']
             ordrs = [str(o['ref']) for o in json.loads(s=d['orders'])]
-            deliv_type_code = d['deliv_type_id']
-            pay_type_code = d['pay_type_id']
+            deliv_type_code = str(d['deliv_type_id'])
+            pay_type_code = str(d['pay_type_id'])
             height = d['height']
             width = d['width']
             length = d['length']
@@ -118,8 +125,9 @@ class Delivery(Mitocondria):
                 pass
 
             try:
-                ordr_objs = {o.ref: o
-                             for o in ordr_mdl.objects.filter(ref__in=ordrs)}
+                ordr_objs = ordr_mdl.objects.filter(
+                    doc_num__in=ordrs, service_acct=sap_acct)
+                ordr_objs = {o.doc_num: o for o in ordr_objs}
                 for ordr in ordrs:
                     if ordr not in ordr_objs:
                         e_msg = f'Error: order ref \'{ordr}\' '
@@ -141,10 +149,18 @@ class Delivery(Mitocondria):
                 CustomError(msg=e_msg)
                 continue
 
-            if carrier_is_stk:
-                acct = stk_acct
-            else:
-                acct = None
+            deliv_type = deliv_type.type
+            if not deliv_type:
+                e_msg = 'Error: delivery type code '
+                e_msg += f'\'{deliv_type_code}\' has no equivalence'
+                e_msg += f'\nFolio: {folio}'
+                CustomError(msg=e_msg)
+                continue
+
+            # if carrier_is_stk:
+            #     acct = stk_acct
+            # else:
+            #     acct = None
 
             try:
                 pay_type = pay_types_equiv[pay_type_code]
@@ -155,12 +171,21 @@ class Delivery(Mitocondria):
                 CustomError(msg=e_msg)
                 continue
 
-            if str(ship_muni_name).startswith('@'):
+            pay_type = pay_type.pay_type
+            if not pay_type:
+                e_msg = 'Error: pay type code '
+                e_msg += f'\'{pay_type_code}\' has no equivalence'
+                e_msg += f'\nFolio: {folio}'
+                CustomError(msg=e_msg)
+                continue
+
+            if carrier_is_stk and str(ship_muni_name).startswith('@'):
+                service = stk_service
+                acct = stk_acct
                 ag_code = str(ship_muni_name).replace('@', '')
                 try:
-                    ag = (ag_mdl.objects
-                          .select_related('addr')
-                          .get(code=ag_code))
+                    ag = (ag_mdl.objects.select_related('addr')
+                          .get(code=ag_code, service_acct=stk_acct))
                     muni = ag.addr.muni
                 except ag_mdl.DoesNotExist:
                     e_msg = f'Error: agency code \'{ag_code}\' '
@@ -169,11 +194,14 @@ class Delivery(Mitocondria):
                     CustomError(msg=e_msg)
                     continue
             else:
+                service = bq_service
+                acct = None
                 ag = None
                 try:
-                    muni = mito_muni_mdl.objects.get(name=ship_muni_name)
+                    muni = serv_muni_mdl.objects.get(
+                        name=ship_muni_name, service_acct=self.serv_account)
                     muni = muni.muni
-                except mito_muni_mdl.DoesNotExist:
+                except serv_muni_mdl.DoesNotExist:
                     e_msg = f'Error: ship muni name \'{ship_muni_name}\' '
                     e_msg += 'does not exist'
                     e_msg += f'\nFolio: {folio}'
@@ -182,8 +210,8 @@ class Delivery(Mitocondria):
 
             opt = opt_mdl.objects.filter(
                 enabled=True,
-                carrier=carrier,
-                service=service,
+                carrier=service,
+                service=deliv_service,
                 type=deliv_type,
                 pay_type=pay_type,
                 agency=ag
@@ -252,6 +280,7 @@ class Delivery(Mitocondria):
 
             deliv = mdl(
                 folio=folio,
+                service_acct=acct,
                 issue_date=issue_date,
                 assembly_date=assy_date,
                 rcpt_commit_date=rcpt_commit_date,
@@ -264,7 +293,6 @@ class Delivery(Mitocondria):
                 packages_qty=packages,
                 valuation=valuation,
                 status=status_obj,
-                account=acct,
                 locked=True,
                 changed_by=user_obj
             )

@@ -9,14 +9,15 @@ from simple_history.utils import (bulk_create_with_history,
 
 from app.business_partner.models.bsns_partner import BusinessPartner
 from app.business_partner.models.contact import Contact
-from app.business_partner.models.group_sap import GroupSap
-from app.business_partner.models.type_sap import TypeSap
+from app.business_partner.models.group_service import GroupService
+from app.business_partner.models.type_service import TypeService
 from app.general.models.address import Address
-from app.general.models.currency import Currency
-from app.general.models.employee_sap import EmployeeSap
-from app.general.models.muni_sap import MuniSap
+from app.general.models.currency_service import CurrencyService
+from app.general.models.employee_service import EmployeeService
+from app.general.models.muni_service import MuniService
+from app.general.models.service_account import ServiceAccount
 from app.order.models.order import Order as OrderMdl
-from app.order.models.sale_channel_sap import SaleChannelSap
+from app.order.models.sale_channel_service import SaleChannelService
 from classes.sap.sap import Sap
 from core.settings.base import APP_USERNAME
 from helpers.decorator.loggable import loggable
@@ -24,8 +25,8 @@ from helpers.error.custom_error import UNEXP_ERROR, CustomError
 
 
 class Order(Sap):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+    def __init__(self, account: ServiceAccount, *args, **kwargs):
+        super().__init__(account=account, *args, **kwargs)
 
     @loggable
     @Sap.session_handling
@@ -67,12 +68,12 @@ class Order(Sap):
         addr_mdl = Address
         bsns_partner_mdl = BusinessPartner
         contact_mdl = Contact
-        group_mdl = GroupSap
-        type_mdl = TypeSap
-        ccy_mdl = Currency
-        sale_channel_mdl = SaleChannelSap
-        employee_mdl = EmployeeSap
-        muni_mdl = MuniSap
+        group_mdl = GroupService
+        type_mdl = TypeService
+        ccy_mdl = CurrencyService
+        sale_channel_mdl = SaleChannelService
+        employee_mdl = EmployeeService
+        muni_mdl = MuniService
 
         sap_order_mdl = self.order_mdl
         sap_order_addr_mdl = self.order_addrs_mdl
@@ -84,7 +85,7 @@ class Order(Sap):
         for order in orders:
             # Extraction of order information
             ordr_info = order[sap_order_mdl]
-            ref = str(ordr_info['DocNum'])
+            doc_num = str(ordr_info['DocNum'])
             ccy_code = str(ordr_info['DocCurrency'])
             web_ordr_ref = ordr_info['U_WedDocNum']
             sale_channel_code = str(ordr_info['U_TipoVenta'])
@@ -136,10 +137,20 @@ class Order(Sap):
             # ----------------------------------------------------------------
             # validation of currency existence (by code) in model
             try:
-                ccy = ccy_mdl.objects.get(code=ccy_code)
+                ccy = ccy_mdl.objects.get(code=ccy_code,
+                                          service_acct=self.serv_account,)
             except ccy_mdl.DoesNotExist:
                 e_msg = f'Error: currency code \'{ccy_code}\' does not exist'
-                e_msg += f'\nOrder: {ref}'
+                e_msg += f'\nOrder: {doc_num}'
+                CustomError(msg=e_msg)
+                continue
+
+            # validation of existence of equivalence for SAP currency
+            ccy = ccy.currency
+            if not ccy:
+                e_msg = 'Error: currency code '
+                e_msg += f'\'{ccy_code}\' has no equivalence'
+                e_msg += f'\nOrder: {doc_num}'
                 CustomError(msg=e_msg)
                 continue
 
@@ -150,22 +161,33 @@ class Order(Sap):
                 # validation of bsns partner currency existence (by code) in model
                 try:
                     bsns_partner_ccy = (ccy_mdl.objects
-                                        .get(code=bsns_partner_ccy_code))
+                                        .get(code=bsns_partner_ccy_code,
+                                             service_acct=self.serv_account))
                 except ccy_mdl.DoesNotExist:
                     e_msg = 'Error: bsns partner currency code '
                     e_msg += f'\'{bsns_partner_ccy_code}\' does not exist'
-                    e_msg += f'\nOrder: {ref}'
+                    e_msg += f'\nOrder: {doc_num}'
+                    CustomError(msg=e_msg)
+                    continue
+
+                # validation of existence of equivalence for SAP currency
+                bsns_partner_ccy = bsns_partner_ccy.currency
+                if not ccy:
+                    e_msg = 'Error: bsns partner currency code '
+                    e_msg += f'\'{bsns_partner_ccy_code}\' has no equivalence'
+                    e_msg += f'\nOrder: {doc_num}'
                     CustomError(msg=e_msg)
                     continue
 
             # validation of sale channel existence (by code) in model
             try:
                 sale_channel = (sale_channel_mdl.objects
-                                .get(code=sale_channel_code))
+                                .get(code=sale_channel_code,
+                                     service_acct=self.serv_account))
             except sale_channel_mdl.DoesNotExist:
                 e_msg = 'Error: sale channel code '
                 e_msg += f'\'{sale_channel_code}\' does not exist'
-                e_msg += f'\nOrder: {ref}'
+                e_msg += f'\nOrder: {doc_num}'
                 CustomError(msg=e_msg)
                 continue
 
@@ -174,16 +196,17 @@ class Order(Sap):
             if not sale_channel:
                 e_msg = 'Error: sale channel code '
                 e_msg += f'\'{sale_channel_code}\' has no equivalence'
-                e_msg += f'\nOrder: {ref}'
+                e_msg += f'\nOrder: {doc_num}'
                 CustomError(msg=e_msg)
                 continue
 
             # validation of seller existence (by code) in model
             try:
-                seller = employee_mdl.objects.get(code=seller_code)
+                seller = employee_mdl.objects.get(code=seller_code,
+                                                  service_acct=self.serv_account)
             except employee_mdl.DoesNotExist:
                 e_msg = f'Error: seller code \'{seller_code}\' does not exist'
-                e_msg += f'\nOrder: {ref}'
+                e_msg += f'\nOrder: {doc_num}'
                 CustomError(msg=e_msg)
                 continue
 
@@ -192,22 +215,24 @@ class Order(Sap):
             if not seller:
                 e_msg = 'Error: seller code '
                 e_msg += f'\'{seller_code}\' has no equivalence'
-                e_msg += f'\nOrder: {ref}'
+                e_msg += f'\nOrder: {doc_num}'
                 CustomError(msg=e_msg)
                 continue
 
             # validation of order bill muni existence (by name) in model
             try:
-                ordr_bill_muni = muni_mdl.objects.get(name=ordr_bill_muni_name)
+                ordr_bill_muni = muni_mdl.objects.get(name=ordr_bill_muni_name,
+                                                      service_acct=self.serv_account)
             except muni_mdl.DoesNotExist:
                 e_msg = 'Error: order bill muni name '
                 e_msg += f'\'{ordr_bill_muni_name}\' does not exist'
-                e_msg += f'\nOrder: {ref}'
+                e_msg += f'\nOrder: {doc_num}'
                 CustomError(msg=e_msg)
                 continue
             except muni_mdl.MultipleObjectsReturned:
                 ordr_bill_muni = (muni_mdl.objects
-                                  .filter(name=ordr_bill_muni_name)
+                                  .filter(name=ordr_bill_muni_name,
+                                          service_acct=self.serv_account)
                                   .first())
 
             # validation of existence of equivalence for SAP muni
@@ -215,7 +240,7 @@ class Order(Sap):
             if not ordr_bill_muni:
                 e_msg = 'Error: order bill muni name '
                 e_msg += f'\'{ordr_bill_muni_name}\' has no equivalence'
-                e_msg += f'\nOrder: {ref}'
+                e_msg += f'\nOrder: {doc_num}'
                 CustomError(msg=e_msg)
                 continue
 
@@ -226,16 +251,18 @@ class Order(Sap):
                 # validation of order ship muni existence (by name) in model
                 try:
                     ordr_ship_muni = (muni_mdl.objects
-                                      .get(name=ordr_ship_muni_name))
+                                      .get(name=ordr_ship_muni_name,
+                                           service_acct=self.serv_account))
                 except muni_mdl.DoesNotExist:
                     e_msg = 'Error: order ship muni name '
                     e_msg += f'\'{ordr_ship_muni_name}\' does not exist'
-                    e_msg += f'\nOrder: {ref}'
+                    e_msg += f'\nOrder: {doc_num}'
                     CustomError(msg=e_msg)
                     continue
                 except muni_mdl.MultipleObjectsReturned:
                     ordr_ship_muni = (muni_mdl.objects
-                                      .filter(name=ordr_ship_muni_name)
+                                      .filter(name=ordr_ship_muni_name,
+                                              service_acct=self.serv_account)
                                       .first())
 
                 # validation of existence of equivalence for SAP muni
@@ -243,18 +270,19 @@ class Order(Sap):
                 if not ordr_ship_muni:
                     e_msg = 'Error: order ship muni name '
                     e_msg += f'\'{ordr_ship_muni_name}\' has no equivalence'
-                    e_msg += f'\nOrder: {ref}'
+                    e_msg += f'\nOrder: {doc_num}'
                     CustomError(msg=e_msg)
                     continue
 
             # validation of bsns partner group existence (by name) in model
             try:
                 bsns_partner_group = (group_mdl.objects
-                                      .get(code=bsns_partner_group_code))
+                                      .get(code=bsns_partner_group_code,
+                                           service_acct=self.serv_account))
             except group_mdl.DoesNotExist:
                 e_msg = 'Error: bsns partner group code '
                 e_msg += f'\'{bsns_partner_group_code}\' does not exist'
-                e_msg += f'\nOrder: {ref}'
+                e_msg += f'\nOrder: {doc_num}'
                 CustomError(msg=e_msg)
                 continue
 
@@ -263,18 +291,19 @@ class Order(Sap):
             if not bsns_partner_group:
                 e_msg = 'Error: bsns partner group code '
                 e_msg += f'\'{bsns_partner_group_code}\' has no equivalence'
-                e_msg += f'\nOrder: {ref}'
+                e_msg += f'\nOrder: {doc_num}'
                 CustomError(msg=e_msg)
                 continue
 
             # validation of bsns partner type existence (by name) in model
             try:
                 bsns_partner_type = (type_mdl.objects
-                                     .get(code=bsns_partner_type_code))
+                                     .get(code=bsns_partner_type_code,
+                                          service_acct=self.serv_account))
             except type_mdl.DoesNotExist:
                 e_msg = 'Error: bsns partner type code '
                 e_msg += f'\'{bsns_partner_type_code}\' does not exist'
-                e_msg += f'\nOrder: {ref}'
+                e_msg += f'\nOrder: {doc_num}'
                 CustomError(msg=e_msg)
                 continue
 
@@ -283,7 +312,7 @@ class Order(Sap):
             if not bsns_partner_type:
                 e_msg = 'Error: bsns partner type code '
                 e_msg += f'\'{bsns_partner_type_code}\' has no equivalence'
-                e_msg += f'\nOrder: {ref}'
+                e_msg += f'\nOrder: {doc_num}'
                 CustomError(msg=e_msg)
                 continue
             # ----------------------------------------------------------------
@@ -317,7 +346,7 @@ class Order(Sap):
                 contact = contact_mdl.objects.get(code=contact_code)
                 contact_sync_func = bulk_update_with_history
                 contact_sync_kwargs['fields'] = [
-                    'ref',
+                    'reference',
                     'first_name',
                     'last_name',
                     'addr',
@@ -330,7 +359,7 @@ class Order(Sap):
 
                 contact_addr = contact.addr
                 contact_addr_sync_kwargs['fields'] = [
-                    'ref',
+                    'reference',
                     'st_and_num',
                     'muni',
                     'changed_by',
@@ -343,17 +372,16 @@ class Order(Sap):
 
                 contact_sync_func = bulk_create_with_history
             try:
-                ordr = (mdl.objects
-                        .select_related(
-                            'ship_addr',
-                            'bill_addr',
-                        )
-                        .get(ref=ref))
+                ordr = (mdl.objects.select_related('ship_addr',
+                                                   'bill_addr')
+                        .get(doc_num=doc_num, service_acct=self.serv_account))
                 ordr_ship_addr = ordr.ship_addr
                 ordr_bill_addr = ordr.bill_addr
 
                 sync_func = bulk_update_with_history
                 sync_kwargs['fields'] = [
+                    'reference',
+                    'service_acct',
                     'currency',
                     'web_order_ref',
                     'sale_channel',
@@ -373,14 +401,14 @@ class Order(Sap):
                     'changed_by',
                 ]
                 addr_sync_kwargs['fields'] = [
-                    'ref',
+                    'reference',
                     'st_and_num',
                     'muni',
                     'changed_by',
                 ]
             except mdl.DoesNotExist:
                 ordr = mdl()
-                ordr.ref = ref
+                ordr.doc_num = doc_num
                 ordr_ship_addr = addr_mdl()
                 ordr_bill_addr = addr_mdl()
 
@@ -395,16 +423,16 @@ class Order(Sap):
                     **contact_addr_sync_kwargs)
             except Exception:
                 tb = traceback.format_exc()
-                tb += f'\nOrder: {ref}'
+                tb += f'\nOrder: {doc_num}'
                 e_msg = f'Error: {UNEXP_ERROR}'
-                e_msg += f'\nOrder: {ref}'
+                e_msg += f'\nOrder: {doc_num}'
                 CustomError(msg=e_msg, log=tb)
                 continue
             contact_addr = (contact_addr_sync[0]
                             if contact_addr_sync
                             else contact_addr)
 
-            contact.ref = contact_ref
+            contact.reference = contact_ref
             contact.first_name = ' '.join([
                 contact_first_name,
                 contact_middle_name
@@ -421,14 +449,14 @@ class Order(Sap):
                 contact_sync = contact_sync_func(**contact_sync_kwargs)
             except Exception:
                 tb = traceback.format_exc()
-                tb += f'\nOrder: {ref}'
+                tb += f'\nOrder: {doc_num}'
                 e_msg = f'Error: {UNEXP_ERROR}'
-                e_msg += f'\nOrder: {ref}'
+                e_msg += f'\nOrder: {doc_num}'
                 CustomError(msg=e_msg, log=tb)
                 continue
             contact = contact_sync[0] if contact_sync else contact
 
-            ordr_ship_addr.ref = ordr_ship_addr_ref
+            ordr_ship_addr.reference = ordr_ship_addr_ref
             ordr_ship_addr.st_and_num = ordr_ship_st_and_num
             ordr_ship_addr.muni = ordr_ship_muni
             ordr_ship_addr.changed_by = user_obj
@@ -437,9 +465,9 @@ class Order(Sap):
                 ordr_ship_addr_sync = sync_func(**addr_sync_kwargs)
             except Exception:
                 tb = traceback.format_exc()
-                tb += f'\nOrder: {ref}'
+                tb += f'\nOrder: {doc_num}'
                 e_msg = f'Error: {UNEXP_ERROR}'
-                e_msg += f'\nOrder: {ref}'
+                e_msg += f'\nOrder: {doc_num}'
                 CustomError(msg=e_msg, log=tb)
                 continue
 
@@ -447,7 +475,7 @@ class Order(Sap):
                               if ordr_ship_addr_sync
                               else ordr_ship_addr)
 
-            ordr_bill_addr.ref = ordr_bill_addr_ref
+            ordr_bill_addr.reference = ordr_bill_addr_ref
             ordr_bill_addr.st_and_num = ordr_bill_st_and_num
             ordr_bill_addr.muni = ordr_bill_muni
             ordr_bill_addr.changed_by = user_obj
@@ -456,9 +484,9 @@ class Order(Sap):
                 ordr_bill_addr_sync = sync_func(**addr_sync_kwargs)
             except Exception:
                 tb = traceback.format_exc()
-                tb += f'\nOrder: {ref}'
+                tb += f'\nOrder: {doc_num}'
                 e_msg = f'Error: {UNEXP_ERROR}'
-                e_msg += f'\nOrder: {ref}'
+                e_msg += f'\nOrder: {doc_num}'
                 CustomError(msg=e_msg, log=tb)
                 continue
             ordr_bill_addr = (ordr_bill_addr_sync[0]
@@ -481,15 +509,17 @@ class Order(Sap):
                 )
             except Exception:
                 tb = traceback.format_exc()
-                tb += f'\nOrder: {ref}'
+                tb += f'\nOrder: {doc_num}'
                 e_msg = f'Error: {UNEXP_ERROR}'
-                e_msg += f'\nOrder: {ref}'
+                e_msg += f'\nOrder: {doc_num}'
                 CustomError(msg=e_msg, log=tb)
                 continue
             bsns_partner = (bsns_partner_sync[0]
                             if bsns_partner_sync
                             else bsns_partner)
 
+            ordr.reference = f'{self.serv_account.reference}{doc_num}'
+            ordr.service_acct = self.serv_account
             ordr.currency = ccy
             ordr.web_order_ref = web_ordr_ref
             ordr.sale_channel = sale_channel
@@ -514,9 +544,9 @@ class Order(Sap):
                 ordr_sync = sync_func(**sync_kwargs)
             except Exception:
                 tb = traceback.format_exc()
-                tb += f'\nOrder: {ref}'
+                tb += f'\nOrder: {doc_num}'
                 e_msg = f'Error: {UNEXP_ERROR}'
-                e_msg += f'\nOrder: {ref}'
+                e_msg += f'\nOrder: {doc_num}'
                 CustomError(msg=e_msg, log=tb)
                 continue
             ordr = ordr_sync[0] if ordr_sync else ordr

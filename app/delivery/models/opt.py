@@ -5,7 +5,7 @@ from simple_history.models import HistoricalRecords
 
 class Option(models.Model):
     # Relationship
-    carrier = models.ForeignKey(to='delivery.Carrier',
+    carrier = models.ForeignKey(to='general.Service',
                                 on_delete=models.CASCADE)
     service = models.ForeignKey(to='delivery.Service',
                                 on_delete=models.CASCADE)
@@ -34,3 +34,14 @@ class Option(models.Model):
 
     class Meta:
         db_table = 'delivery_option'
+        ordering = [
+            'carrier',
+            'service',
+            'type',
+            'pay_type',
+            'agency',
+            'enabled',
+            'changed_by',
+            'created_at',
+            'updated_at',
+        ]

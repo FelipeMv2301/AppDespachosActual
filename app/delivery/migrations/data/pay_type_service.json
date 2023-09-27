@@ -1,0 +1,86 @@
+[
+{
+    "model": "delivery.paytypeservice",
+    "pk": 1,
+    "fields": {
+        "code": "2",
+        "name": "Pagado",
+        "service_acct": 1,
+        "pay_type": 1,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.paytypeservice",
+    "pk": 2,
+    "fields": {
+        "code": "3",
+        "name": "Contra entrega",
+        "service_acct": 1,
+        "pay_type": 2,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.paytypeservice",
+    "pk": 3,
+    "fields": {
+        "code": "2",
+        "name": "Pagado",
+        "service_acct": 2,
+        "pay_type": 1,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.paytypeservice",
+    "pk": 4,
+    "fields": {
+        "code": "3",
+        "name": "Contra entrega",
+        "service_acct": 2,
+        "pay_type": 2,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.paytypeservice",
+    "pk": 5,
+    "fields": {
+        "code": "3",
+        "name": "Contra entrega",
+        "service_acct": 4,
+        "pay_type": 2,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.paytypeservice",
+    "pk": 6,
+    "fields": {
+        "code": "2",
+        "name": "Pagado",
+        "service_acct": 4,
+        "pay_type": 1,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.paytypeservice",
+    "pk": 7,
+    "fields": {
+        "code": "1",
+        "name": "Gratis",
+        "service_acct": 4,
+        "pay_type": 3,
+        "enabled": true,
+        "changed_by": 1
+    }
+}
+]

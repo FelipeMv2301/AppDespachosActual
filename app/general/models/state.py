@@ -25,3 +25,11 @@ class State(models.Model):
 
     class Meta:
         db_table = 'state'
+        ordering = [
+            'code',
+            'name',
+            'country',
+            'changed_by',
+            'created_at',
+            'updated_at',
+        ]

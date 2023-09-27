@@ -7,8 +7,8 @@ class Agency(models.Model):
     # General
     code = models.CharField(max_length=100)
     name = models.CharField(max_length=100)
-    carrier = models.ForeignKey(to='delivery.Carrier',
-                                on_delete=models.CASCADE, null=True)
+    service_acct = models.ForeignKey(to='general.ServiceAccount',
+                                     on_delete=models.CASCADE)
     addr = models.ForeignKey(to='general.Address', on_delete=models.CASCADE)
     phone = models.CharField(max_length=100, null=True)
     shipping = models.BooleanField(default=True)
@@ -31,3 +31,16 @@ class Agency(models.Model):
 
     class Meta:
         db_table = 'agency'
+        ordering = [
+            'code',
+            'name',
+            'service_acct',
+            'addr',
+            'phone',
+            'shipping',
+            'delivery',
+            'enabled',
+            'changed_by',
+            'created_at',
+            'updated_at',
+        ]

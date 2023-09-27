@@ -24,3 +24,10 @@ class Country(models.Model):
 
     class Meta:
         db_table = 'country'
+        ordering = [
+            'code',
+            'name',
+            'changed_by',
+            'created_at',
+            'updated_at',
+        ]

@@ -1,0 +1,74 @@
+[
+{
+    "model": "general.currencyservice",
+    "pk": 1,
+    "fields": {
+        "code": "CLP",
+        "name": "Pesos chilenos",
+        "currency": 1,
+        "service_acct": 3,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.currencyservice",
+    "pk": 2,
+    "fields": {
+        "code": "USD",
+        "name": "Dólares estadounidenses",
+        "currency": 2,
+        "service_acct": 3,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.currencyservice",
+    "pk": 3,
+    "fields": {
+        "code": "EUR",
+        "name": "Euro",
+        "currency": 3,
+        "service_acct": 3,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.currencyservice",
+    "pk": 4,
+    "fields": {
+        "code": "CLP",
+        "name": "Pesos chilenos",
+        "currency": 1,
+        "service_acct": 5,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.currencyservice",
+    "pk": 5,
+    "fields": {
+        "code": "USD",
+        "name": "Dólares estadounidenses",
+        "currency": 2,
+        "service_acct": 5,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.currencyservice",
+    "pk": 6,
+    "fields": {
+        "code": "EUR",
+        "name": "Euro",
+        "currency": 3,
+        "service_acct": 5,
+        "enabled": true,
+        "changed_by": 1
+    }
+}
+]

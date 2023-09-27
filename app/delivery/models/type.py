@@ -27,3 +27,11 @@ class Type(models.Model):
 
     class Meta:
         db_table = 'delivery_type'
+        ordering = [
+            'code',
+            'name',
+            'enabled',
+            'changed_by',
+            'created_at',
+            'updated_at',
+        ]

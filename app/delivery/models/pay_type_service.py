@@ -3,19 +3,19 @@ from django.utils import timezone
 from simple_history.models import HistoricalRecords
 
 
-class StatusCarrier(models.Model):
+class PayTypeService(models.Model):
     # General
     code = models.CharField(max_length=100)
     name = models.CharField(max_length=100)
-    status = models.ForeignKey(to='delivery.Status',
-                               on_delete=models.CASCADE,
-                               null=True)
-    carrier = models.ForeignKey(to='delivery.Carrier',
-                                on_delete=models.CASCADE)
+    pay_type = models.ForeignKey(to='delivery.PayType',
+                                 on_delete=models.CASCADE,
+                                 null=True)
+    service_acct = models.ForeignKey(to='general.ServiceAccount',
+                                     on_delete=models.CASCADE)
     enabled = models.BooleanField(default=True)
     # Object tracking
     changed_by = models.ForeignKey(to='auth.User', on_delete=models.CASCADE)
-    history = HistoricalRecords(table_name='delivery_status_carrier_history')
+    history = HistoricalRecords(table_name='delivery_pay_type_service_history')
     # Object timestamps
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True, null=True)
@@ -29,4 +29,14 @@ class StatusCarrier(models.Model):
         self.changed_by = value
 
     class Meta:
-        db_table = 'delivery_status_carrier'
+        db_table = 'delivery_pay_type_service'
+        ordering = [
+            'code',
+            'name',
+            'pay_type',
+            'service_acct',
+            'enabled',
+            'changed_by',
+            'created_at',
+            'updated_at',
+        ]

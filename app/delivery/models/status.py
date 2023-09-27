@@ -27,3 +27,11 @@ class Status(models.Model):
 
     class Meta:
         db_table = 'delivery_status'
+        ordering = [
+            'code',
+            'name',
+            'enabled',
+            'changed_by',
+            'created_at',
+            'updated_at',
+        ]

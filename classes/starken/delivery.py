@@ -14,7 +14,7 @@ from zeep import Client
 from app.delivery.models.account import Account
 from app.delivery.models.delivery import Delivery as DelivMdl
 from app.delivery.models.status import Status
-from app.delivery.models.status_carrier import StatusCarrier
+from app.delivery.models.status_service import StatusCarrier
 from app.order.models.delivery import OrderDelivery
 from classes.starken.starken import Starken
 from core.settings.base import APP_USERNAME

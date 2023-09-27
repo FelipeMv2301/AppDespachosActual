@@ -22,7 +22,7 @@ class Address(models.Model):
     code = models.CharField(max_length=100,
                             unique=True,
                             default=new_code.__func__)
-    ref = models.CharField(max_length=100, default=new_code.__func__)
+    reference = models.CharField(max_length=100, default=new_code.__func__)
     st_and_num = models.CharField(max_length=500)
     complement = models.CharField(max_length=500, null=True)
     muni = models.ForeignKey(to='general.Muni',
@@ -47,3 +47,15 @@ class Address(models.Model):
 
     class Meta:
         db_table = 'address'
+        ordering = [
+            'code',
+            'reference',
+            'st_and_num',
+            'complement',
+            'muni',
+            'latitude',
+            'longitude',
+            'changed_by',
+            'created_at',
+            'updated_at',
+        ]

@@ -1,0 +1,354 @@
+[
+{
+    "model": "business_partner.groupservice",
+    "pk": 1,
+    "fields": {
+        "code": "100",
+        "name": "01 Cliente Nacional",
+        "group": 1,
+        "service_acct": 3,
+        "changed_by": 1
+    }
+},
+{
+    "model": "business_partner.groupservice",
+    "pk": 2,
+    "fields": {
+        "code": "102",
+        "name": "02 Cliente Extranj",
+        "group": 2,
+        "service_acct": 3,
+        "changed_by": 1
+    }
+},
+{
+    "model": "business_partner.groupservice",
+    "pk": 3,
+    "fields": {
+        "code": "108",
+        "name": "06 Corporación Municipal",
+        "group": 3,
+        "service_acct": 3,
+        "changed_by": 1
+    }
+},
+{
+    "model": "business_partner.groupservice",
+    "pk": 4,
+    "fields": {
+        "code": "103",
+        "name": "03 Fondo Por Rendir",
+        "group": 4,
+        "service_acct": 3,
+        "changed_by": 1
+    }
+},
+{
+    "model": "business_partner.groupservice",
+    "pk": 5,
+    "fields": {
+        "code": "105",
+        "name": "05 Prestamos P",
+        "group": 5,
+        "service_acct": 3,
+        "changed_by": 1
+    }
+},
+{
+    "model": "business_partner.groupservice",
+    "pk": 6,
+    "fields": {
+        "code": "101",
+        "name": "01 Proveedor Nac",
+        "group": 6,
+        "service_acct": 3,
+        "changed_by": 1
+    }
+},
+{
+    "model": "business_partner.groupservice",
+    "pk": 7,
+    "fields": {
+        "code": "106",
+        "name": "02 Proveedor Extr",
+        "group": 7,
+        "service_acct": 3,
+        "changed_by": 1
+    }
+},
+{
+    "model": "business_partner.groupservice",
+    "pk": 8,
+    "fields": {
+        "code": "107",
+        "name": "03 Honorarios",
+        "group": 8,
+        "service_acct": 3,
+        "changed_by": 1
+    }
+},
+{
+    "model": "business_partner.groupservice",
+    "pk": 9,
+    "fields": {
+        "code": "109",
+        "name": "07 Municipal DAEM",
+        "group": 9,
+        "service_acct": 3,
+        "changed_by": 1
+    }
+},
+{
+    "model": "business_partner.groupservice",
+    "pk": 10,
+    "fields": {
+        "code": "110",
+        "name": "08 Particular Subvencionado",
+        "group": 10,
+        "service_acct": 3,
+        "changed_by": 1
+    }
+},
+{
+    "model": "business_partner.groupservice",
+    "pk": 11,
+    "fields": {
+        "code": "111",
+        "name": "09 Particular Pagado (No subvencionado)",
+        "group": 11,
+        "service_acct": 3,
+        "changed_by": 1
+    }
+},
+{
+    "model": "business_partner.groupservice",
+    "pk": 12,
+    "fields": {
+        "code": "112",
+        "name": "10 Corporación de Administración Delegada",
+        "group": 12,
+        "service_acct": 3,
+        "changed_by": 1
+    }
+},
+{
+    "model": "business_partner.groupservice",
+    "pk": 13,
+    "fields": {
+        "code": "113",
+        "name": "11 Servicio Local de Educación",
+        "group": 13,
+        "service_acct": 3,
+        "changed_by": 1
+    }
+},
+{
+    "model": "business_partner.groupservice",
+    "pk": 14,
+    "fields": {
+        "code": "114",
+        "name": "12 Persona Natura Educación",
+        "group": 14,
+        "service_acct": 3,
+        "changed_by": 1
+    }
+},
+{
+    "model": "business_partner.groupservice",
+    "pk": 15,
+    "fields": {
+        "code": "115",
+        "name": "13 Privado",
+        "group": 15,
+        "service_acct": 3,
+        "changed_by": 1
+    }
+},
+{
+    "model": "business_partner.groupservice",
+    "pk": 16,
+    "fields": {
+        "code": "116",
+        "name": "14 Fundación / ONG",
+        "group": 16,
+        "service_acct": 3,
+        "changed_by": 1
+    }
+},
+{
+    "model": "business_partner.groupservice",
+    "pk": 17,
+    "fields": {
+        "code": "100",
+        "name": "01 Cliente Nacional",
+        "group": 1,
+        "service_acct": 5,
+        "changed_by": 1
+    }
+},
+{
+    "model": "business_partner.groupservice",
+    "pk": 18,
+    "fields": {
+        "code": "102",
+        "name": "02 Cliente Extranj",
+        "group": 2,
+        "service_acct": 5,
+        "changed_by": 1
+    }
+},
+{
+    "model": "business_partner.groupservice",
+    "pk": 19,
+    "fields": {
+        "code": "108",
+        "name": "06 Corporación Municipal",
+        "group": 3,
+        "service_acct": 5,
+        "changed_by": 1
+    }
+},
+{
+    "model": "business_partner.groupservice",
+    "pk": 20,
+    "fields": {
+        "code": "103",
+        "name": "03 Fondo Por Rendir",
+        "group": 4,
+        "service_acct": 5,
+        "changed_by": 1
+    }
+},
+{
+    "model": "business_partner.groupservice",
+    "pk": 21,
+    "fields": {
+        "code": "105",
+        "name": "05 Prestamos P",
+        "group": 5,
+        "service_acct": 5,
+        "changed_by": 1
+    }
+},
+{
+    "model": "business_partner.groupservice",
+    "pk": 22,
+    "fields": {
+        "code": "101",
+        "name": "01 Proveedor Nac",
+        "group": 6,
+        "service_acct": 5,
+        "changed_by": 1
+    }
+},
+{
+    "model": "business_partner.groupservice",
+    "pk": 23,
+    "fields": {
+        "code": "106",
+        "name": "02 Proveedor Extr",
+        "group": 7,
+        "service_acct": 5,
+        "changed_by": 1
+    }
+},
+{
+    "model": "business_partner.groupservice",
+    "pk": 24,
+    "fields": {
+        "code": "107",
+        "name": "03 Honorarios",
+        "group": 8,
+        "service_acct": 5,
+        "changed_by": 1
+    }
+},
+{
+    "model": "business_partner.groupservice",
+    "pk": 25,
+    "fields": {
+        "code": "109",
+        "name": "07 Municipal DAEM",
+        "group": 9,
+        "service_acct": 5,
+        "changed_by": 1
+    }
+},
+{
+    "model": "business_partner.groupservice",
+    "pk": 26,
+    "fields": {
+        "code": "110",
+        "name": "08 Particular Subvencionado",
+        "group": 10,
+        "service_acct": 5,
+        "changed_by": 1
+    }
+},
+{
+    "model": "business_partner.groupservice",
+    "pk": 27,
+    "fields": {
+        "code": "111",
+        "name": "09 Particular Pagado (No subvencionado)",
+        "group": 11,
+        "service_acct": 5,
+        "changed_by": 1
+    }
+},
+{
+    "model": "business_partner.groupservice",
+    "pk": 28,
+    "fields": {
+        "code": "112",
+        "name": "10 Corporación de Administración Delegada",
+        "group": 12,
+        "service_acct": 5,
+        "changed_by": 1
+    }
+},
+{
+    "model": "business_partner.groupservice",
+    "pk": 29,
+    "fields": {
+        "code": "113",
+        "name": "11 Servicio Local de Educación",
+        "group": 13,
+        "service_acct": 5,
+        "changed_by": 1
+    }
+},
+{
+    "model": "business_partner.groupservice",
+    "pk": 30,
+    "fields": {
+        "code": "114",
+        "name": "12 Persona Natura Educación",
+        "group": 14,
+        "service_acct": 5,
+        "changed_by": 1
+    }
+},
+{
+    "model": "business_partner.groupservice",
+    "pk": 31,
+    "fields": {
+        "code": "115",
+        "name": "13 Privado",
+        "group": 15,
+        "service_acct": 5,
+        "changed_by": 1
+    }
+},
+{
+    "model": "business_partner.groupservice",
+    "pk": 32,
+    "fields": {
+        "code": "116",
+        "name": "14 Fundación / ONG",
+        "group": 16,
+        "service_acct": 5,
+        "changed_by": 1
+    }
+}
+]

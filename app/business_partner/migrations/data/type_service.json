@@ -1,0 +1,90 @@
+[
+{
+    "model": "business_partner.typeservice",
+    "pk": 1,
+    "fields": {
+        "code": "cCustomer",
+        "name": "Cliente",
+        "type": 1,
+        "service_acct": 3,
+        "changed_by": 1
+    }
+},
+{
+    "model": "business_partner.typeservice",
+    "pk": 2,
+    "fields": {
+        "code": "cSupplier",
+        "name": "Proveedor",
+        "type": 2,
+        "service_acct": 3,
+        "changed_by": 1
+    }
+},
+{
+    "model": "business_partner.typeservice",
+    "pk": 3,
+    "fields": {
+        "code": "C",
+        "name": "Cliente",
+        "type": 1,
+        "service_acct": 3,
+        "changed_by": 1
+    }
+},
+{
+    "model": "business_partner.typeservice",
+    "pk": 4,
+    "fields": {
+        "code": "S",
+        "name": "Proveedor",
+        "type": 2,
+        "service_acct": 3,
+        "changed_by": 1
+    }
+},
+{
+    "model": "business_partner.typeservice",
+    "pk": 5,
+    "fields": {
+        "code": "cCustomer",
+        "name": "Cliente",
+        "type": 1,
+        "service_acct": 5,
+        "changed_by": 1
+    }
+},
+{
+    "model": "business_partner.typeservice",
+    "pk": 6,
+    "fields": {
+        "code": "cSupplier",
+        "name": "Proveedor",
+        "type": 2,
+        "service_acct": 5,
+        "changed_by": 1
+    }
+},
+{
+    "model": "business_partner.typeservice",
+    "pk": 7,
+    "fields": {
+        "code": "C",
+        "name": "Cliente",
+        "type": 1,
+        "service_acct": 5,
+        "changed_by": 1
+    }
+},
+{
+    "model": "business_partner.typeservice",
+    "pk": 8,
+    "fields": {
+        "code": "S",
+        "name": "Proveedor",
+        "type": 2,
+        "service_acct": 5,
+        "changed_by": 1
+    }
+}
+]

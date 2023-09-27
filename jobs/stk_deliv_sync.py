@@ -1,7 +1,8 @@
-from app.delivery.models.account import Account
+from app.general.models.service_account import ServiceAccount
 from classes.starken.delivery import Delivery
-from classes.starken.starken import Starken
+from classes.starken.starken import SERV_CODE
 
-accts = Account.objects.filter(carrier__code=Starken().carrier_code)
-for acct in accts:
-    Delivery(account=acct).app_sync()
+serv_accts = ServiceAccount.objects.filter(service__code=SERV_CODE,
+                                           enabled=True)
+for serv_acct in serv_accts:
+    Delivery(account=serv_acct).app_sync()

@@ -22,7 +22,7 @@ class Contact(models.Model):
     code = models.CharField(max_length=100,
                             unique=True,
                             default=new_code.__func__)
-    ref = models.CharField(max_length=100, default=new_code.__func__)
+    reference = models.CharField(max_length=100, default=new_code.__func__)
     first_name = models.CharField(max_length=100, null=True)
     last_name = models.CharField(max_length=100, null=True)
     # Address info
@@ -51,3 +51,18 @@ class Contact(models.Model):
 
     class Meta:
         db_table = 'contact'
+        ordering = [
+            'code',
+            'reference',
+            'first_name',
+            'last_name',
+            'addr',
+            'phone1',
+            'phone2',
+            'mobile_phone',
+            'email_addr',
+            'enabled',
+            'changed_by',
+            'created_at',
+            'updated_at',
+        ]

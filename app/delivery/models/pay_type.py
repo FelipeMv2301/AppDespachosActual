@@ -25,3 +25,11 @@ class PayType(models.Model):
 
     class Meta:
         db_table = 'delivery_pay_type'
+        ordering = [
+            'code',
+            'name',
+            'enabled',
+            'changed_by',
+            'created_at',
+            'updated_at',
+        ]
