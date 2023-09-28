@@ -1,12 +1,13 @@
 import json
 import traceback
+from datetime import date
 from typing import Any, Dict
 
 import pandas as pd
 import requests
 from django.contrib.auth.models import User
-from django.db.models import CharField, F, Max, Value
-from django.db.models.functions import Concat
+from django.db.models import Case, CharField, F, Value, When
+from django.db.models.functions import Coalesce, Concat
 from simple_history.utils import (bulk_create_with_history,
                                   bulk_update_with_history)
 from zeep import Client
@@ -26,11 +27,15 @@ class Delivery(Starken):
     def __init__(self,
                  account: ServiceAccount,
                  folio: int = None,
+                 rcpt_commit_date: date | str = None,
+                 issue_date: date = None,
                  *args,
                  **kwargs):
         super().__init__(account=account, *args, **kwargs)
 
         self.folio = folio
+        self.rcpt_commit_date = rcpt_commit_date
+        self.issue_date = issue_date
 
     @loggable
     def track_by_folio(self, *args, **kwargs) -> Dict[str, Any]:
@@ -48,8 +53,8 @@ class Delivery(Starken):
         carrier = self.serv_account.service
 
         delivs = mdl.objects.filter(service_acct=self.serv_account)
-        status = {st.code: st
-                  for st in status_mdl.objects.filter(service_acct=self.serv_account)}
+        status = status_mdl.objects.filter(service_acct=self.serv_account)
+        status = {st.code: st for st in status}
         for deliv in delivs:
             self.folio = deliv.folio
             try:
@@ -136,30 +141,118 @@ class Delivery(Starken):
                 continue
 
     @loggable
-    def issue(self, delivery: DelivMdl, *args, **kwargs):
-        deliv = (OrderDelivery.objects
-                 .filter(delivery__id=delivery.id)
-                 .values(
-                     cust_name=F('order_grouping__customer__name'),
-                     test=F('order_grouping__delivery_option__name'),
-                     addr=Concat('order_grouping__addr__st_and_num',
-                                 Value(' '),
-                                 'order_grouping__addr__complement',
-                                 output_field=CharField()),
-                     muni_code=F('order_grouping__addr__muni__code'),
-                     cntct_phone_num=F('order_grouping__contact__mobile_phone'),
-                     cntct_email_addr=F('order_grouping__contact__email_addr'),
-                     cntct_name=Concat('order_grouping__contact__first_name',
-                                       Value(' '),
-                                       'order_grouping__contact__last_name',
-                                       output_field=CharField()),
-                 )
-                 .annotate(
-                     max_id=Max('delivery__id'),
-                     dummy_field=Value('', output_field=CharField())
-                 )
-                 .filter(delivery__id=F('max_id')))
-        deliv = deliv[0]
+    def issue(self, delivery: DelivMdl, data: Dict, *args, **kwargs):
+        """
+        Method to issue the delivery with Starken,
+        obtaining the folio identifier:
+
+        Parameters:
+        -----------
+        delivery (object): Delivery model object.
+        data (dict): dictionary with delivery information.
+
+        Formats:
+        --------
+        data: {
+            'height': 0.0,
+            'width': 0.0,
+            'length': 0.0,
+            'weight': 0.0,
+            'valuation': 0,
+            'packg_qty': 0,
+            'docs': [
+                {
+                    'type',: <DocType: DocType object>,
+                    'folio': 0
+                },
+                {
+                    'type',: <DocType: DocType object>,
+                    'folio': 0
+                }
+            ]
+        }
+
+        Where:
+        - 'height': (float) Total height of packages.
+        - 'width': (float) Total width of packages.
+        - 'length': (float) Total length of packages.
+        - 'weight': (float) Total weight of packages.
+        - 'packg_qty': (int) Quantity of delivery packages.
+        - 'valuation': (int) Total valuation of delivery products.
+        - 'docs': (list) List of tax documents related to the delivery
+            of the tax documents.
+        - 'type': (object) Object of the Document Type model.
+        - 'folio': (int) Document folio.
+        """
+        deliv = (
+            OrderDelivery.objects
+            .filter(delivery=delivery,
+                    order_grouping__delivery_option__type__typeservice__service_acct=delivery.service_acct,
+                    order_grouping__delivery_option__pay_type__paytypeservice__service_acct=delivery.service_acct)
+            .values(
+                deliv_id=F('delivery__id'),
+                customer_name=F('order_grouping__customer__name'),
+                addr=Concat('order_grouping__addr__st_and_num',
+                            Value(' '),
+                            'order_grouping__addr__complement',
+                            output_field=CharField()),
+                deliv_type_code=F('order_grouping__delivery_option__type__typeservice__code'),
+                deliv_pay_type_code=F('order_grouping__delivery_option__pay_type__paytypeservice__code'),
+                mobile_num=Coalesce('order_grouping__contact__mobile_phone',
+                                    Value('')),
+                email_addr=Coalesce('order_grouping__contact__email_addr',
+                                    Value('')),
+                contact_name=Concat('order_grouping__contact__first_name',
+                                    Value(' '),
+                                    'order_grouping__contact__last_name',
+                                    output_field=CharField()),
+                obs=Coalesce('order_grouping__deliv_obs', Value('')),
+                muni_value=Case(
+                    When(order_grouping__delivery_option__agency__code=None,
+                         then=F('order_grouping__addr__muni__muniservice__name')),
+                         default=Concat(Value('@'),
+                                        'order_grouping__delivery_option__agency__code'),
+                    output_field=CharField(),
+                )
+            ).distinct())
+        try:
+            deliv = deliv[0]
+        except IndexError:
+            tb = traceback.format_exc()
+            tb += f'Query: {deliv.query}'
+            tb += f'\nFolio: {delivery.folio}'
+            tb += f'\nId: {delivery.id}'
+            e_msg = 'Error: el despacho no existe'
+            e_msg += f'\nFolio: {delivery.folio}'
+            e = CustomError(msg=e_msg, log=tb)
+            raise e
+
+        try:
+            height = data['height']
+            width = data['width']
+            length = data['length']
+            weight = data['weight']
+            valuation = data['valuation']
+            packg_qty = data['packg_qty']
+            docs = data['docs']
+            docs[0]['type'].code
+            docs[0]['folio']
+        except Exception as e:
+            tb = traceback.format_exc()
+            tb += f'\nFolio: {delivery.folio}'
+            tb += f'\nId: {delivery.id}'
+            e_msg = 'Error: '
+            if isinstance(e, KeyError):
+                e_msg += 'información de despacho insuficiente'
+            elif isinstance(e, IndexError):
+                e_msg += 'no existe información de documentos de despacho'
+            elif isinstance(e, AttributeError):
+                e_msg += 'el tipo de documento de despacho no es el esperado'
+            else:
+                e_msg += UNEXP_ERROR
+            e_msg += f'\nFolio: {delivery.folio}'
+            e = CustomError(msg=e_msg, log=tb)
+            raise e
 
         ws_client = Client(wsdl=self.ws_url)
         body = {
@@ -174,16 +267,16 @@ class Delivery(Starken):
             'direccionDestinatario': deliv['addr'],
             'numeracionDireccionDestinatario': '.',
             'departamentoDireccionDestinatario': '?',
-            'comunaDestino': deliv['muni_code'],
+            'comunaDestino': deliv['muni_value'],
             'telefonoDestinatario': deliv['cntct_phone_num'],
             'emailDestinatario': deliv['cntct_email_addr'],
             'nombreContactoDestinatario': deliv['cntct_name'],
-            'tipoEntrega': shipping_type,
-            'tipoPago': shipping_pay_type,
+            'tipoEntrega': deliv['deliv_type_code'],
+            'tipoPago': deliv['deliv_pay_type_code'],
             'numeroCtaCte': self.ws_acct_wo_verifier,
             'dvNumeroCtaCte': self.ws_acct_verifier,
             'centroCostoCtaCte': self.ws_cost_center,
-            'valorDeclarado': dispatch_value,
+            'valorDeclarado': valuation,
             'contenido': 'Material Educativo',
             'kilosTotal': weight,
             'alto': height,
@@ -206,7 +299,7 @@ class Delivery(Starken):
             'numeroDocumento5': '?',
             'generaEtiquetaDocumento5': '?',
             'tipoEncargo1': '29',
-            'cantidadEncargo1': packages_qty,
+            'cantidadEncargo1': packg_qty,
             'tipoEncargo2': '?',
             'cantidadEncargo2': '?',
             'tipoEncargo3': '?',
@@ -216,17 +309,39 @@ class Delivery(Starken):
             'tipoEncargo5': '?',
             'cantidadEncargo5': '?',
             'ciudadOrigenNom': 'Santiago',
-            'observacion': str(observations),
+            'observacion': deliv['obs'],
             'codAgenciaOrigen': '?',
         }
 
         for i in range(len(docs)):
             index = i + 1
             doc_info = docs[i]
-            body[f'tipoDocumento{index}'] = str(doc_info['stk_code'])
-            body[f'numeroDocumento{index}'] = str(doc_info['doc_folio'])
+            body[f'tipoDocumento{index}'] = str(doc_info['type'].code)
+            body[f'numeroDocumento{index}'] = str(doc_info['folio'])
             body[f'generaEtiquetaDocumento{index}'] = 'S'
 
         response = ws_client.service.Execute(body)
 
-        return response
+        try:
+            if response['codigoError'] != 0:
+                e_desc = response['descripcionError']
+                e_msg += f'Error: {e_desc}'
+                e_msg += f'\nFolio: {delivery.folio}'
+                e = CustomError(msg=e_msg)
+                raise e
+            else:
+                self.folio = response['nroOrdenFlete']
+                self.rcpt_commit_date = response['fechaEstimadaEntrega']
+                self.issue_date = response['fechaEmision']
+        except KeyError:
+            tb = traceback.format_exc()
+            tb += f'\nBody: {body}'
+            tb += f'\nResponse: {response}'
+            tb += f'\nFolio: {delivery.folio}'
+            tb += f'\nId: {delivery.id}'
+            e_msg = 'Error: ha ocurrido un error insperado posterior a la '
+            e_msg += 'emisión del despacho. Por favor contáctese con el '
+            e_msg += 'administrador antes de volver a intentarlo'
+            e_msg += f'\nFolio: {delivery.folio}'
+            e = CustomError(msg=e_msg, log=tb)
+            raise e
