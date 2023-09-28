@@ -593,5 +593,30 @@ class Migration(migrations.Migration):
                 'ordering': ['code', 'reference', 'st_and_num', 'complement', 'muni', 'latitude', 'longitude', 'changed_by', 'created_at', 'updated_at'],
             },
         ),
+        migrations.CreateModel(
+            name='Url',
+            fields=[
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('code', models.CharField(max_length=100, unique=True)),
+                ('name', models.CharField(max_length=100, unique=True)),
+                ('enabled', models.BooleanField(default=True)),
+            ],
+            options={
+                'db_table': 'django_url',
+            },
+        ),
+        migrations.CreateModel(
+            name='UserProfile',
+            fields=[
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                ('initial_url', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='general.url')),
+                ('created_at', models.DateTimeField(auto_now_add=True)),
+                ('updated_at', models.DateTimeField(auto_now=True)),
+            ],
+            options={
+                'db_table': 'auth_user_profile',
+            },
+        ),
         migrations.RunPython(code=forwards_func, reverse_code=reverse_func),
     ]

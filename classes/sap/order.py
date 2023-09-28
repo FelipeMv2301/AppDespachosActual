@@ -40,7 +40,7 @@ class Order(Sap):
         url += f'$crossjoin({mdl}, {order_addr_mdl}, {bsns_partner_mdl}, '
         url += f'{bsns_partner_contact_mdl})?$expand={mdl}($select=DocNum, '
         url += 'DocCurrency, DocDate, DocDueDate, TaxDate, U_WedDocNum, '
-        url += 'U_TipoVenta, CardName, DocumentStatus, '
+        url += 'U_TipoVenta, CardName, DocumentStatus, Cancelled'
         url += 'ContactPersonCode, SalesPersonCode, DocTotal, '
         url += 'DocTotalSys,  VatSum, VatSumSys, TotalDiscount, ShipToCode, '
         url += f'PayToCode),{order_addr_mdl}($select=ShipToStreet, '
@@ -54,7 +54,8 @@ class Order(Sap):
         url += f'{mdl}/ContactPersonCode eq {bsns_partner_contact_mdl}/'
         url += f'InternalCode and {mdl}/UpdateDate ge \'{from_date}\' and '
         # url += f'{mdl}/DocumentStatus eq \'O\' and '
-        url += f'{mdl}/Cancelled eq \'tNO\'&$orderby={mdl}/DocEntry asc'
+        # url += f'{mdl}/Cancelled eq \'tNO\''
+        url += f'&$orderby={mdl}/DocEntry asc'
 
         self.change_max_page_size(qty=3000)
         response = requests.get(url=url, headers=self.headers)
@@ -98,6 +99,8 @@ class Order(Sap):
             local_total_tax = ordr_info['VatSum']
             sys_total_tax = ordr_info['VatSumSys']
             total_dcnt = ordr_info['TotalDiscount']
+            status = ordr_info['DocumentStatus']
+            cancel_status = ordr_info['Cancelled']
 
             # Extraction of order address information
             ordr_addr_info = order[sap_order_addr_mdl]
@@ -398,6 +401,7 @@ class Order(Sap):
                     'doc_total_tax',
                     'local_total_amt',
                     'doc_total_amt',
+                    'enabled',
                     'changed_by',
                 ]
                 addr_sync_kwargs['fields'] = [
@@ -538,6 +542,7 @@ class Order(Sap):
             ordr.doc_total_tax = sys_total_tax
             ordr.local_total_amt = local_total_amt
             ordr.doc_total_amt = sys_total_amt
+            ordr.enabled = cancel_status == 'tNO' and status == 'O'
             ordr.changed_by = user_obj
             sync_kwargs['objs'] = [ordr]
             try:

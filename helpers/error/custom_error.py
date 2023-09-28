@@ -14,7 +14,7 @@ class CustomError(RuntimeError):
         self.msg = msg
         self.uuid = uuid.uuid4().hex
         self.log = msg if not log else log
-        logger.error(msg=f"ID:{self.uuid} {self.log}")
+        logger.error(msg=f'ID:{self.uuid} {self.log}')
 
     def __str__(self):
-        return f"{self.msg} | ID:{self.uuid}"
+        return f'{self.msg} | ID:{self.uuid}'

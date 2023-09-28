@@ -10,3 +10,5 @@ from .muni_service import MuniService
 from .service import Service
 from .service_account import ServiceAccount
 from .state import State
+from .url import Url
+from .user import User
