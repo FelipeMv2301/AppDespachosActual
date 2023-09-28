@@ -104,7 +104,6 @@ class Delivery(Starken):
                     code=status_id,
                     name=status_desc,
                     service_acct=self.serv_account,
-                    carrier=carrier,
                     changed_by=user_obj
                 )
                 try:

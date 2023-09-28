@@ -40,7 +40,7 @@ class Order(Sap):
         url += f'$crossjoin({mdl}, {order_addr_mdl}, {bsns_partner_mdl}, '
         url += f'{bsns_partner_contact_mdl})?$expand={mdl}($select=DocNum, '
         url += 'DocCurrency, DocDate, DocDueDate, TaxDate, U_WedDocNum, '
-        url += 'U_TipoVenta, CardName, DocumentStatus, Cancelled'
+        url += 'U_TipoVenta, CardName, DocumentStatus, Cancelled, '
         url += 'ContactPersonCode, SalesPersonCode, DocTotal, '
         url += 'DocTotalSys,  VatSum, VatSumSys, TotalDiscount, ShipToCode, '
         url += f'PayToCode),{order_addr_mdl}($select=ShipToStreet, '
@@ -52,7 +52,7 @@ class Order(Sap):
         url += f')&$filter={mdl}/DocEntry eq {order_addr_mdl}/DocEntry and '
         url += f'{mdl}/CardCode eq  {bsns_partner_mdl}/CardCode and '
         url += f'{mdl}/ContactPersonCode eq {bsns_partner_contact_mdl}/'
-        url += f'InternalCode and {mdl}/UpdateDate ge \'{from_date}\' and '
+        url += f'InternalCode and {mdl}/UpdateDate ge \'{from_date}\''
         # url += f'{mdl}/DocumentStatus eq \'O\' and '
         # url += f'{mdl}/Cancelled eq \'tNO\''
         url += f'&$orderby={mdl}/DocEntry asc'
@@ -542,7 +542,7 @@ class Order(Sap):
             ordr.doc_total_tax = sys_total_tax
             ordr.local_total_amt = local_total_amt
             ordr.doc_total_amt = sys_total_amt
-            ordr.enabled = cancel_status == 'tNO' and status == 'O'
+            ordr.enabled = cancel_status == 'N' and status == 'O'
             ordr.changed_by = user_obj
             sync_kwargs['objs'] = [ordr]
             try:
