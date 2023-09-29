@@ -93,11 +93,11 @@ class Order(models.Model):
         ]
         permissions = [
             (
-                'edit_order_delivery_form',
+                'edit_all_order_delivery_form',
                 'Can edit all order delivery form fields',
             ),
             (
-                'edit_delivery_form_rcpt_commit_date',
-                'Can edit the commitment date field on order delivery form',
+                'edit_order_commit_date',
+                'Can edit the order commitment date field',
             ),
         ]

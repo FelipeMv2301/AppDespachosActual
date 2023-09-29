@@ -99,7 +99,7 @@ class Delivery(models.Model):
                 'Can edit delivery',
             ),
             (
-                'edit_delivery_rcpt_date',
+                'edit_deliv_rcpt_date',
                 'Can edit delivery reception date',
             ),
             (
