@@ -97,7 +97,7 @@ class Order(models.Model):
                 'Can edit all order delivery form fields',
             ),
             (
-                'edit_order_commit_date',
+                'edit_commit_date',
                 'Can edit the order commitment date field',
             ),
         ]
