@@ -3,7 +3,7 @@
         "model": "general.address",
         "pk": 1,
         "fields": {
-            "code": "1",
+            "code": "BQ2756N3A",
             "reference": "Bodega N3A",
             "st_and_num": "Av Til Til 2756",
             "complement": "Bodega N3-A",
@@ -18,7 +18,7 @@
         "model": "general.address",
         "pk": 2,
         "fields": {
-            "code": "2",
+            "code": "TD29052B",
             "reference": "Vitacura 2905-2B",
             "st_and_num": "Av Vitacura 2905",
             "complement": "Local 2B",
