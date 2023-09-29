@@ -89,3 +89,29 @@ class Delivery(models.Model):
             'created_at',
             'updated_at',
         ]
+        permissions = [
+            (
+                'view_kpis',
+                'Can view KPIs',
+            ),
+            (
+                'edit_delivery',
+                'Can edit delivery',
+            ),
+            (
+                'edit_delivery_rcpt_date',
+                'Can edit delivery reception date',
+            ),
+            (
+                'issue_delivery',
+                'Can issue delivery',
+            ),
+            (
+                'cancel_delivery',
+                'Can cancel delivery',
+            ),
+            (
+                'view_delivery_panel',
+                'Can view delivery panel',
+            ),
+        ]

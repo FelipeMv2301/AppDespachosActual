@@ -64,6 +64,7 @@ class Migration(migrations.Migration):
             options={
                 'db_table': 'delivery',
                 'ordering': ['folio', 'service_acct', 'issue_date', 'assembly_date', 'rcpt_commit_date', 'rcpt_date', 'height', 'width', 'length', 'weight', 'packages_qty', 'valuation', 'status', 'service_status', 'locked', 'mito_id', 'from_mito', 'changed_by', 'created_at', 'updated_at'],
+                'permissions': [('view_kpis', 'Can view KPIs'), ('edit_delivery', 'Can edit delivery'), ('edit_delivery_rcpt_date', 'Can edit delivery reception date'), ('issue_delivery', 'Can issue delivery'), ('cancel_delivery', 'Can cancel delivery'), ('view_delivery_panel', 'Can view delivery panel')],
             },
         ),
         migrations.CreateModel(

@@ -139,6 +139,7 @@ class Migration(migrations.Migration):
             options={
                 'db_table': 'order',
                 'ordering': ['doc_num', 'reference', 'currency', 'web_order_ref', 'sale_channel', 'seller', 'create_date', 'tax_date', 'commit_date', 'updtd_commit_date', 'ship_addr', 'bill_addr', 'customer', 'contact', 'local_total_dcnt', 'doc_total_dcnt', 'local_total_tax', 'doc_total_tax', 'local_total_amt', 'doc_total_amt', 'enabled', 'obs', 'changed_by', 'created_at', 'updated_at'],
+                'permissions': [('edit_order_delivery_form', 'Can edit all order delivery form fields'), ('edit_delivery_form_rcpt_commit_date', 'Can edit the commitment date field on order delivery form')],
             },
         ),
         migrations.CreateModel(
