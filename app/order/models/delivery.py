@@ -10,7 +10,7 @@ class OrderDelivery(models.Model):
                                  on_delete=models.CASCADE)
     # Object tracking
     created_at = models.DateTimeField(default=timezone.now)
-    updated_at = models.DateTimeField(auto_now=True)
+    updated_at = models.DateTimeField(auto_now=True, null=True)
 
     class Meta:
         db_table = 'order_delivery'

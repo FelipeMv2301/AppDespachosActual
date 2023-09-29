@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notificación de Pedido</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            background-color: #fff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            font-size: 16px;
+            max-width: 90%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        /* Encabezado */
+        .header {
+            {{ background }};
+            padding: 10px;
+            text-align: center;
+            color: #fff;
+        }
+        .logo {
+            max-width: 100px;
+            height: auto;
+        }
+        .contact-info {
+            color: #fff;
+        }
+        /* Contenido */
+        .content {
+            padding: 20px;
+        }
+        .order-id {
+            font-size: 22px;
+            color: #222;
+        }
+        .transport-company {
+            margin-top: 20px;
+        }
+        .pickup-details {
+            margin-top: 20px;
+        }
+        .delivery-estimate {
+            margin-top: 20px;
+        }
+        .tracking-link {
+            margin-top: 20px;
+            text-align: center;
+        }
+        /* Pie de página */
+        .footer {
+            {{ background }};
+            padding: 10px;
+            text-align: center;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Encabezado -->
+        <div class="header">
+            <img class="logo" src="{% static '{{ logo }}' %}" alt="Logo">
+        </div>
+        <!-- Contenido -->
+        <div class="content">
+            <p>Hola {{ contact_name }},</p>
+            <p>Tu(s) pedido(s) con el ID <span class="order-id">{{ order_doc_num }}</span> ha sido despachado. A continuación, encontrarás los detalles:</p>
+            <div class="transport-company">
+                <p><b>Empresa de transporte</b>: {{ carrier_name }}</p>
+            </div>
+            {% if deliv_type_code == "BRDELIV" %}
+                <div class="pickup-details">
+                    <p><b>Dirección de sucursal para retiro</b>: <a target="_blank" href="{{ branch_addr_maps_url }}">{{ branch_address }}</a></p>
+                </div>
+                <div class="pickup-details">
+                    <p><b>Horarios de sucursal para retiro</b>: {{ branch_hours }}</p>
+                </div>
+            {% endif %}
+            <div class="delivery-estimate">
+                <p><b>Fecha estimada de llegada</b>: {{ rcpt_commit_date |date:"l d F Y" }}</p>
+            </div>
+            {% if deliv_type_code == "HOMEDELIV" %}
+                <div class="tracking-link">
+                    <b><a target="_blank" href="{{ track_url }}">Seguir pedido aquí</a></b>
+                </div>
+                <p>Adjunto encontrarás el seguro de despacho para tu pedido.</p>
+            {% endif %}
+            <p>¡Gracias por elegirnos!</p>
+        </div>
+        <!-- Pie de página -->
+        <div class="footer">
+            © {% now "Y" %} {{ company_name }}. Todos los derechos reservados.
+        </div>
+    </div>
+</body>
+</html>

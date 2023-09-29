@@ -30,7 +30,7 @@ class Employee(models.Model):
     history = HistoricalRecords(table_name='employee_history')
     # Object timestamps
     created_at = models.DateTimeField(default=timezone.now)
-    updated_at = models.DateTimeField(auto_now=True)
+    updated_at = models.DateTimeField(auto_now=True, null=True)
 
     @property
     def _history_user(self):

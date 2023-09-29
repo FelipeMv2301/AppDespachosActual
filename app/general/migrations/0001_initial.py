@@ -593,7 +593,7 @@ class Migration(migrations.Migration):
             ],
             options={
                 'db_table': 'address',
-                'ordering': ['code', 'reference', 'st_and_num', 'complement', 'muni', 'latitude', 'longitude', 'changed_by', 'created_at', 'updated_at'],
+                'ordering': ['code', 'reference', 'st_and_num', 'complement', 'muni', 'maps_url', 'latitude', 'longitude', 'changed_by', 'created_at', 'updated_at'],
             },
         ),
         migrations.CreateModel(

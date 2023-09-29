@@ -213,7 +213,8 @@ class Delivery(Starken):
                                         'order_grouping__delivery_option__branch__code'),
                     output_field=CharField(),
                 )
-            ).distinct())
+            ).distinct()
+        )
         try:
             deliv = deliv[0]
         except IndexError:

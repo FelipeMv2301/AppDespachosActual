@@ -12,6 +12,7 @@ class Branch(models.Model):
     addr = models.ForeignKey(to='general.Address', on_delete=models.CASCADE)
     phone = models.CharField(max_length=100, null=True)
     phone2 = models.CharField(max_length=100, null=True)
+    hours = models.CharField(max_length=100, null=True)
     shipping = models.BooleanField(default=True)
     delivery = models.BooleanField(default=True)
     enabled = models.BooleanField(default=True)
@@ -20,7 +21,7 @@ class Branch(models.Model):
     history = HistoricalRecords(table_name='branch_history')
     # Object timestamps
     created_at = models.DateTimeField(default=timezone.now)
-    updated_at = models.DateTimeField(auto_now=True)
+    updated_at = models.DateTimeField(auto_now=True, null=True)
 
     @property
     def _history_user(self):
@@ -39,6 +40,7 @@ class Branch(models.Model):
             'addr',
             'phone',
             'phone2',
+            'hours',
             'shipping',
             'delivery',
             'enabled',

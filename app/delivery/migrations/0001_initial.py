@@ -26,6 +26,7 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(max_length=100)),
                 ('phone', models.CharField(max_length=100, null=True)),
                 ('phone2', models.CharField(max_length=100, null=True)),
+                ('hours', models.CharField(max_length=100, null=True)),
                 ('shipping', models.BooleanField(default=True)),
                 ('delivery', models.BooleanField(default=True)),
                 ('enabled', models.BooleanField(default=True)),
@@ -34,7 +35,7 @@ class Migration(migrations.Migration):
             ],
             options={
                 'db_table': 'branch',
-                'ordering': ['code', 'name', 'service_acct', 'addr', 'phone', 'phone2', 'shipping', 'delivery', 'enabled', 'changed_by', 'created_at', 'updated_at'],
+                'ordering': ['code', 'name', 'service_acct', 'addr', 'phone', 'phone2', 'hours', 'shipping', 'delivery', 'enabled', 'changed_by', 'created_at', 'updated_at'],
             },
         ),
         migrations.CreateModel(
@@ -523,6 +524,7 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(max_length=100)),
                 ('phone', models.CharField(max_length=100, null=True)),
                 ('phone2', models.CharField(max_length=100, null=True)),
+                ('hours', models.CharField(max_length=100, null=True)),
                 ('shipping', models.BooleanField(default=True)),
                 ('delivery', models.BooleanField(default=True)),
                 ('enabled', models.BooleanField(default=True)),

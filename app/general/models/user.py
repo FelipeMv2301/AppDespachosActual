@@ -20,7 +20,7 @@ class UserProfile(models.Model):
                                     null=True)
     # Object timestamps
     created_at = models.DateTimeField(default=timezone.now)
-    updated_at = models.DateTimeField(auto_now=True)
+    updated_at = models.DateTimeField(auto_now=True, null=True)
 
     class Meta:
         db_table = 'auth_user_profile'
