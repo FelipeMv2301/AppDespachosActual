@@ -6,6 +6,7 @@ from django.db import models
 from django.db.models.signals import post_save
 from django.db.utils import ProgrammingError
 from django.dispatch import receiver
+from django.utils import timezone
 
 from core.settings.base import logger
 from helpers.error.custom_error import UNEXP_ERROR, CustomError
@@ -18,7 +19,7 @@ class UserProfile(models.Model):
                                     on_delete=models.CASCADE,
                                     null=True)
     # Object timestamps
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:

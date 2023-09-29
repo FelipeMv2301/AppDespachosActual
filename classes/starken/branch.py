@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from simple_history.utils import (bulk_create_with_history,
                                   bulk_update_with_history)
 
-from app.delivery.models.agency import Agency as AgencyMdl
+from app.delivery.models.branch import Branch as BranchMdl
 from app.general.models.address import Address
 from app.general.models.muni import Muni
 from app.general.models.muni_service import MuniService
@@ -18,13 +18,13 @@ from helpers.decorator.loggable import loggable
 from helpers.error.custom_error import CustomError
 
 
-class Agency(Starken):
+class Branch(Starken):
     def __init__(self, account: ServiceAccount, *args, **kwargs):
         super().__init__(account=account, *args, **kwargs)
 
     @loggable
     def search_all(self, *args, **kwargs) -> Dict[str, Any]:
-        response = requests.get(url=self.agency_api_path,
+        response = requests.get(url=self.branch_api_path,
                                 headers=self.api_headers)
         self.check_response(response=response)
 
@@ -32,30 +32,30 @@ class Agency(Starken):
 
     @loggable
     def app_sync(self, *args, **kwargs):
-        mdl = AgencyMdl
+        mdl = BranchMdl
         addr_mdl = Address
         serv_muni_mdl = MuniService
         muni_mdl = Muni
-        agencies = self.search_all()
+        branches = self.search_all()
         user_obj = User.objects.get(username=APP_USERNAME)
         gmaps = GoogleMaps()
 
         munis = {}
-        ag_objs = mdl.objects.filter(service_acct=self.serv_account)
-        ag_objs = {obj.code: obj for obj in ag_objs}
-        ag_obj_cods = list(ag_objs.keys())
-        for ag in agencies:
-            code = str(ag['code_dls'])
-            name = ag['name']
-            phone = ag['phone']
-            shipping = ag['shipping']
-            delivery = ag['delivery']
-            address = ag['address']
-            latitude = float(ag['latitude'])
-            longitude = float(ag['longitude'])
-            status = ag['status']
+        branch_objs = mdl.objects.filter(service_acct=self.serv_account)
+        branch_objs = {obj.code: obj for obj in branch_objs}
+        branch_obj_cods = list(branch_objs.keys())
+        for branch in branches:
+            code = str(branch['code_dls'])
+            name = branch['name']
+            phone = branch['phone']
+            shipping = branch['shipping']
+            delivery = branch['delivery']
+            address = branch['address']
+            latitude = float(branch['latitude'])
+            longitude = float(branch['longitude'])
+            status = branch['status']
             enabled = status == 'ACTIVE'
-            muni = ag['comuna']
+            muni = branch['comuna']
             muni_code = muni['code_dls']
 
             if muni_code not in munis:
@@ -84,9 +84,9 @@ class Agency(Starken):
 
             addr_sync_kwargs = {'model': addr_mdl}
             sync_kwargs = {'model': mdl}
-            if code in ag_objs:
-                ag_obj = ag_objs[code]
-                addr_obj = ag_obj.addr
+            if code in branch_objs:
+                branch_obj = branch_objs[code]
+                addr_obj = branch_obj.addr
                 sync_func = bulk_update_with_history
                 addr_sync_kwargs['fields'] = [
                     'st_and_num',
@@ -108,7 +108,7 @@ class Agency(Starken):
                 ]
             else:
                 sync_func = bulk_create_with_history
-                ag_obj = mdl()
+                branch_obj = mdl()
                 addr_obj = addr_mdl()
 
             addr_obj.st_and_num = address
@@ -120,25 +120,25 @@ class Agency(Starken):
             addr_sync = sync_func(**addr_sync_kwargs)
             addr_obj = addr_sync[0] if addr_sync else addr_obj
 
-            ag_obj.code = code
-            ag_obj.name = name
-            ag_obj.addr = addr_obj
-            ag_obj.phone = phone
-            ag_obj.service_acct = self.serv_account
-            ag_obj.shipping = shipping
-            ag_obj.delivery = delivery
-            ag_obj.enabled = enabled
-            ag_obj.changed_by = user_obj
-            sync_kwargs['objs'] = [ag_obj]
+            branch_obj.code = code
+            branch_obj.name = name
+            branch_obj.addr = addr_obj
+            branch_obj.phone = phone
+            branch_obj.service_acct = self.serv_account
+            branch_obj.shipping = shipping
+            branch_obj.delivery = delivery
+            branch_obj.enabled = enabled
+            branch_obj.changed_by = user_obj
+            sync_kwargs['objs'] = [branch_obj]
             sync_func(**sync_kwargs)
 
-            if code in ag_obj_cods:
-                ag_obj_cods.remove(code)
+            if code in branch_obj_cods:
+                branch_obj_cods.remove(code)
 
-        unsync_ags = [ag_objs[code] for code in ag_obj_cods]
-        for ag in unsync_ags:
-            ag.enabled = False
-            ag.changed_by = user_obj
+        unsync_ags = [branch_objs[code] for code in branch_obj_cods]
+        for branch in unsync_ags:
+            branch.enabled = False
+            branch.changed_by = user_obj
         bulk_update_with_history(
             objs=unsync_ags,
             model=mdl,

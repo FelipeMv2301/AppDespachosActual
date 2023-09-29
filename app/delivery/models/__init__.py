@@ -1,4 +1,4 @@
-from .agency import Agency
+from .branch import Branch
 from .delivery import Delivery
 from .doc import Document
 from .doc_type import DocumentType

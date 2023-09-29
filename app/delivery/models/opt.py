@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 from simple_history.models import HistoricalRecords
 
 
@@ -11,7 +12,7 @@ class Option(models.Model):
     type = models.ForeignKey(to='delivery.Type', on_delete=models.CASCADE)
     pay_type = models.ForeignKey(to='delivery.PayType',
                                  on_delete=models.CASCADE)
-    agency = models.ForeignKey(to='delivery.Agency',
+    branch = models.ForeignKey(to='delivery.Branch',
                                on_delete=models.CASCADE,
                                null=True)
     # Status
@@ -20,7 +21,7 @@ class Option(models.Model):
     changed_by = models.ForeignKey(to='auth.User', on_delete=models.CASCADE)
     history = HistoricalRecords(table_name='delivery_option_history')
     # Object timestamps
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)
 
     @property
@@ -38,7 +39,7 @@ class Option(models.Model):
             'service',
             'type',
             'pay_type',
-            'agency',
+            'branch',
             'enabled',
             'changed_by',
             'created_at',

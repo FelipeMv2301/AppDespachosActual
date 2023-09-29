@@ -1,0 +1,33 @@
+[
+    {
+        "model": "general.address",
+        "pk": 1,
+        "fields": {
+            "code": "1",
+            "reference": "Bodega N3A",
+            "st_and_num": "Av Til Til 2756",
+            "complement": "Bodega N3-A",
+            "muni": 326,
+            "maps_url": "https://maps.app.goo.gl/j1QaHLQHhoHsky8d6",
+            "latitude": -33.4800093,
+            "longitude": -70.61725659999999,
+            "changed_by": 1
+        }
+    },
+    {
+        "model": "general.address",
+        "pk": 2,
+        "fields": {
+            "code": "2",
+            "reference": "Vitacura 2905-2B",
+            "st_and_num": "Av Vitacura 2905",
+            "complement": "Local 2B",
+            "muni": 322,
+            "maps_url": "https://maps.app.goo.gl/HsgVa9yhvuYSYJUZ7",
+            "latitude": -33.412143,
+            "longitude": -70.603076,
+            "changed_by": 1
+        }
+    }
+]
+    

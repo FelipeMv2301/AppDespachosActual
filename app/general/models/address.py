@@ -2,6 +2,7 @@ import random
 import string
 
 from django.db import models
+from django.utils import timezone
 from simple_history.models import HistoricalRecords
 
 
@@ -27,13 +28,14 @@ class Address(models.Model):
     muni = models.ForeignKey(to='general.Muni',
                              on_delete=models.CASCADE,
                              null=True)
+    maps_url = models.URLField(max_length=200, null=True)
     latitude = models.FloatField(null=True)
     longitude = models.FloatField(null=True)
     # Object tracking
     changed_by = models.ForeignKey(to='auth.User', on_delete=models.CASCADE)
     history = HistoricalRecords(table_name='address_history')
     # Object timestamps
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)
 
     @property
@@ -52,6 +54,7 @@ class Address(models.Model):
             'st_and_num',
             'complement',
             'muni',
+            'maps_url',
             'latitude',
             'longitude',
             'changed_by',

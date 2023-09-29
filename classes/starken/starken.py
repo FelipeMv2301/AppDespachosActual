@@ -20,7 +20,7 @@ class Starken:
         self.api_host = env.str(var='STARKEN_API_HOST')
         api_key = self.serv_account.get_api_key()
         self.api_headers = {'apikey': api_key}
-        self.agency_api_path = f'{self.api_host}agencias-externo/agency'
+        self.branch_api_path = f'{self.api_host}agencias-externo/agency'
         self.muni_api_path = f'{self.api_host}agencias-externo/comuna'
         self.trk_api_path = f'{self.api_host}tracking-externo/orden-flete/of/{{folio}}'
 

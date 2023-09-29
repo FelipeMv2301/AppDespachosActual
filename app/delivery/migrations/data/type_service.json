@@ -5,7 +5,7 @@
     "fields": {
         "code": "1",
         "name": "A domicilio",
-        "type": 3,
+        "type": 2,
         "service_acct": 1,
         "enabled": true,
         "changed_by": 1
@@ -16,8 +16,8 @@
     "pk": 2,
     "fields": {
         "code": "2",
-        "name": "Retiro en agencia",
-        "type": 2,
+        "name": "Retiro en sucursal",
+        "type": 1,
         "service_acct": 1,
         "enabled": true,
         "changed_by": 1
@@ -29,7 +29,7 @@
     "fields": {
         "code": "1",
         "name": "A domicilio",
-        "type": 3,
+        "type": 2,
         "service_acct": 2,
         "enabled": true,
         "changed_by": 1
@@ -40,8 +40,8 @@
     "pk": 4,
     "fields": {
         "code": "2",
-        "name": "Retiro en agencia",
-        "type": 2,
+        "name": "Retiro en sucursal",
+        "type": 1,
         "service_acct": 2,
         "enabled": true,
         "changed_by": 1
@@ -52,8 +52,8 @@
     "pk": 5,
     "fields": {
         "code": "1",
-        "name": "Retiro en agencia",
-        "type": 2,
+        "name": "Retiro en sucursal",
+        "type": 1,
         "service_acct": 4,
         "enabled": true,
         "changed_by": 1
@@ -65,7 +65,7 @@
     "fields": {
         "code": "2",
         "name": "A domicilio",
-        "type": 3,
+        "type": 2,
         "service_acct": 4,
         "enabled": true,
         "changed_by": 1
@@ -76,7 +76,7 @@
     "pk": 7,
     "fields": {
         "code": "3",
-        "name": "Retiro BQ",
+        "name": "Retiro en sucursal",
         "type": 1,
         "service_acct": 4,
         "enabled": true,

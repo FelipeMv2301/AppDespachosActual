@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from simple_history.utils import bulk_create_with_history
 
-from app.delivery.models.agency import Agency
+from app.delivery.models.branch import Branch
 from app.delivery.models.opt import Option
 from app.delivery.models.pay_type import PayType
 from app.delivery.models.service import Service as DelivService
@@ -13,8 +13,8 @@ user = User.objects.get(username=APP_USERNAME)
 
 carriers = {o.code: o
             for o in Service.objects.filter(is_carrier=True)}
-agencies = {o.code: o
-            for o in Agency.objects.all()}
+branches = {o.code: o
+            for o in Branch.objects.all()}
 pay_types = {o.code: o
              for o in PayType.objects.all()}
 services = {o.code: o
@@ -26,25 +26,25 @@ for carrier_code, carrier in carriers.items():
     for pay_type_code, pay_type in pay_types.items():
         for service_code, service in services.items():
             for type_code, _type in types.items():
-                for ag_code, ag in agencies.items():
-                    ag_carrier = ag.service_acct.service
+                for branch_code, branch in branches.items():
+                    branch_carrier = branch.service_acct.service
                     opt = Option.objects.filter(
-                        carrier=ag_carrier,
+                        carrier=branch_carrier,
                         service=service,
                         type=_type,
                         pay_type=pay_type,
-                        agency=ag
+                        branch=branch
                     )
                     if opt:
                         continue
                     opt = Option()
-                    opt.carrier = ag_carrier
+                    opt.carrier = branch_carrier
                     opt.service = service
                     opt.type = _type
                     opt.pay_type = pay_type
-                    opt.agency = ag
+                    opt.branch = branch
                     opt.changed_by = user
-                    opt.enabled = type_code == 'RAG'
+                    opt.enabled = type_code == 'BRDELIV'
                     bulk_create_with_history(
                         objs=[opt],
                         model=Option
@@ -54,7 +54,7 @@ for carrier_code, carrier in carriers.items():
                     service=service,
                     type=_type,
                     pay_type=pay_type,
-                    agency=None
+                    branch=None
                 )
                 if opt:
                     continue
@@ -66,7 +66,7 @@ for carrier_code, carrier in carriers.items():
                 opt.changed_by = user
                 match carrier_code:
                     case 'BQ':
-                        enabled = type_code != 'RAG'
+                        enabled = type_code != 'BRDELIV'
                     case 'STK':
                         enabled = type_code != 'RBQ'
                     case _:

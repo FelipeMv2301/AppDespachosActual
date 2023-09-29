@@ -1,0 +1,35 @@
+[
+    {
+        "model": "delivery.branch",
+        "pk": 1,
+        "fields": {
+            "code": "BQ301",
+            "name": "Bodega N3A",
+            "service_acct": 6,
+            "addr": 1,
+            "phone": "+56222252583",
+            "phone2": null,
+            "shipping": false,
+            "delivery": true,
+            "enabled": true,
+            "changed_by": 1
+        }
+    },
+    {
+        "model": "delivery.branch",
+        "pk": 2,
+        "fields": {
+            "code": "TD101",
+            "name": "Vitacura 2905-2B",
+            "service_acct": 7,
+            "addr": 2,
+            "phone": "+56222252583",
+            "phone2": null,
+            "shipping": false,
+            "delivery": true,
+            "enabled": true,
+            "changed_by": 1
+        }
+    }
+]
+    

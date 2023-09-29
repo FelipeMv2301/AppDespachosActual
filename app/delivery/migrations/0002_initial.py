@@ -21,6 +21,7 @@ def forwards_func(apps, schema_editor):
         'type_service.json',
         'status.json',
         'status_service.json',
+        'branch.json',
     ]
     for filename in data_file_names:
         call_command('loaddata', os.path.join(data_path, filename))
@@ -58,17 +59,17 @@ class Migration(migrations.Migration):
             field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='delivery.status'),
         ),
         migrations.AddField(
-            model_name='agency',
+            model_name='branch',
             name='addr',
             field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='general.address'),
         ),
         migrations.AddField(
-            model_name='agency',
+            model_name='branch',
             name='changed_by',
             field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL),
         ),
         migrations.AddField(
-            model_name='agency',
+            model_name='branch',
             name='service_acct',
             field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='general.serviceaccount'),
         ),

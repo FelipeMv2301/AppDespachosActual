@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from simple_history.utils import bulk_create_with_history
 
 from app.business_partner.models.contact import Contact
-from app.delivery.models.agency import Agency
+from app.delivery.models.branch import Branch
 from app.delivery.models.delivery import Delivery as DelivMdl
 from app.delivery.models.doc import Document
 from app.delivery.models.doc_type import DocumentType
@@ -63,13 +63,14 @@ class Delivery(Mitocondria):
         serv_muni_mdl = MuniService
         doc_type_mdl = DocumentType
         opt_mdl = Option
-        ag_mdl = Agency
+        ag_mdl = Branch
         contact_mdl = Contact
         delivs = self.search_all(from_date=from_date)
         user_obj = User.objects.get(username=APP_USERNAME)
         status_obj = Status.objects.get(code='ISSUED')
         stk_acct = ServiceAccount.objects.get(code='STKBQ01')
         sap_acct = ServiceAccount.objects.get(code='SAPBQ01')
+        bq_acct = ServiceAccount.objects.get(code='BQ01')
         bq_service = Service.objects.get(code='BQ')
         stk_service = Service.objects.get(code=STK_SERV_CODE)
         deliv_service = DelivService.objects.get(code='NO')
@@ -145,6 +146,9 @@ class Delivery(Mitocondria):
                 CustomError(msg=e_msg)
                 continue
 
+            carrier_is_stk = (deliv_type.code == '1' or
+                              deliv_type.code == '2')
+
             deliv_type = deliv_type.type
             if not deliv_type:
                 e_msg = 'Error: delivery type code '
@@ -152,9 +156,6 @@ class Delivery(Mitocondria):
                 e_msg += f'\nFolio: {folio}'
                 CustomError(msg=e_msg)
                 continue
-
-            carrier_is_stk = (deliv_type.code == 'RAG' or
-                              deliv_type.code == 'ADOM')
 
             try:
                 pay_type = pay_types_equiv[pay_type_code]
@@ -181,7 +182,7 @@ class Delivery(Mitocondria):
                           .get(code=ag_code, service_acct=stk_acct))
                     muni = ag.addr.muni
                 except ag_mdl.DoesNotExist:
-                    e_msg = f'Error: agency code \'{ag_code}\' '
+                    e_msg = f'Error: branch code \'{ag_code}\' '
                     e_msg += 'does not exist'
                     e_msg += f'\nFolio: {folio}'
                     CustomError(msg=e_msg)
@@ -213,7 +214,7 @@ class Delivery(Mitocondria):
                 service=deliv_service,
                 type=deliv_type,
                 pay_type=pay_type,
-                agency=ag
+                branch=ag
             )
             if not opt:
                 e_msg = 'Error: delivery option does not exist'
@@ -279,7 +280,7 @@ class Delivery(Mitocondria):
 
             deliv = mdl(
                 folio=folio,
-                service_acct=stk_acct if carrier_is_stk else None,
+                service_acct=stk_acct if carrier_is_stk else bq_acct,
                 issue_date=issue_date,
                 assembly_date=assy_date,
                 rcpt_commit_date=rcpt_commit_date,

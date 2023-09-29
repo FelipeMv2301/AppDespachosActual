@@ -3,8 +3,8 @@
     "model": "delivery.type",
     "pk": 1,
     "fields": {
-        "code": "RBQ",
-        "name": "Retiro BQ",
+        "code": "BRDELIV",
+        "name": "Retiro en sucursal",
         "enabled": true,
         "changed_by": 1
     }
@@ -13,17 +13,7 @@
     "model": "delivery.type",
     "pk": 2,
     "fields": {
-        "code": "RAG",
-        "name": "Retiro en agencia",
-        "enabled": true,
-        "changed_by": 1
-    }
-},
-{
-    "model": "delivery.type",
-    "pk": 3,
-    "fields": {
-        "code": "ADOM",
+        "code": "HOMEDELIV",
         "name": "A domicilio",
         "enabled": true,
         "changed_by": 1
