@@ -1,0 +1,419 @@
+{% extends "base.html" %}
+{% load static %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'app/css/results.css' %}">
+{% endblock %}
+{% block page_title %}{{ page_title }}{% endblock %}
+{% block content %}
+    <div class="pt-5">
+        <div class="row">
+            <div class="col">
+                {{ form.orders.label_tag }}
+                {{ form.orders }}
+                <ul id="results" role="tree" hidden>
+                    <li role="treeitem" class="tree-results" name="no-results">Sin resultados</li>
+                </ul>
+                {{ form.orders.errors }}
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
+    <div class="pt-3" id="selected-results"></div>
+    <form hidden method="POST" action="" accept-charset="UTF-8">
+        {% csrf_token %}
+        {% if perms.order.edit_commit_date %}
+            <div class="pt-5">
+                <span class="fs-5 fw-bold">Información de pedido</span>
+                <div class="form-group pt-5 d-grid">
+                    <div class="row">
+                        <div class="col">
+                            {{ form.commit_date.label_tag }}
+                            <input class="{{ form.commit_date.field.widget.attrs.class }}" name="{{ form.commit_date.html_name }}" type="date" id="{{ form.commit_date.id_for_label }}" value="{{ form.commit_date.value|date:"Y-m-d" }}">
+                            {{ form.commit_date.errors }}
+                        </div>
+                        <div class="col">
+                            {{ form.obs.label_tag }}
+                            {{ form.obs }}
+                            {{ form.obs.errors }}
+                        </div>
+                        <div class="col"></div>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+        <div class="pt-5">
+            <span class="fs-5 fw-bold">Información de contacto</span>
+            <div class="form-group pt-5 d-grid">
+                <div class="row">
+                        <div class="col">
+                            {{ form.contact_first_name.label_tag }}
+                            {{ form.contact_first_name }}
+                            {{ form.contact_first_name.errors }}
+                        </div>
+                        <div class="col">
+                            {{ form.contact_last_name.label_tag }}
+                            {{ form.contact_last_name }}
+                            {{ form.contact_last_name.errors }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            {{ form.contact_email_addr.label_tag }}
+                            {{ form.contact_email_addr }}
+                            {{ form.contact_email_addr.errors }}
+                        </div>
+                        <div class="col">
+                            {{ form.contact_phone_number.label_tag }}
+                            {{ form.contact_phone_number }}
+                            {{ form.contact_phone_number.errors }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-5 pb-5">
+                <span class="fs-5 fw-bold">Información de despacho</span>
+                <div class="form-group pt-5 d-grid">
+                    <div class="row">
+                        <div class="col">
+                            {{ form.deliv_st_and_num.label_tag }}
+                            {{ form.deliv_st_and_num }}
+                            {{ form.deliv_st_and_num.errors }}
+                        </div>
+                        <div class="col">
+                            {{ form.deliv_addr_complement.label_tag }}
+                            {{ form.deliv_addr_complement }}
+                            {{ form.deliv_addr_complement.errors }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            {{ form.deliv_muni.label_tag }}
+                            {{ form.deliv_muni }}
+                            {{ form.deliv_muni.errors }}
+                        </div>
+                        <div class="col">
+                            {{ form.carrier.label_tag }}
+                            {{ form.carrier }}
+                            {{ form.carrier.errors }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            {{ form.deliv_type.label_tag }}
+                            {{ form.deliv_type }}
+                            {{ form.deliv_type.errors }}
+                        </div>
+                        <div class="col">
+                            {{ form.deliv_service.label_tag }}
+                            {{ form.deliv_service }}
+                            {{ form.deliv_service.errors }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            {{ form.deliv_pay_type.label_tag }}
+                            {{ form.deliv_pay_type }}
+                            {{ form.deliv_pay_type.errors }}
+                        </div>
+                        <div class="col">
+                            {{ form.branch.label_tag }}
+                            {{ form.branch }}
+                            {{ form.branch.errors }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            {{ form.obs.label_tag }}
+                            {{ form.obs }}
+                            {{ form.obs.errors }}
+                        </div>
+                        <div class="col"></div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        <div class="pb-5 text-end">
+            <button type="button" class="bg-transparent text-decoration-underline fw-bold" style="color: var(--blue);" onclick="window.history.go(-1);"">Volver</button>
+            <button type="submit" class="bluebutton fw-bold">Guardar</button>
+        </div>
+    </form>
+{% endblock %}
+{% block scripts %}
+<script type="text/javascript">
+    const form = document.querySelector('form');
+    const noResultsMessage = document.querySelector('li[name="no-results"]');
+    const searchInput = document.getElementById('{{ form.orders.id_for_label }}');
+    const searchResultsArea = document.getElementById('results');
+    const selectedResultsArea = document.getElementById('selected-results');
+    const selectedOrders = new Set();
+    const delivMuniInput = document.getElementById('{{ form.deliv_muni.id_for_label }}')
+    const carrierInput = document.getElementById('{{ form.carrier.id_for_label }}')
+    const delivTypeInput = document.getElementById('{{ form.deliv_type.id_for_label }}')
+    const delivServiceInput = document.getElementById('{{ form.deliv_service.id_for_label }}')
+    const delivPayTypeInput = document.getElementById('{{ form.deliv_pay_type.id_for_label }}')
+    const delivBranchInput = document.getElementById('{{ form.branch.id_for_label }}')
+    
+    function createListElement(orderId, orderRef) {
+        const li = document.createElement('li');
+        li.role = 'treeitem';
+        li.classList.add('tree-results');
+        li.onmousedown = function () {
+            selectOrder(this);
+        };
+        li.setAttribute('aria-selected', true);
+        li.value = orderId;
+        li.textContent = orderRef;
+        return li;
+    }
+
+    function createButtonElement(orderId, orderRef) {
+        const button = document.createElement('button');
+        button.style.borderRadius = '30px';
+        button.type = 'button';
+        button.classList.add('greenbutton', 'align-middle', 'pe-none', 'mb-2', 'mt-2', 'ms-2');
+
+        const span = document.createElement('span');
+        span.name = 'selected-order';
+        span.value = orderId;
+        span.textContent = orderRef;
+
+        const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+        svg.setAttribute('width', '16');
+        svg.setAttribute('height', '16');
+        svg.setAttribute('fill', 'currentColor');
+        svg.classList.add('bi', 'bi-x-lg', 'pe-auto');
+        svg.setAttribute('viewBox', '0 0 16 16');
+        svg.onclick = function () {
+            removeSelectedOrder(orderId, this);
+        };
+
+        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        path.setAttribute('d', 'M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z');
+
+        svg.appendChild(path);
+
+        button.appendChild(span);
+        button.appendChild(svg);
+
+        return button;
+    }
+
+    function removeSearchResults() {
+        searchResultsArea.querySelectorAll('li[aria-selected="true"]').forEach(elem => elem.remove());
+    }
+
+    function hideForm() {
+        form.hidden = true;
+    }
+
+    function showForm() {
+        form.hidden = false;
+    }
+
+    if (form) {
+        form.addEventListener('submit', () => {
+            event.preventDefault();
+            Swal.fire({
+                title: '¿Desea guardar los cambios?',
+                showDenyButton: true,
+                confirmButtonText: 'Sí',
+                denyButtonText: 'No',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    searchInput.value = Array.from(selectedOrders).join(',');
+                    const clonedInput = searchInput.cloneNode(true);
+                    form.appendChild(clonedInput);
+                    form.submit();
+                }
+            })
+        });
+    }
+
+    function checkSelectedOrders() {
+        if (!selectedOrders.size) {
+            hideForm();
+        }
+    }
+
+    function removeSelectedOrder(orderId, elem) {
+        selectedOrders.delete(orderId);
+        elem.parentNode.remove();
+        checkSelectedOrders();
+    }
+
+    function hideNoResultsMessage() {
+        noResultsMessage.hidden = true;
+    }
+
+    function showNoResultsMessage() {
+        noResultsMessage.hidden = false;
+    }
+
+    function clearSearchInput() {
+        searchResultsArea.hidden = true;
+    }
+
+    searchInput.addEventListener('focus', () => {
+        searchResultsArea.hidden = false;
+    });
+
+    searchInput.addEventListener('input', () => {
+        checkSelectedOrders();
+        const inputValue = searchInput.value;
+        var url = `{% url 'order_search' %}?` + $.param({doc_num_start: inputValue});
+        if (inputValue.length > 5) {
+            $.ajax({
+                type: 'GET',
+                url: url,
+                success: function (response) {
+                    hideNoResultsMessage();
+                    removeSearchResults();
+                    response.orders.forEach(order => {
+                        var li = createListElement(order.id, order.doc_num);
+                        searchResultsArea.appendChild(li);
+                    });
+                },
+                error: function () { }
+            });
+        }
+        removeSearchResults();
+        showNoResultsMessage();
+    });
+
+    searchInput.addEventListener('blur', () => {
+        clearSearchInput();
+    });
+
+    function selectOrder(elem) {
+        let orderId = elem.value;
+        let orderDocNum = elem.textContent;
+
+        if (!selectedOrders.has(orderDocNum)) {
+            selectedOrders.add(orderDocNum);
+
+            const button = createButtonElement(orderId, orderDocNum);
+            selectedResultsArea.appendChild(button);
+
+            showForm();
+            removeSearchResults();
+            showNoResultsMessage();
+        } else {
+            Swal.fire({
+                icon: 'info',
+                text: `El pedido ${orderDocNum} ya está seleccionado`,
+            });
+        }
+    }
+
+    function searchDeliveryOption() {
+        const selects = {
+            delivMuni: $('#{{ form.deliv_muni.id_for_label }}'),
+            carrier: $('#{{ form.carrier.id_for_label }}'),
+            delivType: $('#{{ form.deliv_type.id_for_label }}'),
+            delivService: $('#{{ form.deliv_service.id_for_label }}'),
+            delivPayType: $('#{{ form.deliv_pay_type.id_for_label }}'),
+            delivBranch: $('#{{ form.branch.id_for_label }}'),
+        };
+        const selectValues = {
+            delivMuni: selects.delivMuni.val(),
+            carrier: selects.carrier.val(),
+            delivType: selects.delivType.val(),
+            delivService: selects.delivService.val(),
+            delivPayType: selects.delivPayType.val(),
+            delivBranch: selects.delivBranch.val(),
+        };
+        var url = `{% url 'deliv_opt_search' %}?` + $.param(selectValues);
+        $.ajax({
+            type: 'GET',
+            url: url,
+            success: function (response) {
+                var types = new Set();
+                var services = new Set();
+                var pay_types = new Set();
+                var branches = new Set();
+                selects.delivType.empty();
+                selects.delivService.empty();
+                selects.delivPayType.empty();
+                selects.delivBranch.empty();
+                response.opts.forEach(opt => {
+                    typeCode = opt.type_code;
+                    if (!types.has(typeCode)) {
+                        types.add(typeCode);
+                        selects.delivType.append(
+                            $('<option>', {
+                                value: typeCode,
+                                text: opt.type_name
+                            })
+                        );
+                    }
+
+                    serviceCode = opt.service_code;
+                    if (!services.has(serviceCode)) {
+                        services.add(serviceCode);
+                        selects.delivService.append(
+                            $('<option>', {
+                                value: serviceCode,
+                                text: opt.service_name
+                            })
+                        );
+                    }
+
+                    payTypeCode = opt.pay_type_code;
+                    if (!pay_types.has(payTypeCode)) {
+                        pay_types.add(payTypeCode);
+                        selects.delivPayType.append(
+                            $('<option>', {
+                                value: payTypeCode,
+                                text: opt.pay_type_name
+                            })
+                        );
+                    }
+
+                    branchCode = opt.branch_code;
+                    if (branchCode && !branches.has(branchCode)) {
+                        branches.add(branchCode);
+                        selects.delivBranch.append(
+                            $('<option>', {
+                                value: branchCode,
+                                text: opt.branch_name
+                            })
+                        );
+                    }
+
+                });
+
+                selects.delivType.find('option').each(function () {
+                    if ($(this).val() === selectValues.delivType) {
+                        $(this).prop('selected', true);
+                    }
+                });
+                selects.delivService.find('option').each(function () {
+                    if ($(this).val() === selectValues.delivService) {
+                        $(this).prop('selected', true);
+                    }
+                });
+                selects.delivPayType.find('option').each(function () {
+                    if ($(this).val() === selectValues.delivPayType) {
+                        $(this).prop('selected', true);
+                    }
+                });
+                {% comment %} selects.delivBranch.find('option').each(function () {
+                    if ($(this).val() === selectValues.delivBranch) {
+                        $(this).prop('selected', true);
+                    }
+                }); {% endcomment %}
+            },
+            error: function () { }
+        });
+    };
+
+    $(document).ready(function() {
+        if (searchInput.value) {
+            showForm();
+        }
+        searchDeliveryOption();
+    });
+</script>
+{% endblock %}
+    

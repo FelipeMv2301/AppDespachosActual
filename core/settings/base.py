@@ -105,12 +105,12 @@ DJANGO_APPS = [
 THIRD_PARTY_APPS = []
 
 LOCAL_APPS = [
+    'api',
     'app.authentication',
     'app.business_partner',
     'app.delivery',
     'app.general',
     'app.order',
-    # 'api',
     # 'app.dispatch',
     # 'app.kpi',
     # 'classes.starken',
@@ -153,6 +153,11 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+# SESSION
+# ------------------------------------------------------------------------------
+# https://docs.djangoproject.com/en/4.2/topics/http/sessions/#using-cookie-based-sessions
+SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
 
 # MIDDLEWARE
 # ------------------------------------------------------------------------------

@@ -28,6 +28,14 @@ for carrier_code, carrier in carriers.items():
             for type_code, _type in types.items():
                 for branch_code, branch in branches.items():
                     branch_carrier = branch.service_acct.service
+
+                    if type_code == 'HOMEDELIV':  # A domicilio
+                        continue
+                    elif branch_carrier.code != carrier_code:
+                        continue
+                    elif carrier_code == 'STK' and pay_type_code == 'FREE':
+                        continue
+
                     opt = Option.objects.filter(
                         carrier=branch_carrier,
                         service=service,
@@ -44,11 +52,17 @@ for carrier_code, carrier in carriers.items():
                     opt.pay_type = pay_type
                     opt.branch = branch
                     opt.changed_by = user
-                    opt.enabled = type_code == 'BRDELIV'
+                    opt.enabled = type_code == 'BRDELIV'  # Retiro en sucursal
                     bulk_create_with_history(
                         objs=[opt],
                         model=Option
                     )
+
+                if type_code == 'BRDELIV':  # Retiro en sucursal
+                    continue
+                elif carrier_code == 'STK' and pay_type_code == 'FREE':
+                    continue
+
                 opt = Option.objects.filter(
                     carrier=carrier,
                     service=service,
@@ -64,14 +78,7 @@ for carrier_code, carrier in carriers.items():
                 opt.type = _type
                 opt.pay_type = pay_type
                 opt.changed_by = user
-                match carrier_code:
-                    case 'BQ':
-                        enabled = type_code != 'BRDELIV'
-                    case 'STK':
-                        enabled = type_code != 'RBQ'
-                    case _:
-                        enabled = True
-                opt.enabled = enabled
+                opt.enabled = type_code == 'HOMEDELIV'  # A domicilio
                 bulk_create_with_history(
                     objs=[opt],
                     model=Option

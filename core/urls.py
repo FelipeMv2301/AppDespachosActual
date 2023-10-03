@@ -23,7 +23,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('__debug__/', include(debug_toolbar.urls)),
     path(route='', view=home, name='home'),
+    path(route='api/', view=include(arg='api.urls')),
     path(route='auth/', view=include(arg='app.authentication.urls')),
+    path(route='order/', view=include(arg='app.order.urls')),
 ]
 
 # Errors handling
