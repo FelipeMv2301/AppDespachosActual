@@ -22,8 +22,11 @@ def loggable(f: Callable):
         try:
             result = f(*args, **kwargs)
             return result
-        except CustomError:
-            pass
+        except CustomError as e:
+            if request:
+                messages.error(request=request, message=e)
+                return redirect(to='home')
+            raise e
         except Exception:
             tb = traceback.format_exc()
             e = CustomError(log=tb)

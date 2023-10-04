@@ -1,6 +1,10 @@
 from django import forms
 from django.utils.functional import SimpleLazyObject
 
+from app.delivery.models.branch import Branch
+from app.delivery.models.pay_type import PayType
+from app.delivery.models.service import Service as DelivServ
+from app.delivery.models.type import Type
 from app.general.models.muni import Muni
 from app.general.models.service import Service
 
@@ -120,8 +124,8 @@ class DeliveryForm(forms.Form):
                 label='Vía de entrega',
                 required=True,
                 disabled=False,
-                choices=((m.code, m.name)
-                         for m in (Service.objects
+                choices=((s.code, s.name)
+                         for s in (Service.objects
                                    .filter(enabled=True, is_carrier=True)
                                    .order_by('name'))),
                 widget=forms.Select(
@@ -135,6 +139,8 @@ class DeliveryForm(forms.Form):
                 label='Tipo de entrega',
                 required=True,
                 disabled=False,
+                choices=((t.code, t.name)
+                         for t in (Type.objects.order_by('name'))),
                 widget=forms.Select(
                     attrs={
                         'class': 'mb-2 textfield',
@@ -146,6 +152,8 @@ class DeliveryForm(forms.Form):
                 label='Tipo de servicio',
                 required=True,
                 disabled=False,
+                choices=((s.code, s.name)
+                         for s in (DelivServ.objects.order_by('name'))),
                 widget=forms.Select(
                     attrs={
                         'class': 'mb-2 textfield',
@@ -157,6 +165,8 @@ class DeliveryForm(forms.Form):
                 label='Tipo de pago de entrega',
                 required=True,
                 disabled=False,
+                choices=((p.code, p.name)
+                         for p in (PayType.objects.order_by('name'))),
                 widget=forms.Select(
                     attrs={
                         'class': 'mb-2 textfield',
@@ -168,6 +178,8 @@ class DeliveryForm(forms.Form):
                 label='Sucursal de entrega',
                 required=False,
                 disabled=False,
+                choices=((b.code, b.name)
+                         for b in (Branch.objects.order_by('name'))),
                 widget=forms.Select(
                     attrs={
                         'class': 'mb-2 textfield',
