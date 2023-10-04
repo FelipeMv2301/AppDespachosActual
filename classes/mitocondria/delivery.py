@@ -271,7 +271,8 @@ class Delivery(Mitocondria):
                     addr=addr,
                     contact=contact,
                     customer=ordr_obj.customer,
-                    changed_by=user_obj
+                    changed_by=user_obj,
+                    enabled=False,
                 ))
             ordr_groups = bulk_create_with_history(
                 objs=ordr_groups_to_create,
