@@ -5,7 +5,7 @@ from django.core.handlers.wsgi import WSGIRequest
 from django.shortcuts import render
 from django.views.generic.base import View
 
-from app.delivery.forms.review_form import ReviewForm
+from app.delivery.forms.review import ReviewForm
 from app.order.models.delivery import OrderDelivery
 from helpers.decorator.auth import authentication
 from helpers.decorator.loggable import loggable
