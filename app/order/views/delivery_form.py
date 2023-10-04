@@ -1,4 +1,3 @@
-import json
 import os
 
 from django.contrib import messages
@@ -30,10 +29,8 @@ class DeliveryFormView(View):
     @authentication
     @loggable
     def get(self, request: WSGIRequest, *args, **kwargs):
-        orders = [o.doc_num for o in Order.objects.all()]
         context = {'page_title': PAGE_TITLE,
-                   'form': self.form(user=request.user),
-                   'orders': json.dumps(obj=orders)}
+                   'form': self.form(user=request.user)}
 
         return render(request=request,
                       template_name=self.template,

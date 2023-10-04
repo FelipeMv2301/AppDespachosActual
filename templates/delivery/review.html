@@ -1,0 +1,370 @@
+{% extends "base.html" %}
+{% load static %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'app/css/results.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/folder.css' %}">
+{% endblock %}
+{% block page_title %}{{ page_title }}{% endblock %}
+{% block content %}
+    <div class="pt-5">
+        <div class="row">
+            <div class="col">
+                {{ form.orders.label_tag }}
+                {{ form.orders }}
+                <ul id="results" role="tree" hidden>
+                    <li role="treeitem" class="tree-results" name="no-results">Sin resultados</li>
+                </ul>
+                {{ form.orders.errors }}
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
+    <div class="pt-3" id="selected-results"></div>
+    <form method="POST" action="" accept-charset="UTF-8">
+        {% csrf_token %}
+        <div class="pb-5 text-end">
+            <button type="submit" class="bluebutton fw-bold">Buscar</button>
+        </div>
+    </form>
+    {% if perms.delivery.issue_delivery %}
+        <div class="row pt-3">
+            <div class="pb-3 text-end">
+                <a href="{% url 'delivery_form' %}" style="color: inherit; text-decoration: none;">
+                    <button type="button" class="greenbutton fw-bold">Crear entrega</button>
+                </a>
+            </div>
+        </div>
+    {% endif %}
+    <div class="pt-5">
+        {% for od in ordr_delivs %}
+            <div class="folder-tabs mb-4 mt-4" id="{{ od.folio }}">
+                <ul class="tab-list">
+                <li class="tab active fw-semibold ps-4 pe-4">{{ od.folio }}</li>
+                </ul>
+                <div class="tab-content">
+                    <div class="container text-center">
+                        <div class="row align-items-start">
+                            <div class="col pb-3 pt-3">
+                                <div class="container text-center">
+                                    <div class="row w-100 pb-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
+                                            <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="row w-100">
+                                        <div class="col">
+                                            <span><b>Armado</b></span>
+                                        </div>
+                                    </div>
+                                    <div class="row w-100 pb-2">
+                                        <div class="col">
+                                            <span>{{ od.assy_date|date:"d/m/Y" }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="row w-100">
+                                        <div class="col">
+                                            <span><b>Emisión</b></span><br>
+                                        </div>
+                                    </div>
+                                    <div class="row w-100 pb-2">
+                                        <div class="col">
+                                            <span>{{ od.issue_date|date:"d/m/Y" }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="row w-100">
+                                        <div class="col">
+                                            <span><b>Compromiso</b></span><br>
+                                        </div>
+                                    </div>
+                                    <div class="row w-100 pb-2">
+                                        <div class="col">
+                                            <span>{% if od.rcpt_commit_date %}{{ od.rcpt_commit_date|date:"d/m/Y" }}{% else %}No hay fecha{% endif %}</span>
+                                        </div>
+                                    </div>
+                                    <div class="row w-100">
+                                        <div class="col">
+                                            <span><b>Recepción</b></span><br>
+                                        </div>
+                                    </div>
+                                    <div class="row w-100 pb-2">
+                                        <div class="col">
+                                            <span>{% if od.rcpt_date %}{{ od.rcpt_date|date:"d/m/Y" }}{% else %}No hay fecha{% endif %}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col pb-3 pt-3">
+                                <div class="container text-center">
+                                    <div class="row w-100 pb-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-info-square" viewBox="0 0 16 16">
+                                            <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                                            <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                            </svg>
+                                    </div>
+                                    <div class="row w-100">
+                                        <div class="col">
+                                            <span><b>Pedido(s)</b></span>
+                                        </div>
+                                    </div>
+                                    <div class="row w-100 pb-2">
+                                        <div class="col">
+                                            <span>{{ od.doc_nums }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="row w-100">
+                                        <div class="col">
+                                            <span><b>Estado</b></span><br>
+                                        </div>
+                                    </div>
+                                    <div class="row w-100 pb-2">
+                                        <div class="col">
+                                            <span>{{ od.status }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="row w-100">
+                                        <div class="col">
+                                            <span><b>Estado externo</b></span><br>
+                                        </div>
+                                    </div>
+                                    <div class="row w-100 pb-2">
+                                        <div class="col">
+                                            <span>{{ od.serv_status }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="row w-100">
+                                        <div class="col">
+                                            <span><b>Fuente</b></span><br>
+                                        </div>
+                                    </div>
+                                    <div class="row w-100 pb-2">
+                                        <div class="col">
+                                            <span>{{ od.source }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col pb-3 pt-3">
+                                <div class="container text-center">
+                                    <div class="row w-100 pb-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-truck" viewBox="0 0 16 16">
+                                            <path d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5v-7zm1.294 7.456A1.999 1.999 0 0 1 4.732 11h5.536a2.01 2.01 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456zM12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12v4zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="row w-100">
+                                        <div class="col">
+                                            <span><b>Comuna de despacho</b></span>
+                                        </div>
+                                    </div>
+                                    <div class="row w-100 pb-2">
+                                        <div class="col">
+                                            <span>{{ od.muni }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="row w-100">
+                                        <div class="col">
+                                            <span><b>Vía de entrega</b></span>
+                                        </div>
+                                    </div>
+                                    <div class="row w-100 pb-2">
+                                        <div class="col">
+                                            <span>{{ od.carrier }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="row w-100">
+                                        <div class="col">
+                                            <span><b>Tipo de entrega</b></span>
+                                        </div>
+                                    </div>
+                                    <div class="row w-100 pb-2">
+                                        <div class="col">
+                                            <span>{{ od.deliv_type }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="row w-100">
+                                        <div class="col">
+                                            <span><b>Tipo de pago</b></span>
+                                        </div>
+                                    </div>
+                                    <div class="row w-100 pb-2">
+                                        <div class="col">
+                                            <span>{{ od.deliv_pay_type }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="row w-100">
+                                        <div class="col">
+                                            <span><b>Tipo de servicio</b></span>
+                                        </div>
+                                    </div>
+                                    <div class="row w-100 pb-2">
+                                        <div class="col">
+                                            <span>{{ od.deliv_service }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="row w-100">
+                                        <div class="col">
+                                            <span><b>Sucursal</b></span>
+                                        </div>
+                                    </div>
+                                    <div class="row w-100 pb-2">
+                                        <div class="col">
+                                            <span>{{ od.branch }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+{% block scripts %}
+<script type="text/javascript">
+    const form = document.querySelector('form');
+    const noResultsMessage = document.querySelector('li[name="no-results"]');
+    const searchInput = document.getElementById('{{ form.orders.id_for_label }}');
+    const searchResultsArea = document.getElementById('results');
+    const selectedResultsArea = document.getElementById('selected-results');
+    const selectedOrders = new Set();
+    const searchedOrders = '{{ searched_orders }}';
+
+    $( document ).ready(function() {
+        if (searchedOrders) {
+            searchedOrders.split(',').forEach(order => {
+                var li = createListElement(order, order);
+                selectOrder(li);
+            });            
+        }
+    });
+    
+    function createListElement(orderId, orderRef) {
+        const li = document.createElement('li');
+        li.role = 'treeitem';
+        li.classList.add('tree-results');
+        li.onmousedown = function () {
+            selectOrder(this);
+        };
+        li.setAttribute('aria-selected', true);
+        li.value = orderId;
+        li.textContent = orderRef;
+        return li;
+    }
+
+    function createButtonElement(orderId, orderRef) {
+        const button = document.createElement('button');
+        button.style.borderRadius = '30px';
+        button.type = 'button';
+        button.classList.add('greenbutton', 'align-middle', 'pe-none', 'mb-2', 'mt-2', 'ms-2');
+
+        const span = document.createElement('span');
+        span.name = 'selected-order';
+        span.value = orderId;
+        span.textContent = orderRef;
+
+        const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+        svg.setAttribute('width', '16');
+        svg.setAttribute('height', '16');
+        svg.setAttribute('fill', 'currentColor');
+        svg.classList.add('bi', 'bi-x-lg', 'pe-auto');
+        svg.setAttribute('viewBox', '0 0 16 16');
+        svg.onclick = function () {
+            removeSelectedOrder(orderId, this);
+        };
+
+        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        path.setAttribute('d', 'M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z');
+
+        svg.appendChild(path);
+
+        button.appendChild(span);
+        button.appendChild(svg);
+
+        return button;
+    }
+
+    function removeSearchResults() {
+        searchResultsArea.querySelectorAll('li[aria-selected="true"]').forEach(elem => elem.remove());
+    }
+
+    if (form) {
+        form.addEventListener('submit', () => {
+            event.preventDefault();
+            searchInput.value = Array.from(selectedOrders).join(',');
+            const clonedInput = searchInput.cloneNode(true);
+            clonedInput.hidden = true;
+            form.appendChild(clonedInput);
+            form.submit();
+        });
+    }
+
+    function removeSelectedOrder(orderId, elem) {
+        selectedOrders.delete(orderId);
+        elem.parentNode.remove();
+    }
+
+    function hideNoResultsMessage() {
+        noResultsMessage.hidden = true;
+    }
+
+    function showNoResultsMessage() {
+        noResultsMessage.hidden = false;
+    }
+
+    function clearSearchInput() {
+        searchResultsArea.hidden = true;
+    }
+
+    searchInput.addEventListener('focus', () => {
+        searchResultsArea.hidden = false;
+    });
+
+    searchInput.addEventListener('input', () => {
+        const inputValue = searchInput.value;
+        var url = `{% url 'order_search' %}?` + $.param({doc_num_start: inputValue});
+        if (inputValue.length > 5) {
+            $.ajax({
+                type: 'GET',
+                url: url,
+                success: function (response) {
+                    hideNoResultsMessage();
+                    removeSearchResults();
+                    response.orders.forEach(order => {
+                        var li = createListElement(order.id, order.doc_num);
+                        searchResultsArea.appendChild(li);
+                    });
+                },
+                error: function () { }
+            });
+        }
+        removeSearchResults();
+        showNoResultsMessage();
+    });
+
+    searchInput.addEventListener('blur', () => {
+        clearSearchInput();
+    });
+
+    function selectOrder(elem) {
+        let orderId = elem.value;
+        let orderDocNum = elem.textContent;
+
+        if (!selectedOrders.has(orderDocNum)) {
+            selectedOrders.add(orderDocNum);
+
+            const button = createButtonElement(orderId, orderDocNum);
+            selectedResultsArea.appendChild(button);
+
+            removeSearchResults();
+            showNoResultsMessage();
+        } else {
+            Swal.fire({
+                icon: 'info',
+                text: `El pedido ${orderDocNum} ya está seleccionado`,
+            });
+        }
+    }
+</script>
+{% endblock %}
+    

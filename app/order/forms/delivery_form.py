@@ -11,7 +11,7 @@ from app.general.models.service import Service
 
 class DeliveryForm(forms.Form):
     orders = forms.CharField(
-        label='Pedido',
+        label='Pedido(s)',
         required=True,
         widget=forms.TextInput(
             attrs={

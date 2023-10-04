@@ -26,6 +26,7 @@ urlpatterns = [
     path(route='api/', view=include(arg='api.urls')),
     path(route='auth/', view=include(arg='app.authentication.urls')),
     path(route='order/', view=include(arg='app.order.urls')),
+    path(route='delivery/', view=include(arg='app.delivery.urls')),
 ]
 
 # Errors handling

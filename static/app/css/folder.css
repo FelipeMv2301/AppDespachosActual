@@ -1,0 +1,36 @@
+.folder-tabs {
+    border-radius: 5px; /* bordes redondeados */
+    padding: 10px;
+    color: #5C5C5C;
+}
+
+.tab {
+    background-color: #fff; /* fondo blanco */
+    border-top-left-radius: 5px; /* bordes redondeados para la pestaña izquierda */
+    border-top-right-radius: 5px; /* bordes redondeados para la pestaña derecha */
+    padding: 10px;
+    margin-right: 5px;
+    width: fit-content;
+}
+
+.tab-list {
+    list-style: none; /* quitamos los estilos por defecto de la lista */
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.tab.active {
+    background-color: #DADADA; /* fondo azul para la pestaña activa */
+}
+
+.tab-content {
+    padding: 10px;
+    border: 1px solid #DADADA; /* borde azul */
+    border-radius: 0 0 5px 5px; /* bordes redondeados solo en la parte inferior */
+    background-color: #DADADA;
+}
+
+.tab-content label {
+    color: #5C5C5C;
+}

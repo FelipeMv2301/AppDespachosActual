@@ -146,12 +146,6 @@
     const searchResultsArea = document.getElementById('results');
     const selectedResultsArea = document.getElementById('selected-results');
     const selectedOrders = new Set();
-    const delivMuniInput = document.getElementById('{{ form.deliv_muni.id_for_label }}')
-    const carrierInput = document.getElementById('{{ form.carrier.id_for_label }}')
-    const delivTypeInput = document.getElementById('{{ form.deliv_type.id_for_label }}')
-    const delivServiceInput = document.getElementById('{{ form.deliv_service.id_for_label }}')
-    const delivPayTypeInput = document.getElementById('{{ form.deliv_pay_type.id_for_label }}')
-    const delivBranchInput = document.getElementById('{{ form.branch.id_for_label }}')
     
     function createListElement(orderId, orderRef) {
         const li = document.createElement('li');
