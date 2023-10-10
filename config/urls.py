@@ -17,7 +17,7 @@ import debug_toolbar
 from django.contrib import admin
 from django.urls import include, path
 
-from .views import home
+from app.views.home import home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,5 +30,5 @@ urlpatterns = [
 ]
 
 # Errors handling
-handler404 = 'config.views.error_404'
-handler500 = 'config.views.error_500'
+handler404 = 'app.views.error_404.error_404'
+handler500 = 'app.views.error_500.error_500'

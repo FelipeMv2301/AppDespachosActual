@@ -23,7 +23,7 @@ MANAGE_PATH="${BASE_DIR}/manage.py"
 source "${BASE_DIR}/venv/bin/activate"
 
 # Install Python dependencies
-python3 -m pip install -r "${BASE_DIR}/requirements.txt"
+python3 -m pip install -r "${BASE_DIR}/deploy/requirements.txt"
 
 # Run the initial migrations
 native_apps=$(python3 "${MANAGE_PATH}" shell -c "from django.apps import apps; django_apps = [app.label for app in apps.get_app_configs() if app.name.startswith('django.contrib')]; print(','.join(django_apps))")
