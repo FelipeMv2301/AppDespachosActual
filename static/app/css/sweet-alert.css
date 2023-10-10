@@ -1,7 +1,15 @@
 .swal2-confirm {
-    background-color: #59C1BD!important;
+    background-color: #057c4c!important;
 }
 
 .swal2-confirm:focus {
-    box-shadow: 0 0 0 3px rgb(89 193 189 / 50%)!important;
+    box-shadow: 0 0 0 3px rgb(5, 124, 76, .5)!important;
+}
+
+.swal2-deny {
+    background-color: #bb1611!important;
+}
+
+.swal2-deny:focus {
+    box-shadow: 0 0 0 3px rgb(187, 22, 17, .5)!important;
 }

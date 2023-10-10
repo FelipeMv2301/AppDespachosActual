@@ -12,7 +12,7 @@ $(document).ready(function () {
             }
         });
     } else {
-        main.className ='ms-sm-aut px-md-4 p-4';
+        main.className ='ms-auto px-md-4 p-4 w-100';
     }
 })
 

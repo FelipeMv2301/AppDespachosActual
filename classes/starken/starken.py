@@ -34,7 +34,7 @@ class Starken:
         self.ws_pwd = self.serv_account.get_password()
         self.ws_acct = self.serv_account.number
         ws_acct_split = self.ws_acct.split('-')
-        self.ws_acct_wo_verifier = ws_acct_split[-1]
+        self.ws_acct_wo_verifier = ws_acct_split[0]
         self.ws_acct_verifier = ws_acct_split[-1]
         self.ws_cost_center = self.serv_account.cost_center
 

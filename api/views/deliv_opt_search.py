@@ -1,5 +1,6 @@
 from django.core.handlers.wsgi import WSGIRequest
-from django.db.models import Case, CharField, F, Q, When
+from django.db.models import Case, CharField, F, Q, Value, When
+from django.db.models.functions import Concat
 from django.http import HttpResponseNotFound, JsonResponse
 from django.views.generic.base import View
 
@@ -41,12 +42,18 @@ class DelivOptSearchView(View):
                               ),
                               branch_name=Case(
                                     When(filter_for_branch,
-                                         then=F('branch__name')),
+                                         then=Concat('branch__name',
+                                                     Value(' - '),
+                                                     'branch__addr__st_and_num')),
                                     default=None,
                                     output_field=CharField()
                               ),
                               branch_deliv=F('branch__delivery'),
-                              muni_code=F('branch__addr__muni__code')))
+                              muni_code=F('branch__addr__muni__code'),
+                              acct_code=F('carrier__serviceaccount__code'),
+                              acct_name=Concat('carrier__serviceaccount__name',
+                                               Value(' - '),
+                                               'carrier__serviceaccount__desc')))
 
         if not found_opts:
             return HttpResponseNotFound()
@@ -63,6 +70,8 @@ class DelivOptSearchView(View):
             'pay_type_name': o.get('pay_type_name'),
             'branch_code': o.get('branch_code'),
             'branch_name': o.get('branch_name'),
+            'acct_code': o.get('acct_code'),
+            'acct_name': o.get('acct_name'),
         } for o in found_opts]
 
         return JsonResponse(data={'opts': opts_data})

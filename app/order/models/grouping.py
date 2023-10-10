@@ -2,6 +2,7 @@ import random
 import string
 
 from django.db import models
+from django.db.models.query import RawQuerySet
 from django.utils import timezone
 from simple_history.models import HistoricalRecords
 
@@ -64,3 +65,24 @@ class Grouping(models.Model):
             'created_at',
             'updated_at',
         ]
+
+    @classmethod
+    def query_for_delivery_issue(cls,
+                                 ordr_doc_num: str,
+                                 *args,
+                                 **kwargs) -> RawQuerySet:
+        query = """
+            SELECT
+                0 id, og.code code, GROUP_CONCAT(o.doc_num) doc_nums
+            FROM
+                order_grouping og
+                    INNER JOIN
+                `order` o ON og.order_id = o.id
+            WHERE og.enabled is TRUE
+            GROUP BY og.code
+            HAVING doc_nums LIKE '%%{ordr_doc_num}%%';
+        """
+        query = query.format(ordr_doc_num=ordr_doc_num)
+        result = cls.objects.raw(query)
+
+        return result

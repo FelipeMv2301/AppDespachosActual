@@ -1,0 +1,632 @@
+{% extends "main.html" %}
+{% load static %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'app/css/results.css' %}">
+    <style>
+        .fixed-text {
+            position: absolute;
+            right: 5px;
+            top: 40%;
+            transform: translateY(-50%);
+        }
+    </style>
+{% endblock %}
+{% block page_title %}{{ page_title }}{% endblock %}
+{% block content %}
+    <div class="pt-5">
+        <div class="row">
+            <div class="col">
+                {{ form.orders.label_tag }}
+                {{ form.orders }}
+                <ul id="results" role="tree" hidden>
+                    <li role="treeitem" class="tree-results" name="no-results">Sin resultados</li>
+                </ul>
+                {{ form.orders.errors }}
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
+    <div class="pt-3" id="selected-results"></div>
+    <form hidden method="POST" action="" accept-charset="UTF-8">
+        {% csrf_token %}
+        {{ form.group }}
+        <div class="pt-5">
+            <span class="fs-5 fw-bold">Información de contacto</span>
+            <div class="form-group pt-4 d-grid">
+                <div class="row">
+                        <div class="col">
+                            {{ form.contact_first_name.label_tag }}
+                            {{ form.contact_first_name }}
+                            {{ form.contact_first_name.errors }}
+                        </div>
+                        <div class="col">
+                            {{ form.contact_last_name.label_tag }}
+                            {{ form.contact_last_name }}
+                            {{ form.contact_last_name.errors }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            {{ form.contact_email_addr.label_tag }}
+                            {{ form.contact_email_addr }}
+                            {{ form.contact_email_addr.errors }}
+                        </div>
+                        <div class="col">
+                            {{ form.contact_mobile_phone.label_tag }}
+                            {{ form.contact_mobile_phone }}
+                            {{ form.contact_mobile_phone.errors }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-5 pb-5">
+                <span class="fs-5 fw-bold">Información de entrega</span>
+                <div class="form-group pt-4 d-grid">
+                    <div class="row">
+                        <div class="col">
+                            {{ form.deliv_st_and_num.label_tag }}
+                            {{ form.deliv_st_and_num }}
+                            {{ form.deliv_st_and_num.errors }}
+                        </div>
+                        <div class="col">
+                            {{ form.deliv_addr_complement.label_tag }}
+                            {{ form.deliv_addr_complement }}
+                            {{ form.deliv_addr_complement.errors }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            {{ form.deliv_muni.label_tag }}
+                            {{ form.deliv_muni }}
+                            {{ form.deliv_muni.errors }}
+                        </div>
+                        <div class="col">
+                            {{ form.carrier.label_tag }}
+                            {{ form.carrier }}
+                            {{ form.carrier.errors }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            {{ form.deliv_type.label_tag }}
+                            {{ form.deliv_type }}
+                            {{ form.deliv_type.errors }}
+                        </div>
+                        <div class="col">
+                            {{ form.deliv_service.label_tag }}
+                            {{ form.deliv_service }}
+                            {{ form.deliv_service.errors }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            {{ form.deliv_pay_type.label_tag }}
+                            {{ form.deliv_pay_type }}
+                            {{ form.deliv_pay_type.errors }}
+                        </div>
+                        <div class="col">
+                            {{ form.branch.label_tag }}
+                            {{ form.branch }}
+                            {{ form.branch.errors }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            {{ form.obs.label_tag }}
+                            {{ form.obs }}
+                            {{ form.obs.errors }}
+                        </div>
+                        <div class="col"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-5 pb-5">
+                <span class="fs-5 fw-bold">Información de envío</span>
+                <div class="form-group pt-4 d-grid">
+                    <div class="row">
+                        <div class="col">
+                            {{ form.acct.label_tag }}
+                            {{ form.acct }}
+                            {{ form.acct.errors }}
+                        </div>
+                        <div class="col">
+                            {{ form.assy_date.label_tag }}
+                            {{ form.assy_date }}
+                            {{ form.assy_date.errors }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            {{ form.volume.label_tag }}
+                            <div class="position-relative">
+                                {{ form.volume }}
+                                <span class="fixed-text">cm<sup>3</sup></span>
+                            </div>
+                            {{ form.volume.errors }}
+                        </div>
+                        <div class="col-1 text-center w-auto">
+                            <span class="position-relative" style="top: 50%;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16" style="cursor: pointer;" onclick="calculateCubeRoot();">
+                                    <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"/>
+                                    <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"/>
+                                </svg>
+                            </span>
+                        </div>
+                        <div class="col">
+                            {{ form.height.label_tag }}
+                            <div class="position-relative">
+                                {{ form.height }}
+                                <span class="fixed-text">cm</span>
+                            </div>
+                            {{ form.height.errors }}
+                        </div>
+                        <div class="col">
+                            {{ form.width.label_tag }}
+                            <div class="position-relative">
+                                {{ form.width }}
+                                <span class="fixed-text">cm</span>
+                            </div>
+                            {{ form.width.errors }}
+                        </div>
+                        <div class="col">
+                            {{ form.length.label_tag }}
+                            <div class="position-relative">
+                                {{ form.length }}
+                                <span class="fixed-text">cm</span>
+                            </div>
+                            {{ form.length.errors }}
+                        </div>
+                        <div class="col">
+                            {{ form.weight.label_tag }}
+                            <div class="position-relative">
+                                {{ form.weight }}
+                                <span class="fixed-text">Kg</span>
+                            </div>
+                            {{ form.weight.errors }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            {{ form.pack_qty.label_tag }}
+                            {{ form.pack_qty }}
+                            {{ form.pack_qty.errors }}
+                        </div>
+                        <div class="col">
+                            {{ form.valuation.label_tag }}
+                            <div class="position-relative">
+                                {{ form.valuation }}
+                                <span class="fixed-text">$</span>
+                            </div>
+                            {{ form.valuation.errors }}
+                        </div>
+                    </div>
+                    <div class="row" id="doc-div">
+                        <div class="col">
+                            {{ form.doc_type.label_tag }}
+                            {{ form.doc_type }}
+                            {{ form.doc_type.errors }}
+                        </div>
+                        <div class="col">
+                            {{ form.doc_folio.label_tag }}
+                            {{ form.doc_folio }}
+                            {{ form.doc_folio.errors }}
+                        </div>
+                        <div class="col-2 pb-2 text-center w-auto" id="remove-document">
+                            <span class="position-relative" style="top: 50%;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-dash-square" viewBox="0 0 16 16" style="cursor: pointer;" onclick="removeDocument(this);">
+                                    <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                                    <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
+                                  </svg>
+                            </span>
+                        </div>
+                        <div class="col-2 pb-2 text-center w-auto" id="add-document">
+                            <span class="position-relative" style="top: 50%;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16" style="cursor: pointer;" onclick="addDocument();">
+                                    <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div class="pb-5 text-end">
+            <button type="button" class="bg-transparent text-decoration-underline fw-bold" style="color: var(--blue);" onclick="window.history.go(-1);"">Volver</button>
+            <button type="submit" class="bluebutton fw-bold">Guardar</button>
+        </div>
+    </form>
+{% endblock %}
+{% block scripts %}
+<script type="text/javascript">
+    const form = document.querySelector('form');
+    const noResultsMessage = document.querySelector('li[name="no-results"]');
+    const searchInput = document.getElementById('{{ form.orders.id_for_label }}');
+    const searchResultsArea = document.getElementById('results');
+    const selectedResultsArea = document.getElementById('selected-results');
+    var selectedOrder = {};
+    var selects = {
+        stAndNum: $('#{{ form.deliv_st_and_num.id_for_label }}'),
+        complement: $('#{{ form.deliv_addr_complement.id_for_label }}'),
+        obs: $('#{{ form.obs.id_for_label }}'),
+        contactFirstName: $('#{{ form.contact_first_name.id_for_label }}'),
+        contactLastName: $('#{{ form.contact_last_name.id_for_label }}'),
+        contactEmailAddr: $('#{{ form.contact_email_addr.id_for_label }}'),
+        contactPhoneNum: $('#{{ form.contact_mobile_phone.id_for_label }}'),
+        delivMuni: $('#{{ form.deliv_muni.id_for_label }}'),
+        carrier: $('#{{ form.carrier.id_for_label }}'),
+        delivType: $('#{{ form.deliv_type.id_for_label }}'),
+        delivService: $('#{{ form.deliv_service.id_for_label }}'),
+        delivPayType: $('#{{ form.deliv_pay_type.id_for_label }}'),
+        delivBranch: $('#{{ form.branch.id_for_label }}'),
+        acct: $('#{{ form.acct.id_for_label }}'),
+        groupCode: $('#{{ form.group.id_for_label }}'),
+    };
+    
+    function createListElement(orderCode, orderRef) {
+        const li = document.createElement('li');
+        li.role = 'treeitem';
+        li.classList.add('tree-results');
+        li.onmousedown = function () {
+            selectOrder(this);
+        };
+        li.setAttribute('aria-selected', true);
+        li.setAttribute('value', orderCode);
+        li.textContent = orderRef;
+        return li;
+    }
+
+    function createButtonElement(orderId, orderRef) {
+        const button = document.createElement('button');
+        button.style.borderRadius = '30px';
+        button.type = 'button';
+        button.classList.add('greenbutton', 'align-middle', 'pe-none', 'mb-2', 'mt-2', 'ms-2');
+
+        const span = document.createElement('span');
+        span.name = 'selected-order';
+        span.value = orderId;
+        span.textContent = orderRef;
+
+        const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+        svg.setAttribute('width', '16');
+        svg.setAttribute('height', '16');
+        svg.setAttribute('fill', 'currentColor');
+        svg.classList.add('bi', 'bi-x-lg', 'pe-auto');
+        svg.setAttribute('viewBox', '0 0 16 16');
+        svg.onclick = function () {
+            removeSelectedOrder(orderId, this);
+        };
+
+        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        path.setAttribute('d', 'M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z');
+
+        svg.appendChild(path);
+
+        button.appendChild(span);
+        button.appendChild(svg);
+
+        return button;
+    }
+
+    function removeSearchResults() {
+        searchResultsArea.querySelectorAll('li[aria-selected="true"]').forEach(elem => elem.remove());
+    }
+
+    function hideForm() {
+        form.hidden = true;
+    }
+
+    function showForm() {
+        form.hidden = false;
+    }
+
+    if (form) {
+        form.addEventListener('submit', () => {
+            event.preventDefault();
+            Swal.fire({
+                title: '¿Desea guardar los cambios?',
+                showDenyButton: true,
+                confirmButtonText: 'Sí',
+                denyButtonText: 'No',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    const clonedInput = searchInput.cloneNode(true);
+                    form.appendChild(clonedInput);
+                    form.submit();
+                }
+            })
+        });
+    }
+
+    function hideNoResultsMessage() {
+        noResultsMessage.hidden = true;
+    }
+
+    function showNoResultsMessage() {
+        noResultsMessage.hidden = false;
+    }
+
+    function clearSearchInput() {
+        searchResultsArea.hidden = true;
+    }
+
+    searchInput.addEventListener('focus', () => {
+        searchResultsArea.hidden = false;
+        searchOrder();
+    });
+
+    searchInput.addEventListener('input', () => {
+        searchOrder();
+    });
+
+    searchInput.addEventListener('blur', () => {
+        clearSearchInput();
+    });
+
+    function searchOrder() {
+        hideForm();
+        const inputValue = searchInput.value;
+        var url = `{% url 'order_group_search' %}?` + $.param({doc_num: inputValue});
+        if (inputValue.length > 5) {
+            $.ajax({
+                type: 'GET',
+                url: url,
+                success: function (response) {
+                    hideNoResultsMessage();
+                    removeSearchResults();
+                    response.orders.forEach(order => {
+                        var li = createListElement(order.code, order.doc_nums);
+                        searchResultsArea.appendChild(li);
+                    });
+                },
+                error: function () { }
+            });
+        }
+        removeSearchResults();
+        showNoResultsMessage();
+    }
+
+    function searchOrderGroup(orderGroupCode) {
+        hideForm();
+        var url = `{% url 'order_group_search' %}?` + $.param({code: orderGroupCode});
+        if (orderGroupCode) {
+            $.ajax({
+                type: 'GET',
+                url: url,
+                success: function (response) {
+                    const groupData = response.group;
+                    if (!groupData.enabled) {
+                        return;
+                    }
+                    {% comment %} const selectsCopy = { ...selects }; {% endcomment %}
+                    selects.stAndNum.val(groupData.addr_st_and_num);
+                    selects.complement.val(groupData.addr_complement);
+                    selects.obs.val(groupData.obs);
+                    selects.contactFirstName.val(groupData.contact_first_name);
+                    selects.contactLastName.val(groupData.contact_last_name);
+                    selects.contactEmailAddr.val(groupData.contact_email_addr);
+                    selects.contactPhoneNum.val(groupData.contact_mobile_phone);
+                    selects.delivMuni.val(groupData.muni_code);
+                    selects.carrier.val(groupData.carrier_code);
+                    selects.delivType.val(groupData.type_code);
+                    selects.delivService.val(groupData.service_code);
+                    selects.delivPayType.val(groupData.pay_type_code);
+                    selects.delivBranch.val(groupData.branch_code);
+
+                    selects.delivType.find('option').each(function () {
+                        if ($(this).val() === groupData.type_code) {
+                            $(this).prop('selected', true);
+                        }
+                    });
+                    selects.delivService.find('option').each(function () {
+                        if ($(this).val() === groupData.service_code) {
+                            $(this).prop('selected', true);
+                        }
+                    });
+                    selects.delivPayType.find('option').each(function () {
+                        if ($(this).val() === groupData.pay_type_code) {
+                            $(this).prop('selected', true);
+                        }
+                    });
+                    selects.carrier.find('option').each(function () {
+                        if ($(this).val() === groupData.carrier_code) {
+                            $(this).prop('selected', true);
+                        }
+                    });
+                    {% comment %} selects.acct.find('option').each(function () {
+                        if ($(this).val() === selectValues.acct) {
+                            $(this).prop('selected', true);
+                        }
+                    }); {% endcomment %}
+                    selects.delivBranch.find('option').each(function () {
+                        if ($(this).val() === groupData.branch_code) {
+                            $(this).prop('selected', true);
+                        }
+                    });
+                    searchDeliveryOption();
+                },
+                error: function () { }
+            });
+        }
+    }
+
+    function selectOrder(elem) {
+        const orderCode = elem.getAttribute('value');
+        const orderDocNum = elem.textContent;
+
+        searchInput.value = orderDocNum;
+        selects.groupCode.val(orderCode);
+
+        searchOrderGroup(orderCode);
+
+        showForm();
+        removeSearchResults();
+        showNoResultsMessage();
+    }
+
+    function searchDeliveryOption() {
+        const selectsCopy = { ...selects };
+        const selectValues = {
+            delivMuni: selectsCopy.delivMuni.val(),
+            carrier: selectsCopy.carrier.val(),
+            delivType: selectsCopy.delivType.val(),
+            delivService: selectsCopy.delivService.val(),
+            delivPayType: selectsCopy.delivPayType.val(),
+            delivBranch: selectsCopy.delivBranch.val(),
+            acct: selectsCopy.acct.val(),
+        };
+        console.log(selectValues);
+        var url = `{% url 'deliv_opt_search' %}?` + $.param(selectValues);
+        $.ajax({
+            type: 'GET',
+            url: url,
+            success: function (response) {
+                var types = new Set();
+                var services = new Set();
+                var pay_types = new Set();
+                var branches = new Set();
+                var accts = new Set();
+                selectsCopy.delivType.empty();
+                selectsCopy.delivService.empty();
+                selectsCopy.delivPayType.empty();
+                selectsCopy.delivBranch.empty();
+                selectsCopy.acct.empty();
+                response.opts.forEach(opt => {
+                    typeCode = opt.type_code;
+                    if (!types.has(typeCode)) {
+                        types.add(typeCode);
+                        selectsCopy.delivType.append(
+                            $('<option>', {
+                                value: typeCode,
+                                text: opt.type_name
+                            })
+                        );
+                    }
+
+                    serviceCode = opt.service_code;
+                    if (!services.has(serviceCode)) {
+                        services.add(serviceCode);
+                        selectsCopy.delivService.append(
+                            $('<option>', {
+                                value: serviceCode,
+                                text: opt.service_name
+                            })
+                        );
+                    }
+
+                    payTypeCode = opt.pay_type_code;
+                    if (!pay_types.has(payTypeCode)) {
+                        pay_types.add(payTypeCode);
+                        selectsCopy.delivPayType.append(
+                            $('<option>', {
+                                value: payTypeCode,
+                                text: opt.pay_type_name
+                            })
+                        );
+                    }
+
+                    branchCode = opt.branch_code;
+                    if (branchCode && !branches.has(branchCode)) {
+                        branches.add(branchCode);
+                        selectsCopy.delivBranch.append(
+                            $('<option>', {
+                                value: branchCode,
+                                text: opt.branch_name
+                            })
+                        );
+                    }
+
+                    acctCode = opt.acct_code;
+                    if (acctCode && !accts.has(acctCode)) {
+                        accts.add(acctCode);
+                        selectsCopy.acct.append(
+                            $('<option>', {
+                                value: acctCode,
+                                text: opt.acct_name
+                            })
+                        );
+                    }
+                });
+
+                selectsCopy.delivType.find('option').each(function () {
+                    if ($(this).val() === selectValues.delivType) {
+                        $(this).prop('selected', true);
+                    }
+                });
+                selectsCopy.delivService.find('option').each(function () {
+                    if ($(this).val() === selectValues.delivService) {
+                        $(this).prop('selected', true);
+                    }
+                });
+                selectsCopy.delivPayType.find('option').each(function () {
+                    if ($(this).val() === selectValues.delivPayType) {
+                        $(this).prop('selected', true);
+                    }
+                });
+                selectsCopy.acct.find('option').each(function () {
+                    if ($(this).val() === selectValues.acct) {
+                        $(this).prop('selected', true);
+                    }
+                });
+                {% comment %} selectsCopy.delivBranch.find('option').each(function () {
+                    if ($(this).val() === selectValues.delivBranch) {
+                        $(this).prop('selected', true);
+                    }
+                }); {% endcomment %}
+            },
+            error: function () { }
+        });
+    };
+
+    $(document).ready(function() {
+        if (searchInput.value) {
+            showForm();
+        }
+    });
+
+    function calculateCubeRoot() {
+        const volume = $('#{{ form.volume.id_for_label }}').val();
+        const heightField = $('#{{ form.height.id_for_label }}');
+        const widthField = $('#{{ form.width.id_for_label }}');
+        const lengthField = $('#{{ form.length.id_for_label }}');
+    
+        try {
+            const cubeRoot = Number((Math.cbrt(volume)).toFixed(2));
+            heightField.val(cubeRoot);
+            widthField.val(cubeRoot);
+            lengthField.val(cubeRoot);
+        } catch (e) {
+            Swal.fire({
+                text: 'No se pudo obtener la raíz cúbica del volumen indicado',
+                icon: 'error',
+                showDenyButton: false,
+            });
+        }
+    }
+
+    function addDocument() {
+        var docDivs = document.querySelectorAll("#doc-div");
+        var docDivLast = docDivs[docDivs.length - 1];
+        var newDocDiv = docDivLast.cloneNode(true);
+        var newAddButton = newDocDiv.querySelector("#add-document");
+        var addButton = docDivLast.querySelector("#add-document");
+        addButton.parentNode.removeChild(addButton);
+        docDivLast.parentElement.appendChild(newDocDiv);
+        var newDocDiv = docDivLast.cloneNode(true);
+    }
+
+    function removeDocument(elem) {
+        var docDivs = document.querySelectorAll("#doc-div");
+        if (docDivs.length > 1) {
+            var docDivLast = docDivs[docDivs.length - 1];
+            if (docDivLast == elem.parentElement.parentElement.parentElement) {
+                var docDivPenultime = docDivs[docDivs.length - 2];
+                var addDocDiv = document.querySelector("#add-document");
+                docDivPenultime.insertBefore(addDocDiv, docDivPenultime.lastChild);
+            }
+            elem.parentElement.parentElement.parentElement.remove();
+        }
+    }
+</script>
+{% endblock %}
+    

@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "main.html" %}
 {% load static %}
 {% block styles %}
     <link rel="stylesheet" href="{% static 'app/css/results.css' %}">
@@ -21,29 +21,34 @@
     <div class="pt-3" id="selected-results"></div>
     <form hidden method="POST" action="" accept-charset="UTF-8">
         {% csrf_token %}
-        {% if perms.order.edit_commit_date %}
+        {% if can_edit_commit_date %}
             <div class="pt-5">
                 <span class="fs-5 fw-bold">Información de pedido</span>
-                <div class="form-group pt-5 d-grid">
+                <div class="form-group pt-4 d-grid">
                     <div class="row">
                         <div class="col">
                             {{ form.commit_date.label_tag }}
-                            <input class="{{ form.commit_date.field.widget.attrs.class }}" name="{{ form.commit_date.html_name }}" type="date" id="{{ form.commit_date.id_for_label }}" value="{{ form.commit_date.value|date:"Y-m-d" }}">
+                            {{ form.commit_date }}
                             {{ form.commit_date.errors }}
                         </div>
-                        <div class="col">
-                            {{ form.obs.label_tag }}
-                            {{ form.obs }}
-                            {{ form.obs.errors }}
-                        </div>
+                        {% if not can_edit_form %}
+                            <div class="col">
+                                {{ form.obs.label_tag }}
+                                {{ form.obs }}
+                                {{ form.obs.errors }}
+                            </div>
+                        {% else %}
+                            <div class="col"></div>
+                        {% endif %}
                         <div class="col"></div>
                     </div>
                 </div>
             </div>
-        {% else %}
+        {% endif %}
+        {% if can_edit_form %}
         <div class="pt-5">
             <span class="fs-5 fw-bold">Información de contacto</span>
-            <div class="form-group pt-5 d-grid">
+            <div class="form-group pt-4 d-grid">
                 <div class="row">
                         <div class="col">
                             {{ form.contact_first_name.label_tag }}
@@ -55,24 +60,34 @@
                             {{ form.contact_last_name }}
                             {{ form.contact_last_name.errors }}
                         </div>
-                    </div>
-                    <div class="row">
                         <div class="col">
                             {{ form.contact_email_addr.label_tag }}
                             {{ form.contact_email_addr }}
                             {{ form.contact_email_addr.errors }}
                         </div>
+                    </div>
+                    <div class="row">
                         <div class="col">
-                            {{ form.contact_phone_number.label_tag }}
-                            {{ form.contact_phone_number }}
-                            {{ form.contact_phone_number.errors }}
+                            {{ form.contact_phone1.label_tag }}
+                            {{ form.contact_phone1 }}
+                            {{ form.contact_phone1.errors }}
+                        </div>
+                        <div class="col">
+                            {{ form.contact_phone2.label_tag }}
+                            {{ form.contact_phone2 }}
+                            {{ form.contact_phone2.errors }}
+                        </div>
+                        <div class="col">
+                            {{ form.contact_mobile_phone.label_tag }}
+                            {{ form.contact_mobile_phone }}
+                            {{ form.contact_mobile_phone.errors }}
                         </div>
                     </div>
                 </div>
             </div>
             <div class="pt-5 pb-5">
-                <span class="fs-5 fw-bold">Información de despacho</span>
-                <div class="form-group pt-5 d-grid">
+                <span class="fs-5 fw-bold">Información de entrega</span>
+                <div class="form-group pt-4 d-grid">
                     <div class="row">
                         <div class="col">
                             {{ form.deliv_st_and_num.label_tag }}
@@ -179,7 +194,7 @@
         svg.classList.add('bi', 'bi-x-lg', 'pe-auto');
         svg.setAttribute('viewBox', '0 0 16 16');
         svg.onclick = function () {
-            removeSelectedOrder(orderId, this);
+            removeSelectedOrder(orderRef, this);
         };
 
         const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');

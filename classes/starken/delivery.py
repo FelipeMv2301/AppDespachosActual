@@ -6,7 +6,7 @@ from typing import Any, Dict
 import pandas as pd
 import requests
 from django.contrib.auth.models import User
-from django.db.models import Case, CharField, F, Value, When
+from django.db.models import Case, CharField, F, TextField, Value, When
 from django.db.models.functions import Coalesce, Concat
 from simple_history.utils import (bulk_create_with_history,
                                   bulk_update_with_history)
@@ -161,11 +161,11 @@ class Delivery(Starken):
             'packg_qty': 0,
             'docs': [
                 {
-                    'type',: <DocType: DocType object>,
+                    'type': <DocType: DocType object>,
                     'folio': 0
                 },
                 {
-                    'type',: <DocType: DocType object>,
+                    'type': <DocType: DocType object>,
                     'folio': 0
                 }
             ]
@@ -205,19 +205,18 @@ class Delivery(Starken):
                                     Value(' '),
                                     'order_grouping__contact__last_name',
                                     output_field=CharField()),
-                obs=Coalesce('order_grouping__deliv_obs', Value('')),
+                obs=Coalesce('order_grouping__deliv_obs', TextField('')),
                 muni_value=Case(
                     When(order_grouping__delivery_option__branch__code=None,
                          then=F('order_grouping__addr__muni__muniservice__name')),
-                         default=Concat(Value('@'),
-                                        'order_grouping__delivery_option__branch__code'),
-                    output_field=CharField(),
+                    default=Concat(Value('@'),
+                                   'order_grouping__delivery_option__branch__code',
+                                   output_field=CharField()),
                 )
             ).distinct()
         )
-        try:
-            deliv = deliv[0]
-        except IndexError:
+        print('deliv', deliv)
+        if not deliv.exists():
             tb = traceback.format_exc()
             tb += f'Query: {deliv.query}'
             tb += f'\nFolio: {delivery.folio}'
@@ -226,6 +225,7 @@ class Delivery(Starken):
             e_msg += f'\nFolio: {delivery.folio}'
             e = CustomError(msg=e_msg, log=tb)
             raise e
+        deliv = deliv.first()
 
         try:
             height = data['height']
@@ -255,22 +255,23 @@ class Delivery(Starken):
             raise e
 
         ws_client = Client(wsdl=self.ws_url)
+        print(self.ws_url)
         body = {
             'rutEmpresaEmisora': self.ws_rut_wo_verifier,
             'rutUsuarioEmisor': self.ws_user,
             'claveUsuarioEmisor': self.ws_pwd,
             'rutDestinatario': '?',
             'dvRutDestinatario': '?',
-            'nombreRazonSocialDestinatario': deliv['cust_name'],
+            'nombreRazonSocialDestinatario': deliv['customer_name'],
             'apellidoPaternoDestinatario': '.',
             'apellidoMaternoDestinatario': '.',
             'direccionDestinatario': deliv['addr'],
             'numeracionDireccionDestinatario': '.',
             'departamentoDireccionDestinatario': '?',
             'comunaDestino': deliv['muni_value'],
-            'telefonoDestinatario': deliv['cntct_phone_num'],
-            'emailDestinatario': deliv['cntct_email_addr'],
-            'nombreContactoDestinatario': deliv['cntct_name'],
+            'telefonoDestinatario': deliv['mobile_num'],
+            'emailDestinatario': deliv['email_addr'],
+            'nombreContactoDestinatario': deliv['contact_name'],
             'tipoEntrega': deliv['deliv_type_code'],
             'tipoPago': deliv['deliv_pay_type_code'],
             'numeroCtaCte': self.ws_acct_wo_verifier,
@@ -319,13 +320,17 @@ class Delivery(Starken):
             body[f'tipoDocumento{index}'] = str(doc_info['type'].code)
             body[f'numeroDocumento{index}'] = str(doc_info['folio'])
             body[f'generaEtiquetaDocumento{index}'] = 'S'
+        print('body', body)
 
         response = ws_client.service.Execute(body)
+        print('response', response)
 
         try:
             if response['codigoError'] != 0:
                 e_desc = response['descripcionError']
-                e_msg += f'Error: {e_desc}'
+                e_msg = f'Error: {e_desc}'
+                e_msg += f'\nBody: {body}'
+                e_msg += f'\nResponse: {response}'
                 e_msg += f'\nFolio: {delivery.folio}'
                 e = CustomError(msg=e_msg)
                 raise e

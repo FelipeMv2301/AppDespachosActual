@@ -3,6 +3,7 @@ import os
 from django.contrib import messages
 from django.core.handlers.wsgi import WSGIRequest
 from django.shortcuts import render
+from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.views.generic.base import View
 
 from app.delivery.forms.review import ReviewForm
@@ -13,9 +14,10 @@ from helpers.decorator.loggable import loggable
 PAGE_TITLE = 'Entregas'
 
 
-class ReviewView(View):
+class ReviewView(PermissionRequiredMixin, View):
     template = os.path.join('delivery', 'review.html')
     form = ReviewForm
+    permission_required = ('delivery.view_delivery')
 
     @authentication
     @loggable

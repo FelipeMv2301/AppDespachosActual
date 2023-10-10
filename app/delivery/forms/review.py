@@ -9,6 +9,7 @@ class ReviewForm(forms.Form):
             attrs={
                 'class': 'mb-2 textfield search-bar',
                 'aria-controls': 'myResults',
+                'placeholder': '2307483',
             }
         )
     )

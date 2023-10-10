@@ -1,17 +1,17 @@
-{% extends "base.html" %}
+{% extends "main.html" %}
 {% block content %}
-<center>
-    <form method="POST" action="" accept-charset="UTF-8" class="width-fit">
-        {% csrf_token %}
-        <div class="d-grid pb-3">
-            <label for="{{ form.username.id_for_label }}">Usuario:</label>
-            {{ form.username }}
-        </div>
-        <div class="d-grid pb-5">
-            <label for="{{ form.password.id_for_label }}">Contraseña:</label>
-            {{ form.password }}
-        </div>
-        <button type="submit" class="bluebutton fw-bold">Ingresar</button>
-    </form>
-</center>
+    <center>
+        <form method="POST" action="" accept-charset="UTF-8" class="width-fit">
+            {% csrf_token %}
+            <div class="d-grid pb-3">
+                <label for="{{ form.username.id_for_label }}">Usuario:</label>
+                {{ form.username }}
+            </div>
+            <div class="d-grid pb-5">
+                <label for="{{ form.password.id_for_label }}">Contraseña:</label>
+                {{ form.password }}
+            </div>
+            <button type="submit" class="bluebutton fw-bold">Ingresar</button>
+        </form>
+    </center>
 {% endblock %}

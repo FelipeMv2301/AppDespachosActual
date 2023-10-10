@@ -43,7 +43,7 @@
         "model": "delivery.status",
         "pk": 5,
         "fields": {
-            "code": "NOTISSUE",
+            "code": "NOTISSUED",
             "name": "No emitido",
             "enabled": true,
             "changed_by": 1

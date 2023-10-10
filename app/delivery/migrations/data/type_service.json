@@ -3,7 +3,7 @@
     "model": "delivery.typeservice",
     "pk": 1,
     "fields": {
-        "code": "1",
+        "code": "2",
         "name": "A domicilio",
         "type": 2,
         "service_acct": 1,
@@ -15,7 +15,7 @@
     "model": "delivery.typeservice",
     "pk": 2,
     "fields": {
-        "code": "2",
+        "code": "1",
         "name": "Retiro en sucursal",
         "type": 1,
         "service_acct": 1,
@@ -27,7 +27,7 @@
     "model": "delivery.typeservice",
     "pk": 3,
     "fields": {
-        "code": "1",
+        "code": "2",
         "name": "A domicilio",
         "type": 2,
         "service_acct": 2,
@@ -39,7 +39,7 @@
     "model": "delivery.typeservice",
     "pk": 4,
     "fields": {
-        "code": "2",
+        "code": "1",
         "name": "Retiro en sucursal",
         "type": 1,
         "service_acct": 2,

@@ -8,6 +8,7 @@ from django.core.handlers.wsgi import WSGIRequest
 from django.shortcuts import redirect, render
 from django.views import View
 
+from app.general.models.user import UserProfile
 from helpers import globals as gb
 from helpers.decorator.loggable import loggable
 
@@ -35,8 +36,15 @@ class Login(View):
     def post(self, request: WSGIRequest, *args, **kwargs):
         auth = AuthenticationForm(request, data=request.POST)
         if auth.is_valid():
-            login(request=request, user=auth.get_user())
-            return redirect(to='home')
+            user = auth.get_user()
+            profile = UserProfile.objects.filter(user=user).first()
+            if profile:
+                url = profile.initial_url
+            else:
+                url = 'home'
+            url = 'home'
+            login(request=request, user=user)
+            return redirect(to=url)
 
         context = self.context
         messages.error(

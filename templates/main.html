@@ -1,0 +1,16 @@
+{% extends "sidebar.html" %}
+{% block main %}
+    <!-- Main -->
+    <main class="col-xl-9 ms-auto px-md-4 p-4 pt-0">
+        {% if request.user.is_authenticated %}
+        {% comment %} <div style="width:100%;height:0;padding-bottom:67%;position:relative;"><iframe src="https://giphy.com/embed/96cHwjQ6PH9x7z9DL9" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p></p> {% endcomment %}
+            <div class="w-100 py-3 bg-white position-fixed border-bottom z-1">
+                <span class="main__title fs-5 fw-bolder align-middle">{% block page_title %}{% endblock %}</span>
+            </div>
+        {% endif %}
+        <div class="pt-5 ps-2">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </main>
+{% endblock %}
