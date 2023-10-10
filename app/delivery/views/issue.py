@@ -1,6 +1,7 @@
 import os
 
 from django.contrib import messages
+from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.core.handlers.wsgi import WSGIRequest
 from django.shortcuts import render
 from django.views.generic.base import View
@@ -24,9 +25,10 @@ from helpers.decorator.loggable import loggable
 PAGE_TITLE = 'Creación de entregas'
 
 
-class IssueView(View):
+class IssueView(PermissionRequiredMixin, View):
     template = os.path.join('delivery', 'issue.html')
     form = IssueForm
+    permission_required = ('delivery.issue_delivery')
 
     @authentication
     @loggable

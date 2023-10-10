@@ -21,8 +21,10 @@ isodate==0.6.1
 lxml==4.9.3
 mysqlclient==2.1.1
 numpy==1.25.2
+packaging==23.2
 pandas==2.1.0
 platformdirs==3.10.0
+plotly==5.17.0
 pycparser==2.21
 python-dateutil==2.8.2
 pytz==2023.3.post1
@@ -32,8 +34,10 @@ requests-toolbelt==1.0.0
 six==1.16.0
 soupsieve==2.5
 sqlparse==0.4.4
+tenacity==8.2.3
 typing_extensions==4.7.1
 tzdata==2023.3
 urllib3==2.0.4
 wget==3.2
+XlsxWriter==3.1.7
 zeep==4.2.1
