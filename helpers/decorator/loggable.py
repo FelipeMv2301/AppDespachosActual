@@ -5,7 +5,7 @@ from django.contrib import messages
 from django.core.handlers.wsgi import WSGIRequest
 from django.shortcuts import redirect
 
-from core.settings.base import logger
+from config.settings.base import logger
 from helpers.error.custom_error import CustomError
 
 

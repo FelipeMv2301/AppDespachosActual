@@ -30,5 +30,5 @@ urlpatterns = [
 ]
 
 # Errors handling
-handler404 = 'core.views.error_404'
-handler500 = 'core.views.error_500'
+handler404 = 'config.views.error_404'
+handler500 = 'config.views.error_500'

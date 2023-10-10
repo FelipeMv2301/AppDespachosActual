@@ -79,14 +79,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # URLS
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#root-urlconf
-ROOT_URLCONF = 'core.urls'
+ROOT_URLCONF = 'config.urls'
 # if RUNNING_MIGRATIONS:
 #     ROOT_URLCONF = ''
 
 # WSGI
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#wsgi-application
-WSGI_APPLICATION = 'core.wsgi.application'
+WSGI_APPLICATION = 'config.wsgi.application'
 
 # APPS
 # ------------------------------------------------------------------------------
@@ -111,12 +111,6 @@ LOCAL_APPS = [
     'app.delivery',
     'app.general',
     'app.order',
-    # 'app.dispatch',
-    # 'app.kpi',
-    # 'classes.starken',
-    # 'core.company',
-    # 'helpers.notification',
-    # 'log',
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS

@@ -8,7 +8,7 @@ from django.db.utils import ProgrammingError
 from django.dispatch import receiver
 from django.utils import timezone
 
-from core.settings.base import logger
+from config.settings.base import logger
 from helpers.error.custom_error import UNEXP_ERROR, CustomError
 
 

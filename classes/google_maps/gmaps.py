@@ -2,7 +2,7 @@ import traceback
 
 import googlemaps
 
-from core.settings.base import env
+from config.settings.base import env
 from helpers.error.custom_error import CustomError
 
 

@@ -7,7 +7,7 @@ from app.delivery.models.pay_type import PayType
 from app.delivery.models.service import Service as DelivService
 from app.delivery.models.type import Type
 from app.general.models.service import Service
-from core.settings.base import APP_USERNAME
+from config.settings.base import APP_USERNAME
 
 user = User.objects.get(username=APP_USERNAME)
 

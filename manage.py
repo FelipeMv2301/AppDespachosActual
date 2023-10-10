@@ -3,7 +3,7 @@
 import os
 import sys
 
-from core.settings.base import SETTINGS_MODULE
+from config.settings.base import SETTINGS_MODULE
 
 
 def main():

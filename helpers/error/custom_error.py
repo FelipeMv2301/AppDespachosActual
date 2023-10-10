@@ -1,6 +1,6 @@
 import uuid
 
-from core.settings.base import logger
+from config.settings.base import logger
 
 UNEXP_ERROR = 'Ha ocurrido un error inesperado'
 

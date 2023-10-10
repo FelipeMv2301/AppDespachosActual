@@ -18,7 +18,7 @@ from app.delivery.models.status_service import StatusService
 from app.general.models.service_account import ServiceAccount
 from app.order.models.delivery import OrderDelivery
 from classes.starken.starken import Starken
-from core.settings.base import APP_USERNAME
+from config.settings.base import APP_USERNAME
 from helpers.decorator.loggable import loggable
 from helpers.error.custom_error import UNEXP_ERROR, CustomError
 

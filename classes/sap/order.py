@@ -19,7 +19,7 @@ from app.general.models.service_account import ServiceAccount
 from app.order.models.order import Order as OrderMdl
 from app.order.models.sale_channel_service import SaleChannelService
 from classes.sap.sap import Sap
-from core.settings.base import APP_USERNAME
+from config.settings.base import APP_USERNAME
 from helpers.decorator.loggable import loggable
 from helpers.error.custom_error import UNEXP_ERROR, CustomError
 

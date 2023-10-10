@@ -9,7 +9,7 @@ from simple_history.utils import (bulk_create_with_history,
 from app.general.models.muni_service import MuniService
 from app.general.models.service_account import ServiceAccount
 from classes.starken.starken import Starken
-from core.settings.base import APP_USERNAME
+from config.settings.base import APP_USERNAME
 from helpers.decorator.loggable import loggable
 
 

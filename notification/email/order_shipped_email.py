@@ -9,7 +9,7 @@ from django.utils.html import strip_tags
 
 from app.delivery.models.delivery import Delivery
 from app.order.models.delivery import OrderDelivery
-from core.settings.base import EMAIL_HOST_USER, env
+from config.settings.base import EMAIL_HOST_USER, env
 from helpers.error.custom_error import CustomError
 from notification.email.email import ATTACHMENTS_PATH, Email
 

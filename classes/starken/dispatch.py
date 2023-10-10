@@ -13,7 +13,7 @@ from zeep import Client
 
 from classes.starken.starken import Starken
 # from classes.starken.models.starken_account import StarkenAccount
-from core.settings.base import APP_USERNAME
+from config.settings.base import APP_USERNAME
 from helpers.decorator.loggable import loggable
 
 # from helpers.notification.classes.error_card import ErrorCard
