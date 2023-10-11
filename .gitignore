@@ -3,6 +3,7 @@ __pycache__
 venv
 test
 .env
+*.todo
 *.DS_Store
 *.lock
 *.log
