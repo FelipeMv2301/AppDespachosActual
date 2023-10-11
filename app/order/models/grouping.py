@@ -73,13 +73,15 @@ class Grouping(models.Model):
                                  **kwargs) -> RawQuerySet:
         query = """
             SELECT
-                0 id, og.code code, GROUP_CONCAT(o.doc_num) doc_nums
+                0 id,
+                og.code code,
+                GROUP_CONCAT(o.doc_num) doc_nums,
+                og.enabled enabled
             FROM
                 order_grouping og
                     INNER JOIN
                 `order` o ON og.order_id = o.id
-            WHERE og.enabled is TRUE
-            GROUP BY og.code
+            GROUP BY og.code, og.enabled
             HAVING doc_nums LIKE '%%{ordr_doc_num}%%';
         """
         query = query.format(ordr_doc_num=ordr_doc_num)

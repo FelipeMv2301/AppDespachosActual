@@ -19,6 +19,7 @@ class DeliveryForm(forms.Form):
                 'class': 'mb-2 textfield search-bar',
                 'aria-controls': 'myResults',
                 'placeholder': '2303467',
+                'autocomplete': 'off',
             }
         ),
         validators=[DeliveryFormValidator().validate_order],

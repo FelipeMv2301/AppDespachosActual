@@ -4,6 +4,7 @@ from django.http import HttpResponseNotFound, JsonResponse
 from django.views.generic.base import View
 
 from app.order.models.grouping import Grouping
+from app.order.models.order import Order
 from helpers.decorator.auth import authentication
 from helpers.decorator.loggable import loggable
 
@@ -15,14 +16,51 @@ class OrderGroupSearchView(View):
         params = request.GET
         doc_num = str(params.get('doc_num'))
         code = params.get('code')
+        for_deliv_form = params.get('for_deliv_form')
 
+        if doc_num and len(doc_num) > 5 and not code:
+            found_orders = [
+                obj
+                for obj in Grouping.query_for_delivery_issue(ordr_doc_num=doc_num)
+            ]
+
+            if not found_orders:
+                if not for_deliv_form:
+                    return HttpResponseNotFound()
+                ordr = (Order.objects
+                        .select_related('contact',
+                                        'ship_addr',
+                                        'ship_addr__muni')
+                        .filter(doc_num=doc_num).first())
+                orders_data = {
+                    'updtd_commit_date': ordr.updtd_commit_date,
+                    'contact_first_name': ordr.contact.first_name,
+                    'contact_last_name': ordr.contact.last_name,
+                    'contact_email_addr': ordr.contact.email_addr,
+                    'contact_mobile_phone': ordr.contact.mobile_phone,
+                    'contact_phone1': ordr.contact.phone1,
+                    'contact_phone2': ordr.contact.phone2,
+                    'addr_st_and_num': ordr.ship_addr.st_and_num,
+                    'addr_complement': ordr.ship_addr.complement,
+                    'muni_code': ordr.ship_addr.muni.code,
+                }
+            else:
+                if not for_deliv_form:
+                    orders_data = [{
+                        'code': o.code,
+                        'doc_nums': o.doc_nums,
+                        'enabled': o.enabled
+                    } for o in found_orders if o.enabled]
+                else:
+                    first_found_ordr = found_orders[0]
+                    code = first_found_ordr.code
+                    orders_data = []
+
+            data = {'orders': orders_data}
         if code:
             found_group = (
                 Grouping.objects
-                .filter(
-                    code=code,
-                    enabled=True
-                )
+                .filter(code=code)
                 .select_related(
                     'delivery_option',
                     'delivery_option__service',
@@ -33,6 +71,7 @@ class OrderGroupSearchView(View):
                     'addr',
                     'addr__muni',
                     'contact',
+                    'order',
                 )
                 .values(
                     'enabled',
@@ -47,8 +86,11 @@ class OrderGroupSearchView(View):
                     contact_first_name=F('contact__first_name'),
                     contact_last_name=F('contact__last_name'),
                     contact_mobile_phone=F('contact__mobile_phone'),
+                    contact_phone1=F('contact__phone1'),
+                    contact_phone2=F('contact__phone2'),
                     contact_email_addr=F('contact__email_addr'),
                     obs=F('deliv_obs'),
+                    updtd_commit_date=F('order__updtd_commit_date'),
                 )
                 .first()
             )
@@ -56,22 +98,5 @@ class OrderGroupSearchView(View):
                 return HttpResponseNotFound()
 
             data = {'group': found_group}
-        elif doc_num and len(doc_num) > 5:
-            found_orders = [
-                obj
-                for obj in Grouping.query_for_delivery_issue(ordr_doc_num=doc_num)
-            ]
-
-            if not found_orders:
-                return HttpResponseNotFound()
-
-            orders_data = [{
-                'code': o.code,
-                'doc_nums': o.doc_nums
-            } for o in found_orders]
-
-            data = {'orders': orders_data}
-        else:
-            return HttpResponseNotFound()
 
         return JsonResponse(data=data)

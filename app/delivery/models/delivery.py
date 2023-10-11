@@ -129,63 +129,49 @@ class Delivery(models.Model):
         start_date_str = start_date.strftime('%Y-%m-%d')
         end_date_str = end_date.strftime('%Y-%m-%d')
         query = """
-            SELECT
-                subquery.id as id,
-                group_concat(subquery.doc_num) as doc_nums,
-                subquery.folio AS folio,
-                subquery.issue_date AS issue_date,
-                subquery.rcpt_date AS rcpt_date,
-                subquery.from_mito AS from_mito,
-                subquery.deliv_obs AS deliv_obss,
-                subquery.deliv_opt AS deliv_opt,
-                subquery.doc_num AS doc_num,
-                subquery.ordr_updtd_commit_date AS ordr_updtd_commit_date,
-                subquery.muni_name AS muni_name,
-                subquery.state_code AS state_code,
-                subquery.state_name AS state_name,
-                subquery.ordr_obs AS ordr_obs,
-                subquery.web_ordr_ref AS web_ordr_ref
-            FROM
-                (SELECT
+            WITH q AS (
+                SELECT
                     d.id AS id,
-                    d.created_at as create_date,
-                    ROW_NUMBER() OVER(PARTITION BY ord.doc_num order by d.created_at) AS row_num,
+                    ordr.doc_num AS doc_num,
+                    ordr.create_date AS ordr_create_date,
+                    ordr.commit_date AS ordr_commit_date,
+                    ordr.updtd_commit_date AS ordr_updtd_commit_date,
+                    ordr.obs AS ordr_obs,
+                    ordr.web_order_ref AS web_ordr_ref,
                     d.folio AS folio,
+                    d.assembly_date AS assy_date,
                     d.issue_date AS issue_date,
+                    d.is_complete AS is_complete,
+                    status.name AS status_name,
+                    d.service_status AS status_serv_name,
+                    dt.name AS deliv_type_name,
+                    serv.name AS service_name,
+                    muni.name AS muni_name,
+                    state.name AS state_name,
                     d.rcpt_date AS rcpt_date,
                     d.from_mito AS from_mito,
                     og.deliv_obs AS deliv_obs,
-                    CONCAT(serv.code, dt.code) AS deliv_opt,
-                    ord.doc_num AS doc_num,
-                    ord.create_date AS ordr_create_date,
-                    ord.updtd_commit_date AS ordr_updtd_commit_date,
-                    muni.name AS muni_name,
-                    st.code AS state_code,
-                    st.name AS state_name,
-                    ord.obs AS ordr_obs,
-                    ord.web_order_ref AS web_ordr_ref
-                FROM
-                    delivery d
-                INNER JOIN delivery_status ds ON d.status_id = ds.id
-                INNER JOIN order_delivery od ON d.id = od.delivery_id
-                INNER JOIN order_grouping og ON od.order_grouping_id = og.id
-                INNER JOIN delivery_option do ON og.delivery_option_id = do.id
-                INNER JOIN service serv ON do.carrier_id = serv.id
-                INNER JOIN delivery_type dt ON do.type_id = dt.id
-                INNER JOIN address ad ON og.addr_id = ad.id
-                INNER JOIN municipality muni ON ad.muni_id = muni.id
-                INNER JOIN state st ON muni.state_id = st.id
-                INNER JOIN `order` ord ON og.order_id = ord.id
+                    ROW_NUMBER() OVER(PARTITION BY ordr.doc_num ORDER BY d.created_at) AS row_num
+                FROM delivery d
+                    INNER JOIN delivery_status status ON d.status_id = status.id
+                    INNER JOIN order_delivery od ON d.id = od.delivery_id
+                    INNER JOIN order_grouping og ON od.order_grouping_id = og.id
+                    INNER JOIN address addr ON og.addr_id = addr.id
+                    INNER JOIN municipality muni ON addr.muni_id = muni.id
+                    INNER JOIN state state ON muni.state_id = state.id
+                    INNER JOIN `order` ordr ON og.order_id = ordr.id
+                    INNER JOIN delivery_option do ON og.delivery_option_id = do.id
+                    INNER JOIN service serv ON do.carrier_id = serv.id
+                    INNER JOIN delivery_type dt ON do.type_id = dt.id
                 WHERE
-                    ds.name != 'CANCEL'
-                        AND ds.name != 'NOTISSUED'
-                        AND d.issue_date >= '2023-09-10'
-                        AND d.issue_date <= '2023-10-10'
-                GROUP BY d.id , do.id , ad.id, ord.id, og.id
-                HAVING deliv_opt != 'BQHOMEDELIV'
-                ORDER BY ord.doc_num) AS subquery
-                WHERE subquery.row_num = 1
-            GROUP BY subquery.id, subquery.deliv_obs, subquery.deliv_opt, subquery.doc_num, subquery.ordr_updtd_commit_date, subquery.muni_name, subquery.state_code, subquery.ordr_obs, subquery.web_ordr_ref;
+                    status.name != 'CANCEL' AND
+                    status.name != 'NOTISSUED' AND
+                    d.issue_date >= '2022-09-10' AND
+                    d.issue_date <= '2023-12-10'
+                ORDER BY d.created_at ASC)
+                SELECT *
+                FROM q
+                WHERE q.row_num = 1;
         """
         query = query.format(start_date=start_date_str, end_date=end_date_str)
         result = cls.objects.raw(query)

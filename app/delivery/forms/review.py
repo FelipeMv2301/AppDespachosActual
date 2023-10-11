@@ -10,6 +10,7 @@ class ReviewForm(forms.Form):
                 'class': 'mb-2 textfield search-bar',
                 'aria-controls': 'myResults',
                 'placeholder': '2307483',
+                'autocomplete': 'off',
             }
         )
     )

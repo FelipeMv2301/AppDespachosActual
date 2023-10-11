@@ -61,7 +61,7 @@ class DeliveryFormValidator:
         elif not search_digits:
             self.e_msg = 'No contiene dígitos'
         elif not search_plus_sign:
-            self.e_msg = 'No contiene signo "+"'
+            self.e_msg = 'No contiene signo +'
 
         self.raise_valid_error()
 

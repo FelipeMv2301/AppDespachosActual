@@ -161,6 +161,24 @@
     const searchResultsArea = document.getElementById('results');
     const selectedResultsArea = document.getElementById('selected-results');
     const selectedOrders = new Set();
+    var selects = {
+        commitDate: $('#{{ form.commit_date.id_for_label }}'),
+        stAndNum: $('#{{ form.deliv_st_and_num.id_for_label }}'),
+        complement: $('#{{ form.deliv_addr_complement.id_for_label }}'),
+        obs: $('#{{ form.obs.id_for_label }}'),
+        contactFirstName: $('#{{ form.contact_first_name.id_for_label }}'),
+        contactLastName: $('#{{ form.contact_last_name.id_for_label }}'),
+        contactEmailAddr: $('#{{ form.contact_email_addr.id_for_label }}'),
+        contactMobilePhone: $('#{{ form.contact_mobile_phone.id_for_label }}'),
+        contactPhone1: $('#{{ form.contact_phone1.id_for_label }}'),
+        contactPhone2: $('#{{ form.contact_phone1.id_for_label }}'),
+        delivMuni: $('#{{ form.deliv_muni.id_for_label }}'),
+        carrier: $('#{{ form.carrier.id_for_label }}'),
+        delivType: $('#{{ form.deliv_type.id_for_label }}'),
+        delivService: $('#{{ form.deliv_service.id_for_label }}'),
+        delivPayType: $('#{{ form.deliv_pay_type.id_for_label }}'),
+        delivBranch: $('#{{ form.branch.id_for_label }}'),
+    };
     
     function createListElement(orderId, orderRef) {
         const li = document.createElement('li');
@@ -268,7 +286,14 @@
     });
 
     searchInput.addEventListener('input', () => {
-        checkSelectedOrders();
+        searchOrder();
+    });
+
+    searchInput.addEventListener('blur', () => {
+        clearSearchInput();
+    });
+
+    function searchOrder() {
         const inputValue = searchInput.value;
         var url = `{% url 'order_search' %}?` + $.param({doc_num_start: inputValue});
         if (inputValue.length > 5) {
@@ -288,11 +313,64 @@
         }
         removeSearchResults();
         showNoResultsMessage();
-    });
+    }
 
-    searchInput.addEventListener('blur', () => {
-        clearSearchInput();
-    });
+    function searchOrderGroup(orderDocNum) {
+        hideForm();
+        var url = `{% url 'order_group_search' %}?` + $.param({doc_num: orderDocNum, for_deliv_form: true});
+        if (orderDocNum) {
+            $.ajax({
+                type: 'GET',
+                url: url,
+                success: function (response) {
+                    const data = response.orders || response.group;
+                    selects.commitDate.val(data.updtd_commit_date);
+                    selects.stAndNum.val(data.addr_st_and_num);
+                    selects.complement.val(data.addr_complement);
+                    selects.contactFirstName.val(data.contact_first_name);
+                    selects.contactLastName.val(data.contact_last_name);
+                    selects.contactEmailAddr.val(data.contact_email_addr);
+                    selects.contactMobilePhone.val(data.contact_mobile_phone);
+                    selects.contactPhone1.val(data.contact_phone1);
+                    selects.contactPhone2.val(data.contact_phone2);
+                    selects.delivMuni.val(data.muni_code);
+                    selects.carrier.val(data.carrier_code);
+                    selects.delivType.val(data.type_code);
+                    selects.delivService.val(data.service_code);
+                    selects.delivPayType.val(data.pay_type_code);
+                    selects.delivBranch.val(data.branch_code);
+
+                    selects.delivType.find('option').each(function () {
+                        if ($(this).val() === data.type_code) {
+                            $(this).prop('selected', true);
+                        }
+                    });
+                    selects.delivService.find('option').each(function () {
+                        if ($(this).val() === data.service_code) {
+                            $(this).prop('selected', true);
+                        }
+                    });
+                    selects.delivPayType.find('option').each(function () {
+                        if ($(this).val() === data.pay_type_code) {
+                            $(this).prop('selected', true);
+                        }
+                    });
+                    selects.carrier.find('option').each(function () {
+                        if ($(this).val() === data.carrier_code) {
+                            $(this).prop('selected', true);
+                        }
+                    });
+                    selects.delivBranch.find('option').each(function () {
+                        if ($(this).val() === data.branch_code) {
+                            $(this).prop('selected', true);
+                        }
+                    });
+                    searchDeliveryOption();
+                },
+                error: function () { }
+            });
+        }
+    }
 
     function selectOrder(elem) {
         let orderId = elem.value;
@@ -303,6 +381,8 @@
 
             const button = createButtonElement(orderId, orderDocNum);
             selectedResultsArea.appendChild(button);
+
+            searchOrderGroup(orderDocNum);
 
             showForm();
             removeSearchResults();
@@ -316,21 +396,14 @@
     }
 
     function searchDeliveryOption() {
-        const selects = {
-            delivMuni: $('#{{ form.deliv_muni.id_for_label }}'),
-            carrier: $('#{{ form.carrier.id_for_label }}'),
-            delivType: $('#{{ form.deliv_type.id_for_label }}'),
-            delivService: $('#{{ form.deliv_service.id_for_label }}'),
-            delivPayType: $('#{{ form.deliv_pay_type.id_for_label }}'),
-            delivBranch: $('#{{ form.branch.id_for_label }}'),
-        };
+        const selectsCopy = { ...selects };
         const selectValues = {
-            delivMuni: selects.delivMuni.val(),
-            carrier: selects.carrier.val(),
-            delivType: selects.delivType.val(),
-            delivService: selects.delivService.val(),
-            delivPayType: selects.delivPayType.val(),
-            delivBranch: selects.delivBranch.val(),
+            delivMuni: selectsCopy.delivMuni.val(),
+            carrier: selectsCopy.carrier.val(),
+            delivType: selectsCopy.delivType.val(),
+            delivService: selectsCopy.delivService.val(),
+            delivPayType: selectsCopy.delivPayType.val(),
+            delivBranch: selectsCopy.delivBranch.val(),
         };
         var url = `{% url 'deliv_opt_search' %}?` + $.param(selectValues);
         $.ajax({
@@ -341,15 +414,15 @@
                 var services = new Set();
                 var pay_types = new Set();
                 var branches = new Set();
-                selects.delivType.empty();
-                selects.delivService.empty();
-                selects.delivPayType.empty();
-                selects.delivBranch.empty();
+                selectsCopy.delivType.empty();
+                selectsCopy.delivService.empty();
+                selectsCopy.delivPayType.empty();
+                selectsCopy.delivBranch.empty();
                 response.opts.forEach(opt => {
                     typeCode = opt.type_code;
                     if (!types.has(typeCode)) {
                         types.add(typeCode);
-                        selects.delivType.append(
+                        selectsCopy.delivType.append(
                             $('<option>', {
                                 value: typeCode,
                                 text: opt.type_name
@@ -360,7 +433,7 @@
                     serviceCode = opt.service_code;
                     if (!services.has(serviceCode)) {
                         services.add(serviceCode);
-                        selects.delivService.append(
+                        selectsCopy.delivService.append(
                             $('<option>', {
                                 value: serviceCode,
                                 text: opt.service_name
@@ -371,7 +444,7 @@
                     payTypeCode = opt.pay_type_code;
                     if (!pay_types.has(payTypeCode)) {
                         pay_types.add(payTypeCode);
-                        selects.delivPayType.append(
+                        selectsCopy.delivPayType.append(
                             $('<option>', {
                                 value: payTypeCode,
                                 text: opt.pay_type_name
@@ -382,7 +455,7 @@
                     branchCode = opt.branch_code;
                     if (branchCode && !branches.has(branchCode)) {
                         branches.add(branchCode);
-                        selects.delivBranch.append(
+                        selectsCopy.delivBranch.append(
                             $('<option>', {
                                 value: branchCode,
                                 text: opt.branch_name
@@ -392,22 +465,22 @@
 
                 });
 
-                selects.delivType.find('option').each(function () {
+                selectsCopy.delivType.find('option').each(function () {
                     if ($(this).val() === selectValues.delivType) {
                         $(this).prop('selected', true);
                     }
                 });
-                selects.delivService.find('option').each(function () {
+                selectsCopy.delivService.find('option').each(function () {
                     if ($(this).val() === selectValues.delivService) {
                         $(this).prop('selected', true);
                     }
                 });
-                selects.delivPayType.find('option').each(function () {
+                selectsCopy.delivPayType.find('option').each(function () {
                     if ($(this).val() === selectValues.delivPayType) {
                         $(this).prop('selected', true);
                     }
                 });
-                {% comment %} selects.delivBranch.find('option').each(function () {
+                {% comment %} selectsCopy.delivBranch.find('option').each(function () {
                     if ($(this).val() === selectValues.delivBranch) {
                         $(this).prop('selected', true);
                     }

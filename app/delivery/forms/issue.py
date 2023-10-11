@@ -21,6 +21,7 @@ class IssueForm(forms.Form):
                 'class': 'mb-2 textfield search-bar',
                 'aria-controls': 'myResults',
                 'placeholder': '2307482',
+                'autocomplete': 'off',
             }
         )
     )
@@ -288,7 +289,7 @@ class IssueForm(forms.Form):
                 'style': 'padding-right: 2rem;',
                 'onchange': 'this.value = this.value.replace(/[^0-9.]*/g, "");',
                 'min': '1',
-                'step': '0.1',
+                'step': '0.01',
                 'placeholder': '12.8',
             }
         ),
@@ -305,7 +306,7 @@ class IssueForm(forms.Form):
                 'style': 'padding-right: 2rem;',
                 'onchange': 'this.value = this.value.replace(/[^0-9.]*/g, "");',
                 'min': '1',
-                'step': '0.1',
+                'step': '0.01',
                 'placeholder': '5.3',
             }
         ),
@@ -322,7 +323,7 @@ class IssueForm(forms.Form):
                 'style': 'padding-right: 2rem;',
                 'onchange': 'this.value = this.value.replace(/[^0-9.]*/g, "");',
                 'min': '1',
-                'step': '0.1',
+                'step': '0.01',
                 'placeholder': '8.2',
             }
         ),
@@ -339,7 +340,7 @@ class IssueForm(forms.Form):
                 'style': 'padding-right: 2.5rem;',
                 'onchange': 'this.value = this.value.replace(/[^0-9.]*/g, "");',
                 'min': '1',
-                'step': '0.1',
+                'step': '0.01',
                 'placeholder': '45.3',
             }
         )
@@ -360,7 +361,7 @@ class IssueForm(forms.Form):
                             'this.value = this.value.slice(0,4);'),
                 'min': '1',
                 'max': '9999',
-                'step': '0.1',
+                'step': '0.01',
                 'placeholder': '9.8',
             }
         ),

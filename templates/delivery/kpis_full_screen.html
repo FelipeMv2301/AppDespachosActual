@@ -1,0 +1,17 @@
+{% extends "main.html" %}
+{% load static %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'app/css/results.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/folder.css' %}">
+{% endblock %}
+{% block page_title %}{{ page_title }}{% endblock %}
+{% block content %}
+    <div class="pt-5 card-graph">
+        {{ graph|safe }}
+    </div>
+    {% comment %} <div class="pt-5 card mb-4">
+        <div class="card-graph">
+            {{ ship_by_state_graph|safe }}
+        </div>
+    </div> {% endcomment %}
+{% endblock %}

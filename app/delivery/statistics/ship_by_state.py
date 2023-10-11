@@ -22,7 +22,6 @@ class ShipByState(DelivStat):
                          *args,
                          **kwargs)
         self.states = {st.name: {'Cantidad': 0} for st in State.objects.all()}
-        print(self.start_date, self.end_date)
         shipments = Delivery.query_for_stat(start_date=self.start_date,
                                             end_date=self.end_date)
         for shipment in shipments:
@@ -57,7 +56,7 @@ class ShipByState(DelivStat):
         return colors
 
     def graph(self, option: Literal['choropleth_map', 'line']) -> go.Figure:
-        title = (f'Envíos por región entre {self.start_date_str} y '
+        title = (f'Presencialidad por región entre {self.start_date_str} y '
                  f'{self.end_date_str}')
         colors = self.__get_state_color_by_ship_qty()
 
@@ -99,7 +98,7 @@ class ShipByState(DelivStat):
         return fig
 
     def export(self) -> HttpResponse:
-        filename = ('envios_por_region_entre_'
+        filename = ('presencialidad_por_region_entre_'
                     f"{self.start_date_str}_{self.end_date_str}.xlsx")
         with BytesIO() as b:
             writer = pd.ExcelWriter(path=b, engine='xlsxwriter')

@@ -199,8 +199,10 @@ class Delivery(Starken):
                             output_field=CharField()),
                 deliv_type_code=F('order_grouping__delivery_option__type__typeservice__code'),
                 deliv_pay_type_code=F('order_grouping__delivery_option__pay_type__paytypeservice__code'),
-                mobile_num=Coalesce('order_grouping__contact__mobile_phone',
-                                    Value('')),
+                mobile_phone=Coalesce('order_grouping__contact__mobile_phone',
+                                      Value('')),
+                phone1=Coalesce('order_grouping__contact__phone1', Value('')),
+                phone2=Coalesce('order_grouping__contact__phone2', Value('')),
                 email_addr=Coalesce('order_grouping__contact__email_addr',
                                     Value('')),
                 contact_name=Concat('order_grouping__contact__first_name',
@@ -256,8 +258,15 @@ class Delivery(Starken):
             e = CustomError(msg=e_msg, log=tb)
             raise e
 
+        phone_nums = []
+        if deliv['phone1']:
+            phone_nums.append(deliv['phone1'])
+        if deliv['phone2']:
+            phone_nums.append(deliv['phone2'])
+        if deliv['mobile_phone']:
+            phone_nums.append(deliv['mobile_phone'])
+
         ws_client = Client(wsdl=self.ws_url)
-        print(self.ws_url)
         body = {
             'rutEmpresaEmisora': self.ws_rut_wo_verifier,
             'rutUsuarioEmisor': self.ws_user,
@@ -271,7 +280,7 @@ class Delivery(Starken):
             'numeracionDireccionDestinatario': '.',
             'departamentoDireccionDestinatario': '?',
             'comunaDestino': deliv['muni_value'],
-            'telefonoDestinatario': deliv['mobile_num'],
+            'telefonoDestinatario': ' '.join(phone_nums),
             'emailDestinatario': deliv['email_addr'],
             'nombreContactoDestinatario': deliv['contact_name'],
             'tipoEntrega': deliv['deliv_type_code'],
