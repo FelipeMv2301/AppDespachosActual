@@ -12,28 +12,37 @@ button {
 }
 
 .greenbutton {
-    background: var(--green);
+    background: var(--green) !important;
     color: #fff !important;
 }
 
 .greenbutton:hover {
-    background-color: var(--dark-green);
+    background-color: var(--dark-green) !important;
 }
 
 .bluebutton {
-    background: var(--blue);
+    background: var(--blue) !important;
     color: #fff !important;
 }
 
 .bluebutton:hover {
-    background-color: var(--dark-blue);
+    background-color: var(--dark-blue) !important;
 }
 
 .redbutton {
-    background-color: var(--dark-red);
+    background-color: var(--dark-red) !important;
     color: #fff !important;
 }
 
 .redbutton:hover {
-    background-color: var(--red);
+    background-color: var(--red) !important;
+}
+
+.darkturquoise {
+    background-color: #0d8192 !important;
+    color: #fff !important;
+}
+
+.darkturquoise:hover {
+    background-color: rgb(11, 105, 119, .5) !important;
 }

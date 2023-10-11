@@ -1,5 +1,5 @@
-from django.http import JsonResponse
 from django.core.handlers.wsgi import WSGIRequest
+from django.http import JsonResponse
 from django.views.generic.base import View
 
 
