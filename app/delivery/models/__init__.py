@@ -2,6 +2,7 @@ from .branch import Branch
 from .delivery import Delivery
 from .doc import Document
 from .doc_type import DocumentType
+from .doc_type_service import DocumentTypeService
 from .opt import Option
 from .pay_type import PayType
 from .pay_type_service import PayTypeService
