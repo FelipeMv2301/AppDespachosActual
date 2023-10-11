@@ -11,7 +11,8 @@ from app.business_partner.models.contact import Contact
 from app.delivery.forms.issue import IssueForm
 from app.delivery.models.delivery import Delivery
 from app.delivery.models.doc import Document
-from app.delivery.models.doc_type import DocumentType
+from app.delivery.models.doc_type import DocumentType as DocType
+from app.delivery.models.doc_type_service import DocumentTypeService as DocTypeServ
 from app.delivery.models.opt import Option
 from app.delivery.models.status import Status
 from app.general.models.address import Address
@@ -177,13 +178,17 @@ class IssueView(PermissionRequiredMixin, View):
         docs = []
         for i, folio in enumerate(iterable=doc_folios):
             doc_type_code = doc_types[i]
-            doc_type = DocumentType.objects.get(code=doc_type_code,
-                                                enabled=True)
+            doc_type = DocType.objects.get(code=doc_type_code, enabled=True)
+            doc_type_serv = DocTypeServ.objects.get(service_acct=acct,
+                                                    doc_type=doc_type,
+                                                    enabled=True)
             Document.objects.create(folio=folio,
                                     type=doc_type,
                                     delivery=deliv,
                                     changed_by=user)
-            docs.append({'type': doc_type, 'folio': folio})
+            docs.append({'type': doc_type,
+                         'type_service': doc_type_serv,
+                         'folio': folio})
 
         if acct.service.code == 'STK':
             stk_deliv = StkDeliv(account=acct)

@@ -162,10 +162,12 @@ class Delivery(Starken):
             'docs': [
                 {
                     'type': <DocType: DocType object>,
+                    'type_service': <DocType: DocTypeService object>,
                     'folio': 0
                 },
                 {
                     'type': <DocType: DocType object>,
+                    'type_service': <DocType: DocTypeService object>,
                     'folio': 0
                 }
             ]
@@ -235,7 +237,7 @@ class Delivery(Starken):
             valuation = data['valuation']
             packg_qty = data['packg_qty']
             docs = data['docs']
-            docs[0]['type'].code
+            docs[0]['type_service'].code
             docs[0]['folio']
         except Exception as e:
             tb = traceback.format_exc()
@@ -317,7 +319,7 @@ class Delivery(Starken):
         for i in range(len(docs)):
             index = i + 1
             doc_info = docs[i]
-            body[f'tipoDocumento{index}'] = str(doc_info['type'].code)
+            body[f'tipoDocumento{index}'] = str(doc_info['type_service'].code)
             body[f'numeroDocumento{index}'] = str(doc_info['folio'])
             body[f'generaEtiquetaDocumento{index}'] = 'S'
         print('body', body)
