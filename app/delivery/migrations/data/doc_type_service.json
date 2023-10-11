@@ -1,0 +1,74 @@
+[
+{
+    "model": "delivery.documenttypeservice",
+    "pk": 1,
+    "fields": {
+        "code": "26",
+        "name": "Factura electrónica",
+        "service_acct": 1,
+        "doc_type": 1,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.documenttypeservice",
+    "pk": 2,
+    "fields": {
+        "code": "27",
+        "name": "Guía de despacho electrónica",
+        "service_acct": 1,
+        "doc_type": 3,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.documenttypeservice",
+    "pk": 3,
+    "fields": {
+        "code": "28",
+        "name": "Boleta electrónica",
+        "service_acct": 1,
+        "doc_type": 2,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.documenttypeservice",
+    "pk": 4,
+    "fields": {
+        "code": "26",
+        "name": "Factura electrónica",
+        "service_acct": 2,
+        "doc_type": 1,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.documenttypeservice",
+    "pk": 5,
+    "fields": {
+        "code": "27",
+        "name": "Guía de despacho electrónica",
+        "service_acct": 2,
+        "doc_type": 3,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.documenttypeservice",
+    "pk": 6,
+    "fields": {
+        "code": "28",
+        "name": "Boleta electrónica",
+        "service_acct": 2,
+        "doc_type": 2,
+        "enabled": true,
+        "changed_by": 1
+    }
+}
+]

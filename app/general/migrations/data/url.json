@@ -1,0 +1,83 @@
+[
+{
+    "model": "general.url",
+    "pk": 1,
+    "fields": {
+        "code": "HOME",
+        "name": "home",
+        "enabled": true
+    }
+},
+{
+    "model": "general.url",
+    "pk": 2,
+    "fields": {
+        "code": "API_ORDRSRCH",
+        "name": "order_search",
+        "enabled": true
+    }
+},
+{
+    "model": "general.url",
+    "pk": 3,
+    "fields": {
+        "code": "API_ORDRGROUPSRCH",
+        "name": "order_group_search",
+        "enabled": true
+    }
+},
+{
+    "model": "general.url",
+    "pk": 4,
+    "fields": {
+        "code": "API_DELIVOPTSRCH",
+        "name": "deliv_opt_search",
+        "enabled": true
+    }
+},
+{
+    "model": "general.url",
+    "pk": 5,
+    "fields": {
+        "code": "API_AUTHCHECK",
+        "name": "check_auth",
+        "enabled": true
+    }
+},
+{
+    "model": "general.url",
+    "pk": 6,
+    "fields": {
+        "code": "ORDR_DELIVFORM",
+        "name": "delivery_form",
+        "enabled": true
+    }
+},
+{
+    "model": "general.url",
+    "pk": 7,
+    "fields": {
+        "code": "DELIV_REVIEW",
+        "name": "delivery_review",
+        "enabled": true
+    }
+},
+{
+    "model": "general.url",
+    "pk": 8,
+    "fields": {
+        "code": "DELIV_ISSUE",
+        "name": "delivery_issue",
+        "enabled": true
+    }
+},
+{
+    "model": "general.url",
+    "pk": 9,
+    "fields": {
+        "code": "KPIS",
+        "name": "kpis",
+        "enabled": true
+    }
+}
+]

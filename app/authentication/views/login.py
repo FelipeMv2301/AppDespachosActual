@@ -37,12 +37,12 @@ class Login(View):
         auth = AuthenticationForm(request, data=request.POST)
         if auth.is_valid():
             user = auth.get_user()
-            profile = UserProfile.objects.filter(user=user).first()
+            profile = (UserProfile.objects.select_related('initial_url')
+                       .filter(user=user).first())
             if profile:
-                url = profile.initial_url
+                url = profile.initial_url.name
             else:
                 url = 'home'
-            url = 'home'
             login(request=request, user=user)
             return redirect(to=url)
 

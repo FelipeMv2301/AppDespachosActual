@@ -5,7 +5,7 @@ from simple_history.models import HistoricalRecords
 
 class DocumentTypeService(models.Model):
     # General
-    code = models.CharField(max_length=100, unique=True)
+    code = models.CharField(max_length=100)
     name = models.CharField(max_length=100)
     doc_type = models.ForeignKey(to='delivery.DocumentType',
                                  on_delete=models.CASCADE,

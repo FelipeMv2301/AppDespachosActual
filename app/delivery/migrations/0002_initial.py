@@ -14,6 +14,7 @@ def forwards_func(apps, schema_editor):
     data_path = os.path.join(current_path, 'data')
     data_file_names = [
         'doc_type.json',
+        'doc_type_service.json',
         'pay_type.json',
         'pay_type_service.json',
         'service.json',

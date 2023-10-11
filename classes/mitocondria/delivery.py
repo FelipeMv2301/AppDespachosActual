@@ -109,6 +109,8 @@ class Delivery(Mitocondria):
             ordrs = [str(o['ref']) for o in json.loads(s=d['orders'])]
             deliv_type_code = str(d['deliv_type_id'])
             pay_type_code = str(d['pay_type_id'])
+            status_code = str(d['status_id'])
+            is_complete = status_code != '2'
             height = d['height']
             width = d['width']
             length = d['length']
@@ -294,6 +296,7 @@ class Delivery(Mitocondria):
                 packages_qty=packages,
                 valuation=valuation,
                 status=status_obj,
+                is_complete=is_complete,
                 locked=True,
                 changed_by=user_obj
             )

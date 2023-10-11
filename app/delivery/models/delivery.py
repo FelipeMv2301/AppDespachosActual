@@ -48,6 +48,7 @@ class Delivery(models.Model):
                                on_delete=models.CASCADE,
                                null=True)
     service_status = models.CharField(max_length=100, null=True)
+    is_complete = models.BooleanField(default=True)
     locked = models.BooleanField(default=False)
     # Mitocondria info
     mito_id = models.IntegerField(null=True)
@@ -84,6 +85,7 @@ class Delivery(models.Model):
             'valuation',
             'status',
             'service_status',
+            'is_complete',
             'locked',
             'mito_id',
             'from_mito',

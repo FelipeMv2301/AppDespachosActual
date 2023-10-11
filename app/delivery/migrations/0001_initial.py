@@ -54,6 +54,7 @@ class Migration(migrations.Migration):
                 ('packages_qty', models.IntegerField()),
                 ('valuation', models.FloatField()),
                 ('service_status', models.CharField(max_length=100, null=True)),
+                ('is_complete', models.BooleanField(default=True)),
                 ('locked', models.BooleanField(default=False)),
                 ('mito_id', models.IntegerField(null=True)),
                 ('from_mito', models.BooleanField(default=False)),
@@ -63,7 +64,7 @@ class Migration(migrations.Migration):
             ],
             options={
                 'db_table': 'delivery',
-                'ordering': ['folio', 'service_acct', 'issue_date', 'assembly_date', 'rcpt_commit_date', 'rcpt_date', 'height', 'width', 'length', 'weight', 'packages_qty', 'valuation', 'status', 'service_status', 'locked', 'mito_id', 'from_mito', 'changed_by', 'created_at', 'updated_at'],
+                'ordering': ['folio', 'service_acct', 'issue_date', 'assembly_date', 'rcpt_commit_date', 'rcpt_date', 'height', 'width', 'length', 'weight', 'packages_qty', 'valuation', 'status', 'service_status', 'is_complete', 'locked', 'mito_id', 'from_mito', 'changed_by', 'created_at', 'updated_at'],
                 'permissions': [('view_kpis', 'Can view KPIs'), ('edit_delivery', 'Can edit delivery'), ('edit_deliv_rcpt_date', 'Can edit delivery reception date'), ('issue_delivery', 'Can issue delivery'), ('cancel_delivery', 'Can cancel delivery'), ('view_delivery_panel', 'Can view delivery panel')],
             },
         ),
@@ -494,6 +495,7 @@ class Migration(migrations.Migration):
                 ('packages_qty', models.IntegerField()),
                 ('valuation', models.FloatField()),
                 ('service_status', models.CharField(max_length=100, null=True)),
+                ('is_complete', models.BooleanField(default=True)),
                 ('locked', models.BooleanField(default=False)),
                 ('mito_id', models.IntegerField(null=True)),
                 ('from_mito', models.BooleanField(default=False)),
@@ -569,7 +571,7 @@ class Migration(migrations.Migration):
             name='HistoricalDocumentTypeService',
             fields=[
                 ('id', models.BigIntegerField(auto_created=True, blank=True, db_index=True, verbose_name='ID')),
-                ('code', models.CharField(db_index=True, max_length=100)),
+                ('code', models.CharField(max_length=100)),
                 ('name', models.CharField(max_length=100)),
                 ('enabled', models.BooleanField(default=True)),
                 ('created_at', models.DateTimeField(default=django.utils.timezone.now)),
@@ -596,7 +598,7 @@ class Migration(migrations.Migration):
             name='DocumentTypeService',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('code', models.CharField(max_length=100, unique=True)),
+                ('code', models.CharField(max_length=100)),
                 ('name', models.CharField(max_length=100)),
                 ('enabled', models.BooleanField(default=True)),
                 ('created_at', models.DateTimeField(default=django.utils.timezone.now)),

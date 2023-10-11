@@ -79,9 +79,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # URLS
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#root-urlconf
-ROOT_URLCONF = 'config.urls'
-# if RUNNING_MIGRATIONS:
-#     ROOT_URLCONF = ''
+if RUNNING_MIGRATIONS:
+    ROOT_URLCONF = ''
+else:
+    ROOT_URLCONF = 'config.urls'
 
 # WSGI
 # ------------------------------------------------------------------------------

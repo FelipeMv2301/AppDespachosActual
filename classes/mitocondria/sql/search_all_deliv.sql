@@ -30,6 +30,7 @@ SELECT
     -- order_detail.rut_cliente,
     order_detail.n_direccion ship_addr_cpl,
     order_detail.n_departamento ship_dpto,
+    status.despacho_param_estado_id status_id,
     deliv_type.despachos_param_tipo_entrega_id  deliv_type_id,
     deliv_type.despachos_param_tipo_entrega_nombre deliv_type_name,
     pay_type.despachos_param_tipo_pago_id pay_type_id,
@@ -40,6 +41,8 @@ FROM
     {schema}.ad_despachos_admin dadm ON d.despachos_admin_id = dadm.despachos_admin_id
         LEFT JOIN
     {schema}.ad_despachos_doc_admin doc ON dadm.despachos_admin_id = doc.despachos_admin_id
+        LEFT JOIN
+    {schema}.ad_despachos_param_estado status ON d.despacho_param_estado_id = status.despacho_param_estado_id
         LEFT JOIN
     {schema}.ad_despachos_param_tipo_documento doc_type ON doc.despachos_param_tipo_documento_id = doc_type.despachos_param_tipo_documento_id
         INNER JOIN

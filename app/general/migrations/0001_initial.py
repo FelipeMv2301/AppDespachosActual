@@ -30,6 +30,7 @@ def forwards_func(apps, schema_editor):
         'muni.json',
         'muni_service.json',
         'address.json',
+        'url.json',
     ]
     for filename in data_file_names:
         call_command('loaddata', os.path.join(data_path, filename))
