@@ -1,30 +1,38 @@
+import traceback
+
 from django.core.handlers.wsgi import WSGIRequest
-from django.db.models import F
+from django.http import JsonResponse
 from django.views.generic.base import View
 
 from app.delivery.models.delivery import Delivery
-from helpers.error.custom_error import CustomError
-from notification.email.order_shipped_email import OrderShippedEmail
+from helpers.error.custom_error import UNEXP_ERROR, CustomError
+from notification.email.order import OrderEmail
 
 
 class SendDelivEmailView(View):
     def get(self, request: WSGIRequest, folio: str | int, *args, **kwargs):
         delivery = Delivery.objects.filter(folio=folio)
+        error = ''
+        send_status = False
         if not delivery:
             e_msg = 'No existe entrega'
-            e = CustomError(msg=e_msg)
-            raise e
+            error = CustomError(msg=e_msg)
         elif delivery.count() > 1:
             e_msg = 'No existe entrega definida'
-            e = CustomError(msg=e_msg)
-            raise e
+            error = CustomError(msg=e_msg)
 
-        deliv_data = (delivery
-                      .values(serv_code=F('orderdelivery__order_grouping__delivery_option__carrier__code'))
-                      .first())
-        if deliv_data['serv_code'] == 'STK':
-            email = OrderShippedEmail(delivery=delivery.first())
-            email.send_email()
-            return True
+        if not error:
+            try:
+                email = OrderEmail(delivery=delivery.first())
+                email.send_email()
+                send_status = True
+            except CustomError as e:
+                error = e
+            except Exception:
+                tb = traceback.format_exc()
+                tb += f'\nFolio: {folio}'
+                e_msg = f'Error: {UNEXP_ERROR}'
+                e_msg += f'\nFolio: {folio}'
+                error = CustomError(msg=e_msg, log=tb)
 
-        return False
+        return JsonResponse(data={'status': send_status, 'error': str(error)})

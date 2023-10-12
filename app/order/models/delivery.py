@@ -32,7 +32,13 @@ class OrderDelivery(models.Model):
                 d.issue_date issue_date,
                 d.rcpt_commit_date rcpt_commit_date,
                 d.rcpt_date rcpt_date,
+                CASE
+                    WHEN d.is_complete IS TRUE THEN 'Sí'
+                    ELSE 'No'
+                END is_complete,
                 dst.name status,
+                dst.code status_code,
+                d.locked locked,
                 d.service_status serv_status,
                 CASE
                     WHEN d.from_mito IS TRUE THEN 'App Mitocondria'

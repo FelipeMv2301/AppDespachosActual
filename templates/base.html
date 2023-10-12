@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="{% static 'app/css/main.css' %}">
         <link rel="stylesheet" href="{% static 'app/css/elements/input.css' %}">
         <link rel="stylesheet" href="{% static 'app/css/elements/button.css' %}">
+        <link rel="stylesheet" href="{% static 'app/css/elements/loading.css' %}">
         <link rel="stylesheet" href="{% static 'app/css/sweet-alert.css' %}">
         {% block styles %}
         {% endblock %}
@@ -26,6 +27,9 @@
                 {% endblock %}
                 {% block main %}
                 {% endblock %}
+            </div>
+            <div id="loading-overlay" style="display: none;">
+                <img class="w-25" src="{% static 'app/svg/loading.svg' %}" alt="Loading"/>
             </div>
         </div>
         {% bootstrap_javascript %}

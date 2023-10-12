@@ -43,13 +43,7 @@
             font-size: 22px;
             color: #222;
         }
-        .transport-company {
-            margin-top: 20px;
-        }
         .pickup-details {
-            margin-top: 20px;
-        }
-        .delivery-estimate {
             margin-top: 20px;
         }
         .tracking-link {
@@ -74,29 +68,15 @@
         <!-- Contenido -->
         <div class="content">
             <p>Hola {{ contact_name }},</p>
-            <p>Tu(s) pedido(s) con el ID <span class="order-id">{{ order_doc_num }}</span> ha sido enviado. A continuación, encontrarás los detalles:</p>
-            <div class="transport-company">
-                <p><b>Empresa de transporte</b>: {{ carrier_name }}</p>
+            <p>Tu(s) pedido(s) con el ID <span class="order-id">{{ order_doc_num }}</span> está listo para ser retirado. A continuación, encontrarás los detalles:</p>
+            <div class="pickup-details">
+                <p><b>Dirección de sucursal para retiro</b>: <a target="_blank" href="{{ branch_addr_maps_url }}">{{ branch_address }}</a></p>
             </div>
-            {% if deliv_type_code == "BRDELIV" %}
-                <div class="pickup-details">
-                    <p><b>Dirección de sucursal para retiro</b>: <a target="_blank" href="{{ branch_addr_maps_url }}">{{ branch_address }}</a></p>
-                </div>
-                <div class="pickup-details">
-                    <p><b>Horarios de sucursal para retiro</b>: {{ branch_hours }}</p>
-                </div>
-            {% endif %}
-            {% if rcpt_commit_date %}
-                <div class="delivery-estimate">
-                    <p><b>Fecha estimada de llegada</b>: {{ rcpt_commit_date |date:"l d F Y" }}</p>
-                </div>
-            {% endif %}
-            {% if deliv_type_code == "HOMEDELIV" %}
-                <div class="tracking-link">
-                    <b><a target="_blank" href="{{ track_url }}">Seguir pedido aquí</a></b>
-                </div>
-                <p>Adjunto encontrarás el seguro de envío.</p>
-            {% endif %}
+            <div class="pickup-details">
+                <p><b>Horarios de sucursal para retiro</b>: {{ branch_hours }}</p>
+            </div>
+            <p>El retiro debe realizarse únicamente con documentos de respaldo que acrediten la compra, de lo contrario no podrá ser entregado.</p>
+            <p>Si el pedido no será retirado por usted, por favor informar a <a href="mailto:retiropedidos@bioquimica.cl" target="_blank">retiropedidos@bioquimica.cl</a> indicando el número de pedido y el nombre de quién realizará el retiro.</p>
             <p>¡Gracias por elegirnos!</p>
         </div>
         <!-- Pie de página -->

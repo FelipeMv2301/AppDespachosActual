@@ -6,19 +6,21 @@ from django.views.generic.base import View
 from simple_history.utils import bulk_update_with_history
 
 from app.delivery.models.delivery import Delivery
-from app.delivery.models.status import Status
 from helpers.error.custom_error import UNEXP_ERROR, CustomError
 
 
-class CancelDeliveryView(View):
-    def get(self, request: WSGIRequest, folio: str | int, *args, **kwargs):
+class UpdDelivCompletionView(View):
+    def get(self,
+            request: WSGIRequest,
+            folio: str | int,
+            value: str,
+            *args,
+            **kwargs):
         user = request.user
         error = ''
         cancel_status = False
         try:
-            delivery = Delivery.objects.get(folio=folio,
-                                            orderdelivery__order_grouping__delivery_option__carrier__code__in=['BQ', 'TD'],
-                                            status__code__in=['ISSUED', 'NOTISSUED'])
+            delivery = Delivery.objects.get(folio=folio)
         except Delivery.DoesNotExist:
             e_msg = 'No existe entrega que pueda ser cancelada'
             error = CustomError(msg=e_msg)
@@ -28,14 +30,11 @@ class CancelDeliveryView(View):
 
         if not error:
             try:
-                delivery.status = Status.objects.get(code='CANCEL')
-                delivery.locked = True
+                delivery.is_complete = value == 'yes'
                 delivery.changed_by = user
                 bulk_update_with_history(objs=[delivery],
                                          model=Delivery,
-                                         fields=['status',
-                                                 'locked',
-                                                 'changed_by'])
+                                         fields=['is_complete', 'changed_by'])
                 cancel_status = True
             except Exception:
                 tb = traceback.format_exc()

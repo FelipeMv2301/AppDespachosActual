@@ -1,6 +1,7 @@
 const sidebarButton = document.getElementById('sidebarButton');
 const sidebarMenu = document.getElementById('sidebarMenu');
 const main = document.querySelector('main');
+const loadingIcon = $('#loading-overlay');
 
 $(document).ready(function () {
     if (authenticatedUser) {
@@ -60,4 +61,3 @@ function checkAuth() {
 if (authenticatedUser) {
     setInterval(checkAuth, 10000);
 }
-
