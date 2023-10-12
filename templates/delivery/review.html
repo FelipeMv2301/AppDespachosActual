@@ -102,7 +102,11 @@
                                     </div>
                                     <div class="row w-100 pb-2">
                                         <div class="col">
-                                            <span>{% if od.rcpt_date %}{{ od.rcpt_date|date:"d/m/Y" }}{% else %}No hay fecha{% endif %}</span>
+                                            {% if perms.delivery.edit_deliv_rcpt_date and od.carrier_code != 'STK' %}
+                                                <input type="date" name="rcpt_date" class="mb-2 textfield text-center" id="id_rcpt_date" value="{{ od.rcpt_date|date:'Y-m-d' }}" onchange="updDelivRcptDate('{{ od.folio }}', `${this.value}`);">
+                                            {% else %}
+                                                <span>{% if od.rcpt_date %}{{ od.rcpt_date|date:"d/m/Y" }}{% else %}No hay fecha{% endif %}</span>
+                                            {% endif %}
                                         </div>
                                     </div>
                                 </div>
@@ -410,6 +414,8 @@
                             text: 'La entrega ha sido cancelada.',
                             showCancelButton: false,
                             confirmButtonText: 'OK',
+                        }).then(() => {
+                            window.location.reload();
                         })
                     } else {
                         Swal.fire({
@@ -491,6 +497,54 @@
                                     text: 'Ha sido actualizado correctamente.',
                                     showCancelButton: false,
                                     confirmButtonText: 'OK',
+                                }).then(() => {
+                                    window.location.reload();
+                                })
+                            } else {
+                                Swal.fire({
+                                    icon: 'error',
+                                    text: `No pudo actualizarse. ${response.error}`,
+                                    showCancelButton: false,
+                                    confirmButtonText: 'OK',
+                                })
+                            }
+                        },
+                        error: function () {
+                            Swal.fire({
+                                icon: 'error',
+                                text: 'No pudo actualizarse.',
+                                showCancelButton: false,
+                                confirmButtonText: 'OK',
+                            })
+                        }
+                    });
+                }
+            })
+        }
+    }
+
+    function updDelivRcptDate(folio, value) {
+        var url = `{% url 'upd_deliv_rcpt_date' 'folio' 'value'  %}`.replace('value', value).replace('folio', folio);
+        if (folio && value) {
+            Swal.fire({
+                title: '¿Desea actualizar la fecha de recepción?',
+                showDenyButton: true,
+                confirmButtonText: 'Sí',
+                denyButtonText: 'No',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        type: 'GET',
+                        url: url,
+                        success: function (response) {
+                            if (response.status) {
+                                Swal.fire({
+                                    icon: 'success',
+                                    text: 'Ha sido actualizado correctamente.',
+                                    showCancelButton: false,
+                                    confirmButtonText: 'OK',
+                                }).then(() => {
+                                    window.location.reload();
                                 })
                             } else {
                                 Swal.fire({

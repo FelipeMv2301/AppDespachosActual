@@ -1,4 +1,5 @@
 import os
+import re
 import traceback
 from typing import Sequence
 
@@ -76,7 +77,9 @@ class OrderEmail(Email):
             e = CustomError(msg=e_msg)
             raise e
 
-        self.from_email = self.deliv_query['company_name']
+        self.from_email = re.sub(pattern=r'[^a-zA-Z0-9\s]',
+                                 repl='',
+                                 string=self.deliv_query['company_name'])
         self.from_email += f' <{EMAIL_HOST_USER}>'
 
         ordr_doc_nums = ', '.join([deliv['order_doc_num']

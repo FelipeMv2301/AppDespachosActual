@@ -118,6 +118,10 @@ class Delivery(models.Model):
                 'view_delivery_panel',
                 'Can view delivery panel',
             ),
+            (
+                'send_delivery_email',
+                'Can send delivery email',
+            ),
         ]
 
     @classmethod

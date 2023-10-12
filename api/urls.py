@@ -7,6 +7,7 @@ from api.views.order_group_search import OrderGroupSearchView
 from api.views.order_search import OrderSearchView
 from api.views.send_deliv_email import SendDelivEmailView
 from api.views.upd_deliv_completion import UpdDelivCompletionView
+from api.views.upd_deliv_rcpt_date import UpdDelivRcptDateView
 
 urlpatterns = [
     path(route='v1/order/search',
@@ -30,4 +31,7 @@ urlpatterns = [
     path(route='v1/delivery/upd_completion/<str:folio>/<str:value>',
          view=UpdDelivCompletionView.as_view(),
          name='upd_deliv_completion'),
+    path(route='v1/delivery/upd_rcpt_date/<str:folio>/<str:value>',
+         view=UpdDelivRcptDateView.as_view(),
+         name='upd_deliv_rcpt_date'),
 ]

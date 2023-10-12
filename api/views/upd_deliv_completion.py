@@ -1,15 +1,22 @@
 import traceback
 
+from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.core.handlers.wsgi import WSGIRequest
 from django.http import JsonResponse
 from django.views.generic.base import View
 from simple_history.utils import bulk_update_with_history
 
 from app.delivery.models.delivery import Delivery
+from helpers.decorator.auth import authentication
+from helpers.decorator.loggable import loggable
 from helpers.error.custom_error import UNEXP_ERROR, CustomError
 
 
-class UpdDelivCompletionView(View):
+class UpdDelivCompletionView(PermissionRequiredMixin, View):
+    permission_required = ('delivery.edit_delivery')
+
+    @authentication
+    @loggable
     def get(self,
             request: WSGIRequest,
             folio: str | int,

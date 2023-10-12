@@ -1,7 +1,9 @@
 import traceback
+from datetime import date, datetime
 
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.core.handlers.wsgi import WSGIRequest
+from django.db.models import Q
 from django.http import JsonResponse
 from django.views.generic.base import View
 from simple_history.utils import bulk_update_with_history
@@ -13,37 +15,53 @@ from helpers.decorator.loggable import loggable
 from helpers.error.custom_error import UNEXP_ERROR, CustomError
 
 
-class CancelDeliveryView(PermissionRequiredMixin, View):
-    permission_required = ('delivery.cancel_delivery')
+class UpdDelivRcptDateView(PermissionRequiredMixin, View):
+    permission_required = ('delivery.edit_deliv_rcpt_date')
 
     @authentication
     @loggable
-    def get(self, request: WSGIRequest, folio: str | int, *args, **kwargs):
+    def get(self,
+            request: WSGIRequest,
+            folio: str | int,
+            value: str,
+            *args,
+            **kwargs):
         user = request.user
         error = ''
-        cancel_status = False
+        upd_status = False
         try:
-            delivery = Delivery.objects.get(folio=folio,
-                                            orderdelivery__order_grouping__delivery_option__carrier__code__in=['BQ', 'TD'],
-                                            status__code__in=['ISSUED', 'NOTISSUED'])
+            delivery = (Delivery.objects
+                        .get(~Q(service_acct__service__code='STK'),
+                             folio=folio,
+                             status__code='ISSUED'))
         except Delivery.DoesNotExist:
-            e_msg = 'No existe entrega que pueda ser cancelada'
+            e_msg = 'No existe entrega que pueda ser modificada'
             error = CustomError(msg=e_msg)
         except Delivery.MultipleObjectsReturned:
             e_msg = 'No existe entrega definida'
             error = CustomError(msg=e_msg)
 
+        try:
+            value = datetime.strptime(value, '%Y-%m-%d').date()
+        except ValueError:
+            e_msg = 'La fecha no es válida'
+            error = CustomError(msg=e_msg)
+
+        if value > date.today():
+            e_msg = 'La fecha no puede ser mayor a hoy'
+            error = CustomError(msg=e_msg)
+
         if not error:
             try:
-                delivery.status = Status.objects.get(code='CANCEL')
-                delivery.locked = True
+                delivery.rcpt_date = value
+                delivery.status = Status.objects.get(code='RCVD')
                 delivery.changed_by = user
                 bulk_update_with_history(objs=[delivery],
                                          model=Delivery,
-                                         fields=['status',
-                                                 'locked',
+                                         fields=['rcpt_date',
+                                                 'status',
                                                  'changed_by'])
-                cancel_status = True
+                upd_status = True
             except Exception:
                 tb = traceback.format_exc()
                 tb += f'\nFolio: {folio}'
@@ -51,5 +69,5 @@ class CancelDeliveryView(PermissionRequiredMixin, View):
                 e_msg += f'\nFolio: {folio}'
                 error = CustomError(msg=e_msg, log=tb)
 
-        return JsonResponse(data={'status': cancel_status,
+        return JsonResponse(data={'status': upd_status,
                                   'error': str(error)})

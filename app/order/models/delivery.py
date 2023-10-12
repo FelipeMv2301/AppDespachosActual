@@ -46,6 +46,7 @@ class OrderDelivery(models.Model):
                 END source,
                 m.name muni,
                 s.name carrier,
+                s.code carrier_code,
                 dt.name deliv_type,
                 dpt.name deliv_pay_type,
                 ds.name deliv_service,
@@ -80,7 +81,7 @@ class OrderDelivery(models.Model):
                     LEFT JOIN
                 branch b ON do.branch_id = b.id
             WHERE o.doc_num IN ({ordr_doc_nums})
-            GROUP BY d.folio , m.name , s.name , dt.name , dpt.name , ds.name , b.name;
+            GROUP BY d.folio , m.name , s.id , dt.name , dpt.name , ds.name , b.name;
         """
         query = query.format(ordr_doc_nums=','.join(ordr_doc_nums))
         result = cls.objects.raw(query)

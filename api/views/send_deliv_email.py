@@ -1,15 +1,22 @@
 import traceback
 
+from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.core.handlers.wsgi import WSGIRequest
 from django.http import JsonResponse
 from django.views.generic.base import View
 
 from app.delivery.models.delivery import Delivery
+from helpers.decorator.auth import authentication
+from helpers.decorator.loggable import loggable
 from helpers.error.custom_error import UNEXP_ERROR, CustomError
 from notification.email.order import OrderEmail
 
 
-class SendDelivEmailView(View):
+class SendDelivEmailView(PermissionRequiredMixin, View):
+    permission_required = ('delivery.send_delivery_email')
+
+    @authentication
+    @loggable
     def get(self, request: WSGIRequest, folio: str | int, *args, **kwargs):
         delivery = Delivery.objects.filter(folio=folio)
         error = ''

@@ -10,6 +10,7 @@ from helpers.decorator.loggable import loggable
 
 
 class DelivOptSearchView(View):
+
     @authentication
     @loggable
     def get(self, request: WSGIRequest, *args, **kwargs):
