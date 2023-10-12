@@ -30,45 +30,45 @@ class OrderEmail(Email):
         self.cc = cc_recipients
 
         self.delivery = delivery
-        # try:
-        deliv_query = (
-            OrderDelivery.objects
-            .filter(delivery=delivery)
-                    # order_grouping__delivery_option__type__typeservice__service_acct=delivery.service_acct,
-                    # order_grouping__delivery_option__pay_type__paytypeservice__service_acct=delivery.service_acct)
-            .values(
-                deliv_id=F('delivery__id'),
-                folio=F('delivery__folio'),
-                deliv_status_code=F('delivery__status__code'),
-                deliv_type_code=F('order_grouping__delivery_option__type__code'),
-                carrier_code=F('delivery__service_acct__service__code'),
-                carrier_name=F('delivery__service_acct__service__name'),
-                company_name=F('delivery__service_acct__company__name'),
-                company_code=F('delivery__service_acct__company__code'),
-                order_doc_num=F('order_grouping__order__doc_num'),
-                branch_addr=Concat('order_grouping__delivery_option__branch__addr__st_and_num',
-                                   Value(' '),
-                                   'order_grouping__delivery_option__branch__addr__complement',
-                                   output_field=CharField()),
-                branch_addr_maps_url=F('order_grouping__delivery_option__branch__addr__maps_url'),
-                branch_hours=F('order_grouping__delivery_option__branch__hours'),
-                rcpt_commit_date=F('delivery__rcpt_commit_date'),
-                email_addr=F('order_grouping__contact__email_addr'),
-                contact_name=Concat(Coalesce('order_grouping__contact__first_name', Value('')),
+        try:
+            deliv_query = (
+                OrderDelivery.objects
+                .filter(delivery=delivery)
+                        # order_grouping__delivery_option__type__typeservice__service_acct=delivery.service_acct,
+                        # order_grouping__delivery_option__pay_type__paytypeservice__service_acct=delivery.service_acct)
+                .values(
+                    deliv_id=F('delivery__id'),
+                    folio=F('delivery__folio'),
+                    deliv_status_code=F('delivery__status__code'),
+                    deliv_type_code=F('order_grouping__delivery_option__type__code'),
+                    carrier_code=F('delivery__service_acct__service__code'),
+                    carrier_name=F('delivery__service_acct__service__name'),
+                    company_name=F('delivery__service_acct__company__name'),
+                    company_code=F('delivery__service_acct__company__code'),
+                    order_doc_num=F('order_grouping__order__doc_num'),
+                    branch_addr=Concat('order_grouping__delivery_option__branch__addr__st_and_num',
                                     Value(' '),
-                                    Coalesce('order_grouping__contact__first_name', Value('')),
+                                    'order_grouping__delivery_option__branch__addr__complement',
                                     output_field=CharField()),
-            ).distinct()
-        )
-        self.deliv_query = deliv_query.first()
-        # except Exception:
-        #     tb = traceback.format_exc()
-        #     tb += f'Delivery folio: {delivery.folio}'
-        #     tb += f'Delivery id: {delivery.id}'
-        #     e_msg = 'Error: Ha ocurrido un error en el envío de correo'
-        #     e_msg += f'Delivery folio: {delivery.folio}'
-        #     e = CustomError(msg=e_msg, log=tb)
-        #     raise e
+                    branch_addr_maps_url=F('order_grouping__delivery_option__branch__addr__maps_url'),
+                    branch_hours=F('order_grouping__delivery_option__branch__hours'),
+                    rcpt_commit_date=F('delivery__rcpt_commit_date'),
+                    email_addr=F('order_grouping__contact__email_addr'),
+                    contact_name=Concat(Coalesce('order_grouping__contact__first_name', Value('')),
+                                        Value(' '),
+                                        Coalesce('order_grouping__contact__first_name', Value('')),
+                                        output_field=CharField()),
+                ).distinct()
+            )
+            self.deliv_query = deliv_query.first()
+        except Exception:
+            tb = traceback.format_exc()
+            tb += f'Delivery folio: {delivery.folio}'
+            tb += f'Delivery id: {delivery.id}'
+            e_msg = 'Error: Ha ocurrido un error en el envío de correo'
+            e_msg += f'Delivery folio: {delivery.folio}'
+            e = CustomError(msg=e_msg, log=tb)
+            raise e
 
         if self.deliv_query['deliv_status_code'] != 'ISSUED':
             e_msg = 'Error: Ha ocurrido un error en el envío de correo. '
@@ -128,10 +128,10 @@ class OrderEmail(Email):
         match self.deliv_query['company_code']:
             case'BQ':
                 background = 'background-color: #4ec0a6;'
-                logo = 'bq_mailing_logo.png'
+                logo_url = 'https://firebasestorage.googleapis.com/v0/b/bioquimicacl.appspot.com/o/logos%2Fwhite_bq_logo.png?alt=media&token=8343a4cc-37ce-4c7c-b9b0-97a67166789f'
             case'TD':
                 background = 'background-image: linear-gradient(90deg,#43bdd7,#95c11f);'
-                logo = 'td_mailing_logo.png'
+                logo_url = 'https://firebasestorage.googleapis.com/v0/b/bioquimicacl.appspot.com/o/logos%2Fwhite_gs_logo.png?alt=media&token=1a0768bd-c28d-409c-9efd-f8b919b8189c'
             case _:
                 e_msg = 'Error: Ha ocurrido un error en el envío de correo. '
                 e_msg = 'No se pudo definir el color de fondo y logo'
@@ -140,7 +140,7 @@ class OrderEmail(Email):
                 raise e
         tmpl_context.update({
             'background': background,
-            'logo': os.path.relpath(path=os.path.join('app', 'img', logo))
+            'logo_url': logo_url
         })
 
         template = render_to_string(template_name=filepath_template,
