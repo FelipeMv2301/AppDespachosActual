@@ -1,5 +1,5 @@
 from django.core.handlers.wsgi import WSGIRequest
-from django.db.models import F
+from django.db.models import Count, F
 from django.http import HttpResponseNotFound, JsonResponse
 from django.views.generic.base import View
 
@@ -45,15 +45,23 @@ class OrderGroupSearchView(View):
                     'muni_code': ordr.ship_addr.muni.code,
                 }
             else:
+                group_data = (
+                    Grouping.objects
+                    .filter(id__in=[obj.id for obj in found_orders])
+                    .values('code', 'id', c=Count('code'))
+                )
+                group_data = {d['id']: d['code'] for d in group_data}
+                found_orders = [{'code': group_data[o.id],
+                                 'doc_nums': o.doc_nums}
+                                for o in found_orders]
                 if not for_deliv_form:
                     orders_data = [{
-                        'code': o.code,
-                        'doc_nums': o.doc_nums,
-                        'enabled': o.enabled
-                    } for o in found_orders if o.enabled]
+                        'code': o['code'],
+                        'doc_nums': o['doc_nums']
+                    } for o in found_orders]
                 else:
                     first_found_ordr = found_orders[0]
-                    code = first_found_ordr.code
+                    code = first_found_ordr['code']
                     orders_data = []
 
             data = {'orders': orders_data}

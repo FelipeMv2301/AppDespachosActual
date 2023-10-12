@@ -1,4 +1,5 @@
 import os
+from datetime import date
 
 from django.contrib import messages
 from django.contrib.auth.mixins import PermissionRequiredMixin
@@ -12,7 +13,8 @@ from app.delivery.forms.issue import IssueForm
 from app.delivery.models.delivery import Delivery
 from app.delivery.models.doc import Document
 from app.delivery.models.doc_type import DocumentType as DocType
-from app.delivery.models.doc_type_service import DocumentTypeService as DocTypeServ
+from app.delivery.models.doc_type_service import \
+    DocumentTypeService as DocTypeServ
 from app.delivery.models.opt import Option
 from app.delivery.models.status import Status
 from app.general.models.address import Address
@@ -22,6 +24,7 @@ from app.order.models.grouping import Grouping
 from classes.starken.delivery import Delivery as StkDeliv
 from helpers.decorator.auth import authentication
 from helpers.decorator.loggable import loggable
+from notification.email.order import OrderEmail
 
 PAGE_TITLE = 'Creación de entregas'
 
@@ -91,6 +94,8 @@ class IssueView(PermissionRequiredMixin, View):
         doc_folios = params.getlist(key='doc_folio')
         doc_types = params.getlist('doc_type')
         context['form'] = form_by_user
+        print(f)
+        print(doc_folios)
 
         # Validación de la opción de entrega
         try:
@@ -120,7 +125,7 @@ class IssueView(PermissionRequiredMixin, View):
                 .get(code=acct_code, enabled=True))
         groups = (Grouping.objects
                   .select_related('addr', 'contact')
-                  .filter(code=group_code, enabled=True))
+                  .filter(code=group_code))
         first_group = groups.first()
         addr_id = first_group.addr.id
         contact_id = first_group.contact.id
@@ -155,12 +160,12 @@ class IssueView(PermissionRequiredMixin, View):
         deliv = Delivery.objects.create(
             service_acct=acct,
             assembly_date=assy_date,
-            height=height,
-            width=width,
-            length=length,
-            weight=weight,
-            packages_qty=pack_qty,
-            valuation=valuation,
+            height=height or 0,
+            width=width or 0,
+            length=length or 0,
+            weight=weight or 0,
+            packages_qty=pack_qty or 0,
+            valuation=valuation or 0,
             status=Status.objects.get(code='NOTISSUED'),
             changed_by=user,
         )
@@ -175,20 +180,22 @@ class IssueView(PermissionRequiredMixin, View):
                                          'changed_by',
                                          'enabled'])
 
-        docs = []
-        for i, folio in enumerate(iterable=doc_folios):
-            doc_type_code = doc_types[i]
-            doc_type = DocType.objects.get(code=doc_type_code, enabled=True)
-            doc_type_serv = DocTypeServ.objects.get(service_acct=acct,
-                                                    doc_type=doc_type,
-                                                    enabled=True)
-            Document.objects.create(folio=folio,
-                                    type=doc_type,
-                                    delivery=deliv,
-                                    changed_by=user)
-            docs.append({'type': doc_type,
-                         'type_service': doc_type_serv,
-                         'folio': folio})
+        if f['doc_folio']:
+            docs = []
+            for i, folio in enumerate(iterable=doc_folios):
+                doc_type_code = doc_types[i]
+                doc_type = DocType.objects.get(code=doc_type_code,
+                                               enabled=True)
+                doc_type_serv = DocTypeServ.objects.get(service_acct=acct,
+                                                        doc_type=doc_type,
+                                                        enabled=True)
+                Document.objects.create(folio=folio,
+                                        type=doc_type,
+                                        delivery=deliv,
+                                        changed_by=user)
+                docs.append({'type': doc_type,
+                             'type_service': doc_type_serv,
+                             'folio': folio})
 
         if acct.service.code == 'STK':
             stk_deliv = StkDeliv(account=acct)
@@ -206,7 +213,6 @@ class IssueView(PermissionRequiredMixin, View):
             )
             deliv.folio = stk_deliv.folio
             deliv.rcpt_commit_date = stk_deliv.rcpt_commit_date
-            deliv.issue_date = stk_deliv.issue_date
             deliv.locked = True
             deliv.status = Status.objects.get(code='ISSUED')
             deliv.changed_by = user
@@ -214,33 +220,30 @@ class IssueView(PermissionRequiredMixin, View):
                                      model=Delivery,
                                      fields=['folio',
                                              'rcpt_commit_date',
-                                             'issue_date',
                                              'status',
                                              'changed_by',
                                              'locked'])
             messages.success(request=request,
-                             message=f'¡Emissión hecha! OT: {stk_deliv.folio}')
+                             message=('¡Emissión hecha! Orden envío: '
+                                      f'{stk_deliv.folio}'))
+            email = OrderEmail(delivery=deliv)
+            email.send()
         else:
-            pass
-        # if not form_by_user.is_valid():
-        #     context['form'] = form_by_user
-        #     messages.error(request=request,
-        #                    message='Error al guardar')
-        #     return render(request=request,
-        #                   template_name=self.template,
-        #                   context=context)
-
-        # f = form_by_user.cleaned_data
-        # ordr_doc_nums = [str(doc_num)
-        #                  for doc_num in searched_orders.split(',')]
-        # ordr_delivs = [obj for obj in OrderDelivery.query_for_delivery_review(ordr_doc_nums=ordr_doc_nums)]
-        # if not ordr_delivs:
-        #     messages.error(request=request,
-        #                    message='No se encontraron entregas asociadas')
-        # else:
-        #     context['ordr_delivs'] = ordr_delivs
-
-        # context['searched_orders'] = searched_orders
+            deliv.issue_date = date.today()
+            deliv.locked = True
+            deliv.status = Status.objects.get(code='ISSUED')
+            deliv.changed_by = user
+            bulk_update_with_history(objs=[deliv],
+                                     model=Delivery,
+                                     fields=['issue_date',
+                                             'status',
+                                             'changed_by',
+                                             'locked'])
+            messages.success(request=request,
+                             message=('¡Emissión hecha! Orden envío: '
+                                      f'{deliv.folio}'))
+            email = OrderEmail(delivery=deliv)
+            email.send()
         context['form'] = form_by_user
         return render(request=request,
                       template_name=self.template,

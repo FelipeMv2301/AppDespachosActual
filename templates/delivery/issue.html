@@ -260,6 +260,14 @@
         delivBranch: $('#{{ form.branch.id_for_label }}'),
         acct: $('#{{ form.acct.id_for_label }}'),
         groupCode: $('#{{ form.group.id_for_label }}'),
+        height: $('#{{ form.height.id_for_label }}'),
+        width: $('#{{ form.width.id_for_label }}'),
+        length: $('#{{ form.length.id_for_label }}'),
+        weight: $('#{{ form.weight.id_for_label }}'),
+        packQty: $('#{{ form.pack_qty.id_for_label }}'),
+        valuation: $('#{{ form.valuation.id_for_label }}'),
+        docType: $('#{{ form.doc_type.id_for_label }}'),
+        docFolio: $('#{{ form.doc_folio.id_for_label }}'),
     };
     
     function createListElement(orderCode, orderRef) {
@@ -330,9 +338,11 @@
                 denyButtonText: 'No',
             }).then((result) => {
                 if (result.isConfirmed) {
-                    const clonedInput = searchInput.cloneNode(true);
-                    form.appendChild(clonedInput);
-                    form.submit();
+                    loadingIcon.show('fast', function() {
+                        const clonedInput = searchInput.cloneNode(true);
+                        form.appendChild(clonedInput);
+                        form.submit();
+                    });
                 }
             })
         });
@@ -395,9 +405,6 @@
                 url: url,
                 success: function (response) {
                     const groupData = response.group;
-                    if (!groupData.enabled) {
-                        return;
-                    }
                     selects.stAndNum.val(groupData.addr_st_and_num);
                     selects.complement.val(groupData.addr_complement);
                     selects.obs.val(groupData.obs);
@@ -432,17 +439,13 @@
                             $(this).prop('selected', true);
                         }
                     });
-                    {% comment %} selects.acct.find('option').each(function () {
-                        if ($(this).val() === selectValues.acct) {
-                            $(this).prop('selected', true);
-                        }
-                    }); {% endcomment %}
                     selects.delivBranch.find('option').each(function () {
                         if ($(this).val() === groupData.branch_code) {
                             $(this).prop('selected', true);
                         }
                     });
                     searchDeliveryOption();
+                    requiredFieldsManage(groupData.carrier_code);
                 },
                 error: function () { }
             });
@@ -625,6 +628,19 @@
             }
             elem.parentElement.parentElement.parentElement.remove();
         }
+    }
+
+    function requiredFieldsManage(carrierCode) {
+        const requiredValue = carrierCode == 'STK';
+        console.log(requiredValue);
+        selects.height.prop('required', requiredValue);
+        selects.width.prop('required', requiredValue);
+        selects.length.prop('required', requiredValue);
+        selects.weight.prop('required', requiredValue);
+        selects.packQty.prop('required', requiredValue);
+        selects.valuation.prop('required', requiredValue);
+        selects.docType.prop('required', requiredValue);
+        selects.docFolio.prop('required', requiredValue);
     }
 </script>
 {% endblock %}

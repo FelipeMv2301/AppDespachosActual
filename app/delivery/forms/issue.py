@@ -1,3 +1,5 @@
+from typing import Any, Mapping
+
 from django import forms
 from django.core.validators import EmailValidator
 
@@ -192,7 +194,7 @@ class IssueForm(forms.Form):
         widget=forms.Select(
             attrs={
                 'class': 'mb-2 textfield',
-                'onchange': 'searchDeliveryOption()',
+                'onchange': 'searchDeliveryOption(); requiredFieldsManage(this.value);',
             }
         ),
         validators=[IssueValidator().validate_service],
@@ -427,3 +429,16 @@ class IssueForm(forms.Form):
         ),
         validators=[IssueValidator().validate_doc_type],
     )
+
+    def __init__(self, data: Mapping[str, Any] = None, *args, **kwargs):
+        super().__init__(data=data, *args, **kwargs)
+        if data:
+            if data.get('carrier') != 'STK':
+                self.fields['height'].required = False
+                self.fields['width'].required = False
+                self.fields['length'].required = False
+                self.fields['weight'].required = False
+                self.fields['pack_qty'].required = False
+                self.fields['valuation'].required = False
+                self.fields['doc_folio'].required = False
+                self.fields['doc_type'].required = False

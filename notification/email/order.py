@@ -32,11 +32,12 @@ class OrderEmail(Email):
         # try:
         deliv_query = (
             OrderDelivery.objects
-            .filter(delivery=delivery,
-                    order_grouping__delivery_option__type__typeservice__service_acct=delivery.service_acct,
-                    order_grouping__delivery_option__pay_type__paytypeservice__service_acct=delivery.service_acct)
+            .filter(delivery=delivery)
+                    # order_grouping__delivery_option__type__typeservice__service_acct=delivery.service_acct,
+                    # order_grouping__delivery_option__pay_type__paytypeservice__service_acct=delivery.service_acct)
             .values(
                 deliv_id=F('delivery__id'),
+                folio=F('delivery__folio'),
                 deliv_status_code=F('delivery__status__code'),
                 deliv_type_code=F('order_grouping__delivery_option__type__code'),
                 carrier_code=F('delivery__service_acct__service__code'),
@@ -45,9 +46,9 @@ class OrderEmail(Email):
                 company_code=F('delivery__service_acct__company__code'),
                 order_doc_num=F('order_grouping__order__doc_num'),
                 branch_addr=Concat('order_grouping__delivery_option__branch__addr__st_and_num',
-                                    Value(' '),
-                                    'order_grouping__delivery_option__branch__addr__complement',
-                                    output_field=CharField()),
+                                   Value(' '),
+                                   'order_grouping__delivery_option__branch__addr__complement',
+                                   output_field=CharField()),
                 branch_addr_maps_url=F('order_grouping__delivery_option__branch__addr__maps_url'),
                 branch_hours=F('order_grouping__delivery_option__branch__hours'),
                 rcpt_commit_date=F('delivery__rcpt_commit_date'),
@@ -91,9 +92,11 @@ class OrderEmail(Email):
         }
 
         self.attachs = []
-        if self.deliv_query['carrier_code'] == 'STK':
+        if (self.deliv_query['carrier_code'] == 'STK' or
+                self.deliv_query['deliv_type_code'] == 'HOMEDELIV'):
             filepath_template = 'order_shipped.html'
             tmpl_context.update({
+                'folio': self.deliv_query['folio'],
                 'carrier_name': self.deliv_query['carrier_name'],
                 'deliv_type_code': self.deliv_query['deliv_type_code'],
             })

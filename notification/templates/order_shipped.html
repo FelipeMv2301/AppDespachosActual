@@ -74,24 +74,26 @@
         <!-- Contenido -->
         <div class="content">
             <p>Hola {{ contact_name }},</p>
-            <p>Tu(s) pedido(s) con el ID <span class="order-id">{{ order_doc_num }}</span> ha sido enviado. A continuación, encontrarás los detalles:</p>
+            <p>Tu(s) pedido(s) con el ID <span class="order-id">{{ order_doc_num }}</span> ha sido enviado con la orden de transporte <span class="order-id">{{ folio }}</span>. A continuación, encontrarás los detalles:</p>
             <div class="transport-company">
                 <p><b>Empresa de transporte</b>: {{ carrier_name }}</p>
             </div>
             {% if deliv_type_code == "BRDELIV" %}
                 <div class="pickup-details">
-                    <p><b>Dirección de sucursal para retiro</b>: <a target="_blank" href="{{ branch_addr_maps_url }}">{{ branch_address }}</a></p>
+                    <p><b>Dirección de sucursal para retiro</b>: {% if branch_addr_maps_url %}<a target="_blank" href="{{ branch_addr_maps_url }}">{% endif %}{{ branch_address }}{% if branch_addr_maps_url %}</a>{% endif %}</p>
                 </div>
-                <div class="pickup-details">
-                    <p><b>Horarios de sucursal para retiro</b>: {{ branch_hours }}</p>
-                </div>
+                {% if branch_hours %}
+                    <div class="pickup-details">
+                        <p><b>Horarios de sucursal para retiro</b>: {{ branch_hours }}</p>
+                    </div>
+                {% endif %}
             {% endif %}
             {% if rcpt_commit_date %}
                 <div class="delivery-estimate">
                     <p><b>Fecha estimada de llegada</b>: {{ rcpt_commit_date |date:"l d F Y" }}</p>
                 </div>
             {% endif %}
-            {% if deliv_type_code == "HOMEDELIV" %}
+            {% if track_url %}
                 <div class="tracking-link">
                     <b><a target="_blank" href="{{ track_url }}">Seguir pedido aquí</a></b>
                 </div>

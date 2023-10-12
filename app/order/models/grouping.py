@@ -72,17 +72,22 @@ class Grouping(models.Model):
                                  *args,
                                  **kwargs) -> RawQuerySet:
         query = """
+            WITH q AS (
+                SELECT
+                    MAX(og.id) id,
+                    GROUP_CONCAT(o.doc_num) doc_nums
+                FROM
+                    order_grouping og
+                        INNER JOIN
+                    `order` o ON og.order_id = o.id
+                GROUP BY og.code
+                HAVING doc_nums LIKE '%%{ordr_doc_num}%%'
+            )
             SELECT
-                0 id,
-                og.code code,
-                GROUP_CONCAT(o.doc_num) doc_nums,
-                og.enabled enabled
-            FROM
-                order_grouping og
-                    INNER JOIN
-                `order` o ON og.order_id = o.id
-            GROUP BY og.code, og.enabled
-            HAVING doc_nums LIKE '%%{ordr_doc_num}%%';
+                MAX(q.id) id,
+                q.doc_nums doc_nums
+            FROM q
+            GROUP BY q.doc_nums
         """
         query = query.format(ordr_doc_num=ordr_doc_num)
         result = cls.objects.raw(query)
