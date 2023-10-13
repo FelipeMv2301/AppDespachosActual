@@ -46,7 +46,7 @@ class DeliveryForm(forms.Form):
                  **kwargs):
         super().__init__(*args, **kwargs)
         self.user = user
-        if can_edit_commit_date:
+        if can_edit_commit_date or can_edit_form:
             self.fields['commit_date'] = forms.DateField(
                 label='Fecha de compromiso',
                 required=True,

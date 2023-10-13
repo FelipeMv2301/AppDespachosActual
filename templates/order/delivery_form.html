@@ -21,7 +21,7 @@
     <div class="pt-3" id="selected-results"></div>
     <form hidden method="POST" action="" accept-charset="UTF-8">
         {% csrf_token %}
-        {% if can_edit_commit_date %}
+        {% if can_edit_commit_date or can_edit_form %}
             <div class="pt-5">
                 <span class="fs-5 fw-bold">Información de pedido</span>
                 <div class="form-group pt-4 d-grid">
@@ -161,11 +161,15 @@
     const searchResultsArea = document.getElementById('results');
     const selectedResultsArea = document.getElementById('selected-results');
     const selectedOrders = new Set();
+    
     var selects = {
+        {% if can_edit_commit_date or can_edit_form %}
         commitDate: $('#{{ form.commit_date.id_for_label }}'),
+        obs: $('#{{ form.obs.id_for_label }}'),
+        {% endif %}
+        {% if can_edit_form %}
         stAndNum: $('#{{ form.deliv_st_and_num.id_for_label }}'),
         complement: $('#{{ form.deliv_addr_complement.id_for_label }}'),
-        obs: $('#{{ form.obs.id_for_label }}'),
         contactFirstName: $('#{{ form.contact_first_name.id_for_label }}'),
         contactLastName: $('#{{ form.contact_last_name.id_for_label }}'),
         contactEmailAddr: $('#{{ form.contact_email_addr.id_for_label }}'),
@@ -178,6 +182,7 @@
         delivService: $('#{{ form.deliv_service.id_for_label }}'),
         delivPayType: $('#{{ form.deliv_pay_type.id_for_label }}'),
         delivBranch: $('#{{ form.branch.id_for_label }}'),
+        {% endif %}
     };
     
     function createListElement(orderId, orderRef) {
@@ -324,7 +329,10 @@
                 url: url,
                 success: function (response) {
                     const data = response.orders || response.group;
+                    {% if can_edit_commit_date or can_edit_form %}
                     selects.commitDate.val(data.updtd_commit_date);
+                    {% endif %}
+                    {% if can_edit_form %}
                     selects.stAndNum.val(data.addr_st_and_num);
                     selects.complement.val(data.addr_complement);
                     selects.contactFirstName.val(data.contact_first_name);
@@ -366,6 +374,7 @@
                         }
                     });
                     searchDeliveryOption();
+                    {% endif %}
                 },
                 error: function () { }
             });
@@ -396,6 +405,7 @@
     }
 
     function searchDeliveryOption() {
+        {% if can_edit_form %}
         const selectsCopy = { ...selects };
         const selectValues = {
             delivMuni: selectsCopy.delivMuni.val(),
@@ -488,6 +498,7 @@
             },
             error: function () { }
         });
+        {% endif %}
     };
 
     $(document).ready(function() {

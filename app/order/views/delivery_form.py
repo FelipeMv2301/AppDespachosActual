@@ -1,7 +1,6 @@
 import os
 
 from django.contrib import messages
-from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.core.handlers.wsgi import WSGIRequest
 from django.db.models import Count
 from django.shortcuts import render
@@ -19,12 +18,13 @@ from app.order.models.order import Order
 from helpers.decorator.auth import authentication
 from helpers.decorator.loggable import loggable
 from helpers.error.custom_error import CustomError
+from helpers.user.mixin import AnyPermissionRequiredMixin
 from helpers.user.permission import Permission
 
 PAGE_TITLE = 'Formulario de entrega'
 
 
-class DeliveryFormView(PermissionRequiredMixin, View):
+class DeliveryFormView(AnyPermissionRequiredMixin, View):
     template = os.path.join('order', 'delivery_form.html')
     form = DeliveryForm
     permission_required = ('order.edit_commit_date',
