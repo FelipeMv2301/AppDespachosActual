@@ -622,5 +622,20 @@ class Migration(migrations.Migration):
                 'db_table': 'auth_user_profile',
             },
         ),
+        migrations.CreateModel(
+            name='UserSession',
+            fields=[
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('start_time', models.DateTimeField(default=django.utils.timezone.now)),
+                ('end_time', models.DateTimeField(null=True)),
+                ('ip_address', models.GenericIPAddressField()),
+                ('session_key', models.CharField(max_length=100)),
+                ('session_expiration', models.DateTimeField()),
+                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+            ],
+            options={
+                'db_table': 'auth_user_session',
+            },
+        ),
         migrations.RunPython(code=forwards_func, reverse_code=reverse_func),
     ]

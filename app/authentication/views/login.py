@@ -8,7 +8,8 @@ from django.core.handlers.wsgi import WSGIRequest
 from django.shortcuts import redirect, render
 from django.views import View
 
-from app.general.models.user import UserProfile
+from app.general.models.user_profile import UserProfile
+from app.general.models.user_session import UserSession
 from helpers import globals as gb
 from helpers.decorator.loggable import loggable
 
@@ -44,6 +45,12 @@ class Login(View):
             else:
                 url = 'home'
             login(request=request, user=user)
+            UserSession.objects.create(
+                user=user,
+                ip_address=request.META.get('REMOTE_ADDR', ''),
+                session_key=request.session.session_key,
+                session_expiration=request.session.get_expiry_date(),
+            )
             return redirect(to=url)
 
         context = self.context
