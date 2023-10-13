@@ -477,7 +477,6 @@
             delivBranch: selectsCopy.delivBranch.val(),
             acct: selectsCopy.acct.val(),
         };
-        console.log(selectValues);
         var url = `{% url 'deliv_opt_search' %}?` + $.param(selectValues);
         $.ajax({
             type: 'GET',
@@ -632,7 +631,6 @@
 
     function requiredFieldsManage(carrierCode) {
         const requiredValue = carrierCode == 'STK';
-        console.log(requiredValue);
         selects.height.prop('required', requiredValue);
         selects.width.prop('required', requiredValue);
         selects.length.prop('required', requiredValue);

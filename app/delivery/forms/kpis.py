@@ -1,5 +1,6 @@
-from django import forms
 from datetime import date, timedelta
+
+from django import forms
 
 
 class DateRangeForm(forms.Form):

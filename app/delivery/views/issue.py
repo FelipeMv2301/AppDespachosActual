@@ -94,8 +94,6 @@ class IssueView(PermissionRequiredMixin, View):
         doc_folios = params.getlist(key='doc_folio')
         doc_types = params.getlist('doc_type')
         context['form'] = form_by_user
-        print(f)
-        print(doc_folios)
 
         # Validación de la opción de entrega
         try:

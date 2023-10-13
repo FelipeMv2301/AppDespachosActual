@@ -1,0 +1,265 @@
+{% extends "main.html" %}
+{% block page_title %}{{ page_title }}{% endblock %}
+{% block styles %}
+    <style>
+        table {
+            font-size: 0.85rem;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+<div class="pb-5">
+    <form method="GET" accept-charset="UTF-8">
+        <div class="pt-5">
+            <div class="form-group pt-2 d-grid">
+                <div class="row">
+                    <div class="col">
+                        {{ form.status.label_tag }}
+                        {{ form.status }}
+                        {{ form.status.errors }}
+                        <div class="pt-3" id="selected-status"></div>
+                    </div>
+                    <div class="col">
+                        {{ form.carrier.label_tag }}
+                        {{ form.carrier }}
+                        {{ form.carrier.errors }}
+                        <div class="pt-3" id="selected-carriers"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pt-5">
+            <span class="fs-5 fw-bold">Fecha de compromiso actualizada</span>
+            <div class="form-group pt-2 d-grid">
+                <div class="row">
+                    <div class="col">
+                        {{ form.updtd_commit_start_date.label_tag }}
+                        {{ form.updtd_commit_start_date }}
+                        {{ form.updtd_commit_start_date.errors }}
+                    </div>
+                    <div class="col">
+                        {{ form.updtd_commit_end_date.label_tag }}
+                        {{ form.updtd_commit_end_date }}
+                        {{ form.updtd_commit_end_date.errors }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pt-5">
+            <span class="fs-5 fw-bold">Fecha de emisión</span>
+            <div class="form-group pt-2 d-grid">
+                <div class="row">
+                    <div class="col">
+                        {{ form.issue_start_date.label_tag }}
+                        {{ form.issue_start_date }}
+                        {{ form.issue_start_date.errors }}
+                    </div>
+                    <div class="col">
+                        {{ form.issue_end_date.label_tag }}
+                        {{ form.issue_end_date }}
+                        {{ form.issue_end_date.errors }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pt-5 pb-5 text-end">
+            <button type="submit" class="greenbutton fw-bold">Buscar</button>
+            <button class="btn btn-outline-secondary right-float" type="button" onclick="exportToXLSX();">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"></path>
+                    <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"></path>
+                </svg>
+            </button>
+        </div>
+    </form>
+</div>
+<table id="myTable" class="table">
+    <thead>
+        <tr>
+        <th scope="col">#</th>
+        <th scope="col">Pedido(s)</th>
+        <th scope="col">Fecha comp. act.</th>
+        <th scope="col">Orden entrega</th>
+        <th scope="col">Vía despacho</th>
+        <th scope="col">Fecha armado</th>
+        <th scope="col">Fecha despacho</th>
+        <th scope="col">Fecha comp. ent.</th>
+        <th scope="col">Fecha recepción</th>
+        <th scope="col">Estado</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{ html_table|safe }}
+    </tbody>
+</table>
+{% endblock %}
+{% block scripts %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.1/xlsx.full.min.js"></script>
+    <script type="text/javascript">
+        const statusSelect = $('#{{ form.status.id_for_label }}');
+        const selectedStatusArea = document.getElementById('selected-status');
+        const selectedStatus = new Set();
+        const carrierSelect = $('#{{ form.carrier.id_for_label }}');
+        const selectedCarriersArea = document.getElementById('selected-carriers');
+        const selectedCarriers = new Set();
+
+        $('form').submit(function(event) {
+            // Prevenir el envío del formulario por defecto
+            event.preventDefault();
+
+            statusSelect.val('');
+            carrierSelect.val('');
+            statusSelect.prop('disabled', false);
+            carrierSelect.prop('disabled', false);
+            const statusSelectValue = Array.from(selectedStatus).join(',');
+            const carrierSelectValue = Array.from(selectedCarriers).join(',');
+            $('<input>')
+                .attr('type', 'hidden')
+                .attr('name', 'status')
+                .attr('value', statusSelectValue)
+                .appendTo(this);
+
+            $('<input>')
+                .attr('type', 'hidden')
+                .attr('name', 'carrier')
+                .attr('value', carrierSelectValue)
+                .appendTo(this);
+        
+            // Continuar con el envío del formulario
+            this.submit();
+        });
+
+        function createButtonElement(value, content, field) {
+            const button = document.createElement('button');
+            button.style.borderRadius = '30px';
+            button.type = 'button';
+            button.classList.add('greenbutton', 'align-middle', 'pe-none', 'mb-2', 'mt-2', 'ms-2');
+    
+            const span = document.createElement('span');
+            if (field == 'status') {
+                span.name = 'selected-status';
+            } else {
+                span.name = 'selected-carrier';
+            }
+            span.value = value;
+            span.textContent = content;
+    
+            const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+            svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+            svg.setAttribute('width', '16');
+            svg.setAttribute('height', '16');
+            svg.setAttribute('fill', 'currentColor');
+            svg.classList.add('bi', 'bi-x-lg', 'pe-auto');
+            svg.setAttribute('viewBox', '0 0 16 16');
+            if (field == 'status') {
+                svg.onclick = function () {
+                    removeSelectedStatus(value, this);
+                };
+            } else {
+                svg.onclick = function () {
+                    removeSelectedCarrier(value, this);
+                };
+            }
+    
+            const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+            path.setAttribute('d', 'M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z');
+    
+            svg.appendChild(path);
+    
+            button.appendChild(span);
+            button.appendChild(svg);
+    
+            return button;
+        }
+
+        statusSelect.change(function() {
+            var value = $(this).val();
+            var content = $(this).find('option:selected').text();
+            $(this).val('');
+        
+            selectStatus(value, content);
+          });
+        
+          function selectStatus(value, content) {
+            if (!selectedStatus.has(value)) {
+                selectedStatus.add(value);
+    
+                const button = createButtonElement(value, content, 'status');
+                selectedStatusArea.appendChild(button);
+            } else {
+                Swal.fire({
+                    icon: 'info',
+                    text: `El estado ${content} ya está seleccionado`,
+                });
+            }
+        }
+
+        function removeSelectedStatus(value, elem) {
+            selectedStatus.delete(value);
+            elem.parentNode.remove();
+        }
+
+        carrierSelect.change(function() {
+            var value = $(this).val();
+            var content = $(this).find('option:selected').text();
+            $(this).val('');
+        
+            selectCarrier(value, content);
+          });
+        
+          function selectCarrier(value, content) {
+            if (!selectedCarriers.has(value)) {
+                selectedCarriers.add(value);
+    
+                const button = createButtonElement(value, content, 'carrier');
+                selectedCarriersArea.appendChild(button);
+            } else {
+                Swal.fire({
+                    icon: 'info',
+                    text: `La vía ${content} ya está seleccionada`,
+                });
+            }
+        }
+
+        function removeSelectedCarrier(value, elem) {
+            selectedCarriers.delete(value);
+            elem.parentNode.remove();
+        }
+
+        function getDate() {
+            const date = new Date();
+            const options = { 
+            year: 'numeric', 
+            month: '2-digit', 
+            day: '2-digit', 
+            hour: '2-digit', 
+            minute: '2-digit', 
+            second: '2-digit' 
+            };
+            const formattedDate = new Intl.DateTimeFormat('es-ES', options).format(date).replace(/[:/]/g, '-');
+
+            return formattedDate;
+        }
+
+        function exportToXLSX() {
+            const table = document.getElementById("myTable");
+          
+            const data = [];
+            for (let i = 0; i < table.rows.length; i++) {
+              const row = [];
+              for (let j = 0; j < table.rows[i].cells.length; j++) {
+                row.push(table.rows[i].cells[j].innerText);
+              }
+              data.push(row);
+            }
+          
+            const workbook = XLSX.utils.book_new();
+            const worksheet = XLSX.utils.aoa_to_sheet(data);
+            XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
+            
+            const date = getDate();
+
+            XLSX.writeFile(workbook, `panel_entregas_${date}.xlsx`);
+        }
+    </script>
+{% endblock %}
