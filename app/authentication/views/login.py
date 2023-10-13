@@ -45,11 +45,12 @@ class Login(View):
             else:
                 url = 'home'
             login(request=request, user=user)
+            session = request.session
             UserSession.objects.create(
                 user=user,
                 ip_address=request.META.get('REMOTE_ADDR', ''),
-                session_key=request.session.session_key,
-                session_expiration=request.session.get_expiry_date(),
+                session_key=session.session_key,
+                session_expiration=session.get_expiry_date(),
             )
             return redirect(to=url)
 
