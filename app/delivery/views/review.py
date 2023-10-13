@@ -1,9 +1,9 @@
 import os
 
 from django.contrib import messages
+from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.core.handlers.wsgi import WSGIRequest
 from django.shortcuts import render
-from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.views.generic.base import View
 
 from app.delivery.forms.review import ReviewForm
