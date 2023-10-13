@@ -4,8 +4,6 @@ from simple_history.models import HistoricalRecords
 
 
 class Status(models.Model):
-    receiv_code = 'RCVD'
-
     # General
     code = models.CharField(max_length=100, unique=True)
     name = models.CharField(max_length=100)
@@ -13,8 +11,8 @@ class Status(models.Model):
     # Object tracking
     changed_by = models.ForeignKey(to='auth.User',
                                    on_delete=models.CASCADE,
-                                   related_name='delivery_status_changed_by')
-    history = HistoricalRecords(table_name='delivery_status_history')
+                                   related_name='order_status_changed_by')
+    history = HistoricalRecords(table_name='order_status_history')
     # Object timestamps
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True, null=True)
@@ -28,7 +26,7 @@ class Status(models.Model):
         self.changed_by = value
 
     class Meta:
-        db_table = 'delivery_status'
+        db_table = 'order_status'
         ordering = [
             'code',
             'name',

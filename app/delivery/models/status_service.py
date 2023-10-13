@@ -11,10 +11,13 @@ class StatusService(models.Model):
                                on_delete=models.CASCADE,
                                null=True)
     service_acct = models.ForeignKey(to='general.ServiceAccount',
-                                     on_delete=models.CASCADE)
+                                     on_delete=models.CASCADE,
+                                     related_name='delivery_status_serv_serv_acct')
     enabled = models.BooleanField(default=True)
     # Object tracking
-    changed_by = models.ForeignKey(to='auth.User', on_delete=models.CASCADE)
+    changed_by = models.ForeignKey(to='auth.User',
+                                   on_delete=models.CASCADE,
+                                   related_name='delivery_status_serv_changed_by')
     history = HistoricalRecords(table_name='delivery_status_service_history')
     # Object timestamps
     created_at = models.DateTimeField(default=timezone.now)

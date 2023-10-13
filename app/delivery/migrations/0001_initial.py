@@ -109,7 +109,7 @@ class Migration(migrations.Migration):
                 ('enabled', models.BooleanField(default=True)),
                 ('created_at', models.DateTimeField(default=django.utils.timezone.now)),
                 ('updated_at', models.DateTimeField(auto_now=True, null=True)),
-                ('changed_by', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                ('changed_by', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL, related_name='delivery_status_changed_by')),
             ],
             options={
                 'db_table': 'delivery_status',
@@ -159,8 +159,8 @@ class Migration(migrations.Migration):
                 ('enabled', models.BooleanField(default=True)),
                 ('created_at', models.DateTimeField(default=django.utils.timezone.now)),
                 ('updated_at', models.DateTimeField(auto_now=True, null=True)),
-                ('changed_by', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
-                ('service_acct', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='general.serviceaccount')),
+                ('changed_by', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL, related_name='delivery_status_serv_changed_by')),
+                ('service_acct', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='general.serviceaccount', related_name='delivery_status_serv_serv_acct')),
                 ('status', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='delivery.status')),
             ],
             options={

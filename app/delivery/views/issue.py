@@ -20,6 +20,7 @@ from app.delivery.models.status import Status
 from app.general.models.address import Address
 from app.general.models.muni import Muni
 from app.general.models.service_account import ServiceAccount
+from app.order.models.delivery import OrderDelivery
 from app.order.models.grouping import Grouping
 from classes.starken.delivery import Delivery as StkDeliv
 from helpers.decorator.auth import authentication
@@ -68,7 +69,6 @@ class IssueView(PermissionRequiredMixin, View):
                           template_name=self.template,
                           context=context)
         f = form_by_user.cleaned_data
-        searched_orders = f['orders']
         group_code = f['group']
         acct_code = f['acct']
         contact_first_name = f['contact_first_name']
@@ -122,8 +122,32 @@ class IssueView(PermissionRequiredMixin, View):
                 .select_related('service')
                 .get(code=acct_code, enabled=True))
         groups = (Grouping.objects
-                  .select_related('addr', 'contact')
+                  .select_related('order',
+                                  'delivery_option',
+                                  'addr',
+                                  'customer',
+                                  'contact')
                   .filter(code=group_code))
+        ordr_deliv = (OrderDelivery.objects
+                      .filter(order_grouping=groups.first()))
+        if ordr_deliv.exists():
+            new_groups = []
+            new_groups_code = Grouping.new_code()
+            for orig_group in groups:
+                new_groups.append(
+                    Grouping.objects.create(
+                        code=new_groups_code,
+                        order=orig_group.order,
+                        delivery_option=orig_group.delivery_option,
+                        addr=orig_group.addr,
+                        customer=orig_group.customer,
+                        contact=orig_group.contact,
+                        deliv_obs=orig_group.deliv_obs,
+                        changed_by=user,
+                    )
+                )
+            groups = new_groups
+
         first_group = groups.first()
         addr_id = first_group.addr.id
         contact_id = first_group.contact.id

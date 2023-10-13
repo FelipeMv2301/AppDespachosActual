@@ -1,0 +1,74 @@
+[
+{
+    "model": "delivery.statusservice",
+    "pk": 1,
+    "fields": {
+        "code": "O",
+        "name": "Abierto",
+        "status": 1,
+        "service_acct": 3,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 2,
+    "fields": {
+        "code": "C",
+        "name": "Cerrado",
+        "status": 2,
+        "service_acct": 3,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 3,
+    "fields": {
+        "code": "CAN",
+        "name": "Cancelado",
+        "status": 3,
+        "service_acct": 3,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 4,
+    "fields": {
+        "code": "O",
+        "name": "Abierto",
+        "status": 1,
+        "service_acct": 5,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 5,
+    "fields": {
+        "code": "C",
+        "name": "Cerrado",
+        "status": 2,
+        "service_acct": 5,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 6,
+    "fields": {
+        "code": "CAN",
+        "name": "Cancelado",
+        "status": 3,
+        "service_acct": 5,
+        "enabled": true,
+        "changed_by": 1
+    }
+}
+]

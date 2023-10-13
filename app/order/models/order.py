@@ -42,6 +42,9 @@ class Order(models.Model):
     local_total_amt = models.IntegerField()
     doc_total_amt = models.IntegerField()
     # Status
+    status = models.ForeignKey(to='order.Status',
+                               on_delete=models.CASCADE,
+                               null=True)
     enabled = models.BooleanField(default=True)
     # Observations
     obs = models.TextField()
@@ -85,6 +88,7 @@ class Order(models.Model):
             'doc_total_tax',
             'local_total_amt',
             'doc_total_amt',
+            'status',
             'enabled',
             'obs',
             'changed_by',

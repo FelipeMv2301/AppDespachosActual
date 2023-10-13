@@ -1,0 +1,33 @@
+[
+    {
+        "model": "delivery.status",
+        "pk": 1,
+        "fields": {
+            "code": "OPEN",
+            "name": "Abierto",
+            "enabled": true,
+            "changed_by": 1
+        }
+    },
+    {
+        "model": "delivery.status",
+        "pk": 2,
+        "fields": {
+            "code": "CLOSE",
+            "name": "Cerrado",
+            "enabled": true,
+            "changed_by": 1
+        }
+    },
+    {
+        "model": "delivery.status",
+        "pk": 3,
+        "fields": {
+            "code": "CANCEL",
+            "name": "Cancelado",
+            "enabled": true,
+            "changed_by": 1
+        }
+    }
+]
+    

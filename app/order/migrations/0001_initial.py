@@ -17,6 +17,8 @@ def forwards_func(apps, schema_editor):
     data_file_names = [
         'sale_channel.json',
         'sale_channel_service.json',
+        'status.json',
+        'status_service.json',
     ]
     for filename in data_file_names:
         call_command('loaddata', os.path.join(data_path, filename))
@@ -38,6 +40,92 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
+        migrations.CreateModel(
+            name='Status',
+            fields=[
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('code', models.CharField(max_length=100, unique=True)),
+                ('name', models.CharField(max_length=100)),
+                ('enabled', models.BooleanField(default=True)),
+                ('created_at', models.DateTimeField(default=django.utils.timezone.now)),
+                ('updated_at', models.DateTimeField(auto_now=True, null=True)),
+                ('changed_by', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='order_status_changed_by', to=settings.AUTH_USER_MODEL)),
+            ],
+            options={
+                'db_table': 'order_status',
+                'ordering': ['code', 'name', 'enabled', 'changed_by', 'created_at', 'updated_at'],
+            },
+        ),
+        migrations.CreateModel(
+            name='StatusService',
+            fields=[
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('code', models.CharField(max_length=100)),
+                ('name', models.CharField(max_length=100)),
+                ('enabled', models.BooleanField(default=True)),
+                ('created_at', models.DateTimeField(default=django.utils.timezone.now)),
+                ('updated_at', models.DateTimeField(auto_now=True, null=True)),
+                ('changed_by', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='order_status_serv_changed_by', to=settings.AUTH_USER_MODEL)),
+                ('service_acct', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='order_status_serv_serv_acct', to='general.serviceaccount')),
+                ('status', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='order.status')),
+            ],
+            options={
+                'db_table': 'order_status_service',
+                'ordering': ['code', 'name', 'status', 'service_acct', 'enabled', 'changed_by', 'created_at', 'updated_at'],
+            },
+        ),
+        migrations.CreateModel(
+            name='HistoricalStatusService',
+            fields=[
+                ('id', models.BigIntegerField(auto_created=True, blank=True, db_index=True, verbose_name='ID')),
+                ('code', models.CharField(max_length=100)),
+                ('name', models.CharField(max_length=100)),
+                ('enabled', models.BooleanField(default=True)),
+                ('created_at', models.DateTimeField(default=django.utils.timezone.now)),
+                ('updated_at', models.DateTimeField(blank=True, editable=False, null=True)),
+                ('history_id', models.AutoField(primary_key=True, serialize=False)),
+                ('history_date', models.DateTimeField(db_index=True)),
+                ('history_change_reason', models.CharField(max_length=100, null=True)),
+                ('history_type', models.CharField(choices=[('+', 'Created'), ('~', 'Changed'), ('-', 'Deleted')], max_length=1)),
+                ('changed_by', models.ForeignKey(blank=True, db_constraint=False, null=True, on_delete=django.db.models.deletion.DO_NOTHING, related_name='+', to=settings.AUTH_USER_MODEL)),
+                ('history_user', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='+', to=settings.AUTH_USER_MODEL)),
+                ('service_acct', models.ForeignKey(blank=True, db_constraint=False, null=True, on_delete=django.db.models.deletion.DO_NOTHING, related_name='+', to='general.serviceaccount')),
+                ('status', models.ForeignKey(blank=True, db_constraint=False, null=True, on_delete=django.db.models.deletion.DO_NOTHING, related_name='+', to='order.status')),
+            ],
+            options={
+                'verbose_name': 'historical status service',
+                'verbose_name_plural': 'historical status services',
+                'db_table': 'order_status_service_history',
+                'ordering': ('-history_date', '-history_id'),
+                'get_latest_by': ('history_date', 'history_id'),
+            },
+            bases=(simple_history.models.HistoricalChanges, models.Model),
+        ),
+        migrations.CreateModel(
+            name='HistoricalStatus',
+            fields=[
+                ('id', models.BigIntegerField(auto_created=True, blank=True, db_index=True, verbose_name='ID')),
+                ('code', models.CharField(db_index=True, max_length=100)),
+                ('name', models.CharField(max_length=100)),
+                ('enabled', models.BooleanField(default=True)),
+                ('created_at', models.DateTimeField(default=django.utils.timezone.now)),
+                ('updated_at', models.DateTimeField(blank=True, editable=False, null=True)),
+                ('history_id', models.AutoField(primary_key=True, serialize=False)),
+                ('history_date', models.DateTimeField(db_index=True)),
+                ('history_change_reason', models.CharField(max_length=100, null=True)),
+                ('history_type', models.CharField(choices=[('+', 'Created'), ('~', 'Changed'), ('-', 'Deleted')], max_length=1)),
+                ('changed_by', models.ForeignKey(blank=True, db_constraint=False, null=True, on_delete=django.db.models.deletion.DO_NOTHING, related_name='+', to=settings.AUTH_USER_MODEL)),
+                ('history_user', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='+', to=settings.AUTH_USER_MODEL)),
+            ],
+            options={
+                'verbose_name': 'historical status',
+                'verbose_name_plural': 'historical statuss',
+                'db_table': 'order_status_history',
+                'ordering': ('-history_date', '-history_id'),
+                'get_latest_by': ('history_date', 'history_id'),
+            },
+            bases=(simple_history.models.HistoricalChanges, models.Model),
+        ),
         migrations.CreateModel(
             name='Grouping',
             fields=[
@@ -123,6 +211,7 @@ class Migration(migrations.Migration):
                 ('doc_total_tax', models.IntegerField()),
                 ('local_total_amt', models.IntegerField()),
                 ('doc_total_amt', models.IntegerField()),
+                ('status', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='order.status')),
                 ('enabled', models.BooleanField(default=True)),
                 ('obs', models.TextField()),
                 ('created_at', models.DateTimeField(default=django.utils.timezone.now)),
@@ -138,7 +227,7 @@ class Migration(migrations.Migration):
             ],
             options={
                 'db_table': 'order',
-                'ordering': ['doc_num', 'reference', 'currency', 'web_order_ref', 'sale_channel', 'seller', 'create_date', 'tax_date', 'commit_date', 'updtd_commit_date', 'ship_addr', 'bill_addr', 'customer', 'contact', 'local_total_dcnt', 'doc_total_dcnt', 'local_total_tax', 'doc_total_tax', 'local_total_amt', 'doc_total_amt', 'enabled', 'obs', 'changed_by', 'created_at', 'updated_at'],
+                'ordering': ['doc_num', 'reference', 'currency', 'web_order_ref', 'sale_channel', 'seller', 'create_date', 'tax_date', 'commit_date', 'updtd_commit_date', 'ship_addr', 'bill_addr', 'customer', 'contact', 'local_total_dcnt', 'doc_total_dcnt', 'local_total_tax', 'doc_total_tax', 'local_total_amt', 'doc_total_amt', 'status', 'enabled', 'obs', 'changed_by', 'created_at', 'updated_at'],
                 'permissions': [('edit_all_order_delivery_form', 'Can edit all order delivery form fields'), ('edit_commit_date', 'Can edit the order commitment date field')],
             },
         ),
@@ -212,6 +301,7 @@ class Migration(migrations.Migration):
                 ('doc_total_tax', models.IntegerField()),
                 ('local_total_amt', models.IntegerField()),
                 ('doc_total_amt', models.IntegerField()),
+                ('status', models.ForeignKey(blank=True, db_constraint=False, null=True, on_delete=django.db.models.deletion.DO_NOTHING, related_name='+', to='order.status')),
                 ('enabled', models.BooleanField(default=True)),
                 ('obs', models.TextField()),
                 ('created_at', models.DateTimeField(default=django.utils.timezone.now)),

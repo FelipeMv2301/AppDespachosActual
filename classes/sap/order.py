@@ -18,6 +18,7 @@ from app.general.models.muni_service import MuniService
 from app.general.models.service_account import ServiceAccount
 from app.order.models.order import Order as OrderMdl
 from app.order.models.sale_channel_service import SaleChannelService
+from app.order.models.status_service import StatusService
 from classes.sap.sap import Sap
 from config.settings.base import APP_USERNAME
 from helpers.decorator.loggable import loggable
@@ -73,6 +74,7 @@ class Order(Sap):
         type_mdl = TypeService
         ccy_mdl = CurrencyService
         sale_channel_mdl = SaleChannelService
+        status_mdl = StatusService
         employee_mdl = EmployeeService
         muni_mdl = MuniService
 
@@ -99,7 +101,7 @@ class Order(Sap):
             local_total_tax = ordr_info['VatSum']
             sys_total_tax = ordr_info['VatSumSys']
             total_dcnt = ordr_info['TotalDiscount']
-            status = ordr_info['DocumentStatus']
+            status_code = ordr_info['DocumentStatus']
             cancel_status = ordr_info['Cancelled']
 
             # Extraction of order address information
@@ -199,6 +201,29 @@ class Order(Sap):
             if not sale_channel:
                 e_msg = 'Error: sale channel code '
                 e_msg += f'\'{sale_channel_code}\' has no equivalence'
+                e_msg += f'\nOrder: {doc_num}'
+                CustomError(msg=e_msg)
+                continue
+
+            # validation of status existence (by code) in model
+            if cancel_status == 'Y':
+                status_code = 'CAN'
+            try:
+                status = (status_mdl.objects
+                          .get(code=status_code,
+                               service_acct=self.serv_account))
+            except status_mdl.DoesNotExist:
+                e_msg = 'Error: status code '
+                e_msg += f'\'{status_code}\' does not exist'
+                e_msg += f'\nOrder: {doc_num}'
+                CustomError(msg=e_msg)
+                continue
+
+            # validation of existence of equivalence for SAP status
+            status = status.status
+            if not status_code:
+                e_msg = 'Error: status code '
+                e_msg += f'\'{status_code}\' has no equivalence'
                 e_msg += f'\nOrder: {doc_num}'
                 CustomError(msg=e_msg)
                 continue
