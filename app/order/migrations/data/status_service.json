@@ -1,6 +1,6 @@
 [
 {
-    "model": "delivery.statusservice",
+    "model": "order.statusservice",
     "pk": 1,
     "fields": {
         "code": "O",
@@ -12,7 +12,7 @@
     }
 },
 {
-    "model": "delivery.statusservice",
+    "model": "order.statusservice",
     "pk": 2,
     "fields": {
         "code": "C",
@@ -24,7 +24,7 @@
     }
 },
 {
-    "model": "delivery.statusservice",
+    "model": "order.statusservice",
     "pk": 3,
     "fields": {
         "code": "CAN",
@@ -36,7 +36,7 @@
     }
 },
 {
-    "model": "delivery.statusservice",
+    "model": "order.statusservice",
     "pk": 4,
     "fields": {
         "code": "O",
@@ -48,7 +48,7 @@
     }
 },
 {
-    "model": "delivery.statusservice",
+    "model": "order.statusservice",
     "pk": 5,
     "fields": {
         "code": "C",
@@ -60,7 +60,7 @@
     }
 },
 {
-    "model": "delivery.statusservice",
+    "model": "order.statusservice",
     "pk": 6,
     "fields": {
         "code": "CAN",

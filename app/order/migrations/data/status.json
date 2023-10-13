@@ -1,6 +1,6 @@
 [
     {
-        "model": "delivery.status",
+        "model": "order.status",
         "pk": 1,
         "fields": {
             "code": "OPEN",
@@ -10,7 +10,7 @@
         }
     },
     {
-        "model": "delivery.status",
+        "model": "order.status",
         "pk": 2,
         "fields": {
             "code": "CLOSE",
@@ -20,7 +20,7 @@
         }
     },
     {
-        "model": "delivery.status",
+        "model": "order.status",
         "pk": 3,
         "fields": {
             "code": "CANCEL",
