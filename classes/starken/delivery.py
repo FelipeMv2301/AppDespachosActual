@@ -50,7 +50,6 @@ class Delivery(Starken):
         mdl = DelivMdl
         status_mdl = StatusService
         user_obj = User.objects.get(username=APP_USERNAME)
-        carrier = self.serv_account.service
 
         delivs = mdl.objects.filter(service_acct=self.serv_account)
         status = status_mdl.objects.filter(service_acct=self.serv_account)
@@ -84,21 +83,6 @@ class Delivery(Starken):
                 continue
             try:
                 status_obj = status[status_id]
-                status_name = status_obj.name
-                # if status_desc != status_name:
-                #     status_obj.name = status_desc
-                #     status_obj.changed_by = user_obj
-                #     try:
-                #         bulk_update_with_history(objs=[status_obj],
-                #                                  model=status_mdl,
-                #                                  fields=['name', 'changed_by'])
-                #     except Exception:
-                #         tb = traceback.format_exc()
-                #         tb += f'Folio: {self.folio}'
-                #         e_msg = f'Error: {UNEXP_ERROR}'
-                #         e_msg += f'\nFolio: {self.folio}'
-                #         CustomError(msg=e_msg, log=tb)
-                #         continue
             except KeyError:
                 status_obj = status_mdl(
                     code=status_id,
@@ -125,7 +109,7 @@ class Delivery(Starken):
                 if status_obj.status.code == Status.receiv_code:
                     deliv.rcpt_date = update_date
                     fields_to_upd.append('rcpt_date')
-            deliv.service_status = status_desc
+            deliv.service_status = status_obj
             deliv.changed_by = user_obj
             try:
                 bulk_update_with_history(objs=[deliv],

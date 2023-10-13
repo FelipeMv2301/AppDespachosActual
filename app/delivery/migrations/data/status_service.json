@@ -3,9 +3,9 @@
     "model": "delivery.statusservice",
     "pk": 1,
     "fields": {
-        "code": "1",
-        "name": "ENTREGADO",
-        "status": 2,
+        "code": "9",
+        "name": "Camino al domicilio",
+        "status": null,
         "service_acct": 1,
         "enabled": true,
         "changed_by": 1
@@ -16,7 +16,7 @@
     "pk": 2,
     "fields": {
         "code": "7",
-        "name": "PENDIENTE ENTREGA",
+        "name": "En sucursal de destino",
         "status": null,
         "service_acct": 1,
         "enabled": true,
@@ -27,8 +27,8 @@
     "model": "delivery.statusservice",
     "pk": 3,
     "fields": {
-        "code": "10",
-        "name": "PENDIENTE ENTREGA C. EXCEPCION",
+        "code": "23",
+        "name": "En sucursal de destino",
         "status": null,
         "service_acct": 1,
         "enabled": true,
@@ -39,9 +39,9 @@
     "model": "delivery.statusservice",
     "pk": 4,
     "fields": {
-        "code": "11",
-        "name": "CERRADO CON EXCEPCION",
-        "status": 4,
+        "code": "24",
+        "name": "En sucursal de destino",
+        "status": null,
         "service_acct": 1,
         "enabled": true,
         "changed_by": 1
@@ -51,8 +51,8 @@
     "model": "delivery.statusservice",
     "pk": 5,
     "fields": {
-        "code": "13",
-        "name": "REDESTINADO",
+        "code": "16",
+        "name": "En sucursal de destino",
         "status": null,
         "service_acct": 1,
         "enabled": true,
@@ -63,23 +63,22 @@
     "model": "delivery.statusservice",
     "pk": 6,
     "fields": {
-        "code": "15",
-        "name": "ANULADO",
-        "status": 3,
+        "code": "5",
+        "name": "En tránsito",
+        "status": null,
         "service_acct": 1,
         "enabled": true,
         "changed_by": 1
     }
 },
-
 {
     "model": "delivery.statusservice",
     "pk": 7,
     "fields": {
-        "code": "1",
-        "name": "ENTREGADO",
-        "status": 2,
-        "service_acct": 2,
+        "code": "6",
+        "name": "En tránsito",
+        "status": null,
+        "service_acct": 1,
         "enabled": true,
         "changed_by": 1
     }
@@ -88,10 +87,10 @@
     "model": "delivery.statusservice",
     "pk": 8,
     "fields": {
-        "code": "7",
-        "name": "PENDIENTE ENTREGA",
+        "code": "18",
+        "name": "En tránsito",
         "status": null,
-        "service_acct": 2,
+        "service_acct": 1,
         "enabled": true,
         "changed_by": 1
     }
@@ -100,10 +99,10 @@
     "model": "delivery.statusservice",
     "pk": 9,
     "fields": {
-        "code": "10",
-        "name": "PENDIENTE ENTREGA C. EXCEPCION",
+        "code": "20",
+        "name": "En tránsito",
         "status": null,
-        "service_acct": 2,
+        "service_acct": 1,
         "enabled": true,
         "changed_by": 1
     }
@@ -112,10 +111,10 @@
     "model": "delivery.statusservice",
     "pk": 10,
     "fields": {
-        "code": "11",
-        "name": "CERRADO CON EXCEPCION",
-        "status": 4,
-        "service_acct": 2,
+        "code": "21",
+        "name": "En tránsito",
+        "status": null,
+        "service_acct": 1,
         "enabled": true,
         "changed_by": 1
     }
@@ -124,10 +123,10 @@
     "model": "delivery.statusservice",
     "pk": 11,
     "fields": {
-        "code": "13",
-        "name": "REDESTINADO",
+        "code": "2",
+        "name": "En tránsito",
         "status": null,
-        "service_acct": 2,
+        "service_acct": 1,
         "enabled": true,
         "changed_by": 1
     }
@@ -136,9 +135,609 @@
     "model": "delivery.statusservice",
     "pk": 12,
     "fields": {
+        "code": "17",
+        "name": "En tránsito",
+        "status": null,
+        "service_acct": 1,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 13,
+    "fields": {
+        "code": "28",
+        "name": "En tránsito",
+        "status": null,
+        "service_acct": 1,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 14,
+    "fields": {
+        "code": "13",
+        "name": "En tránsito",
+        "status": null,
+        "service_acct": 1,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 15,
+    "fields": {
+        "code": "25",
+        "name": "Entrega no concretada",
+        "status": null,
+        "service_acct": 1,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 16,
+    "fields": {
+        "code": "10",
+        "name": "Entrega no concretada",
+        "status": null,
+        "service_acct": 1,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 17,
+    "fields": {
+        "code": "26",
+        "name": "Entrega no concretada",
+        "status": null,
+        "service_acct": 1,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 18,
+    "fields": {
+        "code": "27",
+        "name": "Entrega no concretada",
+        "status": null,
+        "service_acct": 1,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 19,
+    "fields": {
+        "code": "11",
+        "name": "Entrega no concretada",
+        "status": null,
+        "service_acct": 1,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 20,
+    "fields": {
+        "code": "12",
+        "name": "Entrega no concretada",
+        "status": null,
+        "service_acct": 1,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 21,
+    "fields": {
+        "code": "14",
+        "name": "Entrega no concretada",
+        "status": null,
+        "service_acct": 1,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 22,
+    "fields": {
         "code": "15",
-        "name": "ANULADO",
-        "status": 3,
+        "name": "Entrega no concretada",
+        "status": null,
+        "service_acct": 1,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 23,
+    "fields": {
+        "code": "30",
+        "name": "Entregado",
+        "status": 2,
+        "service_acct": 1,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 24,
+    "fields": {
+        "code": "1",
+        "name": "Entregado",
+        "status": 2,
+        "service_acct": 1,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 25,
+    "fields": {
+        "code": "32",
+        "name": "Entregado",
+        "status": 2,
+        "service_acct": 1,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 26,
+    "fields": {
+        "code": "22",
+        "name": "Preparando la Entrega",
+        "status": null,
+        "service_acct": 1,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 27,
+    "fields": {
+        "code": "8",
+        "name": "Preparando la Entrega",
+        "status": null,
+        "service_acct": 1,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 28,
+    "fields": {
+        "code": "3",
+        "name": "Recepcionado por Starken",
+        "status": null,
+        "service_acct": 1,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 29,
+    "fields": {
+        "code": "4",
+        "name": "Recepcionado por Starken",
+        "status": null,
+        "service_acct": 1,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 30,
+    "fields": {
+        "code": "19",
+        "name": "Recepcionado por Starken",
+        "status": null,
+        "service_acct": 1,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 31,
+    "fields": {
+        "code": "31",
+        "name": "Recepcionado por Starken",
+        "status": null,
+        "service_acct": 1,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 32,
+    "fields": {
+        "code": "9",
+        "name": "Camino al domicilio",
+        "status": null,
+        "service_acct": 2,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 33,
+    "fields": {
+        "code": "7",
+        "name": "En sucursal de destino",
+        "status": null,
+        "service_acct": 2,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 34,
+    "fields": {
+        "code": "23",
+        "name": "En sucursal de destino",
+        "status": null,
+        "service_acct": 2,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 35,
+    "fields": {
+        "code": "24",
+        "name": "En sucursal de destino",
+        "status": null,
+        "service_acct": 2,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 36,
+    "fields": {
+        "code": "16",
+        "name": "En sucursal de destino",
+        "status": null,
+        "service_acct": 2,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 37,
+    "fields": {
+        "code": "5",
+        "name": "En tránsito",
+        "status": null,
+        "service_acct": 2,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 38,
+    "fields": {
+        "code": "6",
+        "name": "En tránsito",
+        "status": null,
+        "service_acct": 2,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 39,
+    "fields": {
+        "code": "18",
+        "name": "En tránsito",
+        "status": null,
+        "service_acct": 2,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 40,
+    "fields": {
+        "code": "20",
+        "name": "En tránsito",
+        "status": null,
+        "service_acct": 2,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 41,
+    "fields": {
+        "code": "21",
+        "name": "En tránsito",
+        "status": null,
+        "service_acct": 2,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 42,
+    "fields": {
+        "code": "2",
+        "name": "En tránsito",
+        "status": null,
+        "service_acct": 2,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 43,
+    "fields": {
+        "code": "17",
+        "name": "En tránsito",
+        "status": null,
+        "service_acct": 2,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 44,
+    "fields": {
+        "code": "28",
+        "name": "En tránsito",
+        "status": null,
+        "service_acct": 2,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 45,
+    "fields": {
+        "code": "13",
+        "name": "En tránsito",
+        "status": null,
+        "service_acct": 2,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 46,
+    "fields": {
+        "code": "25",
+        "name": "Entrega no concretada",
+        "status": null,
+        "service_acct": 2,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 47,
+    "fields": {
+        "code": "10",
+        "name": "Entrega no concretada",
+        "status": null,
+        "service_acct": 2,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 48,
+    "fields": {
+        "code": "26",
+        "name": "Entrega no concretada",
+        "status": null,
+        "service_acct": 2,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 49,
+    "fields": {
+        "code": "27",
+        "name": "Entrega no concretada",
+        "status": null,
+        "service_acct": 2,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 50,
+    "fields": {
+        "code": "11",
+        "name": "Entrega no concretada",
+        "status": null,
+        "service_acct": 2,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 51,
+    "fields": {
+        "code": "12",
+        "name": "Entrega no concretada",
+        "status": null,
+        "service_acct": 2,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 52,
+    "fields": {
+        "code": "14",
+        "name": "Entrega no concretada",
+        "status": null,
+        "service_acct": 2,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 53,
+    "fields": {
+        "code": "15",
+        "name": "Entrega no concretada",
+        "status": null,
+        "service_acct": 2,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 54,
+    "fields": {
+        "code": "30",
+        "name": "Entregado",
+        "status": 2,
+        "service_acct": 2,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 55,
+    "fields": {
+        "code": "1",
+        "name": "Entregado",
+        "status": 2,
+        "service_acct": 2,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 56,
+    "fields": {
+        "code": "32",
+        "name": "Entregado",
+        "status": 2,
+        "service_acct": 2,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 57,
+    "fields": {
+        "code": "22",
+        "name": "Preparando la Entrega",
+        "status": null,
+        "service_acct": 2,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 58,
+    "fields": {
+        "code": "8",
+        "name": "Preparando la Entrega",
+        "status": null,
+        "service_acct": 2,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 59,
+    "fields": {
+        "code": "3",
+        "name": "Recepcionado por Starken",
+        "status": null,
+        "service_acct": 2,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 60,
+    "fields": {
+        "code": "4",
+        "name": "Recepcionado por Starken",
+        "status": null,
+        "service_acct": 2,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 61,
+    "fields": {
+        "code": "19",
+        "name": "Recepcionado por Starken",
+        "status": null,
+        "service_acct": 2,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.statusservice",
+    "pk": 62,
+    "fields": {
+        "code": "31",
+        "name": "Recepcionado por Starken",
+        "status": null,
         "service_acct": 2,
         "enabled": true,
         "changed_by": 1

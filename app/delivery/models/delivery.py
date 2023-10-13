@@ -149,7 +149,7 @@ class Delivery(models.Model):
                     d.issue_date AS issue_date,
                     d.is_complete AS is_complete,
                     status.name AS status_name,
-                    d.service_status AS status_serv_name,
+                    status_serv.name AS status_serv_name,
                     dt.name AS deliv_type_name,
                     serv.name AS service_name,
                     muni.name AS muni_name,
@@ -159,7 +159,8 @@ class Delivery(models.Model):
                     og.deliv_obs AS deliv_obs,
                     ROW_NUMBER() OVER(PARTITION BY ordr.doc_num ORDER BY d.created_at) AS row_num
                 FROM delivery d
-                    INNER JOIN delivery_status status ON d.status_id = status.id
+                    LEFT JOIN delivery_status status ON d.status_id = status.id
+                    LEFT JOIN delivery_status_service status_serv ON d.status_service_id = status_serv.id
                     INNER JOIN order_delivery od ON d.id = od.delivery_id
                     INNER JOIN order_grouping og ON od.order_grouping_id = og.id
                     INNER JOIN address addr ON og.addr_id = addr.id

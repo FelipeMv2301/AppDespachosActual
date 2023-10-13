@@ -39,7 +39,7 @@ class OrderDelivery(models.Model):
                 dst.name status,
                 dst.code status_code,
                 d.locked locked,
-                d.service_status serv_status,
+                dstserv.name serv_status,
                 CASE
                     WHEN d.from_mito IS TRUE THEN 'App Mitocondria'
                     ELSE 'App'
@@ -60,6 +60,8 @@ class OrderDelivery(models.Model):
                 delivery d ON od.delivery_id = d.id
                     LEFT JOIN
                 delivery_status dst ON d.status_id = dst.id
+                    LEFT JOIN
+                delivery_status_service dstserv ON d.status_service_id = dstserv.id
                     LEFT JOIN
                 order_grouping og ON od.order_grouping_id = og.id
                     LEFT JOIN
