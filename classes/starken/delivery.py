@@ -85,20 +85,20 @@ class Delivery(Starken):
             try:
                 status_obj = status[status_id]
                 status_name = status_obj.name
-                if status_desc != status_name:
-                    status_obj.name = status_desc
-                    status_obj.changed_by = user_obj
-                    try:
-                        bulk_update_with_history(objs=[status_obj],
-                                                 model=status_mdl,
-                                                 fields=['name', 'changed_by'])
-                    except Exception:
-                        tb = traceback.format_exc()
-                        tb += f'Folio: {self.folio}'
-                        e_msg = f'Error: {UNEXP_ERROR}'
-                        e_msg += f'\nFolio: {self.folio}'
-                        CustomError(msg=e_msg, log=tb)
-                        continue
+                # if status_desc != status_name:
+                #     status_obj.name = status_desc
+                #     status_obj.changed_by = user_obj
+                #     try:
+                #         bulk_update_with_history(objs=[status_obj],
+                #                                  model=status_mdl,
+                #                                  fields=['name', 'changed_by'])
+                #     except Exception:
+                #         tb = traceback.format_exc()
+                #         tb += f'Folio: {self.folio}'
+                #         e_msg = f'Error: {UNEXP_ERROR}'
+                #         e_msg += f'\nFolio: {self.folio}'
+                #         CustomError(msg=e_msg, log=tb)
+                #         continue
             except KeyError:
                 status_obj = status_mdl(
                     code=status_id,

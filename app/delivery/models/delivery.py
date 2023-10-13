@@ -47,7 +47,9 @@ class Delivery(models.Model):
     status = models.ForeignKey(to='delivery.Status',
                                on_delete=models.CASCADE,
                                null=True)
-    service_status = models.CharField(max_length=100, null=True)
+    service_status = models.ForeignKey(to='delivery.StatusService',
+                                       on_delete=models.CASCADE,
+                                       null=True)
     is_complete = models.BooleanField(default=True)
     locked = models.BooleanField(default=False)
     # Mitocondria info

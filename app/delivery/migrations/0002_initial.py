@@ -60,6 +60,11 @@ class Migration(migrations.Migration):
             field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='delivery.status'),
         ),
         migrations.AddField(
+            model_name='delivery',
+            name='service_status',
+            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='delivery.statusservice'),
+        ),
+        migrations.AddField(
             model_name='branch',
             name='addr',
             field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='general.address'),
