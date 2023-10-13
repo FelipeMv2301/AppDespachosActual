@@ -199,6 +199,18 @@ class IssueForm(forms.Form):
         ),
         validators=[IssueValidator().validate_service],
     )
+    is_complete = forms.ChoiceField(
+        label='¿Envío completo?',
+        required=True,
+        disabled=False,
+        initial='Y',
+        choices=(('Y', 'Sí'), ('N', 'No')),
+        widget=forms.Select(
+            attrs={
+                'class': 'mb-2 textfield',
+            }
+        ),
+    )
     deliv_type = forms.ChoiceField(
         label='Tipo de entrega',
         required=True,

@@ -91,6 +91,7 @@ class IssueView(PermissionRequiredMixin, View):
         weight = f['weight']
         pack_qty = f['pack_qty']
         valuation = f['valuation']
+        is_complete = f['is_complete'] == 'Y'
         doc_folios = params.getlist(key='doc_folio')
         doc_types = params.getlist('doc_type')
         context['form'] = form_by_user
@@ -189,6 +190,7 @@ class IssueView(PermissionRequiredMixin, View):
             packages_qty=pack_qty or 0,
             valuation=valuation or 0,
             status=Status.objects.get(code='NOTISSUED'),
+            is_complete=is_complete,
             changed_by=user,
         )
         for ordr_group in groups:
