@@ -61,7 +61,7 @@ class OrderDelivery(models.Model):
                     LEFT JOIN
                 delivery_status dst ON d.status_id = dst.id
                     LEFT JOIN
-                delivery_status_service dstserv ON d.status_service_id = dstserv.id
+                delivery_status_service dstserv ON d.service_status_id = dstserv.id
                     LEFT JOIN
                 order_grouping og ON od.order_grouping_id = og.id
                     LEFT JOIN

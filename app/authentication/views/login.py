@@ -39,7 +39,7 @@ class Login(View):
         if auth.is_valid():
             user = auth.get_user()
             profile = (UserProfile.objects.select_related('initial_url')
-                       .filter(user=user).first())
+                       .filter(user=user, enabled=True).first())
             if profile:
                 url = profile.initial_url.name
             else:

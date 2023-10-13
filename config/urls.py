@@ -20,8 +20,8 @@ from django.urls import include, path
 from app.views.home import home
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('__debug__/', include(debug_toolbar.urls)),
+    path(route='admin/', view=admin.site.urls),
+    path(route='__debug__/', view=include(debug_toolbar.urls)),
     path(route='', view=home, name='home'),
     path(route='api/', view=include(arg='api.urls')),
     path(route='auth/', view=include(arg='app.authentication.urls')),

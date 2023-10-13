@@ -1,83 +1,155 @@
 [
 {
-    "model": "general.url",
-    "pk": 1,
-    "fields": {
-        "code": "HOME",
-        "name": "home",
-        "enabled": true
+    "model":"general.url",
+    "pk":1,
+    "fields":{
+        "code":"HOME",
+        "name":"home",
+        "enabled":true
     }
 },
 {
-    "model": "general.url",
-    "pk": 2,
-    "fields": {
-        "code": "API_ORDRSRCH",
-        "name": "order_search",
-        "enabled": true
+    "model":"general.url",
+    "pk":2,
+    "fields":{
+        "code":"API_ORDRSRCH",
+        "name":"order_search",
+        "enabled":false
     }
 },
 {
-    "model": "general.url",
-    "pk": 3,
-    "fields": {
-        "code": "API_ORDRGROUPSRCH",
-        "name": "order_group_search",
-        "enabled": true
+    "model":"general.url",
+    "pk":3,
+    "fields":{
+        "code":"API_ORDRGROUPSRCH",
+        "name":"order_group_search",
+        "enabled":false
     }
 },
 {
-    "model": "general.url",
-    "pk": 4,
-    "fields": {
-        "code": "API_DELIVOPTSRCH",
-        "name": "deliv_opt_search",
-        "enabled": true
+    "model":"general.url",
+    "pk":4,
+    "fields":{
+        "code":"API_DELIVOPTSRCH",
+        "name":"deliv_opt_search",
+        "enabled":false
     }
 },
 {
-    "model": "general.url",
-    "pk": 5,
-    "fields": {
-        "code": "API_AUTHCHECK",
-        "name": "check_auth",
-        "enabled": true
+    "model":"general.url",
+    "pk":5,
+    "fields":{
+        "code":"API_AUTHCHECK",
+        "name":"check_auth",
+        "enabled":false
     }
 },
 {
-    "model": "general.url",
-    "pk": 6,
-    "fields": {
-        "code": "ORDR_DELIVFORM",
-        "name": "delivery_form",
-        "enabled": true
+    "model":"general.url",
+    "pk":6,
+    "fields":{
+        "code":"API_DELIVCANCEL",
+        "name":"cancel_delivery",
+        "enabled":false
     }
 },
 {
-    "model": "general.url",
-    "pk": 7,
-    "fields": {
-        "code": "DELIV_REVIEW",
-        "name": "delivery_review",
-        "enabled": true
+    "model":"general.url",
+    "pk":7,
+    "fields":{
+        "code":"API_SENDDELIVEMAIL",
+        "name":"send_delivery_email",
+        "enabled":false
     }
 },
 {
-    "model": "general.url",
-    "pk": 8,
-    "fields": {
-        "code": "DELIV_ISSUE",
-        "name": "delivery_issue",
-        "enabled": true
+    "model":"general.url",
+    "pk":8,
+    "fields":{
+        "code":"API_UPDDELIVCOMPL",
+        "name":"upd_deliv_completion",
+        "enabled":false
     }
 },
 {
-    "model": "general.url",
-    "pk": 9,
-    "fields": {
-        "code": "KPIS",
-        "name": "kpis",
-        "enabled": true
+    "model":"general.url",
+    "pk":9,
+    "fields":{
+        "code":"API_UPDDELIVRCPTDATE",
+        "name":"upd_deliv_rcpt_date",
+        "enabled":false
+    }
+},
+{
+    "model":"general.url",
+    "pk":10,
+    "fields":{
+        "code":"AUTH_LOGIN",
+        "name":"login",
+        "enabled":false
+    }
+},
+{
+    "model":"general.url",
+    "pk":11,
+    "fields":{
+        "code":"AUTH_LOGOUT",
+        "name":"logout",
+        "enabled":false
+    }
+},
+{
+    "model":"general.url",
+    "pk":12,
+    "fields":{
+        "code":"AUTH_UPDPASSWD",
+        "name":"change_password",
+        "enabled":false
+    }
+},
+{
+    "model":"general.url",
+    "pk":13,
+    "fields":{
+        "code":"ORDER_DELIVFORM",
+        "name":"delivery_form",
+        "enabled":true
+    }
+},
+{
+    "model":"general.url",
+    "pk":14,
+    "fields":{
+        "code":"DELIV_REVIEW",
+        "name":"delivery_review",
+        "enabled":true
+    }
+},
+{
+    "model":"general.url",
+    "pk":15,
+    "fields":{
+        "code":"DELIV_ISSUE",
+        "name":"delivery_issue",
+        "enabled":true
+    }
+},
+{
+    "model":"general.url",
+    "pk":16,
+    "fields":{
+        "code":"DELIV_KPIS",
+        "name":"deliv_kpis",
+        "enabled":true
+    }
+},
+{
+    "model":"general.url",
+    "pk":17,
+    "fields":{
+        "code":"DELIV_PANEL",
+        "name":"deliv_panel",
+        "enabled":true
     }
 }
 ]

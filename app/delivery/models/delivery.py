@@ -160,7 +160,7 @@ class Delivery(models.Model):
                     ROW_NUMBER() OVER(PARTITION BY ordr.doc_num ORDER BY d.created_at) AS row_num
                 FROM delivery d
                     LEFT JOIN delivery_status status ON d.status_id = status.id
-                    LEFT JOIN delivery_status_service status_serv ON d.status_service_id = status_serv.id
+                    LEFT JOIN delivery_status_service status_serv ON d.service_status_id = status_serv.id
                     INNER JOIN order_delivery od ON d.id = od.delivery_id
                     INNER JOIN order_grouping og ON od.order_grouping_id = og.id
                     INNER JOIN address addr ON og.addr_id = addr.id
