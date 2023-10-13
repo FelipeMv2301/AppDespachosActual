@@ -4,4 +4,6 @@ from django.shortcuts import render
 
 
 def error_500(request: WSGIRequest, *args, **kwargs) -> HttpResponse:
-    return render(request=request, template_name='500.html')
+    return render(request=request,
+                  context={'page_title': 'Error 500'},
+                  template_name='500.html')

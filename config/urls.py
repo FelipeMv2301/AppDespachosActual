@@ -30,5 +30,6 @@ urlpatterns = [
 ]
 
 # Errors handling
+handler403 = 'app.views.error_403.error_403'
 handler404 = 'app.views.error_404.error_404'
 handler500 = 'app.views.error_500.error_500'
