@@ -1,0 +1,124 @@
+<html>
+    <head>
+        {% load bootstrap5 %}
+        {% load static %}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Seguimiento envío</title>
+        {% if deliv.company_code == 'BQ' or company_code == 'BQ' %}
+            <link rel="icon" type="image/x-icon" href="{% static 'app/img/white_bq_icon.png' %}">
+        {% else %}
+            <link rel="icon" type="image/x-icon" href="{% static 'app/img/white_gs_icon.png' %}">
+        {% endif %}
+        <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+        {% bootstrap_css %}
+        <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'app/css/main-breakpoints.css' %}">
+        <link rel="stylesheet" href="{% static 'app/css/main.css' %}">
+        <link rel="stylesheet" href="{% static 'app/css/sweet-alert.css' %}">
+        <style>
+            header {
+                height: 100px;
+                display: flex;
+                text-align: center;
+            }
+            
+            header img {
+                height: -webkit-fill-available;
+            }
+            
+            #head {
+                {% if deliv.company_code == 'BQ' or company_code == 'BQ' %}
+                    background-color: #4ec0a6;
+                {% else %}
+                    background-image: linear-gradient(90deg,#43bdd7,#95c11f);
+                {% endif %}
+            }
+
+            .logo {
+                max-height: 70%;
+            }
+            
+            body .container {
+                min-height: calc(100vh - 155px);
+                display: grid;
+                place-items: center;
+            }
+
+            .resume {
+                place-items: center;
+            }
+
+            table td {
+                height: 20%;
+            }
+            
+            footer {
+                {% if deliv.company_code == 'BQ' or company_code == 'BQ' %}
+                    background-color: #4ec0a6;
+                {% else %}
+                    background-image: linear-gradient(90deg,#43bdd7,#95c11f);
+                {% endif %}
+                align-items: center;
+                display: flex;
+                justify-content: center;
+                text-align: center;
+                width: 100%;
+            }
+            
+            footer p {
+                color: #fff !important;
+                margin-top: 15px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="d-flex position-relative w-100" id="head">
+                <img class="img-fluid logo m-auto px-5" src="{% static 'app/img/white_bq_logo.png' %}">
+            </div>
+        </header>
+        <div class="container">
+            <div class="resume w-100 d-grid"> 
+                <table class="table-responsive w-50 h-75" style="border-collapse: separate !important;">
+                    <tbody>
+                        <tr>
+                            <td class="fw-bold text-center col-5">Resumen envío</td>
+                            <td>
+                                <table style="width: 100%; height: 100%;">
+                                    <tbody>
+                                        <tr class="fw-bold text-white" style="background-color: #244e63;">
+                                            <td class="p-2 rounded-start">Estado</td>
+                                            <td class="p-2 rounded-end text-end">{{ deliv.serv_status_name }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-2 rounded-start">N° Orden</td>
+                                            <td class="p-2 rounded-end text-end fw-bold fs-4">{{ deliv.folio }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="p-2 fw-bold rounded-start" style="background-color: #d8dde1;">Fecha de emisi&oacute;n</td>
+                            <td class="p-2 border border-2 border-start-0 rounded-end">{{ deliv.issue_date }}</td>
+                        </tr>
+                        <tr>
+                            <td class="p-2 fw-bold rounded-start" style="background-color: #d8dde1;">Fecha de compromiso</td>
+                            <td class="p-2 border border-2 border-start-0 rounded-end">{{ deliv.rcpt_commit_date }}</td>
+                        </tr>
+                        <tr>
+                            <td class="p-2 fw-bold rounded-start" style="background-color: #d8dde1;">Cantidad de bultos</td>
+                            <td class="p-2 border border-2 border-start-0 rounded-end">{{ deliv.packages_qty }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="pt-2 fs-6" style="font-size: 0.85rem!important;">
+                    <span>Consulta realizada el día {% now 'd F Y' %}</span>
+                </div>
+            </div>
+        </div>
+        {% bootstrap_javascript %}
+        <footer><p>©{% now 'Y' %} {{ deliv.company_name }}</p></footer>
+    </body>
+</html>

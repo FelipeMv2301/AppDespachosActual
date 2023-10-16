@@ -4,6 +4,7 @@ from app.delivery.views.issue import IssueView
 from app.delivery.views.kpis import KpisView
 from app.delivery.views.panel import PanelView
 from app.delivery.views.review import ReviewView
+from app.delivery.views.track import TrackView
 
 urlpatterns = [
     path(route='review',
@@ -18,4 +19,7 @@ urlpatterns = [
     path(route='panel',
          view=PanelView.as_view(),
          name='deliv_panel'),
+    path(route='track/<str:company_code>/<str:folio>',
+         view=TrackView.as_view(),
+         name='deliv_track'),
 ]
