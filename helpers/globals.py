@@ -7,7 +7,7 @@ CURRENT_PATH = pathlib.Path(__file__).parent.resolve()
 INPUT_CLASS = 'textfield'
 
 # Sync data
-SYNC_DAYS = -30
+SYNC_DAYS = -100
 
 # Maps
 MAPS_FOLDER_PATH = os.path.join(CURRENT_PATH, 'map')

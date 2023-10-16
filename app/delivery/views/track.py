@@ -2,7 +2,7 @@ import os
 
 from django.contrib import messages
 from django.core.handlers.wsgi import WSGIRequest
-from django.db.models import F
+from django.db.models import F, Case, When, Value
 from django.shortcuts import render
 from django.views.generic.base import View
 
@@ -35,7 +35,11 @@ class TrackView(View):
                         'issue_date',
                         'rcpt_commit_date',
                         'packages_qty',
-                        serv_status_name=F('service_status__name'),
+                        serv_status_name=Case(
+                            When(service_status__name__isnull=True,
+                                 then=Value('No hay información')),
+                            default='service_status__name'
+                        ),
                         company_code=F('service_acct__company__code'),
                         company_trade_name=F('service_acct__company__trade_name'),)
                     .first())

@@ -3,9 +3,11 @@ import re
 import traceback
 from typing import Sequence
 
+from django.conf import settings
 from django.db.models import CharField, F, Value
 from django.db.models.functions import Coalesce, Concat
 from django.template.loader import render_to_string
+from django.urls import reverse
 from django.utils.html import strip_tags
 
 from app.delivery.models.delivery import Delivery
@@ -47,9 +49,9 @@ class OrderEmail(Email):
                     company_code=F('delivery__service_acct__company__code'),
                     order_doc_num=F('order_grouping__order__doc_num'),
                     branch_addr=Concat('order_grouping__delivery_option__branch__addr__st_and_num',
-                                    Value(' '),
-                                    'order_grouping__delivery_option__branch__addr__complement',
-                                    output_field=CharField()),
+                                       Value(' '),
+                                       'order_grouping__delivery_option__branch__addr__complement',
+                                       output_field=CharField()),
                     branch_addr_maps_url=F('order_grouping__delivery_option__branch__addr__maps_url'),
                     branch_hours=F('order_grouping__delivery_option__branch__hours'),
                     rcpt_commit_date=F('delivery__rcpt_commit_date'),
@@ -79,20 +81,27 @@ class OrderEmail(Email):
 
         self.from_email = re.sub(pattern=r'[^a-zA-Z0-9\s]',
                                  repl='',
-                                 string=self.deliv_query['company_trade_name'])
+                                 string=self.deliv_query['company_code'])
         self.from_email += f' <{EMAIL_HOST_USER}>'
 
         ordr_doc_nums = ', '.join([deliv['order_doc_num']
                                    for deliv in deliv_query])
+        track_url = (
+            settings.ALLOWED_PUBLIC_HOSTS[0] +
+            reverse(viewname='deliv_track',
+                    kwargs={'company_code': self.deliv_query['company_trade_name'],
+                            'folio': self.deliv_query['folio']})
+        )
         tmpl_context = {
             'contact_name': self.deliv_query['contact_name'],
             'order_doc_num': ordr_doc_nums,
             'branch_addr_maps_url': self.deliv_query['branch_addr_maps_url'],
             'branch_address': self.deliv_query['branch_addr'],
             'branch_hours': self.deliv_query['branch_hours'],
+            'carrier_code': self.deliv_query['carrier_code'],
             'company_code': self.deliv_query['company_code'],
             'company_trade_name': self.deliv_query['company_trade_name'],
-            'track_url': '',
+            'track_url': track_url,
         }
 
         self.attachs = []

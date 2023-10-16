@@ -176,8 +176,9 @@ class Delivery(Mitocondria):
                 CustomError(msg=e_msg)
                 continue
 
+            service = stk_service if carrier_is_stk else bq_service
+
             if str(ship_muni_name).startswith('@'):
-                service = stk_service
                 ag_code = str(ship_muni_name).replace('@', '')
                 try:
                     ag = (ag_mdl.objects.select_related('addr')
@@ -190,7 +191,6 @@ class Delivery(Mitocondria):
                     CustomError(msg=e_msg)
                     continue
             else:
-                service = bq_service
                 ag = None
                 try:
                     muni = serv_muni_mdl.objects.get(
