@@ -1,16 +1,16 @@
+from django.conf import settings
 from django.core.handlers.wsgi import WSGIRequest
 from django.http import HttpResponseNotFound, JsonResponse
 from django.views.generic.base import View
 
 from app.order.models.order import Order
-from config.settings.base import ALLOWED_PRIVATE_HOSTS
 from helpers.decorator.auth import authentication
 from helpers.decorator.domain import domain_check
 from helpers.decorator.loggable import loggable
 
 
 class OrderSearchView(View):
-    allowed_domains = ALLOWED_PRIVATE_HOSTS
+    allowed_domains = settings.ALLOWED_PRIVATE_HOSTS
 
     @domain_check(allowed_domains=allowed_domains)
     @authentication

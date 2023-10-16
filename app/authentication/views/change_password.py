@@ -1,6 +1,7 @@
 import os
 from pathlib import Path
 
+from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
@@ -8,7 +9,6 @@ from django.core.handlers.wsgi import WSGIRequest
 from django.shortcuts import render
 from django.views import View
 
-from config.settings.base import ALLOWED_PRIVATE_HOSTS
 from helpers import globals as gb
 from helpers.decorator.auth import authentication
 from helpers.decorator.domain import domain_check
@@ -20,7 +20,7 @@ CURRENT_FOLDERNAME = os.path.basename(CURRENT_PATH)
 
 class ChangePassword(View):
     template = os.path.join(CURRENT_FOLDERNAME, 'change_password.html')
-    allowed_domains = ALLOWED_PRIVATE_HOSTS
+    allowed_domains = settings.ALLOWED_PRIVATE_HOSTS
 
     @staticmethod
     def form(request: WSGIRequest, *args, **kwargs):

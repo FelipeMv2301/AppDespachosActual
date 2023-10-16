@@ -1,6 +1,7 @@
 import traceback
 from datetime import date, datetime
 
+from django.conf import settings
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.core.handlers.wsgi import WSGIRequest
 from django.db.models import Q
@@ -10,7 +11,6 @@ from simple_history.utils import bulk_update_with_history
 
 from app.delivery.models.delivery import Delivery
 from app.delivery.models.status import Status
-from config.settings.base import ALLOWED_PRIVATE_HOSTS
 from helpers.decorator.auth import authentication
 from helpers.decorator.domain import domain_check
 from helpers.decorator.loggable import loggable
@@ -19,7 +19,7 @@ from helpers.error.custom_error import UNEXP_ERROR, CustomError
 
 class UpdDelivRcptDateView(PermissionRequiredMixin, View):
     permission_required = ('delivery.edit_deliv_rcpt_date')
-    allowed_domains = ALLOWED_PRIVATE_HOSTS
+    allowed_domains = settings.ALLOWED_PRIVATE_HOSTS
 
     @domain_check(allowed_domains=allowed_domains)
     @authentication

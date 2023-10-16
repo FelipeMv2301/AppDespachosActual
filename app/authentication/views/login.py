@@ -1,6 +1,7 @@
 import os
 from pathlib import Path
 
+from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth import login
 from django.contrib.auth.forms import AuthenticationForm
@@ -10,7 +11,6 @@ from django.views import View
 
 from app.general.models.user_profile import UserProfile
 from app.general.models.user_session import UserSession
-from config.settings.base import ALLOWED_PRIVATE_HOSTS
 from helpers import globals as gb
 from helpers.decorator.domain import domain_check
 from helpers.decorator.loggable import loggable
@@ -21,7 +21,7 @@ CURRENT_FOLDERNAME = os.path.basename(CURRENT_PATH)
 
 class Login(View):
     template = os.path.join(CURRENT_FOLDERNAME, 'login.html')
-    allowed_domains = ALLOWED_PRIVATE_HOSTS
+    allowed_domains = settings.ALLOWED_PRIVATE_HOSTS
 
     form = AuthenticationForm()
     form_fields = ['username', 'password']

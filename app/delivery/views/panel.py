@@ -1,13 +1,13 @@
 import os
 from datetime import datetime
 
+from django.conf import settings
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.shortcuts import render
 from django.views.generic.base import View
 
 from app.delivery.forms.panel import PanelForm
 from app.order.models.delivery import OrderDelivery
-from config.settings.base import ALLOWED_PRIVATE_HOSTS
 from helpers.decorator.auth import authentication
 from helpers.decorator.domain import domain_check
 from helpers.decorator.loggable import loggable
@@ -19,7 +19,7 @@ class PanelView(PermissionRequiredMixin, View):
     template = os.path.join('delivery', 'panel.html')
     form = PanelForm
     permission_required = ('delivery.view_delivery_panel')
-    allowed_domains = ALLOWED_PRIVATE_HOSTS
+    allowed_domains = settings.ALLOWED_PRIVATE_HOSTS
 
     @domain_check(allowed_domains=allowed_domains)
     @authentication

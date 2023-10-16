@@ -1,5 +1,6 @@
 import os
 
+from django.conf import settings
 from django.contrib import messages
 from django.core.handlers.wsgi import WSGIRequest
 from django.db.models import Count
@@ -15,7 +16,6 @@ from app.general.models.muni import Muni
 from app.order.forms.delivery_form import DeliveryForm
 from app.order.models.grouping import Grouping
 from app.order.models.order import Order
-from config.settings.base import ALLOWED_PRIVATE_HOSTS
 from helpers.decorator.auth import authentication
 from helpers.decorator.domain import domain_check
 from helpers.decorator.loggable import loggable
@@ -31,7 +31,7 @@ class DeliveryFormView(AnyPermissionRequiredMixin, View):
     form = DeliveryForm
     permission_required = ('order.edit_commit_date',
                            'order.edit_all_order_delivery_form')
-    allowed_domains = ALLOWED_PRIVATE_HOSTS
+    allowed_domains = settings.ALLOWED_PRIVATE_HOSTS
 
     @domain_check(allowed_domains=allowed_domains)
     @authentication
