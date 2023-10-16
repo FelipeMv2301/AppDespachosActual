@@ -43,7 +43,7 @@ class OrderEmail(Email):
                     deliv_type_code=F('order_grouping__delivery_option__type__code'),
                     carrier_code=F('delivery__service_acct__service__code'),
                     carrier_name=F('delivery__service_acct__service__name'),
-                    company_name=F('delivery__service_acct__company__name'),
+                    company_trade_name=F('delivery__service_acct__company__trade_name'),
                     company_code=F('delivery__service_acct__company__code'),
                     order_doc_num=F('order_grouping__order__doc_num'),
                     branch_addr=Concat('order_grouping__delivery_option__branch__addr__st_and_num',
@@ -79,7 +79,7 @@ class OrderEmail(Email):
 
         self.from_email = re.sub(pattern=r'[^a-zA-Z0-9\s]',
                                  repl='',
-                                 string=self.deliv_query['company_name'])
+                                 string=self.deliv_query['company_trade_name'])
         self.from_email += f' <{EMAIL_HOST_USER}>'
 
         ordr_doc_nums = ', '.join([deliv['order_doc_num']
@@ -91,7 +91,7 @@ class OrderEmail(Email):
             'branch_address': self.deliv_query['branch_addr'],
             'branch_hours': self.deliv_query['branch_hours'],
             'company_code': self.deliv_query['company_code'],
-            'company_name': self.deliv_query['company_name'],
+            'company_trade_name': self.deliv_query['company_trade_name'],
             'track_url': '',
         }
 

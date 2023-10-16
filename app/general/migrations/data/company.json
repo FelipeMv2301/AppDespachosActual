@@ -5,6 +5,7 @@
     "fields": {
         "code": "BQ",
         "name": "Bioquimica.cl",
+        "trade_name": "Bioquimica.cl",
         "changed_by": 1
     }
 },
@@ -14,6 +15,7 @@
     "fields": {
         "code": "TD",
         "name": "Telediagnóstica",
+        "trade_name": "GenoSUR",
         "changed_by": 1
     }
 }

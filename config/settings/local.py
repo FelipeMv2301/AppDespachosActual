@@ -1,5 +1,7 @@
+from django.conf import settings
+
 from .base import *
-from .base import ALLOWED_PRIVATE_HOSTS, ALLOWED_PUBLIC_HOSTS, env
+from .base import env
 
 # GENERAL
 # ------------------------------------------------------------------------------
@@ -12,7 +14,11 @@ SECRET_KEY = env.str(
 )
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = ALLOWED_PUBLIC_HOSTS + ALLOWED_PRIVATE_HOSTS
+settings.ALLOWED_PUBLIC_HOSTS = env.list(var='ALLOWED_PUBLIC_HOSTS',
+                                         default=['localhost'])
+settings.ALLOWED_PRIVATE_HOSTS = env.list(var='ALLOWED_PUBLIC_HOSTS',
+                                          default=['127.0.0.1'])
+ALLOWED_HOSTS = settings.ALLOWED_PUBLIC_HOSTS + settings.ALLOWED_PRIVATE_HOSTS
 CSRF_TRUSTED_ORIGINS = env.list(
     var='CSRF_TRUSTED_ORIGINS',
     default=['localhost', '0.0.0.0', '127.0.0.1']

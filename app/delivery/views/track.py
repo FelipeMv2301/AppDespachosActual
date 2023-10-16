@@ -37,7 +37,7 @@ class TrackView(View):
                         'packages_qty',
                         serv_status_name=F('service_status__name'),
                         company_code=F('service_acct__company__code'),
-                        company_name=F('service_acct__company__name'),)
+                        company_trade_name=F('service_acct__company__trade_name'),)
                     .first())
         context = {'deliv': delivery,
                    'folio': folio,

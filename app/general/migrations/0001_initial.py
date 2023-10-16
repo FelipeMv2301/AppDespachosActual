@@ -55,6 +55,7 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('code', models.CharField(max_length=100, unique=True)),
                 ('name', models.CharField(max_length=100)),
+                ('trade_name', models.CharField(max_length=100)),
                 ('enabled', models.BooleanField(default=True)),
                 ('created_at', models.DateTimeField(default=django.utils.timezone.now)),
                 ('updated_at', models.DateTimeField(auto_now=True, null=True)),
@@ -62,7 +63,7 @@ class Migration(migrations.Migration):
             ],
             options={
                 'db_table': 'company',
-                'ordering': ['code', 'name', 'enabled', 'changed_by', 'created_at', 'updated_at'],
+                'ordering': ['code', 'name', 'trade_name', 'enabled', 'changed_by', 'created_at', 'updated_at'],
             },
         ),
         migrations.CreateModel(
@@ -491,6 +492,7 @@ class Migration(migrations.Migration):
                 ('id', models.BigIntegerField(auto_created=True, blank=True, db_index=True, verbose_name='ID')),
                 ('code', models.CharField(db_index=True, max_length=100)),
                 ('name', models.CharField(max_length=100)),
+                ('trade_name', models.CharField(max_length=100)),
                 ('enabled', models.BooleanField(default=True)),
                 ('created_at', models.DateTimeField(default=django.utils.timezone.now)),
                 ('updated_at', models.DateTimeField(blank=True, editable=False, null=True)),
