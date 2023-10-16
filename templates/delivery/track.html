@@ -119,6 +119,24 @@
             </div>
         </div>
         {% bootstrap_javascript %}
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.all.min.js"></script>
+        <script>
+            var userMessages = '';
+            {% if messages %}
+                {% for message in messages %}
+                    var swalIcon = '{{ message.tags }}';
+                    userMessages += '{{ message }}';
+                {% endfor %}
+                userMessages += '\n';
+            {% endif %}
+            if (userMessages !== null && userMessages !== '') {
+                Swal.fire({
+                    icon: swalIcon,
+                    text: userMessages,
+                    showConfirmButton: false,
+                })
+            }
+        </script>
         <footer><p>©{% now 'Y' %} {{ deliv.company_name }}</p></footer>
     </body>
 </html>
