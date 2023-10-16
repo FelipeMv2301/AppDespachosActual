@@ -1,4 +1,3 @@
-from django.conf import settings
 from django.core.handlers.wsgi import WSGIRequest
 from django.db.models import Case, CharField, F, Q, Value, When
 from django.db.models.functions import Concat
@@ -6,13 +5,14 @@ from django.http import HttpResponseNotFound, JsonResponse
 from django.views.generic.base import View
 
 from app.delivery.models.opt import Option
+from config.settings.base import ALLOWED_PRIVATE_HOSTS
 from helpers.decorator.auth import authentication
 from helpers.decorator.domain import domain_check
 from helpers.decorator.loggable import loggable
 
 
 class DelivOptSearchView(View):
-    allowed_domains = settings.ALLOWED_PRIVATE_HOSTS
+    allowed_domains = ALLOWED_PRIVATE_HOSTS
 
     @domain_check(allowed_domains=allowed_domains)
     @authentication

@@ -1,4 +1,3 @@
-from django.conf import settings
 from django.contrib.auth import logout
 from django.core.handlers.wsgi import WSGIRequest
 from django.shortcuts import redirect
@@ -6,12 +5,13 @@ from django.utils import timezone
 from django.views import View
 
 from app.general.models.user_session import UserSession
+from config.settings.base import ALLOWED_PRIVATE_HOSTS
 from helpers.decorator.domain import domain_check
 from helpers.decorator.loggable import loggable
 
 
 class Logout(View):
-    allowed_domains = settings.ALLOWED_PRIVATE_HOSTS
+    allowed_domains = ALLOWED_PRIVATE_HOSTS
 
     @domain_check(allowed_domains=allowed_domains)
     @loggable

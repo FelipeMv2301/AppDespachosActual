@@ -1,7 +1,6 @@
 import os
 from datetime import date
 
-from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.core.handlers.wsgi import WSGIRequest
@@ -24,6 +23,7 @@ from app.general.models.service_account import ServiceAccount
 from app.order.models.delivery import OrderDelivery
 from app.order.models.grouping import Grouping
 from classes.starken.delivery import Delivery as StkDeliv
+from config.settings.base import ALLOWED_PRIVATE_HOSTS
 from helpers.decorator.auth import authentication
 from helpers.decorator.domain import domain_check
 from helpers.decorator.loggable import loggable
@@ -36,7 +36,7 @@ class IssueView(PermissionRequiredMixin, View):
     template = os.path.join('delivery', 'issue.html')
     form = IssueForm
     permission_required = ('delivery.issue_delivery')
-    allowed_domains = settings.ALLOWED_PRIVATE_HOSTS
+    allowed_domains = ALLOWED_PRIVATE_HOSTS
 
     @domain_check(allowed_domains=allowed_domains)
     @authentication
