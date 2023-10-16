@@ -24,6 +24,12 @@ SETTINGS_MODULE = env.str(var='SETTINGS_MODULE')
 PROJECT_NAME = SETTINGS_MODULE.split(sep='.')[0]
 APP_USERNAME = 'django'
 
+# HOSTS
+# ---------------------------------------------------------------------------------
+# https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
+ALLOWED_PUBLIC_HOSTS = env.list(var='ALLOWED_PUBLIC_HOSTS')
+ALLOWED_PRIVATE_HOSTS = env.list(var='ALLOWED_PRIVATE_HOSTS')
+
 # STATIC
 # ------------------------------------------------------------------------------
 
@@ -115,7 +121,6 @@ LOCAL_APPS = [
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
-
 
 # DJANGO SHELL PLUS
 # ------------------------------------------------------------------------------

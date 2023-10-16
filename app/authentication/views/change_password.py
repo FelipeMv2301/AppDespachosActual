@@ -8,8 +8,10 @@ from django.core.handlers.wsgi import WSGIRequest
 from django.shortcuts import render
 from django.views import View
 
+from config.settings.base import ALLOWED_PRIVATE_HOSTS
 from helpers import globals as gb
 from helpers.decorator.auth import authentication
+from helpers.decorator.domain import domain_check
 from helpers.decorator.loggable import loggable
 
 CURRENT_PATH = Path(__file__).resolve().parent.parent
@@ -18,6 +20,7 @@ CURRENT_FOLDERNAME = os.path.basename(CURRENT_PATH)
 
 class ChangePassword(View):
     template = os.path.join(CURRENT_FOLDERNAME, 'change_password.html')
+    allowed_domains = ALLOWED_PRIVATE_HOSTS
 
     @staticmethod
     def form(request: WSGIRequest, *args, **kwargs):
@@ -35,6 +38,7 @@ class ChangePassword(View):
 
         return form
 
+    @domain_check(allowed_domains=allowed_domains)
     @authentication
     @loggable
     def get(self, request: WSGIRequest, *args, **kwargs):
@@ -46,6 +50,7 @@ class ChangePassword(View):
             context=context
         )
 
+    @domain_check(allowed_domains=allowed_domains)
     @authentication
     @loggable
     def post(self, request: WSGIRequest, *args, **kwargs):

@@ -23,7 +23,9 @@ from app.general.models.service_account import ServiceAccount
 from app.order.models.delivery import OrderDelivery
 from app.order.models.grouping import Grouping
 from classes.starken.delivery import Delivery as StkDeliv
+from config.settings.base import ALLOWED_PRIVATE_HOSTS
 from helpers.decorator.auth import authentication
+from helpers.decorator.domain import domain_check
 from helpers.decorator.loggable import loggable
 from notification.email.order import OrderEmail
 
@@ -34,7 +36,9 @@ class IssueView(PermissionRequiredMixin, View):
     template = os.path.join('delivery', 'issue.html')
     form = IssueForm
     permission_required = ('delivery.issue_delivery')
+    allowed_domains = ALLOWED_PRIVATE_HOSTS
 
+    @domain_check(allowed_domains=allowed_domains)
     @authentication
     @loggable
     def get(self, request: WSGIRequest, *args, **kwargs):
@@ -45,6 +49,7 @@ class IssueView(PermissionRequiredMixin, View):
                       template_name=self.template,
                       context=context)
 
+    @domain_check(allowed_domains=allowed_domains)
     @authentication
     @loggable
     def post(self, request: WSGIRequest, *args, **kwargs):

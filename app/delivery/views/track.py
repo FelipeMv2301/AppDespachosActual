@@ -1,18 +1,22 @@
 import os
 
 from django.contrib import messages
-from django.db.models import F
 from django.core.handlers.wsgi import WSGIRequest
+from django.db.models import F
 from django.shortcuts import render
 from django.views.generic.base import View
 
 from app.delivery.models.delivery import Delivery
+from config.settings.base import ALLOWED_PUBLIC_HOSTS
+from helpers.decorator.domain import domain_check
 from helpers.decorator.loggable import loggable
 
 
 class TrackView(View):
     template = os.path.join('delivery', 'track.html')
+    allowed_domains = ALLOWED_PUBLIC_HOSTS
 
+    @domain_check(allowed_domains=allowed_domains)
     @loggable
     def get(self,
             request: WSGIRequest,

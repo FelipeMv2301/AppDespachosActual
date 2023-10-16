@@ -15,7 +15,9 @@ from app.general.models.muni import Muni
 from app.order.forms.delivery_form import DeliveryForm
 from app.order.models.grouping import Grouping
 from app.order.models.order import Order
+from config.settings.base import ALLOWED_PRIVATE_HOSTS
 from helpers.decorator.auth import authentication
+from helpers.decorator.domain import domain_check
 from helpers.decorator.loggable import loggable
 from helpers.error.custom_error import CustomError
 from helpers.user.mixin import AnyPermissionRequiredMixin
@@ -29,7 +31,9 @@ class DeliveryFormView(AnyPermissionRequiredMixin, View):
     form = DeliveryForm
     permission_required = ('order.edit_commit_date',
                            'order.edit_all_order_delivery_form')
+    allowed_domains = ALLOWED_PRIVATE_HOSTS
 
+    @domain_check(allowed_domains=allowed_domains)
     @authentication
     @loggable
     def get(self, request: WSGIRequest, *args, **kwargs):
@@ -51,6 +55,7 @@ class DeliveryFormView(AnyPermissionRequiredMixin, View):
                       template_name=self.template,
                       context=context)
 
+    @domain_check(allowed_domains=allowed_domains)
     @authentication
     @loggable
     def post(self, request: WSGIRequest, *args, **kwargs):

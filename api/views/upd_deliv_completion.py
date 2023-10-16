@@ -7,14 +7,18 @@ from django.views.generic.base import View
 from simple_history.utils import bulk_update_with_history
 
 from app.delivery.models.delivery import Delivery
+from config.settings.base import ALLOWED_PRIVATE_HOSTS
 from helpers.decorator.auth import authentication
+from helpers.decorator.domain import domain_check
 from helpers.decorator.loggable import loggable
 from helpers.error.custom_error import UNEXP_ERROR, CustomError
 
 
 class UpdDelivCompletionView(PermissionRequiredMixin, View):
     permission_required = ('delivery.edit_delivery')
+    allowed_domains = ALLOWED_PRIVATE_HOSTS
 
+    @domain_check(allowed_domains=allowed_domains)
     @authentication
     @loggable
     def get(self,

@@ -8,7 +8,9 @@ from django.views.generic.base import View
 
 from app.delivery.forms.review import ReviewForm
 from app.order.models.delivery import OrderDelivery
+from config.settings.base import ALLOWED_PRIVATE_HOSTS
 from helpers.decorator.auth import authentication
+from helpers.decorator.domain import domain_check
 from helpers.decorator.loggable import loggable
 
 PAGE_TITLE = 'Entregas'
@@ -18,7 +20,9 @@ class ReviewView(PermissionRequiredMixin, View):
     template = os.path.join('delivery', 'review.html')
     form = ReviewForm
     permission_required = ('delivery.view_delivery')
+    allowed_domains = ALLOWED_PRIVATE_HOSTS
 
+    @domain_check(allowed_domains=allowed_domains)
     @authentication
     @loggable
     def get(self, request: WSGIRequest, *args, **kwargs):
@@ -29,6 +33,7 @@ class ReviewView(PermissionRequiredMixin, View):
                       template_name=self.template,
                       context=context)
 
+    @domain_check(allowed_domains=allowed_domains)
     @authentication
     @loggable
     def post(self, request: WSGIRequest, *args, **kwargs):

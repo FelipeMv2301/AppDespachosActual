@@ -5,12 +5,16 @@ from django.views.generic.base import View
 
 from app.order.models.grouping import Grouping
 from app.order.models.order import Order
+from config.settings.base import ALLOWED_PRIVATE_HOSTS
 from helpers.decorator.auth import authentication
+from helpers.decorator.domain import domain_check
 from helpers.decorator.loggable import loggable
 
 
 class OrderGroupSearchView(View):
+    allowed_domains = ALLOWED_PRIVATE_HOSTS
 
+    @domain_check(allowed_domains=allowed_domains)
     @authentication
     @loggable
     def get(self, request: WSGIRequest, *args, **kwargs):

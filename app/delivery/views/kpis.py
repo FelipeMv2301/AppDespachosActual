@@ -1,7 +1,6 @@
 import os
 from datetime import date, datetime, timedelta
 
-from django.contrib import messages
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.core.handlers.wsgi import WSGIRequest
 from django.shortcuts import render
@@ -11,7 +10,9 @@ from app.delivery.forms.kpis import DateRangeForm
 from app.delivery.statistics.completion import Completion
 from app.delivery.statistics.lead_times import LeadTimes
 from app.delivery.statistics.ship_by_state import ShipByState
+from config.settings.base import ALLOWED_PRIVATE_HOSTS
 from helpers.decorator.auth import authentication
+from helpers.decorator.domain import domain_check
 from helpers.decorator.loggable import loggable
 
 PAGE_TITLE = 'Indicadores de Rendimiento'
@@ -22,7 +23,9 @@ class KpisView(PermissionRequiredMixin, View):
     full_screen_template = os.path.join('delivery', 'kpis_full_screen.html')
     form = DateRangeForm
     permission_required = ('delivery.view_kpis')
+    allowed_domains = ALLOWED_PRIVATE_HOSTS
 
+    @domain_check(allowed_domains=allowed_domains)
     @authentication
     @loggable
     def get(self, request: WSGIRequest, *args, **kwargs):

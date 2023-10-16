@@ -1,5 +1,5 @@
 from .base import *
-from .base import env
+from .base import ALLOWED_PRIVATE_HOSTS, ALLOWED_PUBLIC_HOSTS, env
 
 # GENERAL
 # ------------------------------------------------------------------------------
@@ -10,11 +10,9 @@ SECRET_KEY = env.str(
     var='SECRET_KEY',
     default='oFSZeObw6MzbdYflLy9wn3Ywwol7rOpZpwxEAP8Jz9Vch0HsSDuvSF9IKoeQrzsV',
 )
+
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = env.list(
-    var='ALLOWED_HOSTS',
-    default=['localhost', '0.0.0.0', '127.0.0.1']
-)
+ALLOWED_HOSTS = ALLOWED_PUBLIC_HOSTS + ALLOWED_PRIVATE_HOSTS
 CSRF_TRUSTED_ORIGINS = env.list(
     var='CSRF_TRUSTED_ORIGINS',
     default=['localhost', '0.0.0.0', '127.0.0.1']

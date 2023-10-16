@@ -6,7 +6,9 @@ from django.http import JsonResponse
 from django.views.generic.base import View
 
 from app.delivery.models.delivery import Delivery
+from config.settings.base import ALLOWED_PRIVATE_HOSTS
 from helpers.decorator.auth import authentication
+from helpers.decorator.domain import domain_check
 from helpers.decorator.loggable import loggable
 from helpers.error.custom_error import UNEXP_ERROR, CustomError
 from notification.email.order import OrderEmail
@@ -14,7 +16,9 @@ from notification.email.order import OrderEmail
 
 class SendDelivEmailView(PermissionRequiredMixin, View):
     permission_required = ('delivery.send_delivery_email')
+    allowed_domains = ALLOWED_PRIVATE_HOSTS
 
+    @domain_check(allowed_domains=allowed_domains)
     @authentication
     @loggable
     def get(self, request: WSGIRequest, folio: str | int, *args, **kwargs):
