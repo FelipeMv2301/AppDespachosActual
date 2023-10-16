@@ -28,6 +28,6 @@ class GoogleMaps:
         except Exception:
             tb = traceback.format_exc()
             e_msg = 'Error: municipality could not be found'
-            CustomError(msg=e_msg, log=tb)
+            CustomError(msg=e_msg, log=tb, notify=True)
 
         return muni

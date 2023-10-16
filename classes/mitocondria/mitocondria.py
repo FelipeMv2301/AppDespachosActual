@@ -56,7 +56,7 @@ class Mitocondria:
 
             except Exception:
                 tb = traceback.format_exc()
-                e = CustomError(log=tb)
+                e = CustomError(log=tb, notify=True)
                 raise e
 
         return wrapper

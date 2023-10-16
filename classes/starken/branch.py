@@ -64,7 +64,7 @@ class Branch(Starken):
                                         service_acct=self.serv_account))
                 if not stk_muni_obj:
                     e_msg = f'Starken muni code {muni_code} does not exist'
-                    CustomError(msg=e_msg)
+                    CustomError(msg=e_msg, notify=True)
                     continue
                 stk_muni_obj = stk_muni_obj.first()
                 muni_obj = stk_muni_obj.muni
@@ -77,7 +77,7 @@ class Branch(Starken):
                     except muni_mdl.DoesNotExist:
                         e_msg = f'Starken muni code {muni_code} '
                         e_msg += 'has no equivalence'
-                        CustomError(msg=e_msg)
+                        CustomError(msg=e_msg, notify=True)
                         continue
                 munis[muni_code] = muni_obj
             muni_obj = munis[muni_code]

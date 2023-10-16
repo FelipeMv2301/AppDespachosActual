@@ -57,7 +57,7 @@ class Sap:
 
             except Exception:
                 tb = traceback.format_exc()
-                e = CustomError(log=tb)
+                e = CustomError(log=tb, notify=True)
                 raise e
 
         return wrapper
@@ -126,7 +126,7 @@ class Sap:
                 return response
             else:
                 if attempt >= 5:
-                    e = CustomError(msg=self.no_sap_login)
+                    e = CustomError(msg=self.no_sap_login, notify=True)
                     raise e
                 attempt += 1
 
@@ -143,6 +143,6 @@ class Sap:
                 return response
             else:
                 if attempt >= 5:
-                    e = CustomError(msg=self.no_sap_logout)
+                    e = CustomError(msg=self.no_sap_logout, notify=True)
                     raise e
                 attempt += 1

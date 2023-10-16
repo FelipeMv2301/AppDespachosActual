@@ -107,7 +107,7 @@ class OrderEmail(Email):
         self.attachs = []
         if (self.deliv_query['carrier_code'] == 'STK' or
                 self.deliv_query['deliv_type_code'] == 'HOMEDELIV'):
-            filepath_template = 'order_shipped.html'
+            filepath_template = 'order_shipped_email.html'
             tmpl_context.update({
                 'folio': self.deliv_query['folio'],
                 'carrier_name': self.deliv_query['carrier_name'],
@@ -119,7 +119,7 @@ class OrderEmail(Email):
             }]
         elif (self.deliv_query['carrier_code'] == 'BQ' or
               self.deliv_query['carrier_code'] == 'TD'):
-            filepath_template = 'order_pickup.html'
+            filepath_template = 'order_pickup_email.html'
         else:
             e_msg = 'Error: Ha ocurrido un error en el envío de correo. '
             e_msg = 'No se pudo definir el tipo de correo'

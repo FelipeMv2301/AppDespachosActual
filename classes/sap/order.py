@@ -147,7 +147,7 @@ class Order(Sap):
             except ccy_mdl.DoesNotExist:
                 e_msg = f'Error: currency code \'{ccy_code}\' does not exist'
                 e_msg += f'\nOrder: {doc_num}'
-                CustomError(msg=e_msg)
+                CustomError(msg=e_msg, notify=True, notify=True)
                 continue
 
             # validation of existence of equivalence for SAP currency
@@ -156,7 +156,7 @@ class Order(Sap):
                 e_msg = 'Error: currency code '
                 e_msg += f'\'{ccy_code}\' has no equivalence'
                 e_msg += f'\nOrder: {doc_num}'
-                CustomError(msg=e_msg)
+                CustomError(msg=e_msg, notify=True, notify=True)
                 continue
 
             # Equals the currency object
@@ -172,7 +172,7 @@ class Order(Sap):
                     e_msg = 'Error: bsns partner currency code '
                     e_msg += f'\'{bsns_partner_ccy_code}\' does not exist'
                     e_msg += f'\nOrder: {doc_num}'
-                    CustomError(msg=e_msg)
+                    CustomError(msg=e_msg, notify=True, notify=True)
                     continue
 
                 # validation of existence of equivalence for SAP currency
@@ -181,7 +181,7 @@ class Order(Sap):
                     e_msg = 'Error: bsns partner currency code '
                     e_msg += f'\'{bsns_partner_ccy_code}\' has no equivalence'
                     e_msg += f'\nOrder: {doc_num}'
-                    CustomError(msg=e_msg)
+                    CustomError(msg=e_msg, notify=True, notify=True)
                     continue
 
             # validation of sale channel existence (by code) in model
@@ -193,7 +193,7 @@ class Order(Sap):
                 e_msg = 'Error: sale channel code '
                 e_msg += f'\'{sale_channel_code}\' does not exist'
                 e_msg += f'\nOrder: {doc_num}'
-                CustomError(msg=e_msg)
+                CustomError(msg=e_msg, notify=True, notify=True)
                 continue
 
             # validation of existence of equivalence for SAP sale channel
@@ -202,7 +202,7 @@ class Order(Sap):
                 e_msg = 'Error: sale channel code '
                 e_msg += f'\'{sale_channel_code}\' has no equivalence'
                 e_msg += f'\nOrder: {doc_num}'
-                CustomError(msg=e_msg)
+                CustomError(msg=e_msg, notify=True, notify=True)
                 continue
 
             # validation of status existence (by code) in model
@@ -216,7 +216,7 @@ class Order(Sap):
                 e_msg = 'Error: status code '
                 e_msg += f'\'{status_code}\' does not exist'
                 e_msg += f'\nOrder: {doc_num}'
-                CustomError(msg=e_msg)
+                CustomError(msg=e_msg, notify=True)
                 continue
 
             # validation of existence of equivalence for SAP status
@@ -225,7 +225,7 @@ class Order(Sap):
                 e_msg = 'Error: status code '
                 e_msg += f'\'{status_code}\' has no equivalence'
                 e_msg += f'\nOrder: {doc_num}'
-                CustomError(msg=e_msg)
+                CustomError(msg=e_msg, notify=True)
                 continue
 
             # validation of seller existence (by code) in model
@@ -235,7 +235,7 @@ class Order(Sap):
             except employee_mdl.DoesNotExist:
                 e_msg = f'Error: seller code \'{seller_code}\' does not exist'
                 e_msg += f'\nOrder: {doc_num}'
-                CustomError(msg=e_msg)
+                CustomError(msg=e_msg, notify=True)
                 continue
 
             # validation of existence of equivalence for SAP seller
@@ -244,7 +244,7 @@ class Order(Sap):
                 e_msg = 'Error: seller code '
                 e_msg += f'\'{seller_code}\' has no equivalence'
                 e_msg += f'\nOrder: {doc_num}'
-                CustomError(msg=e_msg)
+                CustomError(msg=e_msg, notify=True)
                 continue
 
             # validation of order bill muni existence (by name) in model
@@ -255,7 +255,7 @@ class Order(Sap):
                 e_msg = 'Error: order bill muni name '
                 e_msg += f'\'{ordr_bill_muni_name}\' does not exist'
                 e_msg += f'\nOrder: {doc_num}'
-                CustomError(msg=e_msg)
+                CustomError(msg=e_msg, notify=True)
                 continue
             except muni_mdl.MultipleObjectsReturned:
                 ordr_bill_muni = (muni_mdl.objects
@@ -269,7 +269,7 @@ class Order(Sap):
                 e_msg = 'Error: order bill muni name '
                 e_msg += f'\'{ordr_bill_muni_name}\' has no equivalence'
                 e_msg += f'\nOrder: {doc_num}'
-                CustomError(msg=e_msg)
+                CustomError(msg=e_msg, notify=True)
                 continue
 
             # Equals the muni object
@@ -285,7 +285,7 @@ class Order(Sap):
                     e_msg = 'Error: order ship muni name '
                     e_msg += f'\'{ordr_ship_muni_name}\' does not exist'
                     e_msg += f'\nOrder: {doc_num}'
-                    CustomError(msg=e_msg)
+                    CustomError(msg=e_msg, notify=True)
                     continue
                 except muni_mdl.MultipleObjectsReturned:
                     ordr_ship_muni = (muni_mdl.objects
@@ -299,7 +299,7 @@ class Order(Sap):
                     e_msg = 'Error: order ship muni name '
                     e_msg += f'\'{ordr_ship_muni_name}\' has no equivalence'
                     e_msg += f'\nOrder: {doc_num}'
-                    CustomError(msg=e_msg)
+                    CustomError(msg=e_msg, notify=True)
                     continue
 
             # validation of bsns partner group existence (by name) in model
@@ -311,7 +311,7 @@ class Order(Sap):
                 e_msg = 'Error: bsns partner group code '
                 e_msg += f'\'{bsns_partner_group_code}\' does not exist'
                 e_msg += f'\nOrder: {doc_num}'
-                CustomError(msg=e_msg)
+                CustomError(msg=e_msg, notify=True)
                 continue
 
             # validation of existence of equivalence for SAP bsns partner group
@@ -320,7 +320,7 @@ class Order(Sap):
                 e_msg = 'Error: bsns partner group code '
                 e_msg += f'\'{bsns_partner_group_code}\' has no equivalence'
                 e_msg += f'\nOrder: {doc_num}'
-                CustomError(msg=e_msg)
+                CustomError(msg=e_msg, notify=True)
                 continue
 
             # validation of bsns partner type existence (by name) in model
@@ -332,7 +332,7 @@ class Order(Sap):
                 e_msg = 'Error: bsns partner type code '
                 e_msg += f'\'{bsns_partner_type_code}\' does not exist'
                 e_msg += f'\nOrder: {doc_num}'
-                CustomError(msg=e_msg)
+                CustomError(msg=e_msg, notify=True)
                 continue
 
             # validation of existence of equivalence for SAP bsns partner type
@@ -341,7 +341,7 @@ class Order(Sap):
                 e_msg = 'Error: bsns partner type code '
                 e_msg += f'\'{bsns_partner_type_code}\' has no equivalence'
                 e_msg += f'\nOrder: {doc_num}'
-                CustomError(msg=e_msg)
+                CustomError(msg=e_msg, notify=True)
                 continue
             # ----------------------------------------------------------------
             # validations end
@@ -455,7 +455,7 @@ class Order(Sap):
                 tb += f'\nOrder: {doc_num}'
                 e_msg = f'Error: {UNEXP_ERROR}'
                 e_msg += f'\nOrder: {doc_num}'
-                CustomError(msg=e_msg, log=tb)
+                CustomError(msg=e_msg, log=tb, notify=True)
                 continue
             contact_addr = (contact_addr_sync[0]
                             if contact_addr_sync
@@ -481,7 +481,7 @@ class Order(Sap):
                 tb += f'\nOrder: {doc_num}'
                 e_msg = f'Error: {UNEXP_ERROR}'
                 e_msg += f'\nOrder: {doc_num}'
-                CustomError(msg=e_msg, log=tb)
+                CustomError(msg=e_msg, log=tb, notify=True)
                 continue
             contact = contact_sync[0] if contact_sync else contact
 
@@ -497,7 +497,7 @@ class Order(Sap):
                 tb += f'\nOrder: {doc_num}'
                 e_msg = f'Error: {UNEXP_ERROR}'
                 e_msg += f'\nOrder: {doc_num}'
-                CustomError(msg=e_msg, log=tb)
+                CustomError(msg=e_msg, log=tb, notify=True)
                 continue
 
             ordr_ship_addr = (ordr_ship_addr_sync[0]
@@ -516,7 +516,7 @@ class Order(Sap):
                 tb += f'\nOrder: {doc_num}'
                 e_msg = f'Error: {UNEXP_ERROR}'
                 e_msg += f'\nOrder: {doc_num}'
-                CustomError(msg=e_msg, log=tb)
+                CustomError(msg=e_msg, log=tb, notify=True)
                 continue
             ordr_bill_addr = (ordr_bill_addr_sync[0]
                               if ordr_bill_addr_sync
@@ -541,7 +541,7 @@ class Order(Sap):
                 tb += f'\nOrder: {doc_num}'
                 e_msg = f'Error: {UNEXP_ERROR}'
                 e_msg += f'\nOrder: {doc_num}'
-                CustomError(msg=e_msg, log=tb)
+                CustomError(msg=e_msg, log=tb, notify=True)
                 continue
             bsns_partner = (bsns_partner_sync[0]
                             if bsns_partner_sync
@@ -577,6 +577,6 @@ class Order(Sap):
                 tb += f'\nOrder: {doc_num}'
                 e_msg = f'Error: {UNEXP_ERROR}'
                 e_msg += f'\nOrder: {doc_num}'
-                CustomError(msg=e_msg, log=tb)
+                CustomError(msg=e_msg, log=tb, notify=True)
                 continue
             ordr = ordr_sync[0] if ordr_sync else ordr

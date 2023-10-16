@@ -65,7 +65,7 @@ class Delivery(Starken):
                 tb = traceback.format_exc()
                 tb += f'Folio: {self.folio}'
                 e_msg = f'{UNEXP_ERROR}\nFolio: {self.folio}'
-                CustomError(msg=e_msg, log=tb)
+                CustomError(msg=e_msg, log=tb, notify=True)
                 continue
 
             try:
@@ -79,7 +79,7 @@ class Delivery(Starken):
                 tb += f'Folio: {self.folio}'
                 e_msg = f'Error: {UNEXP_ERROR}'
                 e_msg += f'\nFolio: {self.folio}'
-                CustomError(msg=e_msg, log=tb)
+                CustomError(msg=e_msg, log=tb, notify=True)
                 continue
             try:
                 status_obj = status[status_id]
@@ -98,7 +98,7 @@ class Delivery(Starken):
                     tb += f'Folio: {self.folio}'
                     e_msg = f'Error: {UNEXP_ERROR}'
                     e_msg += f'\nFolio: {self.folio}'
-                    CustomError(msg=e_msg, log=tb)
+                    CustomError(msg=e_msg, log=tb, notify=True)
                     continue
                 status[status_id] = status_obj
 
@@ -120,7 +120,7 @@ class Delivery(Starken):
                 tb += f'Folio: {self.folio}'
                 e_msg = f'Error: {UNEXP_ERROR}'
                 e_msg += f'\nFolio: {self.folio}'
-                CustomError(msg=e_msg, log=tb)
+                CustomError(msg=e_msg, log=tb, notify=True)
                 continue
 
     @loggable
@@ -211,7 +211,7 @@ class Delivery(Starken):
             tb += f'\nId: {delivery.id}'
             e_msg = 'Error: el despacho no existe'
             e_msg += f'\nFolio: {delivery.folio}'
-            e = CustomError(msg=e_msg, log=tb)
+            e = CustomError(msg=e_msg, log=tb, notify=True)
             raise e
         deliv = deliv.first()
 
@@ -239,7 +239,7 @@ class Delivery(Starken):
             else:
                 e_msg += UNEXP_ERROR
             e_msg += f'\nFolio: {delivery.folio}'
-            e = CustomError(msg=e_msg, log=tb)
+            e = CustomError(msg=e_msg, log=tb, notify=True)
             raise e
 
         phone_nums = []
@@ -327,7 +327,7 @@ class Delivery(Starken):
                 e_msg += f'\nBody: {body}'
                 e_msg += f'\nResponse: {response}'
                 e_msg += f'\nFolio: {delivery.folio}'
-                e = CustomError(msg=e_msg)
+                e = CustomError(msg=e_msg, notify=True)
                 raise e
             else:
                 self.folio = response['nroOrdenFlete']
@@ -343,5 +343,5 @@ class Delivery(Starken):
             e_msg += 'emisión del despacho. Por favor contáctese con el '
             e_msg += 'administrador antes de volver a intentarlo'
             e_msg += f'\nFolio: {delivery.folio}'
-            e = CustomError(msg=e_msg, log=tb)
+            e = CustomError(msg=e_msg, log=tb, notify=True)
             raise e

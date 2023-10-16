@@ -134,7 +134,7 @@ class Delivery(Mitocondria):
                         e_msg = f'Error: order ref \'{ordr}\' '
                         e_msg += 'does not exist'
                         e_msg += f'\nFolio: {folio}'
-                        e = CustomError(msg=e_msg)
+                        e = CustomError(msg=e_msg, notify=True)
                         raise e
             except CustomError:
                 continue
@@ -145,7 +145,7 @@ class Delivery(Mitocondria):
                 e_msg = f'Error: delivery type code \'{deliv_type_code}\' '
                 e_msg += 'has no equivalence'
                 e_msg += f'\nFolio: {folio}'
-                CustomError(msg=e_msg)
+                CustomError(msg=e_msg, notify=True)
                 continue
 
             carrier_is_stk = (deliv_type.code == '1' or
@@ -156,7 +156,7 @@ class Delivery(Mitocondria):
                 e_msg = 'Error: delivery type code '
                 e_msg += f'\'{deliv_type_code}\' has no equivalence'
                 e_msg += f'\nFolio: {folio}'
-                CustomError(msg=e_msg)
+                CustomError(msg=e_msg, notify=True)
                 continue
 
             try:
@@ -165,7 +165,7 @@ class Delivery(Mitocondria):
                 e_msg = f'Error: pay type code \'{pay_type_code}\' '
                 e_msg += 'has no equivalence'
                 e_msg += f'\nFolio: {folio}'
-                CustomError(msg=e_msg)
+                CustomError(msg=e_msg, notify=True)
                 continue
 
             pay_type = pay_type.pay_type
@@ -173,7 +173,7 @@ class Delivery(Mitocondria):
                 e_msg = 'Error: pay type code '
                 e_msg += f'\'{pay_type_code}\' has no equivalence'
                 e_msg += f'\nFolio: {folio}'
-                CustomError(msg=e_msg)
+                CustomError(msg=e_msg, notify=True)
                 continue
 
             service = stk_service if carrier_is_stk else bq_service
@@ -188,7 +188,7 @@ class Delivery(Mitocondria):
                     e_msg = f'Error: branch code \'{ag_code}\' '
                     e_msg += 'does not exist'
                     e_msg += f'\nFolio: {folio}'
-                    CustomError(msg=e_msg)
+                    CustomError(msg=e_msg, notify=True)
                     continue
             else:
                 ag = None
@@ -199,7 +199,7 @@ class Delivery(Mitocondria):
                     e_msg = f'Error: ship muni name \'{ship_muni_name}\' '
                     e_msg += 'does not exist'
                     e_msg += f'\nFolio: {folio}'
-                    CustomError(msg=e_msg)
+                    CustomError(msg=e_msg, notify=True)
                     continue
 
                 muni = muni.muni
@@ -207,7 +207,7 @@ class Delivery(Mitocondria):
                     e_msg = 'Error: ship muni name '
                     e_msg += f'\'{ship_muni_name}\' has no equivalence'
                     e_msg += f'\nFolio: {folio}'
-                    CustomError(msg=e_msg)
+                    CustomError(msg=e_msg, notify=True)
                     continue
 
             opt = opt_mdl.objects.filter(
@@ -222,7 +222,7 @@ class Delivery(Mitocondria):
                 e_msg = 'Error: delivery option does not exist'
                 e_msg += f'\nFolio: {folio}'
                 e_msg += f'\nQuery: {opt.query}'
-                CustomError(msg=e_msg)
+                CustomError(msg=e_msg, notify=True)
                 continue
             opt = opt.first()
 
@@ -237,7 +237,7 @@ class Delivery(Mitocondria):
                         e_msg = f'Error: doc type code \'{doc_type_code}\' '
                         e_msg += 'has no equivalence'
                         e_msg += f'\nFolio: {folio}'
-                        e = CustomError(msg=e_msg)
+                        e = CustomError(msg=e_msg, notify=True)
                         raise e
             except CustomError:
                 continue

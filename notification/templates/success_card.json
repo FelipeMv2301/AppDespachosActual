@@ -1,0 +1,22 @@
+{
+   "cards":[
+      {
+         "sections":[
+            {
+               "widgets":[
+                  {
+                     "keyValue":{
+                        "bottomLabel":"",
+                        "content":""
+                     }
+                  }
+               ]
+            }
+         ],
+         "header":{
+            "title":"Éxito App",
+            "subtitle":""
+         }
+      }
+   ]
+ }
