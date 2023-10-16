@@ -90,6 +90,7 @@ class OrderEmail(Email):
             'branch_addr_maps_url': self.deliv_query['branch_addr_maps_url'],
             'branch_address': self.deliv_query['branch_addr'],
             'branch_hours': self.deliv_query['branch_hours'],
+            'company_code': self.deliv_query['company_code'],
             'company_name': self.deliv_query['company_name'],
             'track_url': '',
         }
@@ -125,24 +126,6 @@ class OrderEmail(Email):
                 attch['content'] = f.read()
 
         self.subject = f'{subject}: {ordr_doc_nums}'
-        match self.deliv_query['company_code']:
-            case'BQ':
-                background = 'background-color: #4ec0a6;'
-                logo_url = 'https://firebasestorage.googleapis.com/v0/b/bioquimicacl.appspot.com/o/logos%2Fwhite_bq_logo.png?alt=media&token=8343a4cc-37ce-4c7c-b9b0-97a67166789f'
-            case'TD':
-                background = 'background-image: linear-gradient(90deg,#43bdd7,#95c11f);'
-                logo_url = 'https://firebasestorage.googleapis.com/v0/b/bioquimicacl.appspot.com/o/logos%2Fwhite_gs_logo.png?alt=media&token=1a0768bd-c28d-409c-9efd-f8b919b8189c'
-            case _:
-                e_msg = 'Error: Ha ocurrido un error en el envío de correo. '
-                e_msg = 'No se pudo definir el color de fondo y logo'
-                e_msg += f'Delivery folio: {delivery.folio}'
-                e = CustomError(msg=e_msg)
-                raise e
-        tmpl_context.update({
-            'background': background,
-            'logo_url': logo_url
-        })
-
         template = render_to_string(template_name=filepath_template,
                                     context=tmpl_context)
         self.body = strip_tags(value=template)

@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notificación de Pedido</title>
     <style>
-        /* Estilos generales */
         body {
             font-family: Arial, Helvetica, sans-serif;
             font-size: 16px;
@@ -21,9 +20,12 @@
             margin: 0 auto;
             padding: 20px;
         }
-        /* Encabezado */
         .header {
-            {{ background }};
+            {% if company_code == 'BQ' %}
+                background-color: #4ec0a6;
+            {% else %}
+                background-image: linear-gradient(90deg,#43bdd7,#95c11f);
+            {% endif %}
             padding: 10px;
             text-align: center;
             color: #fff;
@@ -35,7 +37,6 @@
         .contact-info {
             color: #fff;
         }
-        /* Contenido */
         .content {
             padding: 20px;
         }
@@ -56,9 +57,12 @@
             margin-top: 20px;
             text-align: center;
         }
-        /* Pie de página */
         .footer {
-            {{ background }};
+            {% if company_code == 'BQ' %}
+                background-color: #4ec0a6;
+            {% else %}
+                background-image: linear-gradient(90deg,#43bdd7,#95c11f);
+            {% endif %}
             padding: 10px;
             text-align: center;
             color: #fff;
@@ -69,7 +73,11 @@
     <div class="container">
         <!-- Encabezado -->
         <div class="header">
-            <img class="logo" src="{{ logo_url }}" alt="Logo">
+            {% if company_code == 'BQ' %}
+                <img class="logo" src="https://firebasestorage.googleapis.com/v0/b/bioquimicacl.appspot.com/o/logos%2Fwhite_bq_logo.png?alt=media&token=8343a4cc-37ce-4c7c-b9b0-97a67166789f" alt="Logo">
+            {% else %}
+                <img class="logo" src="https://firebasestorage.googleapis.com/v0/b/bioquimicacl.appspot.com/o/logos%2Fwhite_gs_logo.png?alt=media&token=1a0768bd-c28d-409c-9efd-f8b919b8189c" alt="Logo">
+            {% endif %}
         </div>
         <!-- Contenido -->
         <div class="content">
@@ -78,7 +86,7 @@
             <div class="transport-company">
                 <p><b>Empresa de transporte</b>: {{ carrier_name }}</p>
             </div>
-            {% if deliv_type_code == "BRDELIV" %}
+            {% if deliv_type_code == 'BRDELIV' %}
                 <div class="pickup-details">
                     <p><b>Dirección de sucursal para retiro</b>: {% if branch_addr_maps_url %}<a target="_blank" href="{{ branch_addr_maps_url }}">{% endif %}{{ branch_address }}{% if branch_addr_maps_url %}</a>{% endif %}</p>
                 </div>
@@ -90,21 +98,19 @@
             {% endif %}
             {% if rcpt_commit_date %}
                 <div class="delivery-estimate">
-                    <p><b>Fecha estimada de llegada</b>: {{ rcpt_commit_date |date:"l d F Y" }}</p>
+                    <p><b>Fecha estimada de llegada</b>: {{ rcpt_commit_date |date:'l d F Y' }}</p>
                 </div>
             {% endif %}
-            {% if track_url %}
+            {% if company_code == 'STK' %}
                 <div class="tracking-link">
-                    <b><a target="_blank" href="{{ track_url }}">Seguir pedido aquí</a></b>
+                    <b><a target="_blank" href="{% url 'check_auth' company_code folio %}">Seguir pedido aquí</a></b>
                 </div>
                 <p>Adjunto encontrarás el seguro de envío.</p>
             {% endif %}
             <p>¡Gracias por elegirnos!</p>
         </div>
         <!-- Pie de página -->
-        <div class="footer">
-            © {% now "Y" %} {{ company_name }}. Todos los derechos reservados.
-        </div>
+        <div class="footer">©{% now 'Y' %} {{ company_name }}. Todos los derechos reservados.</div>
     </div>
 </body>
 </html>
