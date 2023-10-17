@@ -17,7 +17,7 @@
             </div>
         {% endif %}
         <div class="row">
-            <div class="col">
+            <div class="col search-container">
                 {{ form.orders.label_tag }}
                 {{ form.orders }}
                 <ul id="results" role="tree" hidden>
@@ -25,6 +25,7 @@
                 </ul>
                 {{ form.orders.errors }}
             </div>
+            <div class="col"></div>
             <div class="col"></div>
         </div>
     </div>
@@ -290,7 +291,7 @@
         const button = document.createElement('button');
         button.style.borderRadius = '30px';
         button.type = 'button';
-        button.classList.add('greenbutton', 'align-middle', 'pe-none', 'mb-2', 'mt-2', 'ms-2');
+        button.classList.add('greenbutton', 'align-middle', 'pe-none', 'mb-2', 'mt-2', 'me-2');
 
         const span = document.createElement('span');
         span.name = 'selected-order';
