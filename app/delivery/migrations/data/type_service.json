@@ -82,5 +82,41 @@
         "enabled": true,
         "changed_by": 1
     }
+},
+{
+    "model": "delivery.typeservice",
+    "pk": 8,
+    "fields": {
+        "code": "",
+        "name": "A domicilio",
+        "type": 2,
+        "service_acct": 8,
+        "enabled": false,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.typeservice",
+    "pk": 9,
+    "fields": {
+        "code": "",
+        "name": "A domicilio",
+        "type": 2,
+        "service_acct": 9,
+        "enabled": false,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.typeservice",
+    "pk": 10,
+    "fields": {
+        "code": "",
+        "name": "A domicilio",
+        "type": 2,
+        "service_acct": 10,
+        "enabled": false,
+        "changed_by": 1
+    }
 }
 ]
