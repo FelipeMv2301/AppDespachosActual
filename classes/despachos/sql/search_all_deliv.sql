@@ -1,0 +1,1 @@
+SELECT * FROM {schema}.data_for_migration;

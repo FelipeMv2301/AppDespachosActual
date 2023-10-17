@@ -78,6 +78,16 @@
         "is_carrier": false,
         "changed_by": 1
     }
+},
+{
+    "model": "general.service",
+    "pk": 9,
+    "fields": {
+        "code": "DESP",
+        "name": "Despachos V1",
+        "is_carrier": false,
+        "changed_by": 1
+    }
 }
 ]
     

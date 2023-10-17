@@ -11,38 +11,21 @@ from helpers.decorator.loggable import loggable
 from helpers.error.custom_error import CustomError
 
 CURRENT_DIR = Path(__file__).resolve().parent
-SERV_CODE = 'MITO'
+SERV_CODE = 'DESP'
 
 
-class Mitocondria:
+class Despachos:
     def __init__(self, account: ServiceAccount, *args, **kwargs):
-        # Mitocondria service account info
+        # Despachos service account info
         self.serv_code = SERV_CODE
         self.serv_account = account
 
-        # Mitocondria's database data
-        self.schema = env.str(var='MITOCONDRIA_DB_SCHEMA')
+        # Despachos database data
+        self.schema = env.str(var='DESPACHOS_DB_SCHEMA')
         self.conn = None
 
-        # Mitocondria's database models data
-        self.disp_mdl = 'ad_despachos'
-        self.disp_order_mdl = 'ad_despacho_pedido'
-        self.order_mdl = 'ad_pedido'
-        self.order_details_mdl = 'ad_pedido_detalle'
-        self.order_order_details_mdl = 'ad_pedido_pedidos_detalles'
-        self.muni_mdl = 'sys_comunas'
-        self.ship_type_mdl = 'ad_despachos_param_tipo_entrega'
-        self.ship_pay_type_mdl = 'ad_despachos_param_tipo_pago'
-
-        # Mitocondria's database queries data
+        # Despachos database queries data
         self.queries_folder_path = os.path.join(CURRENT_DIR, 'sql')
-
-        # Mitocondria object equivalences
-        self.doc_types_equiv_by_code = {
-            26: '33',  # Factura electrónica
-            27: '52',  # Guía de despacho electrónica
-            28: '39',  # Boleta electrónica
-        }
 
     @staticmethod
     def conn_handling(f: Callable):
