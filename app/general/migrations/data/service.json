@@ -48,6 +48,36 @@
         "is_carrier": false,
         "changed_by": 1
     }
+},
+{
+    "model": "general.service",
+    "pk": 6,
+    "fields": {
+        "code": "CHILEX",
+        "name": "Chilexpress",
+        "is_carrier": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.service",
+    "pk": 7,
+    "fields": {
+        "code": "BLUEX",
+        "name": "Bluexpress",
+        "is_carrier": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.service",
+    "pk": 8,
+    "fields": {
+        "code": "UNK",
+        "name": "Desconocido",
+        "is_carrier": false,
+        "changed_by": 1
+    }
 }
 ]
     
