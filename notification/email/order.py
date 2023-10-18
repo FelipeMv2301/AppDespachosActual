@@ -81,7 +81,7 @@ class OrderEmail(Email):
 
         self.from_email = re.sub(pattern=r'[^a-zA-Z0-9\s]',
                                  repl='',
-                                 string=self.deliv_query['company_code'])
+                                 string=self.deliv_query['company_trade_name'])
         self.from_email += f' <{EMAIL_HOST_USER}>'
 
         ordr_doc_nums = ', '.join([deliv['order_doc_num']
@@ -89,7 +89,7 @@ class OrderEmail(Email):
         track_url = (
             settings.ALLOWED_PUBLIC_HOSTS[0] +
             reverse(viewname='deliv_track',
-                    kwargs={'company_code': self.deliv_query['company_trade_name'],
+                    kwargs={'company_code': self.deliv_query['company_code'],
                             'folio': self.deliv_query['folio']})
         )
         tmpl_context = {
