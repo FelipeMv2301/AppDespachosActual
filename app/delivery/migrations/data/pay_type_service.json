@@ -85,7 +85,7 @@
 },
 {
     "model": "delivery.paytypeservice",
-    "pk": 7,
+    "pk": 8,
     "fields": {
         "code": "",
         "name": "Pagado",
@@ -97,7 +97,7 @@
 },
 {
     "model": "delivery.paytypeservice",
-    "pk": 8,
+    "pk": 9,
     "fields": {
         "code": "",
         "name": "Pagado",
@@ -109,7 +109,7 @@
 },
 {
     "model": "delivery.paytypeservice",
-    "pk": 9,
+    "pk": 10,
     "fields": {
         "code": "",
         "name": "Pagado",
