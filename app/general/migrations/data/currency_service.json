@@ -70,5 +70,29 @@
         "enabled": true,
         "changed_by": 1
     }
+},
+{
+    "model": "general.currencyservice",
+    "pk": 7,
+    "fields": {
+        "code": "##",
+        "name": "Todas",
+        "currency": 4,
+        "service_acct": 3,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.currencyservice",
+    "pk": 8,
+    "fields": {
+        "code": "##",
+        "name": "Todas",
+        "currency": 4,
+        "service_acct": 5,
+        "enabled": true,
+        "changed_by": 1
+    }
 }
 ]
