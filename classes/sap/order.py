@@ -264,11 +264,10 @@ class Order(Sap):
                 ordr_bill_muni = muni_mdl.objects.get(name=ordr_bill_muni_name,
                                                       service_acct=self.serv_account)
             except muni_mdl.DoesNotExist:
-                e_msg = 'Error: order bill muni name '
-                e_msg += f'\'{ordr_bill_muni_name}\' does not exist'
-                e_msg += f'\nOrder: {doc_num}'
-                CustomError(msg=e_msg, notify=True)
-                continue
+                ordr_bill_muni = (muni_mdl.objects
+                                  .filter(service_acct=self.serv_account,
+                                          muni__isnull=False)
+                                  .first())
             except muni_mdl.MultipleObjectsReturned:
                 ordr_bill_muni = (muni_mdl.objects
                                   .filter(name=ordr_bill_muni_name,
@@ -294,11 +293,10 @@ class Order(Sap):
                                       .get(name=ordr_ship_muni_name,
                                            service_acct=self.serv_account))
                 except muni_mdl.DoesNotExist:
-                    e_msg = 'Error: order ship muni name '
-                    e_msg += f'\'{ordr_ship_muni_name}\' does not exist'
-                    e_msg += f'\nOrder: {doc_num}'
-                    CustomError(msg=e_msg, notify=True)
-                    continue
+                    ordr_ship_muni = (muni_mdl.objects
+                                      .filter(service_acct=self.serv_account,
+                                              muni__isnull=False)
+                                      .first())
                 except muni_mdl.MultipleObjectsReturned:
                     ordr_ship_muni = (muni_mdl.objects
                                       .filter(name=ordr_ship_muni_name,
