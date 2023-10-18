@@ -125,9 +125,12 @@ class Order(Sap):
             bsns_partner_email_addr = bsns_partner_info['EmailAddress']
 
             # Extraction of business partner contact information
+            contact_info = None
             if contact_code != '0':
                 contact_info = (self.sap_contact
-                                .search_by_id(contact_id=contact_code))[0]
+                                .search_by_id(contact_id=contact_code))
+            if contact_info:
+                contact_info = contact_info[0]
                 contact_info = contact_info[sap_bsns_partner_contact_mdl]
                 contact_code = contact_code
                 contact_ref = contact_info['Name']

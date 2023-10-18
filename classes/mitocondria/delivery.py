@@ -3,6 +3,7 @@ import os
 from typing import Any, Dict, List
 
 from django.contrib.auth.models import User
+from django.db.models import Q
 from simple_history.utils import bulk_create_with_history
 
 from app.business_partner.models.contact import Contact
@@ -127,8 +128,12 @@ class Delivery(Mitocondria):
 
             try:
                 ordr_objs = ordr_mdl.objects.filter(
-                    doc_num__in=ordrs, service_acct=sap_acct)
+                    (Q(doc_num__in=ordrs) | Q(web_order_ref__in=ordrs)),
+                    service_acct=sap_acct
+                )
                 ordr_objs = {o.doc_num: o for o in ordr_objs}
+                ordr_objs.update({str(o.web_order_ref): o
+                                  for o in ordr_objs.values()})
                 for ordr in ordrs:
                     if ordr not in ordr_objs:
                         e_msg = f'Error: order ref \'{ordr}\' '
@@ -143,7 +148,7 @@ class Delivery(Mitocondria):
                 deliv_type = deliv_types_equiv[deliv_type_code]
             except KeyError:
                 e_msg = f'Error: delivery type code \'{deliv_type_code}\' '
-                e_msg += 'has no equivalence'
+                e_msg += 'does not exist'
                 e_msg += f'\nFolio: {folio}'
                 CustomError(msg=e_msg, notify=True)
                 continue
@@ -163,7 +168,7 @@ class Delivery(Mitocondria):
                 pay_type = pay_types_equiv[pay_type_code]
             except KeyError:
                 e_msg = f'Error: pay type code \'{pay_type_code}\' '
-                e_msg += 'has no equivalence'
+                e_msg += 'does not exist'
                 e_msg += f'\nFolio: {folio}'
                 CustomError(msg=e_msg, notify=True)
                 continue
