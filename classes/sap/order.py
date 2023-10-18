@@ -107,10 +107,10 @@ class Order(Sap):
             # Extraction of order address information
             ordr_addr_info = order[sap_order_addr_mdl]
             ordr_bill_addr_ref = ordr_info['PayToCode']
-            ordr_bill_st_and_num = ordr_addr_info['BillToStreet']
+            ordr_bill_st_and_num = ordr_addr_info['BillToStreet'] or ''
             ordr_bill_muni_name = ordr_addr_info['BillToCounty']
             ordr_ship_addr_ref = ordr_info['ShipToCode']
-            ordr_ship_st_and_num = ordr_addr_info['ShipToStreet']
+            ordr_ship_st_and_num = ordr_addr_info['ShipToStreet'] or ''
             ordr_ship_muni_name = ordr_addr_info['ShipToCounty']
 
             # Extraction of business partner information
@@ -147,7 +147,7 @@ class Order(Sap):
             except ccy_mdl.DoesNotExist:
                 e_msg = f'Error: currency code \'{ccy_code}\' does not exist'
                 e_msg += f'\nOrder: {doc_num}'
-                CustomError(msg=e_msg, notify=True, notify=True)
+                CustomError(msg=e_msg, notify=True)
                 continue
 
             # validation of existence of equivalence for SAP currency
@@ -156,7 +156,7 @@ class Order(Sap):
                 e_msg = 'Error: currency code '
                 e_msg += f'\'{ccy_code}\' has no equivalence'
                 e_msg += f'\nOrder: {doc_num}'
-                CustomError(msg=e_msg, notify=True, notify=True)
+                CustomError(msg=e_msg, notify=True)
                 continue
 
             # Equals the currency object
@@ -172,7 +172,7 @@ class Order(Sap):
                     e_msg = 'Error: bsns partner currency code '
                     e_msg += f'\'{bsns_partner_ccy_code}\' does not exist'
                     e_msg += f'\nOrder: {doc_num}'
-                    CustomError(msg=e_msg, notify=True, notify=True)
+                    CustomError(msg=e_msg, notify=True)
                     continue
 
                 # validation of existence of equivalence for SAP currency
@@ -181,7 +181,7 @@ class Order(Sap):
                     e_msg = 'Error: bsns partner currency code '
                     e_msg += f'\'{bsns_partner_ccy_code}\' has no equivalence'
                     e_msg += f'\nOrder: {doc_num}'
-                    CustomError(msg=e_msg, notify=True, notify=True)
+                    CustomError(msg=e_msg, notify=True)
                     continue
 
             # validation of sale channel existence (by code) in model
@@ -193,7 +193,7 @@ class Order(Sap):
                 e_msg = 'Error: sale channel code '
                 e_msg += f'\'{sale_channel_code}\' does not exist'
                 e_msg += f'\nOrder: {doc_num}'
-                CustomError(msg=e_msg, notify=True, notify=True)
+                CustomError(msg=e_msg, notify=True)
                 continue
 
             # validation of existence of equivalence for SAP sale channel
@@ -202,7 +202,7 @@ class Order(Sap):
                 e_msg = 'Error: sale channel code '
                 e_msg += f'\'{sale_channel_code}\' has no equivalence'
                 e_msg += f'\nOrder: {doc_num}'
-                CustomError(msg=e_msg, notify=True, notify=True)
+                CustomError(msg=e_msg, notify=True)
                 continue
 
             # validation of status existence (by code) in model
@@ -567,7 +567,8 @@ class Order(Sap):
             ordr.doc_total_tax = sys_total_tax
             ordr.local_total_amt = local_total_amt
             ordr.doc_total_amt = sys_total_amt
-            ordr.enabled = cancel_status == 'N' and status == 'O'
+            ordr.status = status
+            ordr.enabled = status.code != 'OPEN'
             ordr.changed_by = user_obj
             sync_kwargs['objs'] = [ordr]
             try:

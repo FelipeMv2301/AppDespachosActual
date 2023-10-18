@@ -11,16 +11,11 @@ from config.settings.base import APP_USERNAME
 
 user = User.objects.get(username=APP_USERNAME)
 
-carriers = {o.code: o
-            for o in Service.objects.filter(is_carrier=True)}
-branches = {o.code: o
-            for o in Branch.objects.all()}
-pay_types = {o.code: o
-             for o in PayType.objects.all()}
-services = {o.code: o
-            for o in DelivService.objects.all()}
-types = {o.code: o
-         for o in Type.objects.all()}
+carriers = {o.code: o for o in Service.objects.filter(is_carrier=True)}
+branches = {o.code: o for o in Branch.objects.all()}
+pay_types = {o.code: o for o in PayType.objects.all()}
+services = {o.code: o for o in DelivService.objects.all()}
+types = {o.code: o for o in Type.objects.all()}
 
 for carrier_code, carrier in carriers.items():
     for pay_type_code, pay_type in pay_types.items():

@@ -54,18 +54,18 @@ class Delivery(Despachos):
         serv_accts = {}
         servs = {}
         s_accts = (ServiceAccount.objects.select_related('service')
-                   .filter(service__code__in=['STKBQ01', 'CHILEXBQ01',
-                                              'BQ01', 'BLUEXBQ01', 'UNKBQ01']))
+                   .filter(code__in=['STKBQ01', 'CHILEXBQ01', 'BQ01',
+                                     'BLUEXBQ01', 'UNKBQ01']))
         for sa in s_accts:
             serv = sa.service
             serv_accts[serv.code] = sa
             servs[serv.code] = serv
-        stk_acct = serv_accts['STKBQ01']
+        stk_acct = serv_accts['STK']
         statuss = {s.code: s
                    for s in (Status.objects
                              .filter(code__in=['ISSUED', 'CANCEL']))}
         deliv_service = DelivService.objects.get(code='NO')
-        doc_types = {dt.code: dt
+        doc_types = {str(dt.code): dt
                      for dt in (DocumentType.objects
                                 .filter(code__in=['33', '39', '52']))}
         deliv_types = {dt.code: dt for dt in Type.objects.all()}
@@ -79,14 +79,17 @@ class Delivery(Despachos):
             rcpt_date = d['rcpt_date']
             is_complete = d['is_complete']
             deliv_obs = d['deliv_obs']
-            ship_st_and_num = d['ship_st_and_num']
+            ship_st_and_num = d['st_and_num']
             ship_muni_utc_code = d['muni_utc_code']
             ordr_doc_num = d['doc_num']
             status_code = str(d['status_code'])
+            if status_code == 'NOTISSUED' or not issue_date:
+                continue
             deliv_type_code = str(d['deliv_type_code'])
+            to_branch = deliv_type_code == 'BRDELIV'
             pay_type_code = str(d['pay_type_code'])
             serv_code = str(d['serv_code'])
-            branch_code = str(d['branch_serv_code'])
+            branch_code = d['branch_serv_code']
             docs = json.loads(s=d['docs'])
 
             try:
@@ -102,7 +105,7 @@ class Delivery(Despachos):
                 e_msg += 'does not exist'
                 e_msg += f'\nFolio: {folio}'
                 e = CustomError(msg=e_msg)
-                raise e
+                continue
 
             try:
                 status = statuss[status_code]
@@ -149,18 +152,7 @@ class Delivery(Despachos):
                 CustomError(msg=e_msg)
                 continue
 
-            if branch_code:
-                try:
-                    branch = (Branch.objects.select_related('addr')
-                              .get(code=branch_code, service_acct=stk_acct))
-                    muni = branch.addr.muni
-                except Branch.DoesNotExist:
-                    e_msg = f'Error: branch code \'{branch_code}\' '
-                    e_msg += 'does not exist'
-                    e_msg += f'\nFolio: {folio}'
-                    CustomError(msg=e_msg)
-                    continue
-            else:
+            if not to_branch:
                 branch = None
                 try:
                     muni = Muni.objects.get(code=ship_muni_utc_code)
@@ -170,9 +162,34 @@ class Delivery(Despachos):
                     e_msg += f'\nFolio: {folio}'
                     CustomError(msg=e_msg)
                     continue
+            elif branch_code:
+                try:
+                    branch = (Branch.objects.select_related('addr',
+                                                            'addr__muni')
+                              .get(code=branch_code, service_acct=stk_acct))
+                    muni = branch.addr.muni
+                except Branch.DoesNotExist:
+                    e_msg = f'Error: branch code \'{branch_code}\' '
+                    e_msg += 'does not exist'
+                    e_msg += f'\nFolio: {folio}'
+                    CustomError(msg=e_msg)
+                    continue
+            else:
+                try:
+                    branch = (Branch.objects.select_related('addr',
+                                                            'addr__muni')
+                              .get(addr__muni__code=ship_muni_utc_code,
+                                   service_acct=stk_acct))
+                    muni = branch.addr.muni
+                except Branch.DoesNotExist:
+                    e_msg = 'Error: branch for muni code '
+                    e_msg = f'\'{ship_muni_utc_code}\' does not exist'
+                    e_msg += f'\nFolio: {folio}'
+                    CustomError(msg=e_msg)
+                    continue
 
             opt = Option.objects.filter(
-                enabled=True,
+                # enabled=True,
                 carrier=service,
                 service=deliv_service,
                 type=deliv_type,
@@ -182,7 +199,7 @@ class Delivery(Despachos):
             if not opt:
                 e_msg = 'Error: delivery option does not exist'
                 e_msg += f'\nFolio: {folio}'
-                e_msg += f'\nQuery: {opt.query}'
+                # e_msg += f'\nQuery: {opt.query}'
                 CustomError(msg=e_msg)
                 continue
             opt = opt.first()
@@ -191,7 +208,7 @@ class Delivery(Despachos):
                 for doc in docs:
                     if not doc['folio']:
                         continue
-                    doc_type_code = doc['doc_code']
+                    doc_type_code = str(doc['doc_code'])
                     try:
                         doc['type'] = doc_types[doc_type_code]
                     except KeyError:
@@ -210,7 +227,7 @@ class Delivery(Despachos):
             )
 
             ordr_group_code = Grouping.new_code()
-            ordr_group = Grouping(
+            ordr_group = Grouping.objects.create(
                 code=ordr_group_code,
                 order=ordr,
                 delivery_option=opt,

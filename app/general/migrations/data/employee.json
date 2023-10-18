@@ -317,5 +317,16 @@
         "enabled": false,
         "changed_by": 1
     }
+},
+{
+    "model": "general.employee",
+    "pk": 30,
+    "fields": {
+        "code": "XQSW30",
+        "first_name": "Desconocido",
+        "last_name": "Desconocido",
+        "enabled": false,
+        "changed_by": 1
+    }
 }
 ]

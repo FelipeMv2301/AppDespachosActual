@@ -5,7 +5,7 @@
     "fields": {
         "code": "-1",
         "name": "-Ningún empleado del departamento de ventas-",
-        "employee": null,
+        "employee": 30,
         "service_acct": 3,
         "enabled": false,
         "changed_by": 1
@@ -377,9 +377,9 @@
     "fields": {
         "code": "-1",
         "name": "-Ningún empleado del departamento de ventas-",
-        "employee": null,
+        "employee": 30,
         "service_acct": 5,
-        "enabled": true,
+        "enabled": false,
         "changed_by": 1
     }
 },
