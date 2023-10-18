@@ -658,5 +658,17 @@
         "enabled": true,
         "changed_by": 1
     }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 56,
+    "fields": {
+        "code": "32",
+        "name": "Camila Solís",
+        "employee": 31,
+        "service_acct": 3,
+        "enabled": true,
+        "changed_by": 1
+    }
 }
 ]

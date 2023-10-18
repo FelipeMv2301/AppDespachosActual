@@ -328,5 +328,16 @@
         "enabled": false,
         "changed_by": 1
     }
+},
+{
+    "model": "general.employee",
+    "pk": 31,
+    "fields": {
+        "code": "KPOD31",
+        "first_name": "Camila",
+        "last_name": "Solís",
+        "enabled": true,
+        "changed_by": 1
+    }
 }
 ]

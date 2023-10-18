@@ -19,12 +19,11 @@ class Contact(Sap):
         bp_mdl = self.bsns_partner_mdl
 
         url = self.host
-        url += f'$crossjoin({mdl}, {bp_mdl})?'
-        url += f'$expand={bp_mdl}($select=E_Mail, MobilePhone, '
-        url += 'FirstName, MiddleName, LastName)'
-        url += f'&$filter={mdl}/CardCode eq '
-        url += f'{bp_mdl}/CardCode '
-        url += f'and {bp_mdl}/InternalCode eq {contact_id}'
+        url += f'$crossjoin({bp_mdl}, {mdl})?'
+        url += f'$expand={mdl}($select=E_Mail, MobilePhone, '
+        url += 'FirstName, MiddleName, LastName, Name, Phone1, Phone2, '
+        url += f'Address)&$filter={mdl}/CardCode eq {bp_mdl}/CardCode '
+        url += f'and {mdl}/InternalCode eq {contact_id}'
 
         response = requests.get(url=url, headers=self.headers)
         self.check_response(response=response)

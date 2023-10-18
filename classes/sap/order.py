@@ -20,6 +20,7 @@ from app.order.models.order import Order as OrderMdl
 from app.order.models.sale_channel_service import SaleChannelService
 from app.order.models.status_service import StatusService
 from classes.sap.sap import Sap
+from classes.sap.contact import Contact as SapContact
 from config.settings.base import APP_USERNAME
 from helpers.decorator.loggable import loggable
 from helpers.error.custom_error import UNEXP_ERROR, CustomError
@@ -28,6 +29,7 @@ from helpers.error.custom_error import UNEXP_ERROR, CustomError
 class Order(Sap):
     def __init__(self, account: ServiceAccount, *args, **kwargs):
         super().__init__(account=account, *args, **kwargs)
+        self.sap_contact = SapContact(account=account)
 
     @loggable
     @Sap.session_handling
@@ -35,11 +37,10 @@ class Order(Sap):
         mdl = self.order_mdl
         order_addr_mdl = self.order_addrs_mdl
         bsns_partner_mdl = self.bsns_partner_mdl
-        bsns_partner_contact_mdl = self.bsns_partner_contact_mdl
 
         url = self.host
-        url += f'$crossjoin({mdl}, {order_addr_mdl}, {bsns_partner_mdl}, '
-        url += f'{bsns_partner_contact_mdl})?$expand={mdl}($select=DocNum, '
+        url += f'$crossjoin({mdl}, {order_addr_mdl}, {bsns_partner_mdl})'
+        url += f'?$expand={mdl}($select=DocNum, '
         url += 'DocCurrency, DocDate, DocDueDate, TaxDate, U_WedDocNum, '
         url += 'U_TipoVenta, CardName, DocumentStatus, Cancelled, '
         url += 'ContactPersonCode, SalesPersonCode, DocTotal, '
@@ -47,13 +48,10 @@ class Order(Sap):
         url += f'PayToCode),{order_addr_mdl}($select=ShipToStreet, '
         url += f'ShipToCounty, BillToStreet, BillToCounty),{bsns_partner_mdl}'
         url += '($select=CardCode, GroupCode, Currency, CardName, CardType, '
-        url += 'FederalTaxID, Phone1, Phone2, EmailAddress),'
-        url += f'{bsns_partner_contact_mdl}($select=E_Mail, MobilePhone, '
-        url += 'FirstName, MiddleName, LastName, Name, Phone1, Phone2, Address'
-        url += f')&$filter={mdl}/DocEntry eq {order_addr_mdl}/DocEntry and '
-        url += f'{mdl}/CardCode eq  {bsns_partner_mdl}/CardCode and '
-        url += f'{mdl}/ContactPersonCode eq {bsns_partner_contact_mdl}/'
-        url += f'InternalCode and {mdl}/UpdateDate ge \'{from_date}\''
+        url += 'FederalTaxID, Phone1, Phone2, EmailAddress)'
+        url += f'&$filter={mdl}/DocEntry eq {order_addr_mdl}/DocEntry and '
+        url += f'{mdl}/CardCode eq {bsns_partner_mdl}/CardCode and '
+        url += f'{mdl}/UpdateDate ge \'{from_date}\''
         # url += f'{mdl}/DocumentStatus eq \'O\' and '
         # url += f'{mdl}/Cancelled eq \'tNO\''
         url += f'&$orderby={mdl}/DocEntry asc'
@@ -93,6 +91,7 @@ class Order(Sap):
             web_ordr_ref = ordr_info['U_WedDocNum']
             sale_channel_code = str(ordr_info['U_TipoVenta'])
             seller_code = str(ordr_info['SalesPersonCode'])
+            contact_code = str(ordr_info['ContactPersonCode'])
             create_date = ordr_info['DocDate']
             tax_date = ordr_info['TaxDate']
             commit_date = ordr_info['DocDueDate']
@@ -126,17 +125,30 @@ class Order(Sap):
             bsns_partner_email_addr = bsns_partner_info['EmailAddress']
 
             # Extraction of business partner contact information
-            contact_info = order[sap_bsns_partner_contact_mdl]
-            contact_code = str(ordr_info['ContactPersonCode'])
-            contact_ref = contact_info['Name']
-            contact_first_name = contact_info['FirstName'] or ''
-            contact_middle_name = contact_info['MiddleName'] or ''
-            contact_last_name = contact_info['LastName'] or ''
-            contact_phone1 = contact_info['Phone1']
-            contact_phone2 = contact_info['Phone2']
-            contact_mobile_phone = contact_info['MobilePhone']
-            contact_email_addr = contact_info['E_Mail']
-            contact_st_and_num = contact_info['Address'] or ''
+            if contact_code != '0':
+                contact_info = (self.sap_contact
+                                .search_by_id(contact_id=contact_code))[0]
+                contact_info = contact_info[sap_bsns_partner_contact_mdl]
+                contact_code = contact_code
+                contact_ref = contact_info['Name']
+                contact_first_name = contact_info['FirstName'] or ''
+                contact_middle_name = contact_info['MiddleName'] or ''
+                contact_last_name = contact_info['LastName'] or ''
+                contact_phone1 = contact_info['Phone1']
+                contact_phone2 = contact_info['Phone2']
+                contact_mobile_phone = contact_info['MobilePhone']
+                contact_email_addr = contact_info['E_Mail']
+                contact_st_and_num = contact_info['Address'] or ''
+            else:
+                contact_ref = 'CONTACTO'
+                contact_first_name = bsns_partner_name
+                contact_middle_name = ''
+                contact_last_name = ''
+                contact_phone1 = bsns_partner_phone1
+                contact_phone2 = bsns_partner_phone2
+                contact_mobile_phone = contact_phone1 or contact_phone2
+                contact_email_addr = bsns_partner_email_addr
+                contact_st_and_num = f'{ordr_ship_st_and_num}, {ordr_ship_muni_name}'
 
             # validations start
             # ----------------------------------------------------------------
