@@ -19,7 +19,7 @@ Asegúrate de tener instalado lo siguiente en tu máquina antes de continuar:
     ```
 3. Ejecuta la configuración de Linux:
     ```sh
-    source ./util/linux_setup.sh <enviroment['dev','prod']>
+    source ./deploy/linux_setup.sh <enviroment['dev','prod']>
     ```
 4. Configura el uso y acceso de MySQL local:
 
@@ -43,7 +43,7 @@ Asegúrate de tener instalado lo siguiente en tu máquina antes de continuar:
     ```
 6. Ejecuta la configuración del proyecto:
     ```sh
-    source ./util/app_setup.sh
+    source ./deploy/app_setup.sh
     ```
 
 Con estos pasos completados satisfactoriamente, el proyecto se encontrará apto para ser manipulado y no será necesario ejecutarlos de nuevo.
