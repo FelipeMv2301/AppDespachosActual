@@ -173,8 +173,8 @@ class Delivery(models.Model):
                 WHERE
                     status.name != 'CANCEL' AND
                     status.name != 'NOTISSUED' AND
-                    d.issue_date >= '{start_date}' AND
-                    d.issue_date <= '{end_date}'
+                    ordr.updtd_commit_date >= '{start_date}' AND
+                    ordr.updtd_commit_date <= '{end_date}'
                 ORDER BY d.created_at ASC)
                 SELECT *
                 FROM q

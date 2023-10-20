@@ -4,7 +4,7 @@ from datetime import date
 from django.contrib import messages
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.core.handlers.wsgi import WSGIRequest
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.views.generic.base import View
 from simple_history.utils import bulk_update_with_history
 
@@ -253,10 +253,12 @@ class IssueView(PermissionRequiredMixin, View):
                                              'changed_by',
                                              'locked'])
             messages.success(request=request,
-                             message=('¡Emissión hecha! Orden envío: '
+                             message=('¡Emisión hecha! Orden de entrega: '
                                       f'{stk_deliv.folio}'))
             email = OrderEmail(delivery=deliv)
             email.send()
+
+            return redirect(to='delivery_review')
         else:
             deliv.issue_date = date.today()
             deliv.locked = True
@@ -269,10 +271,13 @@ class IssueView(PermissionRequiredMixin, View):
                                              'changed_by',
                                              'locked'])
             messages.success(request=request,
-                             message=('¡Emissión hecha! Orden envío: '
+                             message=('¡Emisión hecha! Orden de entrega: '
                                       f'{deliv.folio}'))
             email = OrderEmail(delivery=deliv)
             email.send()
+
+            return redirect(to='delivery_review')
+
         context['form'] = form_by_user
         return render(request=request,
                       template_name=self.template,

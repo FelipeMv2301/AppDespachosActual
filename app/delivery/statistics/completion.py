@@ -67,7 +67,7 @@ class Completion(DelivStat):
                 'Fecha compromiso actualizada': ship.ordr_updtd_commit_date,
                 'Observaciones pedido': ship.ordr_obs,
                 'Referencia pedido web': ship.web_ordr_ref,
-                'Orden de transporte': ship.folio,
+                'Orden de entrega': ship.folio,
                 'Fecha armado': ship.assy_date,
                 'Fecha emisión': ship.issue_date,
                 'Fecha recepción cliente': ship.rcpt_date,
