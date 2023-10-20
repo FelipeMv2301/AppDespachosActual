@@ -134,6 +134,7 @@ class IssueView(PermissionRequiredMixin, View):
                                   'customer',
                                   'contact')
                   .filter(code=group_code))
+        first_group = groups.first()
         ordr_deliv = (OrderDelivery.objects
                       .filter(order_grouping=groups.first()))
         if ordr_deliv.exists():
@@ -153,8 +154,8 @@ class IssueView(PermissionRequiredMixin, View):
                     )
                 )
             groups = new_groups
+            first_group = groups[0]
 
-        first_group = groups.first()
         addr_id = first_group.addr.id
         contact_id = first_group.contact.id
 
