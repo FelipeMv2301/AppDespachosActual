@@ -1,6 +1,7 @@
 import os
 from datetime import date, datetime, timedelta
 
+from django.contrib import messages
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.core.handlers.wsgi import WSGIRequest
 from django.shortcuts import render
@@ -30,8 +31,6 @@ class KpisView(PermissionRequiredMixin, View):
     @loggable
     def get(self, request: WSGIRequest, *args, **kwargs):
         params = request.GET
-        context = {'page_title': PAGE_TITLE,
-                   'form': self.form()}
 
         today = date.today()
         date_fmt = '%Y-%m-%d'
@@ -43,6 +42,18 @@ class KpisView(PermissionRequiredMixin, View):
                     if params.get('end_date')
                     else
                     today)
+
+        form_data = {'start_date': start_date.strftime(date_fmt),
+                     'end_date': end_date.strftime(date_fmt)}
+        context = {'page_title': PAGE_TITLE,
+                   'form': self.form(data=form_data)}
+
+        if start_date > end_date:
+            messages.error(request=request,
+                           message='La fecha inicial es mayor a la fecha final')
+            return render(request=request,
+                          template_name=self.template,
+                          context=context)
 
         ship_by_region = ShipByState(start_date=start_date, end_date=end_date)
         if params.get('export_ship_by_state') is not None:
