@@ -90,6 +90,8 @@ if RUNNING_MIGRATIONS:
 else:
     ROOT_URLCONF = 'config.urls'
 
+LOGIN_URL = '/'
+
 # WSGI
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#wsgi-application
