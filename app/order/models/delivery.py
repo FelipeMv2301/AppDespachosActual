@@ -53,7 +53,8 @@ class OrderDelivery(models.Model):
                 CASE
                     WHEN b.name IS NULL THEN 'No aplica'
                     ELSE b.name
-                END branch
+                END branch,
+                cntc.email_addr email_addr
             FROM
                 order_delivery od
                     LEFT JOIN
@@ -64,6 +65,8 @@ class OrderDelivery(models.Model):
                 delivery_status_service dstserv ON d.service_status_id = dstserv.id
                     LEFT JOIN
                 order_grouping og ON od.order_grouping_id = og.id
+                    LEFT JOIN
+                contact cntc ON og.contact_id = cntc.id
                     LEFT JOIN
                 address a ON og.addr_id = a.id
                     LEFT JOIN
@@ -83,7 +86,7 @@ class OrderDelivery(models.Model):
                     LEFT JOIN
                 branch b ON do.branch_id = b.id
             WHERE o.doc_num IN ({ordr_doc_nums})
-            GROUP BY d.folio , m.name , s.id , dt.name , dpt.name , ds.name , b.name;
+            GROUP BY d.folio , m.name , s.id , dt.name , dpt.name , ds.name , b.name, cntc.id;
         """
         query = query.format(ordr_doc_nums=','.join(ordr_doc_nums))
         result = cls.objects.raw(query)

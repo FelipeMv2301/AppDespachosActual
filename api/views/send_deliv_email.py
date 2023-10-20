@@ -21,7 +21,12 @@ class SendDelivEmailView(PermissionRequiredMixin, View):
     @domain_check(allowed_domains=allowed_domains)
     @authentication
     @loggable
-    def get(self, request: WSGIRequest, folio: str | int, *args, **kwargs):
+    def get(self,
+            request: WSGIRequest,
+            folio: str | int,
+            email_addr: str,
+            *args,
+            **kwargs):
         delivery = Delivery.objects.filter(folio=folio)
         error = ''
         send_status = False
@@ -34,7 +39,7 @@ class SendDelivEmailView(PermissionRequiredMixin, View):
 
         if not error:
             try:
-                email = OrderEmail(delivery=delivery.first())
+                email = OrderEmail(delivery=delivery.first(), cc=[email_addr])
                 email.send_email()
                 send_status = True
             except CustomError as e:
