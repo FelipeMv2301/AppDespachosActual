@@ -22,7 +22,7 @@
     <div class="pt-3" id="selected-results"></div>
     <form hidden method="POST" action="" accept-charset="UTF-8">
         {% csrf_token %}
-        {% if can_edit_commit_date or can_edit_form %}
+        {% if can_edit_commit_date %}
             <div class="pt-5">
                 <span class="fs-5 fw-bold">Información de pedido</span>
                 <div class="form-group pt-4 d-grid">
@@ -32,15 +32,7 @@
                             {{ form.commit_date }}
                             {{ form.commit_date.errors }}
                         </div>
-                        {% if not can_edit_form %}
-                            <div class="col">
-                                {{ form.obs.label_tag }}
-                                {{ form.obs }}
-                                {{ form.obs.errors }}
-                            </div>
-                        {% else %}
-                            <div class="col"></div>
-                        {% endif %}
+                        <div class="col"></div>
                         <div class="col"></div>
                     </div>
                 </div>
@@ -164,9 +156,8 @@
     const selectedOrders = new Set();
     
     var selects = {
-        {% if can_edit_commit_date or can_edit_form %}
+        {% if can_edit_commit_date %}
         commitDate: $('#{{ form.commit_date.id_for_label }}'),
-        obs: $('#{{ form.obs.id_for_label }}'),
         {% endif %}
         {% if can_edit_form %}
         stAndNum: $('#{{ form.deliv_st_and_num.id_for_label }}'),
@@ -183,6 +174,7 @@
         delivService: $('#{{ form.deliv_service.id_for_label }}'),
         delivPayType: $('#{{ form.deliv_pay_type.id_for_label }}'),
         delivBranch: $('#{{ form.branch.id_for_label }}'),
+        obs: $('#{{ form.obs.id_for_label }}'),
         {% endif %}
     };
     
@@ -330,7 +322,7 @@
                 url: url,
                 success: function (response) {
                     const data = response.orders || response.group;
-                    {% if can_edit_commit_date or can_edit_form %}
+                    {% if can_edit_commit_date %}
                     selects.commitDate.val(data.updtd_commit_date);
                     {% endif %}
                     {% if can_edit_form %}
@@ -343,37 +335,51 @@
                     selects.contactPhone1.val(data.contact_phone1);
                     selects.contactPhone2.val(data.contact_phone2);
                     selects.delivMuni.val(data.muni_code);
-                    selects.carrier.val(data.carrier_code);
-                    selects.delivType.val(data.type_code);
-                    selects.delivService.val(data.service_code);
-                    selects.delivPayType.val(data.pay_type_code);
-                    selects.delivBranch.val(data.branch_code);
-
-                    selects.delivType.find('option').each(function () {
-                        if ($(this).val() === data.type_code) {
-                            $(this).prop('selected', true);
-                        }
-                    });
-                    selects.delivService.find('option').each(function () {
-                        if ($(this).val() === data.service_code) {
-                            $(this).prop('selected', true);
-                        }
-                    });
-                    selects.delivPayType.find('option').each(function () {
-                        if ($(this).val() === data.pay_type_code) {
-                            $(this).prop('selected', true);
-                        }
-                    });
-                    selects.carrier.find('option').each(function () {
-                        if ($(this).val() === data.carrier_code) {
-                            $(this).prop('selected', true);
-                        }
-                    });
-                    selects.delivBranch.find('option').each(function () {
-                        if ($(this).val() === data.branch_code) {
-                            $(this).prop('selected', true);
-                        }
-                    });
+                    var carrierCode = data.carrier_code;
+                    var typeCode = data.type_code;
+                    var serviceCode = data.service_code;
+                    var payTypeCode = data.pay_type_code;
+                    var branchCode = data.branch_code;
+                    if (carrierCode) {
+                        selects.carrier.val(carrierCode);
+                        selects.carrier.find('option').each(function () {
+                            if ($(this).val() === carrierCode) {
+                                $(this).prop('selected', true);
+                            }
+                        });
+                    }
+                    if (typeCode) {
+                        selects.delivType.val(typeCode);
+                        selects.delivType.find('option').each(function () {
+                            if ($(this).val() === typeCode) {
+                                $(this).prop('selected', true);
+                            }
+                        });
+                    }
+                    if (serviceCode) {
+                        selects.delivService.val(serviceCode);
+                        selects.delivService.find('option').each(function () {
+                            if ($(this).val() === serviceCode) {
+                                $(this).prop('selected', true);
+                            }
+                        });
+                    }
+                    if (payTypeCode) {
+                        selects.delivPayType.val(payTypeCode);
+                        selects.delivPayType.find('option').each(function () {
+                            if ($(this).val() === payTypeCode) {
+                                $(this).prop('selected', true);
+                            }
+                        });
+                    }
+                    if (branchCode) {
+                        selects.delivBranch.val(branchCode);
+                        selects.delivBranch.find('option').each(function () {
+                            if ($(this).val() === branchCode) {
+                                $(this).prop('selected', true);
+                            }
+                        });
+                    }
                     searchDeliveryOption();
                     {% endif %}
                 },

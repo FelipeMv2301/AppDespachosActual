@@ -24,19 +24,6 @@ class DeliveryForm(forms.Form):
         ),
         validators=[DeliveryFormValidator().validate_order],
     )
-    obs = forms.CharField(
-        label='Observaciones de entrega',
-        max_length='255',
-        required=False,
-        disabled=False,
-        widget=forms.TextInput(
-            attrs={
-                'class': 'mb-2 textfield',
-                'maxlength': '255',
-                'oninput': 'this.value = this.value.slice(0, 255)',
-            }
-        )
-    )
 
     def __init__(self,
                  user: SimpleLazyObject,
@@ -46,7 +33,7 @@ class DeliveryForm(forms.Form):
                  **kwargs):
         super().__init__(*args, **kwargs)
         self.user = user
-        if can_edit_commit_date or can_edit_form:
+        if can_edit_commit_date:
             self.fields['commit_date'] = forms.DateField(
                 label='Fecha de compromiso',
                 required=True,
@@ -268,4 +255,17 @@ class DeliveryForm(forms.Form):
                     }
                 ),
                 validators=[DeliveryFormValidator().validate_branch],
+            )
+            self.fields['obs'] = forms.CharField(
+                label='Observaciones de entrega',
+                max_length='255',
+                required=False,
+                disabled=False,
+                widget=forms.TextInput(
+                    attrs={
+                        'class': 'mb-2 textfield',
+                        'maxlength': '255',
+                        'oninput': 'this.value = this.value.slice(0, 255)',
+                    }
+                )
             )

@@ -93,7 +93,6 @@ class DeliveryFormView(AnyPermissionRequiredMixin, View):
 
         f = form_by_user.cleaned_data
         ordr_doc_nums = f['orders'].split(',')
-        obs = f['obs']
 
         if can_edit_commit_date:
             commit_date = f['commit_date']
@@ -120,6 +119,7 @@ class DeliveryFormView(AnyPermissionRequiredMixin, View):
             deliv_service_code = f['deliv_service']
             deliv_pay_type_code = f['deliv_pay_type']
             branch_code = f['branch'] or None
+            obs = f['obs']
 
             # Revisar si existe la opción de entrega
             try:
