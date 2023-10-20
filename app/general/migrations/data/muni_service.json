@@ -24953,7 +24953,7 @@
     "fields": {
         "code": "278",
         "name": "HUALPEN",
-        "muni": null,
+        "muni": 58,
         "service_acct": 5,
         "enabled": true,
         "changed_by": 1
