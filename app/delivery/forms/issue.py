@@ -1,3 +1,4 @@
+from datetime import datetime
 from typing import Any, Mapping
 
 from django import forms
@@ -284,6 +285,7 @@ class IssueForm(forms.Form):
         label='Fecha de armado',
         required=True,
         disabled=False,
+        initial=datetime.now().strftime('%Y-%m-%d'),
         widget=forms.DateInput(
             attrs={
                 'class': 'mb-2 textfield',
