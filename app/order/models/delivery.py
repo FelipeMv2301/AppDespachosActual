@@ -86,7 +86,8 @@ class OrderDelivery(models.Model):
                     LEFT JOIN
                 branch b ON do.branch_id = b.id
             WHERE o.doc_num IN ({ordr_doc_nums})
-            GROUP BY d.folio , m.name , s.id , dt.name , dpt.name , ds.name , b.name, cntc.id;
+            GROUP BY d.folio , m.name , s.id , dt.name , dpt.name , ds.name , b.name, cntc.id
+            ORDER BY d.created_at DESC;
         """
         query = query.format(ordr_doc_nums=','.join(ordr_doc_nums))
         result = cls.objects.raw(query)
