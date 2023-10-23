@@ -165,9 +165,11 @@ class OrderEmail(Email):
     def __validate_deliv_for_email(self, *args, **kwargs) -> bool:
         carrier_code = self.deliv_query['carrier_code']
         branch_code = self.deliv_query['branch_code']
+        deliv_type_code = self.deliv_query['deliv_type_code']
 
         validation = (carrier_code == 'STK' or
-                      (carrier_code == 'BQ' and branch_code != 'BQ201'))
+                      (carrier_code == 'BQ' and deliv_type_code == 'BRDELIV'
+                       and branch_code != 'BQ201'))
 
         return validation
 
