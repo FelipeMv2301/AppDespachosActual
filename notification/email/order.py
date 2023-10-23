@@ -48,6 +48,7 @@ class OrderEmail(Email):
                     company_trade_name=F('delivery__service_acct__company__trade_name'),
                     company_code=F('delivery__service_acct__company__code'),
                     order_doc_num=F('order_grouping__order__doc_num'),
+                    branch_code=F('order_grouping__delivery_option__branch__code'),
                     branch_addr=Concat('order_grouping__delivery_option__branch__addr__st_and_num',
                                        Value(' '),
                                        'order_grouping__delivery_option__branch__addr__complement',
@@ -72,10 +73,17 @@ class OrderEmail(Email):
             e = CustomError(msg=e_msg, log=tb)
             raise e
 
-        if self.deliv_query['carrier_code'] == 'ML':
+        folio = self.deliv_query['folio']
+        deliv_status_code = self.deliv_query['deliv_status_code']
+        deliv_type_code = self.deliv_query['deliv_type_code']
+        company_code = self.deliv_query['company_code']
+        company_trade_name = self.deliv_query['company_trade_name']
+        carrier_code = self.deliv_query['carrier_code']
+
+        if not self.__validate_deliv_for_email():
             return
 
-        if self.deliv_query['deliv_status_code'] != 'ISSUED':
+        if deliv_status_code != 'ISSUED':
             e_msg = 'Error: Ha ocurrido un error en el envío de correo. '
             e_msg = 'No corresponde el envío de correo por el estado'
             e_msg += f'Delivery folio: {delivery.folio}'
@@ -84,7 +92,7 @@ class OrderEmail(Email):
 
         self.from_email = re.sub(pattern=r'[^a-zA-Z0-9\s]',
                                  repl='',
-                                 string=self.deliv_query['company_trade_name'])
+                                 string=company_trade_name)
         self.from_email += f' <{EMAIL_HOST_USER}>'
 
         ordr_doc_nums = ', '.join([deliv['order_doc_num']
@@ -92,8 +100,8 @@ class OrderEmail(Email):
         track_url = (
             settings.ALLOWED_PUBLIC_HOSTS[0] +
             reverse(viewname='deliv_track',
-                    kwargs={'company_code': self.deliv_query['company_code'],
-                            'folio': self.deliv_query['folio']})
+                    kwargs={'company_code': company_code,
+                            'folio': folio})
         )
         tmpl_context = {
             'contact_name': self.deliv_query['contact_name'],
@@ -101,20 +109,19 @@ class OrderEmail(Email):
             'branch_addr_maps_url': self.deliv_query['branch_addr_maps_url'],
             'branch_address': self.deliv_query['branch_addr'],
             'branch_hours': self.deliv_query['branch_hours'],
-            'carrier_code': self.deliv_query['carrier_code'],
-            'company_code': self.deliv_query['company_code'],
-            'company_trade_name': self.deliv_query['company_trade_name'],
+            'carrier_code': carrier_code,
+            'company_code': company_code,
+            'company_trade_name': company_trade_name,
             'track_url': track_url,
         }
 
         self.attachs = []
-        if (self.deliv_query['carrier_code'] == 'STK' or
-                self.deliv_query['deliv_type_code'] == 'HOMEDELIV'):
+        if carrier_code == 'STK' or deliv_type_code == 'HOMEDELIV':
             filepath_template = 'order_shipped_email.html'
             tmpl_context.update({
-                'folio': self.deliv_query['folio'],
+                'folio': folio,
                 'carrier_name': self.deliv_query['carrier_name'],
-                'deliv_type_code': self.deliv_query['deliv_type_code'],
+                'deliv_type_code': deliv_type_code,
             })
             self.attachs = [{
                 'filepath': 'dispatch_insurance.pdf',
@@ -155,9 +162,18 @@ class OrderEmail(Email):
                          *args,
                          **kwargs)
 
+    def __validate_deliv_for_email(self, *args, **kwargs) -> bool:
+        carrier_code = self.deliv_query['carrier_code']
+        branch_code = self.deliv_query['branch_code']
+
+        validation = (carrier_code == 'STK' or
+                      (carrier_code == 'BQ' and branch_code != 'BQ201'))
+
+        return validation
+
     def send_email(self):
         try:
-            if self.deliv_query['carrier_code'] == 'ML':
+            if not self.__validate_deliv_for_email():
                 return
             self.send()
         except Exception:
