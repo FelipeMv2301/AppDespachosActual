@@ -82,41 +82,5 @@
         "enabled": true,
         "changed_by": 1
     }
-},
-{
-    "model": "delivery.paytypeservice",
-    "pk": 8,
-    "fields": {
-        "code": "",
-        "name": "Pagado",
-        "service_acct": 8,
-        "pay_type": 1,
-        "enabled": false,
-        "changed_by": 1
-    }
-},
-{
-    "model": "delivery.paytypeservice",
-    "pk": 9,
-    "fields": {
-        "code": "",
-        "name": "Pagado",
-        "service_acct": 9,
-        "pay_type": 1,
-        "enabled": false,
-        "changed_by": 1
-    }
-},
-{
-    "model": "delivery.paytypeservice",
-    "pk": 10,
-    "fields": {
-        "code": "",
-        "name": "Pagado",
-        "service_acct": 10,
-        "pay_type": 1,
-        "enabled": false,
-        "changed_by": 1
-    }
 }
 ]
