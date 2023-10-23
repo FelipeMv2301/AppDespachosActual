@@ -48,12 +48,14 @@
                             </li>
                         </a>
                     {% endif %}
-                    {% if perms.delivery.cancel_delivery and od.status_code == 'ISSUED' or od.status_code == 'NOTISSUED' %}
+                    {% if perms.delivery.cancel_delivery %}
+                        {% if od.status_code == 'ISSUED' or od.status_code == 'NOTISSUED' %}
                         <a onclick="cancelDelivery('{{ od.folio }}')" style="color: inherit; text-decoration: none; cursor: pointer;">
                             <li class="redbutton tab fw-semibold ps-4 pe-4">
                                 <span>Cancelar</span>
                             </li>
                         </a>
+                        {% endif %}
                     {% endif %}
                 </ul>
                 <div class="tab-content">
