@@ -154,6 +154,19 @@
     const searchResultsArea = document.getElementById('results');
     const selectedResultsArea = document.getElementById('selected-results');
     const selectedOrders = new Set();
+
+    if (searchInput.value) {
+        const docNums = searchInput.value.split(',');
+        console.log(docNums);
+        docNums.forEach(docNum => {
+            if (!selectedOrders.has(docNum)) {
+                selectedOrders.add(docNum);
+    
+                const button = createButtonElement(docNum, docNum);
+                selectedResultsArea.appendChild(button);
+            }
+        })
+    }
     
     var selects = {
         {% if can_edit_commit_date %}
