@@ -216,9 +216,11 @@ class IssueView(PermissionRequiredMixin, View):
                 doc_type_code = doc_types[i]
                 doc_type = DocType.objects.get(code=doc_type_code,
                                                enabled=True)
-                doc_type_serv = DocTypeServ.objects.get(service_acct=acct,
-                                                        doc_type=doc_type,
-                                                        enabled=True)
+                doc_type_serv = (DocTypeServ.objects
+                                 .filter(service_acct=acct,
+                                         doc_type=doc_type,
+                                         enabled=True)
+                                 .first())
                 Document.objects.create(folio=folio,
                                         type=doc_type,
                                         delivery=deliv,
