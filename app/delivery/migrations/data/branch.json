@@ -20,10 +20,27 @@
         "model": "delivery.branch",
         "pk": 2,
         "fields": {
+            "code": "BQ201",
+            "name": "Bodega S-02",
+            "service_acct": 6,
+            "addr": 2,
+            "phone": "+56222252583",
+            "phone2": null,
+            "hours": "Lunes a jueves de 08:30 a 16:30 hrs y viernes de 08:30 a 15:15 hrs",
+            "shipping": false,
+            "delivery": true,
+            "enabled": true,
+            "changed_by": 1
+        }
+    },
+    {
+        "model": "delivery.branch",
+        "pk": 3,
+        "fields": {
             "code": "TD101",
             "name": "Vitacura 2905-2B",
             "service_acct": 7,
-            "addr": 2,
+            "addr": 3,
             "phone": "+56222252583",
             "phone2": null,
             "hours": "Lunes a jueves de 08:30 a 16:30 hrs y viernes de 08:30 a 15:15 hrs",

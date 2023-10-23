@@ -4,7 +4,7 @@
         "pk": 1,
         "fields": {
             "code": "BQ2756N3A",
-            "reference": "Bodega N3A",
+            "reference": "Bodega N3-A",
             "st_and_num": "Av Til Til 2756",
             "complement": "Bodega N3-A",
             "muni": 326,
@@ -17,6 +17,21 @@
     {
         "model": "general.address",
         "pk": 2,
+        "fields": {
+            "code": "BQ2756S02",
+            "reference": "Bodega S-02",
+            "st_and_num": "Av Til Til 2756",
+            "complement": "Bodega S-02",
+            "muni": 326,
+            "maps_url": "https://maps.app.goo.gl/j1QaHLQHhoHsky8d6",
+            "latitude": -33.4800093,
+            "longitude": -70.61725659999999,
+            "changed_by": 1
+        }
+    },
+    {
+        "model": "general.address",
+        "pk": 3,
         "fields": {
             "code": "TD29052B",
             "reference": "Vitacura 2905-2B",
