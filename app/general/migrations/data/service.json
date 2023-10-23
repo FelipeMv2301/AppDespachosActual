@@ -88,6 +88,16 @@
         "is_carrier": false,
         "changed_by": 1
     }
+},
+{
+    "model": "general.service",
+    "pk": 10,
+    "fields": {
+        "code": "ML",
+        "name": "Mercado Libre",
+        "is_carrier": true,
+        "changed_by": 1
+    }
 }
 ]
     
