@@ -157,7 +157,6 @@
 
     if (searchInput.value) {
         const docNums = searchInput.value.split(',');
-        console.log(docNums);
         docNums.forEach(docNum => {
             if (!selectedOrders.has(docNum)) {
                 selectedOrders.add(docNum);
