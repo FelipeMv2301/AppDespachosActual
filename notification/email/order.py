@@ -72,6 +72,9 @@ class OrderEmail(Email):
             e = CustomError(msg=e_msg, log=tb)
             raise e
 
+        if self.deliv_query['carrier_code'] == 'ML':
+            return
+
         if self.deliv_query['deliv_status_code'] != 'ISSUED':
             e_msg = 'Error: Ha ocurrido un error en el envío de correo. '
             e_msg = 'No corresponde el envío de correo por el estado'
@@ -154,6 +157,8 @@ class OrderEmail(Email):
 
     def send_email(self):
         try:
+            if self.deliv_query['carrier_code'] == 'ML':
+                return
             self.send()
         except Exception:
             tb = traceback.format_exc()

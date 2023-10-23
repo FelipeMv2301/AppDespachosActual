@@ -255,13 +255,6 @@ class IssueView(PermissionRequiredMixin, View):
                                              'status',
                                              'changed_by',
                                              'locked'])
-            messages.success(request=request,
-                             message=('¡Emisión hecha! Orden de entrega: '
-                                      f'{stk_deliv.folio}'))
-            email = OrderEmail(delivery=deliv)
-            email.send()
-
-            return redirect(to='delivery_review')
         else:
             deliv.issue_date = date.today()
             deliv.locked = True
@@ -273,13 +266,13 @@ class IssueView(PermissionRequiredMixin, View):
                                              'status',
                                              'changed_by',
                                              'locked'])
-            messages.success(request=request,
-                             message=('¡Emisión hecha! Orden de entrega: '
-                                      f'{deliv.folio}'))
-            email = OrderEmail(delivery=deliv)
-            email.send()
+        messages.success(request=request,
+                         message=('¡Emisión hecha! Orden de entrega: '
+                                  f'{deliv.folio}'))
+        email = OrderEmail(delivery=deliv)
+        email.send()
 
-            return redirect(to='delivery_review')
+        return redirect(to='delivery_review')
 
         context['form'] = form_by_user
         return render(request=request,
