@@ -270,7 +270,7 @@ class IssueView(PermissionRequiredMixin, View):
                          message=('¡Emisión hecha! Orden de entrega: '
                                   f'{deliv.folio}'))
         email = OrderEmail(delivery=deliv)
-        email.send()
+        email.send_email()
 
         return redirect(to='delivery_review')
 
