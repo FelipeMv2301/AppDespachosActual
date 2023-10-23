@@ -63,7 +63,7 @@ class Delivery(Despachos):
         stk_acct = serv_accts['STK']
         statuss = {s.code: s
                    for s in (Status.objects
-                             .filter(code__in=['ISSUED', 'CANCEL']))}
+                             .filter(code__in=['ISSUED', 'CANCEL', 'RCVD']))}
         deliv_service = DelivService.objects.get(code='NO')
         doc_types = {str(dt.code): dt
                      for dt in (DocumentType.objects

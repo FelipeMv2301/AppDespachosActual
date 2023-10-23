@@ -56,16 +56,6 @@ class Delivery(Mitocondria):
 
     @loggable
     def app_sync(self, from_date: str, *args, **kwargs):
-        mdl = DelivMdl
-        ordr_mdl = Order
-        ordr_group_mdl = Grouping
-        doc_mdl = Document
-        addr_mdl = Address
-        serv_muni_mdl = MuniService
-        doc_type_mdl = DocumentType
-        opt_mdl = Option
-        ag_mdl = Branch
-        contact_mdl = Contact
         delivs = self.search_all(from_date=from_date)
         user_obj = User.objects.get(username=APP_USERNAME)
         status_obj = Status.objects.get(code='ISSUED')
@@ -76,7 +66,7 @@ class Delivery(Mitocondria):
         stk_service = Service.objects.get(code=STK_SERV_CODE)
         deliv_service = DelivService.objects.get(code='NO')
 
-        doc_types_equiv = {k: doc_type_mdl.objects.get(code=v)
+        doc_types_equiv = {k: DocumentType.objects.get(code=v)
                            for k, v in self.doc_types_equiv_by_code.items()}
 
         deliv_types_equiv = (TypeService.objects
@@ -121,13 +111,13 @@ class Delivery(Mitocondria):
             docs = json.loads(s=d['docs'])
 
             try:
-                deliv = mdl.objects.get(folio=folio)
+                deliv = DelivMdl.objects.get(folio=folio)
                 continue
-            except mdl.DoesNotExist:
+            except DelivMdl.DoesNotExist:
                 pass
 
             try:
-                ordr_objs = ordr_mdl.objects.filter(
+                ordr_objs = Order.objects.filter(
                     (Q(doc_num__in=ordrs) | Q(web_order_ref__in=ordrs)),
                     service_acct=sap_acct
                 )
@@ -155,6 +145,8 @@ class Delivery(Mitocondria):
 
             carrier_is_stk = (deliv_type.code == '1' or
                               deliv_type.code == '2')
+            pickup_in_branch = (deliv_type.code == '1' or
+                                deliv_type.code == '3')
 
             deliv_type = deliv_type.type
             if not deliv_type:
@@ -183,24 +175,29 @@ class Delivery(Mitocondria):
 
             service = stk_service if carrier_is_stk else bq_service
 
-            if str(ship_muni_name).startswith('@'):
-                ag_code = str(ship_muni_name).replace('@', '')
+            if pickup_in_branch:
+                if str(ship_muni_name).startswith('@'):
+                    branch_code = str(ship_muni_name).replace('@', '')
+                    serv_acct = stk_acct
+                else:
+                    branch_code = 'BQ301'
+                    serv_acct = bq_acct
                 try:
-                    ag = (ag_mdl.objects.select_related('addr')
-                          .get(code=ag_code, service_acct=stk_acct))
-                    muni = ag.addr.muni
-                except ag_mdl.DoesNotExist:
-                    e_msg = f'Error: branch code \'{ag_code}\' '
+                    branch = (Branch.objects.select_related('addr')
+                              .get(code=branch_code, service_acct=serv_acct))
+                    muni = branch.addr.muni
+                except Branch.DoesNotExist:
+                    e_msg = f'Error: branch code \'{branch_code}\' '
                     e_msg += 'does not exist'
                     e_msg += f'\nFolio: {folio}'
                     CustomError(msg=e_msg, notify=True)
                     continue
             else:
-                ag = None
+                branch = None
                 try:
-                    muni = serv_muni_mdl.objects.get(
+                    muni = MuniService.objects.get(
                         name=ship_muni_name, service_acct=self.serv_account)
-                except serv_muni_mdl.DoesNotExist:
+                except MuniService.DoesNotExist:
                     e_msg = f'Error: ship muni name \'{ship_muni_name}\' '
                     e_msg += 'does not exist'
                     e_msg += f'\nFolio: {folio}'
@@ -215,13 +212,13 @@ class Delivery(Mitocondria):
                     CustomError(msg=e_msg, notify=True)
                     continue
 
-            opt = opt_mdl.objects.filter(
+            opt = Option.objects.filter(
                 enabled=True,
                 carrier=service,
                 service=deliv_service,
                 type=deliv_type,
                 pay_type=pay_type,
-                branch=ag
+                branch=branch
             )
             if not opt:
                 e_msg = 'Error: delivery option does not exist'
@@ -247,16 +244,16 @@ class Delivery(Mitocondria):
             except CustomError:
                 continue
 
-            addr = addr_mdl(
+            addr = Address(
                 st_and_num=ship_st_and_num,
                 complement=f'{ship_complement} {ship_dpto}',
                 muni=muni,
                 changed_by=user_obj
             )
             addr = bulk_create_with_history(objs=[addr],
-                                            model=addr_mdl)[0]
+                                            model=Address)[0]
 
-            contact = contact_mdl(
+            contact = Contact(
                 first_name=cntct_first_name,
                 last_name=cntct_last_name,
                 addr=addr,
@@ -265,13 +262,13 @@ class Delivery(Mitocondria):
                 changed_by=user_obj
             )
             contact = bulk_create_with_history(objs=[contact],
-                                               model=contact_mdl)[0]
+                                               model=Contact)[0]
 
-            ordr_group_code = ordr_group_mdl.new_code()
+            ordr_group_code = Grouping.new_code()
             ordr_groups_to_create = []
             for ordr in ordrs:
                 ordr_obj = ordr_objs[ordr]
-                ordr_groups_to_create.append(ordr_group_mdl(
+                ordr_groups_to_create.append(Grouping(
                     code=ordr_group_code,
                     order=ordr_obj,
                     delivery_option=opt,
@@ -283,10 +280,10 @@ class Delivery(Mitocondria):
                 ))
             ordr_groups = bulk_create_with_history(
                 objs=ordr_groups_to_create,
-                model=ordr_group_mdl
+                model=Grouping
             )
 
-            deliv = mdl(
+            deliv = DelivMdl(
                 folio=folio,
                 service_acct=stk_acct if carrier_is_stk else bq_acct,
                 issue_date=issue_date,
@@ -307,7 +304,7 @@ class Delivery(Mitocondria):
             )
             deliv = bulk_create_with_history(
                 objs=[deliv],
-                model=mdl
+                model=DelivMdl
             )[0]
 
             for ordr_group in ordr_groups:
@@ -319,9 +316,9 @@ class Delivery(Mitocondria):
                     continue
                 doc_type = doc['type']
                 bulk_create_with_history(
-                    objs=[doc_mdl(folio=doc_folio,
-                                  delivery=deliv,
-                                  type=doc_type,
-                                  changed_by=user_obj)],
-                    model=doc_mdl
+                    objs=[Document(folio=doc_folio,
+                                   delivery=deliv,
+                                   type=doc_type,
+                                   changed_by=user_obj)],
+                    model=Document
                 )
