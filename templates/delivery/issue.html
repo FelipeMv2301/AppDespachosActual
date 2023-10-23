@@ -141,7 +141,7 @@
                             {{ form.is_complete.errors }}
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row ship-info">
                         <div class="col">
                             {{ form.volume.label_tag }}
                             <div class="position-relative">
@@ -191,7 +191,7 @@
                             {{ form.weight.errors }}
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row ship-info">
                         <div class="col">
                             {{ form.pack_qty.label_tag }}
                             {{ form.pack_qty }}
@@ -206,7 +206,7 @@
                             {{ form.valuation.errors }}
                         </div>
                     </div>
-                    <div class="row" id="doc-div">
+                    <div class="row ship-info" id="doc-div">
                         <div class="col">
                             {{ form.doc_type.label_tag }}
                             {{ form.doc_type }}
@@ -637,14 +637,28 @@
 
     function requiredFieldsManage(carrierCode) {
         const requiredValue = carrierCode == 'STK';
-        selects.height.prop('required', requiredValue);
-        selects.width.prop('required', requiredValue);
-        selects.length.prop('required', requiredValue);
-        selects.weight.prop('required', requiredValue);
-        selects.packQty.prop('required', requiredValue);
-        selects.valuation.prop('required', requiredValue);
-        selects.docType.prop('required', requiredValue);
-        selects.docFolio.prop('required', requiredValue);
+
+        const inputs = [
+            selects.height,
+            selects.width,
+            selects.length,
+            selects.weight,
+            selects.packQty,
+            selects.valuation,
+            selects.docType,
+            selects.docFolio,
+        ];
+        inputs.forEach(input => {
+            input.prop('required', requiredValue);
+            input.prop('disabled', requiredValue == false);
+        })
+
+        const shipInfo = $('.ship-info');
+        if (requiredValue) { 
+            shipInfo.show();
+        } else {
+            shipInfo.hide();
+        }
     }
 </script>
 {% endblock %}
