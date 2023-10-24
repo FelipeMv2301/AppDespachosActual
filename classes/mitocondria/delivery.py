@@ -81,7 +81,7 @@ class Delivery(Mitocondria):
 
         for d in delivs:
             deliv_id = d['id']
-            folio = d['folio']
+            folio = d['folio'] if d['folio'] else DelivMdl.new_folio()
             issue_date = d['issue_date']
             assy_date = issue_date
             rcpt_commit_date = d['commit_date']
@@ -111,7 +111,8 @@ class Delivery(Mitocondria):
             docs = json.loads(s=d['docs'])
 
             try:
-                deliv = DelivMdl.objects.get(folio=folio)
+                deliv = DelivMdl.objects.get(Q(folio=folio) |
+                                             Q(mito_id=deliv_id))
                 continue
             except DelivMdl.DoesNotExist:
                 pass
@@ -291,12 +292,12 @@ class Delivery(Mitocondria):
                 rcpt_commit_date=rcpt_commit_date,
                 mito_id=deliv_id,
                 from_mito=True,
-                height=height,
-                width=width,
-                length=length,
-                weight=weight,
-                packages_qty=packages,
-                valuation=valuation,
+                height=height or 0,
+                width=width or 0,
+                length=length or 0,
+                weight=weight or 0,
+                packages_qty=packages or 1,
+                valuation=valuation or 1,
                 status=status_obj,
                 is_complete=is_complete,
                 locked=True,

@@ -60,7 +60,6 @@ class Delivery(Despachos):
             serv = sa.service
             serv_accts[serv.code] = sa
             servs[serv.code] = serv
-        stk_acct = serv_accts['STK']
         statuss = {s.code: s
                    for s in (Status.objects
                              .filter(code__in=['ISSUED', 'CANCEL', 'RCVD']))}
@@ -86,11 +85,19 @@ class Delivery(Despachos):
             if status_code == 'NOTISSUED' or not issue_date:
                 continue
             deliv_type_code = str(d['deliv_type_code'])
-            to_branch = deliv_type_code == 'BRDELIV'
+            # to_branch = deliv_type_code == 'BRDELIV'
             pay_type_code = str(d['pay_type_code'])
             serv_code = str(d['serv_code'])
             branch_code = d['branch_serv_code']
             docs = json.loads(s=d['docs'])
+
+            if serv_code == 'BQ':
+                deliv_type_code = 'BRDELIV'
+                branch_code = 'BQ301'
+            elif branch_code:
+                deliv_type_code = 'BRDELIV'
+            else:
+                deliv_type_code = 'HOMEDELIV'
 
             try:
                 deliv = DelivMdl.objects.get(folio=folio)
@@ -152,7 +159,7 @@ class Delivery(Despachos):
                 CustomError(msg=e_msg)
                 continue
 
-            if not to_branch:
+            if deliv_type_code != 'BRDELIV':
                 branch = None
                 try:
                     muni = Muni.objects.get(code=ship_muni_utc_code)
@@ -162,28 +169,16 @@ class Delivery(Despachos):
                     e_msg += f'\nFolio: {folio}'
                     CustomError(msg=e_msg)
                     continue
-            elif branch_code:
+            else:
                 try:
-                    branch = (Branch.objects.select_related('addr',
-                                                            'addr__muni')
-                              .get(code=branch_code, service_acct=stk_acct))
+                    branch = (Branch.objects
+                              .select_related('addr', 'addr__muni')
+                              .get(code=branch_code, service_acct=serv_acct))
                     muni = branch.addr.muni
                 except Branch.DoesNotExist:
                     e_msg = f'Error: branch code \'{branch_code}\' '
+                    e_msg += f'for serv acct code \'{serv_acct.code}\' '
                     e_msg += 'does not exist'
-                    e_msg += f'\nFolio: {folio}'
-                    CustomError(msg=e_msg)
-                    continue
-            else:
-                try:
-                    branch = (Branch.objects.select_related('addr',
-                                                            'addr__muni')
-                              .get(addr__muni__code=ship_muni_utc_code,
-                                   service_acct=stk_acct))
-                    muni = branch.addr.muni
-                except Branch.DoesNotExist:
-                    e_msg = 'Error: branch for muni code '
-                    e_msg = f'\'{ship_muni_utc_code}\' does not exist'
                     e_msg += f'\nFolio: {folio}'
                     CustomError(msg=e_msg)
                     continue

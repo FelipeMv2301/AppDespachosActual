@@ -1,6 +1,10 @@
 SELECT 
     d.despacho_id id,
-    d.nro_orden_flete folio,
+    (CASE
+        WHEN d.nro_orden_flete = 0
+        THEN NULL
+        ELSE d.nro_orden_flete
+    END) folio,
     d.fecha_estimada_entrega commit_date,
     d.nombre_agencia_destino branch_name,
     d.created_on issue_date,
