@@ -89,22 +89,19 @@ class PanelView(PermissionRequiredMixin, View):
                 })
             except Exception:
                 pass
+        limit = 500
         od = (OrderDelivery.objects
               .select_related('delivery',
                               'delivery__status',
                               'delivery__service_acct__service',
                               'order_grouping__order')
               .filter(**filters)
-              .order_by('delivery__id'))
-        delivs = {}
+              .order_by('delivery__id'))[:limit]
+        delivs = []
         for o in od:
             folio = o.delivery.folio
             doc_num = o.order_grouping.order.doc_num
-            if folio in delivs:
-                deliv = delivs[folio]
-                deliv['doc_nums'] += f', {doc_num}'
-                continue
-            delivs[folio] = {
+            deliv = {
                 'doc_nums': doc_num,
                 'updtd_commit_date': o.order_grouping.order.updtd_commit_date,
                 'folio': folio,
@@ -115,10 +112,10 @@ class PanelView(PermissionRequiredMixin, View):
                 'rcpt_date': o.delivery.rcpt_date,
                 'status_name': o.delivery.status.name,
             }
+            delivs.append(deliv)
 
         html_table = ''
-        for i, folio in enumerate(iterable=delivs):
-            data = delivs[folio]
+        for i, data in enumerate(iterable=delivs):
             html_table += (f'<tr><th scope="row">{i+1}</th>'
                            f'<td>{data["doc_nums"]}</td>'
                            f'<td>{data["updtd_commit_date"]}</td>'
