@@ -250,11 +250,11 @@ class Delivery(Starken):
         if deliv['mobile_phone']:
             phone_nums.append(deliv['mobile_phone'])
 
-        ws_client = Client(wsdl=self.ws_url)
+        # ws_client = Client(wsdl=self.ws_url)  # For WS
         body = {
-            'rutEmpresaEmisora': self.ws_rut_wo_verifier,
-            'rutUsuarioEmisor': self.ws_user,
-            'claveUsuarioEmisor': self.ws_pwd,
+            'rutEmpresaEmisora': self.acct_rut_wo_verifier,
+            'rutUsuarioEmisor': self.acct_user,
+            'claveUsuarioEmisor': self.acct_pwd,
             'rutDestinatario': '?',
             'dvRutDestinatario': '?',
             'nombreRazonSocialDestinatario': deliv['customer_name'],
@@ -269,9 +269,9 @@ class Delivery(Starken):
             'nombreContactoDestinatario': deliv['contact_name'],
             'tipoEntrega': deliv['deliv_type_code'],
             'tipoPago': deliv['deliv_pay_type_code'],
-            'numeroCtaCte': self.ws_acct_wo_verifier,
-            'dvNumeroCtaCte': self.ws_acct_verifier,
-            'centroCostoCtaCte': self.ws_cost_center,
+            'numeroCtaCte': self.acct_wo_verifier,
+            'dvNumeroCtaCte': self.acct_verifier,
+            'centroCostoCtaCte': self.acct_cost_center,
             'valorDeclarado': valuation,
             'contenido': 'Material Educativo',
             'kilosTotal': weight,
@@ -317,10 +317,15 @@ class Delivery(Starken):
             body[f'generaEtiquetaDocumento{index}'] = 'S'
         print('body', body)
 
-        response = ws_client.service.Execute(body)
-        print('response', response)
+        # response = ws_client.service.Execute(body)  # For WS
+        response = requests.post(url=self.issue_api_host,
+                                 data=json.dumps(obj=body),
+                                 headers={'Content-Type': 'application/json'})  # For Rest
+        # print('response', response)  # For WS
+        print('response', response.text)  # For Rest
 
         try:
+            response = json.loads(s=response.text)  # For Rest
             if response['codigoError'] != 0:
                 e_desc = response['descripcionError']
                 e_msg = f'Error: {e_desc}'
@@ -330,13 +335,14 @@ class Delivery(Starken):
                 e = CustomError(msg=e_msg, notify=True)
                 raise e
             else:
-                self.folio = response['nroOrdenFlete']
+                self.folio = int(response['nroOrdenFlete'])
                 self.rcpt_commit_date = response['fechaEstimadaEntrega']
                 self.issue_date = response['fechaEmision']
         except KeyError:
             tb = traceback.format_exc()
             tb += f'\nBody: {body}'
-            tb += f'\nResponse: {response}'
+            # tb += f'\nResponse: {response}'  # For WS
+            tb += f'\nResponse: {response.text}'  # For Rest
             tb += f'\nFolio: {delivery.folio}'
             tb += f'\nId: {delivery.id}'
             e_msg = 'Error: ha ocurrido un error insperado posterior a la '

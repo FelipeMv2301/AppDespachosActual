@@ -15,6 +15,23 @@ class Starken:
         # Starken service account info
         self.serv_code = SERV_CODE
         self.serv_account = account
+        self.acct_rut = self.serv_account.rut
+        acct_rut_split = self.acct_rut.split('-')
+        self.acct_rut_wo_verifier = acct_rut_split[0]
+        self.acct_rut_verifier = acct_rut_split[-1]
+        self.acct_user = self.serv_account.username
+        self.acct_pwd = self.serv_account.get_password()
+        self.acct = self.serv_account.number
+        acct_split = self.acct.split('-')
+        self.acct_wo_verifier = acct_split[0]
+        self.acct_verifier = acct_split[-1]
+        self.acct_cost_center = self.serv_account.cost_center
+
+        # Starken issue API data
+        self.issue_api_host = env.str(var='STARKEN_ISSUE_API_HOST')
+
+        # Starken web services data
+        self.ws_url = env.str(var='STARKEN_WS_URL')
 
         # Starken API data
         self.api_host = env.str(var='STARKEN_API_HOST')
@@ -23,20 +40,6 @@ class Starken:
         self.branch_api_path = f'{self.api_host}agencias-externo/agency'
         self.muni_api_path = f'{self.api_host}agencias-externo/comuna'
         self.trk_api_path = f'{self.api_host}tracking-externo/orden-flete/of/{{folio}}'
-
-        # Starken web services data
-        self.ws_url = env.str(var='STARKEN_WS_URL')
-        self.ws_rut = self.serv_account.rut
-        ws_rut_split = self.ws_rut.split('-')
-        self.ws_rut_wo_verifier = ws_rut_split[0]
-        self.ws_rut_verifier = ws_rut_split[-1]
-        self.ws_user = self.serv_account.username
-        self.ws_pwd = self.serv_account.get_password()
-        self.ws_acct = self.serv_account.number
-        ws_acct_split = self.ws_acct.split('-')
-        self.ws_acct_wo_verifier = ws_acct_split[0]
-        self.ws_acct_verifier = ws_acct_split[-1]
-        self.ws_cost_center = self.serv_account.cost_center
 
         # Starken custom errors
         self.bad_request_error = 'Bad request to Starken'
