@@ -79,6 +79,7 @@ class OrderEmail(Email):
         company_code = self.deliv_query['company_code']
         company_trade_name = self.deliv_query['company_trade_name']
         carrier_code = self.deliv_query['carrier_code']
+        cntc_email_addr = self.deliv_query['email_addr']
 
         if not self.__validate_deliv_for_email():
             return
@@ -150,7 +151,7 @@ class OrderEmail(Email):
         self.body = strip_tags(value=template)
         self.body = template
 
-        super().__init__(to=['ti@bioquimica.cl'],
+        super().__init__(to=cntc_email_addr,
                          subject=self.subject,
                          from_email=self.from_email,
                          body=self.body,
