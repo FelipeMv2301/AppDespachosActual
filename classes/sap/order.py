@@ -33,7 +33,11 @@ class Order(Sap):
 
     @loggable
     @Sap.session_handling
-    def search_all(self, from_date: str, *args, **kwargs) -> Dict[str, Any]:
+    def search_all(self,
+                   from_date: str,
+                   to_date: str,
+                   *args,
+                   **kwargs) -> Dict[str, Any]:
         mdl = self.order_mdl
         order_addr_mdl = self.order_addrs_mdl
         bsns_partner_mdl = self.bsns_partner_mdl
@@ -51,7 +55,8 @@ class Order(Sap):
         url += 'FederalTaxID, Phone1, Phone2, EmailAddress)'
         url += f'&$filter={mdl}/DocEntry eq {order_addr_mdl}/DocEntry and '
         url += f'{mdl}/CardCode eq {bsns_partner_mdl}/CardCode and '
-        url += f'{mdl}/UpdateDate ge \'{from_date}\''
+        url += f'{mdl}/UpdateDate ge \'{from_date}\' and '
+        url += f'{mdl}/UpdateDate le \'{to_date}\''
         # url += f'{mdl}/DocumentStatus eq \'O\' and '
         # url += f'{mdl}/Cancelled eq \'tNO\''
         url += f'&$orderby={mdl}/DocEntry asc'
@@ -63,7 +68,7 @@ class Order(Sap):
         return json.loads(s=response.text)['value']
 
     @loggable
-    def app_sync(self, from_date: str, *args, **kwargs):
+    def app_sync(self, from_date: str, to_date: str, *args, **kwargs):
         mdl = OrderMdl
         addr_mdl = Address
         bsns_partner_mdl = BusinessPartner
@@ -81,7 +86,7 @@ class Order(Sap):
         sap_bsns_partner_mdl = self.bsns_partner_mdl
         sap_bsns_partner_contact_mdl = self.bsns_partner_contact_mdl
         user_obj = User.objects.get(username=APP_USERNAME)
-        orders = self.search_all(from_date=from_date)
+        orders = self.search_all(from_date=from_date, to_date=to_date)
 
         for order in orders:
             # Extraction of order information
