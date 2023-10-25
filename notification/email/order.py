@@ -21,6 +21,7 @@ class OrderEmail(Email):
     def __init__(self,
                  delivery: Delivery,
                  subject: str = '📢 Notificación de estado de su pedido',
+                 to: Sequence[str] = None,
                  cc: Sequence[str] = None,
                  bcc: Sequence[str] = None,
                  *args, **kwargs):
@@ -79,7 +80,8 @@ class OrderEmail(Email):
         company_code = self.deliv_query['company_code']
         company_trade_name = self.deliv_query['company_trade_name']
         carrier_code = self.deliv_query['carrier_code']
-        cntc_email_addr = self.deliv_query['email_addr']
+
+        self.to = to or [self.deliv_query['email_addr']]
 
         if not self.__validate_deliv_for_email():
             return
@@ -151,7 +153,7 @@ class OrderEmail(Email):
         self.body = strip_tags(value=template)
         self.body = template
 
-        super().__init__(to=cntc_email_addr,
+        super().__init__(to=self.to,
                          subject=self.subject,
                          from_email=self.from_email,
                          body=self.body,

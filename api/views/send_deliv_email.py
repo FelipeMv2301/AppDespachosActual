@@ -39,7 +39,7 @@ class SendDelivEmailView(PermissionRequiredMixin, View):
 
         if not error:
             try:
-                email = OrderEmail(delivery=delivery.first(), cc=[email_addr])
+                email = OrderEmail(delivery=delivery.first(), to=[email_addr])
                 email.send_email()
                 send_status = True
             except CustomError as e:
