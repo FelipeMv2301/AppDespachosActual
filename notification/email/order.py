@@ -63,10 +63,10 @@ class OrderEmail(Email):
                     branch_hours=F('order_grouping__delivery_option__branch__hours'),
                     rcpt_commit_date=F('delivery__rcpt_commit_date'),
                     email_addr=F('order_grouping__contact__email_addr'),
-                    contact_name=Concat(Coalesce('order_grouping__contact__first_name', Value('')),
-                                        Value(' '),
-                                        Coalesce('order_grouping__contact__first_name', Value('')),
-                                        output_field=CharField()),
+                    contact_fullname=Concat(Coalesce('order_grouping__contact__first_name', Value('')),
+                                            Value(' '),
+                                            Coalesce('order_grouping__contact__last_name', Value('')),
+                                            output_field=CharField()),
                 ).distinct()
             )
             self.deliv_query = deliv_query.first()
