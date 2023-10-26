@@ -46,12 +46,13 @@ class Delivery(Starken):
         return json.loads(s=response.text)
 
     @loggable
-    def app_sync(self, *args, **kwargs):
+    def app_sync(self, from_date: str, *args, **kwargs):
         mdl = DelivMdl
         status_mdl = StatusService
         user_obj = User.objects.get(username=APP_USERNAME)
 
-        delivs = mdl.objects.filter(service_acct=self.serv_account)
+        delivs = mdl.objects.filter(service_acct=self.serv_account,
+                                    issue_date__gte=from_date)
         status = status_mdl.objects.filter(service_acct=self.serv_account)
         status = {st.code: st for st in status}
         for deliv in delivs:
