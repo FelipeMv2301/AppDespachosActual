@@ -32,6 +32,11 @@ class OrderEmail(Email):
             cc_recipients.extend(cc)
         self.cc = cc_recipients
 
+        bcc_recipients = env.list(var='NOTIF_EMAIL_HIDDEN_RECIPIENTS')
+        if bcc:
+            bcc_recipients.extend(bcc)
+        self.bcc = bcc_recipients
+
         self.delivery = delivery
         try:
             deliv_query = (
@@ -159,7 +164,7 @@ class OrderEmail(Email):
                          body=self.body,
                          body_content_type='html',
                          cc=self.cc,
-                         bcc=bcc,
+                         bcc=self.bcc,
                          reply_to=self.reply_to,
                          attachments=self.attachs,
                          *args,
