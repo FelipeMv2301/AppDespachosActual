@@ -112,7 +112,7 @@ class OrderEmail(Email):
                             'folio': folio})
         )
         tmpl_context = {
-            'contact_name': self.deliv_query['contact_name'],
+            'contact_fullname': self.deliv_query['contact_fullname'],
             'order_doc_num': ordr_doc_nums,
             'branch_addr_maps_url': self.deliv_query['branch_addr_maps_url'],
             'branch_address': self.deliv_query['branch_addr'],
