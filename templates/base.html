@@ -36,10 +36,6 @@
         <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.all.min.js"></script>
         <script>
-            const checkAuthUrl = '{% url "check_auth" %}';
-            const loginUrl = '{% url "login" %}';
-            const authenticatedUser = {{ request.user.is_authenticated|lower }};
-
             var userMessages = '';
             {% if messages %}
                 {% for message in messages %}
@@ -64,6 +60,9 @@
                     text: userMessages
                 })
             }
+            const checkAuthUrl = '{% url "check_auth" %}';
+            const loginUrl = '{% url "login" %}';
+            const authenticatedUser = {{ request.user.is_authenticated|lower }};
         </script>
         <script src="{% static 'app/js/main.js' %}"></script>
         {% block scripts %}

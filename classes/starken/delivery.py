@@ -174,7 +174,8 @@ class Delivery(Starken):
             OrderDelivery.objects
             .filter(delivery=delivery,
                     order_grouping__delivery_option__type__typeservice__service_acct=delivery.service_acct,
-                    order_grouping__delivery_option__pay_type__paytypeservice__service_acct=delivery.service_acct)
+                    order_grouping__delivery_option__pay_type__paytypeservice__service_acct=delivery.service_acct,
+                    order_grouping__addr__muni__muniservice__service_acct=delivery.service_acct)
             .values(
                 deliv_id=F('delivery__id'),
                 customer_name=F('order_grouping__customer__name'),
@@ -330,10 +331,10 @@ class Delivery(Starken):
             if response['codigoError'] != 0:
                 e_desc = response['descripcionError']
                 e_msg = f'Error: {e_desc}'
-                e_msg += f'\nBody: {body}'
-                e_msg += f'\nResponse: {response}'
-                e_msg += f'\nFolio: {delivery.folio}'
-                e = CustomError(msg=e_msg, notify=True)
+                log_msg = f'\nBody: {str(body)}'
+                log_msg += f'\nResponse: {str(response)}'
+                log_msg += f'\nFolio: {delivery.folio}'
+                e = CustomError(msg=e_msg, log=log_msg, notify=True)
                 raise e
             else:
                 self.folio = int(response['nroOrdenFlete'])
