@@ -23,7 +23,11 @@
         }
         /* Encabezado */
         .header {
-            {{ background }};
+            {% if company_code == 'BQ' %}
+                background-color: #4ec0a6;
+            {% else %}
+                background-image: linear-gradient(90deg,#43bdd7,#95c11f);
+            {% endif %}
             padding: 10px;
             text-align: center;
             color: #fff;
@@ -52,7 +56,11 @@
         }
         /* Pie de página */
         .footer {
-            {{ background }};
+            {% if company_code == 'BQ' %}
+                background-color: #4ec0a6;
+            {% else %}
+                background-image: linear-gradient(90deg,#43bdd7,#95c11f);
+            {% endif %}
             padding: 10px;
             text-align: center;
             color: #fff;
@@ -63,7 +71,11 @@
     <div class="container">
         <!-- Encabezado -->
         <div class="header">
-            <img class="logo" src="{{ logo_url }}" alt="Logo">
+            {% if company_code == 'BQ' %}
+                <img class="logo" src="https://firebasestorage.googleapis.com/v0/b/bioquimicacl.appspot.com/o/logos%2Fwhite_bq_logo.png?alt=media&token=8343a4cc-37ce-4c7c-b9b0-97a67166789f" alt="Logo">
+            {% else %}
+                <img class="logo" src="https://firebasestorage.googleapis.com/v0/b/bioquimicacl.appspot.com/o/logos%2Fwhite_gs_logo.png?alt=media&token=1a0768bd-c28d-409c-9efd-f8b919b8189c" alt="Logo">
+            {% endif %}
         </div>
         <!-- Contenido -->
         <div class="content">
@@ -80,9 +92,7 @@
             <p>¡Gracias por elegirnos!</p>
         </div>
         <!-- Pie de página -->
-        <div class="footer">
-            © {% now "Y" %} {{ company_trade_name }}. Todos los derechos reservados.
-        </div>
+        <div class="footer">©{% now "Y" %} {{ company_trade_name }}. Todos los derechos reservados.</div>
     </div>
 </body>
 </html>
