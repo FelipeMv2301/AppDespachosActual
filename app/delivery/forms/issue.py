@@ -263,7 +263,6 @@ class IssueForm(forms.Form):
         widget=forms.Select(
             attrs={
                 'class': 'mb-2 textfield',
-                'onchange': 'searchDeliveryOption()',
             }
         ),
         validators=[IssueValidator().validate_branch],

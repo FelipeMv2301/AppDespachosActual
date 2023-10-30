@@ -575,11 +575,11 @@
                         $(this).prop('selected', true);
                     }
                 });
-                {% comment %} selectsCopy.delivBranch.find('option').each(function () {
+                selectsCopy.delivBranch.find('option').each(function () {
                     if ($(this).val() === selectValues.delivBranch) {
                         $(this).prop('selected', true);
                     }
-                }); {% endcomment %}
+                });
             },
             error: function () { }
         });
