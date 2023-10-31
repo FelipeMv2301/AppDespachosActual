@@ -17,19 +17,19 @@ import debug_toolbar
 from django.contrib import admin
 from django.urls import include, path
 
-from app.views.home import home
+from project.views.home import home
 
 urlpatterns = [
     path(route='admin/', view=admin.site.urls),
     path(route='__debug__/', view=include(debug_toolbar.urls)),
     path(route='', view=home, name='home'),
     path(route='api/', view=include(arg='api.urls')),
-    path(route='auth/', view=include(arg='app.authentication.urls')),
-    path(route='order/', view=include(arg='app.order.urls')),
-    path(route='delivery/', view=include(arg='app.delivery.urls')),
+    path(route='auth/', view=include(arg='module.authentication.urls')),
+    path(route='order/', view=include(arg='module.order.urls')),
+    path(route='delivery/', view=include(arg='module.delivery.urls')),
 ]
 
 # Errors handling
-handler403 = 'app.views.error_403.error_403'
-handler404 = 'app.views.error_404.error_404'
-handler500 = 'app.views.error_500.error_500'
+handler403 = 'project.views.error_403.error_403'
+handler404 = 'project.views.error_404.error_404'
+handler500 = 'project.views.error_500.error_500'

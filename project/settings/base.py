@@ -115,11 +115,11 @@ THIRD_PARTY_APPS = []
 
 LOCAL_APPS = [
     'api',
-    'app.authentication',
-    'app.business_partner',
-    'app.delivery',
-    'app.general',
-    'app.order',
+    'module.authentication',
+    'module.business_partner',
+    'module.delivery',
+    'module.general',
+    'module.order',
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
