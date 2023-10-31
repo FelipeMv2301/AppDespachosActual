@@ -20,8 +20,8 @@ from module.general.models.address import Address
 from module.general.models.muni_service import MuniService
 from module.general.models.service import Service
 from module.general.models.service_account import ServiceAccount
-from app.order.models.grouping import Grouping
-from app.order.models.order import Order
+from module.order.models.grouping import Grouping
+from module.order.models.order import Order
 from classes.mitocondria.mitocondria import Mitocondria
 from classes.starken.starken import SERV_CODE as STK_SERV_CODE
 from helpers.decorator.loggable import loggable

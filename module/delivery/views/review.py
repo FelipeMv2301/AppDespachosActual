@@ -7,7 +7,7 @@ from django.shortcuts import render
 from django.views.generic.base import View
 
 from module.delivery.forms.review import ReviewForm
-from app.order.models.delivery import OrderDelivery
+from module.order.models.delivery import OrderDelivery
 from helpers.decorator.auth import authentication
 from helpers.decorator.domain import domain_check
 from helpers.decorator.loggable import loggable

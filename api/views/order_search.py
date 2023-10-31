@@ -2,7 +2,7 @@ from django.core.handlers.wsgi import WSGIRequest
 from django.http import HttpResponseNotFound, JsonResponse
 from django.views.generic.base import View
 
-from app.order.models.order import Order
+from module.order.models.order import Order
 from helpers.decorator.auth import authentication
 from helpers.decorator.domain import domain_check
 from helpers.decorator.loggable import loggable

@@ -1,6 +1,6 @@
 from django.urls import path
 
-from app.order.views.delivery_form import DeliveryFormView
+from module.order.views.delivery_form import DeliveryFormView
 
 urlpatterns = [
     path(route='delivery_form',

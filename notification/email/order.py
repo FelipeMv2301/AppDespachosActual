@@ -11,7 +11,7 @@ from django.urls import reverse
 from django.utils.html import strip_tags
 
 from module.delivery.models.delivery import Delivery
-from app.order.models.delivery import OrderDelivery
+from module.order.models.delivery import OrderDelivery
 from helpers.error.custom_error import CustomError
 from notification.email.email import ATTACHMENTS_PATH, Email
 from project.settings.base import EMAIL_HOST_USER, env

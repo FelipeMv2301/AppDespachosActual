@@ -16,9 +16,9 @@ from module.general.models.currency_service import CurrencyService
 from module.general.models.employee_service import EmployeeService
 from module.general.models.muni_service import MuniService
 from module.general.models.service_account import ServiceAccount
-from app.order.models.order import Order as OrderMdl
-from app.order.models.sale_channel_service import SaleChannelService
-from app.order.models.status_service import StatusService
+from module.order.models.order import Order as OrderMdl
+from module.order.models.sale_channel_service import SaleChannelService
+from module.order.models.status_service import StatusService
 from classes.sap.contact import Contact as SapContact
 from classes.sap.sap import Sap
 from helpers.decorator.loggable import loggable

@@ -3,8 +3,8 @@ from django.db.models import Count, F
 from django.http import HttpResponseNotFound, JsonResponse
 from django.views.generic.base import View
 
-from app.order.models.grouping import Grouping
-from app.order.models.order import Order
+from module.order.models.grouping import Grouping
+from module.order.models.order import Order
 from helpers.decorator.auth import authentication
 from helpers.decorator.domain import domain_check
 from helpers.decorator.loggable import loggable

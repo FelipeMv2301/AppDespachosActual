@@ -7,7 +7,7 @@ from module.delivery.models.service import Service as DelivServ
 from module.delivery.models.type import Type
 from module.general.models.muni import Muni
 from module.general.models.service import Service
-from app.order.forms.validators.delivery_form import DeliveryFormValidator
+from module.order.forms.validators.delivery_form import DeliveryFormValidator
 
 
 class DeliveryForm(forms.Form):

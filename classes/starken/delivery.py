@@ -16,7 +16,7 @@ from module.delivery.models.delivery import Delivery as DelivMdl
 from module.delivery.models.status import Status
 from module.delivery.models.status_service import StatusService
 from module.general.models.service_account import ServiceAccount
-from app.order.models.delivery import OrderDelivery
+from module.order.models.delivery import OrderDelivery
 from classes.starken.starken import Starken
 from helpers.decorator.loggable import loggable
 from helpers.error.custom_error import UNEXP_ERROR, CustomError

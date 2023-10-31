@@ -16,8 +16,8 @@ from module.delivery.models.type import Type
 from module.general.models.address import Address
 from module.general.models.muni import Muni
 from module.general.models.service_account import ServiceAccount
-from app.order.models.grouping import Grouping
-from app.order.models.order import Order
+from module.order.models.grouping import Grouping
+from module.order.models.order import Order
 from classes.despachos.despachos import Despachos
 from helpers.decorator.loggable import loggable
 from helpers.error.custom_error import CustomError

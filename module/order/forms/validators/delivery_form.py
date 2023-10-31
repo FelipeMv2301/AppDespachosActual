@@ -10,7 +10,7 @@ from module.delivery.models.type import Type
 from module.general.models.muni import Muni
 from module.general.models.service import Service
 from module.general.models.service_account import ServiceAccount
-from app.order.models.order import Order
+from module.order.models.order import Order
 
 
 class DeliveryFormValidator:
