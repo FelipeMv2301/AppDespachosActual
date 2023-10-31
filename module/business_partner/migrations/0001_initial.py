@@ -6,7 +6,7 @@ import simple_history.models
 from django.conf import settings
 from django.db import migrations, models
 
-import app.business_partner.models.contact
+import module.business_partner.models.contact
 
 
 class Migration(migrations.Migration):
@@ -170,8 +170,8 @@ class Migration(migrations.Migration):
             name='HistoricalContact',
             fields=[
                 ('id', models.BigIntegerField(auto_created=True, blank=True, db_index=True, verbose_name='ID')),
-                ('code', models.CharField(db_index=True, default=app.business_partner.models.contact.Contact.new_code, max_length=100)),
-                ('reference', models.CharField(default=app.business_partner.models.contact.Contact.new_code, max_length=100)),
+                ('code', models.CharField(db_index=True, default=module.business_partner.models.contact.Contact.new_code, max_length=100)),
+                ('reference', models.CharField(default=module.business_partner.models.contact.Contact.new_code, max_length=100)),
                 ('first_name', models.CharField(max_length=100, null=True)),
                 ('last_name', models.CharField(max_length=100, null=True)),
                 ('phone1', models.CharField(max_length=100, null=True)),
@@ -252,8 +252,8 @@ class Migration(migrations.Migration):
             name='Contact',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('code', models.CharField(default=app.business_partner.models.contact.Contact.new_code, max_length=100, unique=True)),
-                ('reference', models.CharField(default=app.business_partner.models.contact.Contact.new_code, max_length=100)),
+                ('code', models.CharField(default=module.business_partner.models.contact.Contact.new_code, max_length=100, unique=True)),
+                ('reference', models.CharField(default=module.business_partner.models.contact.Contact.new_code, max_length=100)),
                 ('first_name', models.CharField(max_length=100, null=True)),
                 ('last_name', models.CharField(max_length=100, null=True)),
                 ('phone1', models.CharField(max_length=100, null=True)),

@@ -6,8 +6,8 @@ import simple_history.models
 from django.conf import settings
 from django.db import migrations, models
 
-import app.general.models.address
-import app.general.models.employee
+import module.general.models.address
+import module.general.models.employee
 
 
 class Migration(migrations.Migration):
@@ -71,7 +71,7 @@ class Migration(migrations.Migration):
             name='Employee',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('code', models.CharField(default=app.general.models.employee.Employee.new_code, max_length=100, unique=True)),
+                ('code', models.CharField(default=module.general.models.employee.Employee.new_code, max_length=100, unique=True)),
                 ('first_name', models.CharField(max_length=100)),
                 ('last_name', models.CharField(max_length=100)),
                 ('enabled', models.BooleanField(default=True)),
@@ -358,7 +358,7 @@ class Migration(migrations.Migration):
             name='HistoricalEmployee',
             fields=[
                 ('id', models.BigIntegerField(auto_created=True, blank=True, db_index=True, verbose_name='ID')),
-                ('code', models.CharField(db_index=True, default=app.general.models.employee.Employee.new_code, max_length=100)),
+                ('code', models.CharField(db_index=True, default=module.general.models.employee.Employee.new_code, max_length=100)),
                 ('first_name', models.CharField(max_length=100)),
                 ('last_name', models.CharField(max_length=100)),
                 ('enabled', models.BooleanField(default=True)),
@@ -486,8 +486,8 @@ class Migration(migrations.Migration):
             name='HistoricalAddress',
             fields=[
                 ('id', models.BigIntegerField(auto_created=True, blank=True, db_index=True, verbose_name='ID')),
-                ('code', models.CharField(db_index=True, default=app.general.models.address.Address.new_code, max_length=100)),
-                ('reference', models.CharField(default=app.general.models.address.Address.new_code, max_length=100)),
+                ('code', models.CharField(db_index=True, default=module.general.models.address.Address.new_code, max_length=100)),
+                ('reference', models.CharField(default=module.general.models.address.Address.new_code, max_length=100)),
                 ('st_and_num', models.CharField(max_length=500)),
                 ('complement', models.CharField(max_length=500, null=True)),
                 ('maps_url', models.URLField(max_length=200, null=True)),
@@ -552,8 +552,8 @@ class Migration(migrations.Migration):
             name='Address',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('code', models.CharField(default=app.general.models.address.Address.new_code, max_length=100, unique=True)),
-                ('reference', models.CharField(default=app.general.models.address.Address.new_code, max_length=100)),
+                ('code', models.CharField(default=module.general.models.address.Address.new_code, max_length=100, unique=True)),
+                ('reference', models.CharField(default=module.general.models.address.Address.new_code, max_length=100)),
                 ('st_and_num', models.CharField(max_length=500)),
                 ('complement', models.CharField(max_length=500, null=True)),
                 ('maps_url', models.URLField(max_length=200, null=True)),
