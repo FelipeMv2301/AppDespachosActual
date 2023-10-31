@@ -9,7 +9,7 @@ from simple_history.utils import (bulk_create_with_history,
                                   bulk_update_with_history)
 
 from module.business_partner.models.contact import Contact
-from app.delivery.models.opt import Option
+from module.delivery.models.opt import Option
 from app.general.models.address import Address
 from app.general.models.muni import Muni
 from app.general.models.muni_service import MuniService

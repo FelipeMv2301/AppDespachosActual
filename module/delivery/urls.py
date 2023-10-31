@@ -1,10 +1,10 @@
 from django.urls import path
 
-from app.delivery.views.issue import IssueView
-from app.delivery.views.kpis import KpisView
-from app.delivery.views.panel import PanelView
-from app.delivery.views.review import ReviewView
-from app.delivery.views.track import TrackView
+from module.delivery.views.issue import IssueView
+from module.delivery.views.kpis import KpisView
+from module.delivery.views.panel import PanelView
+from module.delivery.views.review import ReviewView
+from module.delivery.views.track import TrackView
 
 urlpatterns = [
     path(route='review',

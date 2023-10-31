@@ -6,8 +6,8 @@ from django.http import JsonResponse
 from django.views.generic.base import View
 from simple_history.utils import bulk_update_with_history
 
-from app.delivery.models.delivery import Delivery
-from app.delivery.models.status import Status
+from module.delivery.models.delivery import Delivery
+from module.delivery.models.status import Status
 from helpers.decorator.auth import authentication
 from helpers.decorator.domain import domain_check
 from helpers.decorator.loggable import loggable

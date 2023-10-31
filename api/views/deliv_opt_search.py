@@ -4,7 +4,7 @@ from django.db.models.functions import Concat
 from django.http import HttpResponseNotFound, JsonResponse
 from django.views.generic.base import View
 
-from app.delivery.models.opt import Option
+from module.delivery.models.opt import Option
 from helpers.decorator.auth import authentication
 from helpers.decorator.domain import domain_check
 from helpers.decorator.loggable import loggable

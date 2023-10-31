@@ -4,12 +4,12 @@ from typing import Any, Mapping
 from django import forms
 from django.core.validators import EmailValidator
 
-from app.delivery.forms.validators.issue import IssueValidator
-from app.delivery.models.branch import Branch
-from app.delivery.models.doc_type import DocumentType
-from app.delivery.models.pay_type import PayType
-from app.delivery.models.service import Service as DelivServ
-from app.delivery.models.type import Type
+from module.delivery.forms.validators.issue import IssueValidator
+from module.delivery.models.branch import Branch
+from module.delivery.models.doc_type import DocumentType
+from module.delivery.models.pay_type import PayType
+from module.delivery.models.service import Service as DelivServ
+from module.delivery.models.type import Type
 from app.general.models.muni import Muni
 from app.general.models.service import Service
 from app.general.models.service_account import ServiceAccount

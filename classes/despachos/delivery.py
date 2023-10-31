@@ -4,15 +4,15 @@ from typing import Any, Dict, List
 
 from django.contrib.auth.models import User
 
-from app.delivery.models.branch import Branch
-from app.delivery.models.delivery import Delivery as DelivMdl
-from app.delivery.models.doc import Document
-from app.delivery.models.doc_type import DocumentType
-from app.delivery.models.opt import Option
-from app.delivery.models.pay_type import PayType
-from app.delivery.models.service import Service as DelivService
-from app.delivery.models.status import Status
-from app.delivery.models.type import Type
+from module.delivery.models.branch import Branch
+from module.delivery.models.delivery import Delivery as DelivMdl
+from module.delivery.models.doc import Document
+from module.delivery.models.doc_type import DocumentType
+from module.delivery.models.opt import Option
+from module.delivery.models.pay_type import PayType
+from module.delivery.models.service import Service as DelivService
+from module.delivery.models.status import Status
+from module.delivery.models.type import Type
 from app.general.models.address import Address
 from app.general.models.muni import Muni
 from app.general.models.service_account import ServiceAccount

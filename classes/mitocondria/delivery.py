@@ -7,15 +7,15 @@ from django.db.models import Q
 from simple_history.utils import bulk_create_with_history
 
 from module.business_partner.models.contact import Contact
-from app.delivery.models.branch import Branch
-from app.delivery.models.delivery import Delivery as DelivMdl
-from app.delivery.models.doc import Document
-from app.delivery.models.doc_type import DocumentType
-from app.delivery.models.opt import Option
-from app.delivery.models.pay_type_service import PayTypeService
-from app.delivery.models.service import Service as DelivService
-from app.delivery.models.status import Status
-from app.delivery.models.type_service import TypeService
+from module.delivery.models.branch import Branch
+from module.delivery.models.delivery import Delivery as DelivMdl
+from module.delivery.models.doc import Document
+from module.delivery.models.doc_type import DocumentType
+from module.delivery.models.opt import Option
+from module.delivery.models.pay_type_service import PayTypeService
+from module.delivery.models.service import Service as DelivService
+from module.delivery.models.status import Status
+from module.delivery.models.type_service import TypeService
 from app.general.models.address import Address
 from app.general.models.muni_service import MuniService
 from app.general.models.service import Service

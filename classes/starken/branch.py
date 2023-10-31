@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from simple_history.utils import (bulk_create_with_history,
                                   bulk_update_with_history)
 
-from app.delivery.models.branch import Branch as BranchMdl
+from module.delivery.models.branch import Branch as BranchMdl
 from app.general.models.address import Address
 from app.general.models.muni import Muni
 from app.general.models.muni_service import MuniService

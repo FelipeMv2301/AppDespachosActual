@@ -6,7 +6,7 @@ from django.db.models import Case, F, Value, When
 from django.shortcuts import render
 from django.views.generic.base import View
 
-from app.delivery.models.delivery import Delivery
+from module.delivery.models.delivery import Delivery
 from helpers.decorator.domain import domain_check
 from helpers.decorator.loggable import loggable
 from project.settings.base import ALLOWED_PUBLIC_HOSTS

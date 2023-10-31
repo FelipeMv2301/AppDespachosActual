@@ -12,9 +12,9 @@ from simple_history.utils import (bulk_create_with_history,
                                   bulk_update_with_history)
 from zeep import Client
 
-from app.delivery.models.delivery import Delivery as DelivMdl
-from app.delivery.models.status import Status
-from app.delivery.models.status_service import StatusService
+from module.delivery.models.delivery import Delivery as DelivMdl
+from module.delivery.models.status import Status
+from module.delivery.models.status_service import StatusService
 from app.general.models.service_account import ServiceAccount
 from app.order.models.delivery import OrderDelivery
 from classes.starken.starken import Starken

@@ -2,7 +2,7 @@ from datetime import date, timedelta
 
 from django import forms
 
-from app.delivery.models.status import Status
+from module.delivery.models.status import Status
 from app.general.models.service import Service
 
 

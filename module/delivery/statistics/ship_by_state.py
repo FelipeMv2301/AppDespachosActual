@@ -9,8 +9,8 @@ import plotly.express as px
 import plotly.graph_objs as go
 from django.shortcuts import HttpResponse
 
-from app.delivery.models.delivery import Delivery
-from app.delivery.statistics.delivery import Delivery as DelivStat
+from module.delivery.models.delivery import Delivery
+from module.delivery.statistics.delivery import Delivery as DelivStat
 from app.general.models.state import State
 from helpers import globals as gb
 

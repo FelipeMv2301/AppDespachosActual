@@ -3,11 +3,11 @@ from datetime import date
 
 from django.core.exceptions import ValidationError
 
-from app.delivery.models.branch import Branch
-from app.delivery.models.doc_type import DocumentType
-from app.delivery.models.pay_type import PayType
-from app.delivery.models.service import Service as DelivService
-from app.delivery.models.type import Type
+from module.delivery.models.branch import Branch
+from module.delivery.models.doc_type import DocumentType
+from module.delivery.models.pay_type import PayType
+from module.delivery.models.service import Service as DelivService
+from module.delivery.models.type import Type
 from app.general.models.muni import Muni
 from app.general.models.service import Service
 from app.general.models.service_account import ServiceAccount

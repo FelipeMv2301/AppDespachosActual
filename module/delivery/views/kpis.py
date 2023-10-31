@@ -7,10 +7,10 @@ from django.core.handlers.wsgi import WSGIRequest
 from django.shortcuts import render
 from django.views.generic.base import View
 
-from app.delivery.forms.kpis import DateRangeForm
-from app.delivery.statistics.completion import Completion
-from app.delivery.statistics.lead_times import LeadTimes
-from app.delivery.statistics.ship_by_state import ShipByState
+from module.delivery.forms.kpis import DateRangeForm
+from module.delivery.statistics.completion import Completion
+from module.delivery.statistics.lead_times import LeadTimes
+from module.delivery.statistics.ship_by_state import ShipByState
 from helpers.decorator.auth import authentication
 from helpers.decorator.domain import domain_check
 from helpers.decorator.loggable import loggable

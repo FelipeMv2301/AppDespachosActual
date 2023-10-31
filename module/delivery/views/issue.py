@@ -9,14 +9,14 @@ from django.views.generic.base import View
 from simple_history.utils import bulk_update_with_history
 
 from module.business_partner.models.contact import Contact
-from app.delivery.forms.issue import IssueForm
-from app.delivery.models.delivery import Delivery
-from app.delivery.models.doc import Document
-from app.delivery.models.doc_type import DocumentType as DocType
-from app.delivery.models.doc_type_service import \
+from module.delivery.forms.issue import IssueForm
+from module.delivery.models.delivery import Delivery
+from module.delivery.models.doc import Document
+from module.delivery.models.doc_type import DocumentType as DocType
+from module.delivery.models.doc_type_service import \
     DocumentTypeService as DocTypeServ
-from app.delivery.models.opt import Option
-from app.delivery.models.status import Status
+from module.delivery.models.opt import Option
+from module.delivery.models.status import Status
 from app.general.models.address import Address
 from app.general.models.muni import Muni
 from app.general.models.muni_service import MuniService
