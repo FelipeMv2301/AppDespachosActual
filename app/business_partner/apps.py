@@ -3,4 +3,4 @@ from django.apps import AppConfig
 
 class BusinessPartnerConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'app.business_partner'
+    name = 'module.business_partner'
