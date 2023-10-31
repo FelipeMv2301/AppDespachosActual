@@ -36,7 +36,8 @@ class Migration(migrations.Migration):
             if not filename[0].isalnum():
                 continue
             if os.path.isfile(os.path.join(CURRENT_PATH, filename)):
-                filenames.append(filename)
+                filename_base, extension = os.path.splitext(filename)
+                filenames.append(filename_base)
     filenames.sort()
 
     dependencies = [('order', filename) for filename in filenames]
