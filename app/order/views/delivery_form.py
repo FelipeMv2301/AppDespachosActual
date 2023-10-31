@@ -12,6 +12,7 @@ from app.business_partner.models.contact import Contact
 from app.delivery.models.opt import Option
 from app.general.models.address import Address
 from app.general.models.muni import Muni
+from app.general.models.muni_service import MuniService
 from app.order.forms.delivery_form import DeliveryForm
 from app.order.models.grouping import Grouping
 from app.order.models.order import Order
@@ -19,7 +20,6 @@ from config.settings.base import ALLOWED_PRIVATE_HOSTS
 from helpers.decorator.auth import authentication
 from helpers.decorator.domain import domain_check
 from helpers.decorator.loggable import loggable
-from helpers.error.custom_error import CustomError
 from helpers.user.mixin import AnyPermissionRequiredMixin
 from helpers.user.permission import Permission
 
@@ -94,6 +94,15 @@ class DeliveryFormView(AnyPermissionRequiredMixin, View):
         f = form_by_user.cleaned_data
         ordr_doc_nums = f['orders'].split(',')
 
+        ordrs = Order.objects.filter(doc_num__in=ordr_doc_nums)
+        if len(ordrs) != len(ordr_doc_nums):
+            messages.error(request=request,
+                           message=('No existen todos o ninguno de los '
+                                    'pedidos seleccionados'))
+            return render(request=request,
+                          template_name=self.template,
+                          context=context)
+
         if can_edit_commit_date:
             commit_date = f['commit_date']
         if can_edit_form:
@@ -129,23 +138,32 @@ class DeliveryFormView(AnyPermissionRequiredMixin, View):
                                          pay_type__code=deliv_pay_type_code,
                                          branch__code=branch_code)
             except Option.MultipleObjectsReturned:
-                e_msg = 'Error: no existe una opción de envío definida'
-                log_msg = e_msg + f'\nData: {f}'
-                e = CustomError(msg=e_msg, log=log_msg)
-                raise e
+                messages.error(request=request,
+                               message=('No existe una opción de envío '
+                                        'definida'))
+                return render(request=request,
+                              template_name=self.template,
+                              context=context)
             except Option.DoesNotExist:
-                e_msg = 'Error: no existe opción de envío'
-                log_msg = e_msg + f'\nData: {f}'
-                e = CustomError(msg=e_msg, log=log_msg)
-                raise e
+                messages.error(request=request,
+                               message='No existe opción de envío')
+                return render(request=request,
+                              template_name=self.template,
+                              context=context)
+
+            muni_service = (MuniService.objects
+                            .filter(service_acct__service=opt.carrier)
+                            .first())
+            if deliv_pay_type_code == 'CE':
+                if muni_service and not muni_service.to_pay:
+                    messages.error(request=request,
+                                   message=('La comuna no acepta el tipo de '
+                                            'pago'))
+                    return render(request=request,
+                                  template_name=self.template,
+                                  context=context)
 
         if can_edit_commit_date:
-            ordrs = Order.objects.filter(doc_num__in=ordr_doc_nums)
-            if len(ordrs) != len(ordr_doc_nums):
-                e_msg = 'Error: no existen los pedidos'
-                log_msg = e_msg + f'\nData: {f}'
-                e = CustomError(msg=e_msg, log=log_msg)
-                raise e
             for ordr in ordrs:
                 ordr.updtd_commit_date = commit_date or ordr.commit_date
                 ordr.changed_by = user
@@ -208,12 +226,6 @@ class DeliveryFormView(AnyPermissionRequiredMixin, View):
                                                 'deliv_obs',
                                                 'changed_by']}
             else:
-                ordrs = Order.objects.filter(doc_num__in=ordr_doc_nums)
-                if len(ordrs) != len(ordr_doc_nums):
-                    e_msg = 'Error: no existen los pedidos'
-                    log_msg = e_msg + f'\nData: {f}'
-                    e = CustomError(msg=e_msg, log=log_msg)
-                    raise e
                 cust = ordrs.first().customer
                 muni = Muni.objects.get(code=deliv_muni_code)
                 addr = Address.objects.create(

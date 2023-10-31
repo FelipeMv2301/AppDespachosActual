@@ -19,6 +19,7 @@ from app.delivery.models.opt import Option
 from app.delivery.models.status import Status
 from app.general.models.address import Address
 from app.general.models.muni import Muni
+from app.general.models.muni_service import MuniService
 from app.general.models.service_account import ServiceAccount
 from app.order.models.delivery import OrderDelivery
 from app.order.models.grouping import Grouping
@@ -123,6 +124,17 @@ class IssueView(PermissionRequiredMixin, View):
             return render(request=request,
                           template_name=self.template,
                           context=context)
+
+        muni_service = (MuniService.objects
+                        .filter(service_acct__service=opt.service)
+                        .first())
+        if deliv_pay_type_code == 'CE':
+            if muni_service and not muni_service.to_pay:
+                messages.error(request=request,
+                               message='La comuna no acepta el tipo de pago')
+                return render(request=request,
+                              template_name=self.template,
+                              context=context)
 
         acct = (ServiceAccount.objects
                 .select_related('service')

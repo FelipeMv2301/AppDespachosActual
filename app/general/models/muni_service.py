@@ -12,6 +12,7 @@ class MuniService(models.Model):
                              null=True)
     service_acct = models.ForeignKey(to='general.ServiceAccount',
                                      on_delete=models.CASCADE)
+    to_pay = models.BooleanField(default=True)
     enabled = models.BooleanField(default=True)
     # Object tracking
     changed_by = models.ForeignKey(to='auth.User', on_delete=models.CASCADE)
