@@ -1,4 +1,4 @@
-from app.general.models.service_account import ServiceAccount
+from module.general.models.service_account import ServiceAccount
 from classes.starken.muni import Municipality
 from classes.starken.starken import SERV_CODE
 

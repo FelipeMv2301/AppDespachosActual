@@ -17,10 +17,10 @@ from module.delivery.models.doc_type_service import \
     DocumentTypeService as DocTypeServ
 from module.delivery.models.opt import Option
 from module.delivery.models.status import Status
-from app.general.models.address import Address
-from app.general.models.muni import Muni
-from app.general.models.muni_service import MuniService
-from app.general.models.service_account import ServiceAccount
+from module.general.models.address import Address
+from module.general.models.muni import Muni
+from module.general.models.muni_service import MuniService
+from module.general.models.service_account import ServiceAccount
 from app.order.models.delivery import OrderDelivery
 from app.order.models.grouping import Grouping
 from classes.starken.delivery import Delivery as StkDeliv

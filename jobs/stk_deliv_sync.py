@@ -1,6 +1,6 @@
 from datetime import datetime, timedelta
 
-from app.general.models.service_account import ServiceAccount
+from module.general.models.service_account import ServiceAccount
 from classes.starken.delivery import Delivery
 from classes.starken.starken import SERV_CODE
 

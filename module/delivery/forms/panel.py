@@ -3,7 +3,7 @@ from datetime import date, timedelta
 from django import forms
 
 from module.delivery.models.status import Status
-from app.general.models.service import Service
+from module.general.models.service import Service
 
 
 class PanelForm(forms.Form):

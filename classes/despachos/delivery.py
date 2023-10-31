@@ -13,9 +13,9 @@ from module.delivery.models.pay_type import PayType
 from module.delivery.models.service import Service as DelivService
 from module.delivery.models.status import Status
 from module.delivery.models.type import Type
-from app.general.models.address import Address
-from app.general.models.muni import Muni
-from app.general.models.service_account import ServiceAccount
+from module.general.models.address import Address
+from module.general.models.muni import Muni
+from module.general.models.service_account import ServiceAccount
 from app.order.models.grouping import Grouping
 from app.order.models.order import Order
 from classes.despachos.despachos import Despachos

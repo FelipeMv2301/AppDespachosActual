@@ -1,4 +1,4 @@
-from app.general.models.service_account import ServiceAccount
+from module.general.models.service_account import ServiceAccount
 from classes.despachos.despachos import SERV_CODE
 from classes.despachos.delivery import Delivery
 

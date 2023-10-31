@@ -7,10 +7,10 @@ from simple_history.utils import (bulk_create_with_history,
                                   bulk_update_with_history)
 
 from module.delivery.models.branch import Branch as BranchMdl
-from app.general.models.address import Address
-from app.general.models.muni import Muni
-from app.general.models.muni_service import MuniService
-from app.general.models.service_account import ServiceAccount
+from module.general.models.address import Address
+from module.general.models.muni import Muni
+from module.general.models.muni_service import MuniService
+from module.general.models.service_account import ServiceAccount
 from classes.google_maps.gmaps import GoogleMaps
 from classes.starken.starken import Starken
 from helpers.decorator.loggable import loggable

@@ -1,6 +1,6 @@
 from datetime import datetime, timedelta
 
-from app.general.models.service_account import ServiceAccount
+from module.general.models.service_account import ServiceAccount
 from classes.mitocondria.delivery import Delivery
 from classes.mitocondria.mitocondria import SERV_CODE
 from helpers.globals import SYNC_DAYS

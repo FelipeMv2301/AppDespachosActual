@@ -5,7 +5,7 @@ from typing import Callable
 
 import MySQLdb as mysql
 
-from app.general.models.service_account import ServiceAccount
+from module.general.models.service_account import ServiceAccount
 from helpers.decorator.loggable import loggable
 from helpers.error.custom_error import CustomError
 from project.settings.base import env

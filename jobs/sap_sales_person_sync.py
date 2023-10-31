@@ -1,4 +1,4 @@
-from app.general.models.service_account import ServiceAccount
+from module.general.models.service_account import ServiceAccount
 from classes.sap.sales_person import SalesPerson
 from classes.sap.sap import SERV_CODE
 

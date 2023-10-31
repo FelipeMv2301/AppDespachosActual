@@ -1,4 +1,4 @@
-from app.general.models.service_account import ServiceAccount
+from module.general.models.service_account import ServiceAccount
 from classes.sap.muni_and_city import MunicipalityAndCity
 from classes.sap.sap import SERV_CODE
 

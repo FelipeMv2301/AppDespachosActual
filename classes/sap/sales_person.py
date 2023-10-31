@@ -6,8 +6,8 @@ from django.contrib.auth.models import User
 from simple_history.utils import (bulk_create_with_history,
                                   bulk_update_with_history)
 
-from app.general.models.employee_service import EmployeeService
-from app.general.models.service_account import ServiceAccount
+from module.general.models.employee_service import EmployeeService
+from module.general.models.service_account import ServiceAccount
 from classes.sap.sap import Sap
 from helpers.decorator.loggable import loggable
 from project.settings.base import APP_USERNAME

@@ -5,8 +5,8 @@ from module.delivery.models.branch import Branch
 from module.delivery.models.pay_type import PayType
 from module.delivery.models.service import Service as DelivServ
 from module.delivery.models.type import Type
-from app.general.models.muni import Muni
-from app.general.models.service import Service
+from module.general.models.muni import Muni
+from module.general.models.service import Service
 from app.order.forms.validators.delivery_form import DeliveryFormValidator
 
 

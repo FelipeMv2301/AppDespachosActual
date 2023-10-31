@@ -3,7 +3,7 @@ from typing import Any, Dict
 
 import requests
 
-from app.general.models.service_account import ServiceAccount
+from module.general.models.service_account import ServiceAccount
 from classes.sap.sap import Sap
 from helpers.decorator.loggable import loggable
 

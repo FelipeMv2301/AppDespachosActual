@@ -10,9 +10,9 @@ from simple_history.utils import (bulk_create_with_history,
 
 from module.business_partner.models.contact import Contact
 from module.delivery.models.opt import Option
-from app.general.models.address import Address
-from app.general.models.muni import Muni
-from app.general.models.muni_service import MuniService
+from module.general.models.address import Address
+from module.general.models.muni import Muni
+from module.general.models.muni_service import MuniService
 from app.order.forms.delivery_form import DeliveryForm
 from app.order.models.grouping import Grouping
 from app.order.models.order import Order

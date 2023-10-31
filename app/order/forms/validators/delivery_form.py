@@ -7,9 +7,9 @@ from module.delivery.models.branch import Branch
 from module.delivery.models.pay_type import PayType
 from module.delivery.models.service import Service as DelivService
 from module.delivery.models.type import Type
-from app.general.models.muni import Muni
-from app.general.models.service import Service
-from app.general.models.service_account import ServiceAccount
+from module.general.models.muni import Muni
+from module.general.models.service import Service
+from module.general.models.service_account import ServiceAccount
 from app.order.models.order import Order
 
 

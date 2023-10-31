@@ -8,8 +8,8 @@ from django.core.handlers.wsgi import WSGIRequest
 from django.shortcuts import redirect, render
 from django.views import View
 
-from app.general.models.user_profile import UserProfile
-from app.general.models.user_session import UserSession
+from module.general.models.user_profile import UserProfile
+from module.general.models.user_session import UserSession
 from helpers import globals as gb
 from helpers.decorator.domain import domain_check
 from helpers.decorator.loggable import loggable

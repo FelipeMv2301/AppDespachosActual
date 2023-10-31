@@ -11,11 +11,11 @@ from module.business_partner.models.bsns_partner import BusinessPartner
 from module.business_partner.models.contact import Contact
 from module.business_partner.models.group_service import GroupService
 from module.business_partner.models.type_service import TypeService
-from app.general.models.address import Address
-from app.general.models.currency_service import CurrencyService
-from app.general.models.employee_service import EmployeeService
-from app.general.models.muni_service import MuniService
-from app.general.models.service_account import ServiceAccount
+from module.general.models.address import Address
+from module.general.models.currency_service import CurrencyService
+from module.general.models.employee_service import EmployeeService
+from module.general.models.muni_service import MuniService
+from module.general.models.service_account import ServiceAccount
 from app.order.models.order import Order as OrderMdl
 from app.order.models.sale_channel_service import SaleChannelService
 from app.order.models.status_service import StatusService

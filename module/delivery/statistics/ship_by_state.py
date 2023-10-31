@@ -11,7 +11,7 @@ from django.shortcuts import HttpResponse
 
 from module.delivery.models.delivery import Delivery
 from module.delivery.statistics.delivery import Delivery as DelivStat
-from app.general.models.state import State
+from module.general.models.state import State
 from helpers import globals as gb
 
 

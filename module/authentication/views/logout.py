@@ -4,7 +4,7 @@ from django.shortcuts import redirect
 from django.utils import timezone
 from django.views import View
 
-from app.general.models.user_session import UserSession
+from module.general.models.user_session import UserSession
 from helpers.decorator.domain import domain_check
 from helpers.decorator.loggable import loggable
 from project.settings.base import ALLOWED_PRIVATE_HOSTS

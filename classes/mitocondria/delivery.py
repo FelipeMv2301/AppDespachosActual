@@ -16,10 +16,10 @@ from module.delivery.models.pay_type_service import PayTypeService
 from module.delivery.models.service import Service as DelivService
 from module.delivery.models.status import Status
 from module.delivery.models.type_service import TypeService
-from app.general.models.address import Address
-from app.general.models.muni_service import MuniService
-from app.general.models.service import Service
-from app.general.models.service_account import ServiceAccount
+from module.general.models.address import Address
+from module.general.models.muni_service import MuniService
+from module.general.models.service import Service
+from module.general.models.service_account import ServiceAccount
 from app.order.models.grouping import Grouping
 from app.order.models.order import Order
 from classes.mitocondria.mitocondria import Mitocondria
