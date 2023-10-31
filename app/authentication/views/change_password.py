@@ -8,11 +8,11 @@ from django.core.handlers.wsgi import WSGIRequest
 from django.shortcuts import render
 from django.views import View
 
-from config.settings.base import ALLOWED_PRIVATE_HOSTS
 from helpers import globals as gb
 from helpers.decorator.auth import authentication
 from helpers.decorator.domain import domain_check
 from helpers.decorator.loggable import loggable
+from project.settings.base import ALLOWED_PRIVATE_HOSTS
 
 CURRENT_PATH = Path(__file__).resolve().parent.parent
 CURRENT_FOLDERNAME = os.path.basename(CURRENT_PATH)

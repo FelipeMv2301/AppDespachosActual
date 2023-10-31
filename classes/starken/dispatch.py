@@ -12,9 +12,9 @@ from simple_history.utils import bulk_update_with_history
 from zeep import Client
 
 from classes.starken.starken import Starken
-# from classes.starken.models.starken_account import StarkenAccount
-from config.settings.base import APP_USERNAME
 from helpers.decorator.loggable import loggable
+# from classes.starken.models.starken_account import StarkenAccount
+from project.settings.base import APP_USERNAME
 
 # from helpers.notification.classes.error_card import ErrorCard
 

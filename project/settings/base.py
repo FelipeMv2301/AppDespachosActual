@@ -88,14 +88,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 if RUNNING_MIGRATIONS:
     ROOT_URLCONF = ''
 else:
-    ROOT_URLCONF = 'config.urls'
+    ROOT_URLCONF = 'project.urls'
 
 LOGIN_URL = '/'
 
 # WSGI
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#wsgi-application
-WSGI_APPLICATION = 'config.wsgi.application'
+WSGI_APPLICATION = 'project.wsgi.application'
 
 # APPS
 # ------------------------------------------------------------------------------

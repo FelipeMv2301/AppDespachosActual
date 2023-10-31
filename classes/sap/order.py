@@ -19,11 +19,11 @@ from app.general.models.service_account import ServiceAccount
 from app.order.models.order import Order as OrderMdl
 from app.order.models.sale_channel_service import SaleChannelService
 from app.order.models.status_service import StatusService
-from classes.sap.sap import Sap
 from classes.sap.contact import Contact as SapContact
-from config.settings.base import APP_USERNAME
+from classes.sap.sap import Sap
 from helpers.decorator.loggable import loggable
 from helpers.error.custom_error import UNEXP_ERROR, CustomError
+from project.settings.base import APP_USERNAME
 
 
 class Order(Sap):

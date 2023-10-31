@@ -24,9 +24,9 @@ from app.order.models.grouping import Grouping
 from app.order.models.order import Order
 from classes.mitocondria.mitocondria import Mitocondria
 from classes.starken.starken import SERV_CODE as STK_SERV_CODE
-from config.settings.base import APP_USERNAME
 from helpers.decorator.loggable import loggable
 from helpers.error.custom_error import CustomError
+from project.settings.base import APP_USERNAME
 
 
 class Delivery(Mitocondria):

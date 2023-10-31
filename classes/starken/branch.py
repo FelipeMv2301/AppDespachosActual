@@ -13,9 +13,9 @@ from app.general.models.muni_service import MuniService
 from app.general.models.service_account import ServiceAccount
 from classes.google_maps.gmaps import GoogleMaps
 from classes.starken.starken import Starken
-from config.settings.base import APP_USERNAME
 from helpers.decorator.loggable import loggable
 from helpers.error.custom_error import CustomError
+from project.settings.base import APP_USERNAME
 
 
 class Branch(Starken):

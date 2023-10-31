@@ -2,14 +2,14 @@ import os
 
 from django.contrib import messages
 from django.core.handlers.wsgi import WSGIRequest
-from django.db.models import F, Case, When, Value
+from django.db.models import Case, F, Value, When
 from django.shortcuts import render
 from django.views.generic.base import View
 
 from app.delivery.models.delivery import Delivery
-from config.settings.base import ALLOWED_PUBLIC_HOSTS
 from helpers.decorator.domain import domain_check
 from helpers.decorator.loggable import loggable
+from project.settings.base import ALLOWED_PUBLIC_HOSTS
 
 
 class TrackView(View):

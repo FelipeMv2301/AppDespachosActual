@@ -5,9 +5,9 @@ from django.utils import timezone
 from django.views import View
 
 from app.general.models.user_session import UserSession
-from config.settings.base import ALLOWED_PRIVATE_HOSTS
 from helpers.decorator.domain import domain_check
 from helpers.decorator.loggable import loggable
+from project.settings.base import ALLOWED_PRIVATE_HOSTS
 
 
 class Logout(View):

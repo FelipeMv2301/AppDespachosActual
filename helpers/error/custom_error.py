@@ -1,7 +1,7 @@
 import uuid
 
-from config.settings.base import logger
 from notification.chat.error_card import ErrorCard
+from project.settings.base import logger
 
 UNEXP_ERROR = 'Ha ocurrido un error inesperado'
 

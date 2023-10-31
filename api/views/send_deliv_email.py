@@ -6,12 +6,12 @@ from django.http import JsonResponse
 from django.views.generic.base import View
 
 from app.delivery.models.delivery import Delivery
-from config.settings.base import ALLOWED_PRIVATE_HOSTS
 from helpers.decorator.auth import authentication
 from helpers.decorator.domain import domain_check
 from helpers.decorator.loggable import loggable
 from helpers.error.custom_error import UNEXP_ERROR, CustomError
 from notification.email.order import OrderEmail
+from project.settings.base import ALLOWED_PRIVATE_HOSTS
 
 
 class SendDelivEmailView(PermissionRequiredMixin, View):

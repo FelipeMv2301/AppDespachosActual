@@ -5,9 +5,9 @@ from typing import Callable
 import requests
 
 from app.general.models.service_account import ServiceAccount
-from config.settings.base import env
 from helpers.decorator.loggable import loggable
 from helpers.error.custom_error import CustomError
+from project.settings.base import env
 
 SERV_CODE = 'SAP'
 

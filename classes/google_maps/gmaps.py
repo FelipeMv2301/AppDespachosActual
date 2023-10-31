@@ -2,8 +2,8 @@ import traceback
 
 import googlemaps
 
-from config.settings.base import env
 from helpers.error.custom_error import CustomError
+from project.settings.base import env
 
 
 class GoogleMaps:

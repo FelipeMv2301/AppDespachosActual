@@ -8,10 +8,10 @@ from django.views.generic.base import View
 
 from app.delivery.forms.review import ReviewForm
 from app.order.models.delivery import OrderDelivery
-from config.settings.base import ALLOWED_PRIVATE_HOSTS
 from helpers.decorator.auth import authentication
 from helpers.decorator.domain import domain_check
 from helpers.decorator.loggable import loggable
+from project.settings.base import ALLOWED_PRIVATE_HOSTS
 
 PAGE_TITLE = 'Entregas'
 

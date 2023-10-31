@@ -5,8 +5,8 @@ from django.contrib import messages
 from django.core.handlers.wsgi import WSGIRequest
 from django.shortcuts import redirect
 
-from config.settings.base import logger
 from helpers.error.custom_error import CustomError
+from project.settings.base import logger
 
 
 def loggable(f: Callable):

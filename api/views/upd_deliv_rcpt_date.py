@@ -10,11 +10,11 @@ from simple_history.utils import bulk_update_with_history
 
 from app.delivery.models.delivery import Delivery
 from app.delivery.models.status import Status
-from config.settings.base import ALLOWED_PRIVATE_HOSTS
 from helpers.decorator.auth import authentication
 from helpers.decorator.domain import domain_check
 from helpers.decorator.loggable import loggable
 from helpers.error.custom_error import UNEXP_ERROR, CustomError
+from project.settings.base import ALLOWED_PRIVATE_HOSTS
 
 
 class UpdDelivRcptDateView(PermissionRequiredMixin, View):

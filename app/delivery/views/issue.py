@@ -24,11 +24,11 @@ from app.general.models.service_account import ServiceAccount
 from app.order.models.delivery import OrderDelivery
 from app.order.models.grouping import Grouping
 from classes.starken.delivery import Delivery as StkDeliv
-from config.settings.base import ALLOWED_PRIVATE_HOSTS
 from helpers.decorator.auth import authentication
 from helpers.decorator.domain import domain_check
 from helpers.decorator.loggable import loggable
 from notification.email.order import OrderEmail
+from project.settings.base import ALLOWED_PRIVATE_HOSTS
 
 PAGE_TITLE = 'Creación de entregas'
 

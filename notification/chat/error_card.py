@@ -1,7 +1,7 @@
 from typing import Any, Dict, List
 
-from config.settings.base import env
 from notification.chat.card import Card
+from project.settings.base import env
 
 
 class ErrorCard(Card):

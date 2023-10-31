@@ -11,10 +11,10 @@ from app.delivery.forms.kpis import DateRangeForm
 from app.delivery.statistics.completion import Completion
 from app.delivery.statistics.lead_times import LeadTimes
 from app.delivery.statistics.ship_by_state import ShipByState
-from config.settings.base import ALLOWED_PRIVATE_HOSTS
 from helpers.decorator.auth import authentication
 from helpers.decorator.domain import domain_check
 from helpers.decorator.loggable import loggable
+from project.settings.base import ALLOWED_PRIVATE_HOSTS
 
 PAGE_TITLE = 'Indicadores de Rendimiento'
 

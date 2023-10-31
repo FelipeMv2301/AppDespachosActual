@@ -19,9 +19,9 @@ from app.general.models.service_account import ServiceAccount
 from app.order.models.grouping import Grouping
 from app.order.models.order import Order
 from classes.despachos.despachos import Despachos
-from config.settings.base import APP_USERNAME
 from helpers.decorator.loggable import loggable
 from helpers.error.custom_error import CustomError
+from project.settings.base import APP_USERNAME
 
 
 class Delivery(Despachos):
