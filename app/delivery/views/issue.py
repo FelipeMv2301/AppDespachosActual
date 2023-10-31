@@ -8,7 +8,7 @@ from django.shortcuts import redirect, render
 from django.views.generic.base import View
 from simple_history.utils import bulk_update_with_history
 
-from app.business_partner.models.contact import Contact
+from module.business_partner.models.contact import Contact
 from app.delivery.forms.issue import IssueForm
 from app.delivery.models.delivery import Delivery
 from app.delivery.models.doc import Document

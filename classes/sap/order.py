@@ -7,10 +7,10 @@ from django.contrib.auth.models import User
 from simple_history.utils import (bulk_create_with_history,
                                   bulk_update_with_history)
 
-from app.business_partner.models.bsns_partner import BusinessPartner
-from app.business_partner.models.contact import Contact
-from app.business_partner.models.group_service import GroupService
-from app.business_partner.models.type_service import TypeService
+from module.business_partner.models.bsns_partner import BusinessPartner
+from module.business_partner.models.contact import Contact
+from module.business_partner.models.group_service import GroupService
+from module.business_partner.models.type_service import TypeService
 from app.general.models.address import Address
 from app.general.models.currency_service import CurrencyService
 from app.general.models.employee_service import EmployeeService

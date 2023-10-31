@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from django.db.models import Q
 from simple_history.utils import bulk_create_with_history
 
-from app.business_partner.models.contact import Contact
+from module.business_partner.models.contact import Contact
 from app.delivery.models.branch import Branch
 from app.delivery.models.delivery import Delivery as DelivMdl
 from app.delivery.models.doc import Document
