@@ -75,7 +75,6 @@ class OrderEmail(Email):
             tb += f'Delivery folio: {delivery.folio}'
             tb += f'Delivery id: {delivery.id}'
             e_msg = 'Error: Ha ocurrido un error en el envío de correo'
-            e_msg += f'Delivery folio: {delivery.folio}'
             e = CustomError(msg=e_msg, log=tb)
             raise e
 
@@ -89,13 +88,17 @@ class OrderEmail(Email):
         self.to = to or [self.deliv_query['email_addr']]
 
         if not self.__validate_deliv_for_email():
-            return
+            e_msg = 'Error: Ha ocurrido un error en el envío de correo. '
+            e_msg = 'No corresponde correo de notificación para la entrega'
+            log_msg = e_msg + f'\nDelivery folio: {delivery.folio}'
+            e = CustomError(msg=e_msg, log=log_msg)
+            raise e
 
         if deliv_status_code != 'ISSUED':
             e_msg = 'Error: Ha ocurrido un error en el envío de correo. '
             e_msg = 'No corresponde el envío de correo por el estado'
-            e_msg += f'Delivery folio: {delivery.folio}'
-            e = CustomError(msg=e_msg)
+            log_msg = e_msg + f'\nDelivery folio: {delivery.folio}'
+            e = CustomError(msg=e_msg, log=log_msg)
             raise e
 
         self.from_email = re.sub(pattern=r'[^a-zA-Z0-9\s]',
@@ -141,8 +144,8 @@ class OrderEmail(Email):
         else:
             e_msg = 'Error: Ha ocurrido un error en el envío de correo. '
             e_msg = 'No se pudo definir el tipo de correo'
-            e_msg += f'Delivery folio: {delivery.folio}'
-            e = CustomError(msg=e_msg)
+            log_msg = e_msg + f'\nDelivery folio: {delivery.folio}'
+            e = CustomError(msg=e_msg, log=log_msg)
             raise e
 
         for attch in self.attachs:
@@ -191,6 +194,5 @@ class OrderEmail(Email):
             tb += f'Delivery folio: {self.delivery.folio}'
             tb += f'Delivery id: {self.delivery.id}'
             e_msg = 'Error: Ha ocurrido un error en el envío de correo'
-            e_msg += f'Delivery folio: {self.delivery.folio}'
             e = CustomError(msg=e_msg, log=tb)
             raise e
