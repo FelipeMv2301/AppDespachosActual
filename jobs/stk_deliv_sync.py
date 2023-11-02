@@ -4,7 +4,7 @@ from module.general.models.service_account import ServiceAccount
 from classes.starken.delivery import Delivery
 from classes.starken.starken import SERV_CODE
 
-sync_date = ((datetime.now() + timedelta(days=-30))
+sync_date = ((datetime.now() + timedelta(days=-20))
              .strftime('%Y-%m-%d'))
 serv_accts = ServiceAccount.objects.filter(service__code=SERV_CODE,
                                            enabled=True)
