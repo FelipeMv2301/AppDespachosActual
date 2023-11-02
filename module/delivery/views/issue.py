@@ -126,7 +126,7 @@ class IssueView(PermissionRequiredMixin, View):
                           context=context)
 
         muni_service = (MuniService.objects
-                        .filter(service_acct__service=opt.service)
+                        .filter(service_acct__service=opt.carrier)
                         .first())
         if deliv_pay_type_code == 'CE':
             if muni_service and not muni_service.to_pay:
