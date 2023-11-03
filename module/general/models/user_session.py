@@ -8,7 +8,7 @@ class UserSession(models.Model):
     start_time = models.DateTimeField(default=timezone.now)
     end_time = models.DateTimeField(null=True)
     ip_address = models.GenericIPAddressField()
-    session_key = models.CharField(max_length=100)
+    session_key = models.TextField()
     session_expiration = models.DateTimeField()
 
     class Meta:
