@@ -36,6 +36,7 @@ class MuniService(models.Model):
             'name',
             'muni',
             'service_acct',
+            'to_pay',
             'enabled',
             'changed_by',
             'created_at',
