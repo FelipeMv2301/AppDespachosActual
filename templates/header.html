@@ -3,10 +3,8 @@
     <!-- Header -->
     <header class="navbar navbar-dark sticky-top flex-md-nowrap py-0 px-3 justify-content-end">
         {% if request.user.is_authenticated %}
-            <button id="sidebarButton" class="navbar-toggler position-absolute collapsed d-xl-none" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
-                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="black" class="bi bi-list" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
-                </svg>
+            <button id="sidebarButton" class="navbar-toggler position-absolute collapsed d-md-none btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M141-222q-22 0-37.5-15.5T88-275q0-22 15.5-37.5T141-328h678q22 0 37.5 15.5T872-275q0 22-15.5 37.5T819-222H141Zm0-206q-22 0-37.5-15.5T88-481q0-22 15.5-37.5T141-534h678q22 0 37.5 15.5T872-481q0 22-15.5 37.5T819-428H141Zm0-206q-22 0-37.5-15.5T88-687q0-22 15.5-37.5T141-740h678q22 0 37.5 15.5T872-687q0 22-15.5 37.5T819-634H141Z"/></svg>
             </button>
         {% endif %}
     </header>
