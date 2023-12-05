@@ -6141,7 +6141,7 @@
     "fields": {
         "code": "3096",
         "name": "CISNES",
-        "muni": 24,
+        "muni": null,
         "service_acct": 1,
         "to_pay": false,
         "enabled": true,
@@ -11705,7 +11705,7 @@
     "fields": {
         "code": "3108",
         "name": "PUERTO CISNES",
-        "muni": null,
+        "muni": 24,
         "service_acct": 1,
         "to_pay": false,
         "enabled": true,
@@ -16242,7 +16242,7 @@
     "fields": {
         "code": "3096",
         "name": "CISNES",
-        "muni": 24,
+        "muni": null,
         "service_acct": 2,
         "to_pay": false,
         "enabled": true,
@@ -21806,7 +21806,7 @@
     "fields": {
         "code": "3108",
         "name": "PUERTO CISNES",
-        "muni": null,
+        "muni": 24,
         "service_acct": 2,
         "to_pay": false,
         "enabled": true,
