@@ -6,5 +6,5 @@ test
 *.todo
 *.DS_Store
 *.lock
-*.log
+*.log*
 *.vscode
