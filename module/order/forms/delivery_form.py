@@ -158,7 +158,7 @@ class DeliveryForm(forms.Form):
             self.fields['deliv_addr_complement'] = forms.CharField(
                 label='Complemento de dirección',
                 max_length=100,
-                required=True,
+                required=False,
                 disabled=False,
                 widget=forms.TextInput(
                     attrs={
@@ -168,7 +168,6 @@ class DeliveryForm(forms.Form):
                         'oninput': 'this.value = this.value.slice(0, 100);',
                     }
                 ),
-                validators=[DeliveryFormValidator().validate_addr],
             )
             self.fields['deliv_muni'] = forms.ChoiceField(
                 label='Comuna de entrega',
