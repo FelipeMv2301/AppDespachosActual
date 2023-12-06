@@ -1,4 +1,5 @@
 import json
+import re
 import traceback
 from datetime import date
 from typing import Any, Dict
@@ -10,16 +11,19 @@ from django.db.models import Case, CharField, F, TextField, Value, When
 from django.db.models.functions import Coalesce, Concat
 from simple_history.utils import (bulk_create_with_history,
                                   bulk_update_with_history)
+from unidecode import unidecode
 from zeep import Client
+from zeep.xsd.valueobjects import CompoundValue
 
+from classes.starken.starken import Starken
+from helpers.decorator.loggable import loggable
+from helpers.error.custom_error import UNEXP_ERROR, CustomError
 from module.delivery.models.delivery import Delivery as DelivMdl
+from module.delivery.models.receiver import Receiver
 from module.delivery.models.status import Status
 from module.delivery.models.status_service import StatusService
 from module.general.models.service_account import ServiceAccount
 from module.order.models.delivery import OrderDelivery
-from classes.starken.starken import Starken
-from helpers.decorator.loggable import loggable
-from helpers.error.custom_error import UNEXP_ERROR, CustomError
 from project.settings.base import APP_USERNAME
 
 
@@ -46,6 +50,13 @@ class Delivery(Starken):
         return json.loads(s=response.text)
 
     @loggable
+    def get_track_detail_by_folio(self, *args, **kwargs) -> CompoundValue:
+        client = Client(wsdl=self.ws_url)
+        response = client.service.getDetalleSeguimiento(self.folio)
+
+        return response
+
+    @loggable
     def app_sync(self, from_date: str, *args, **kwargs):
         mdl = DelivMdl
         status_mdl = StatusService
@@ -59,13 +70,60 @@ class Delivery(Starken):
             self.folio = deliv.folio
             try:
                 tracking = self.track_by_folio()
-            except CustomError:
-                print(f'Folio: {self.folio}')
-                continue
+                tracking_detail = self.get_track_detail_by_folio()
             except Exception:
                 tb = traceback.format_exc()
                 tb += f'Folio: {self.folio}'
                 e_msg = f'{UNEXP_ERROR}\nFolio: {self.folio}'
+                CustomError(msg=e_msg, log=tb, notify=True)
+                continue
+
+            try:
+                receiver_tax_id = tracking_detail.rutRetira
+                receiver_name = tracking_detail.nombreRetira
+            except AttributeError:
+                tb = traceback.format_exc()
+                tb += f'Folio: {self.folio}'
+                e_msg = f'Error: {UNEXP_ERROR}'
+                e_msg += f'\nFolio: {self.folio}'
+                CustomError(msg=e_msg, log=tb, notify=True)
+                continue
+
+            receiver_name = unidecode(string=receiver_name)
+            receiver_name = re.sub(pattern=r'[^a-zA-Z\s]',
+                                   repl='',
+                                   string=receiver_name).strip().upper()
+            receiver_tax_id = re.sub(pattern=r'[^-K\d]',
+                                     repl='',
+                                     string=receiver_tax_id).strip().upper()
+
+            receiver = Receiver.objects.filter(delivery=deliv).first()
+            try:
+                if receiver:
+                    receiver.name = receiver_name
+                    receiver.tax_id = receiver_tax_id
+                    receiver.changed_by = user_obj
+                    bulk_update_with_history(
+                        objs=[receiver],
+                        fields=['name', 'tax_id', 'changed_by'],
+                        model=Receiver
+                    )
+                else:
+                    receiver = Receiver(
+                        name=receiver_name,
+                        tax_id=receiver_tax_id,
+                        delivery=deliv,
+                        changed_by=user_obj
+                    )
+                    bulk_create_with_history(
+                        objs=[receiver],
+                        model=Receiver
+                    )
+            except Exception:
+                tb = traceback.format_exc()
+                tb += f'Folio: {self.folio}'
+                e_msg = f'Error: {UNEXP_ERROR}'
+                e_msg += f'\nFolio: {self.folio}'
                 CustomError(msg=e_msg, log=tb, notify=True)
                 continue
 
@@ -205,7 +263,6 @@ class Delivery(Starken):
                 )
             ).distinct()
         )
-        print('deliv', deliv)
         if not deliv.exists():
             tb = traceback.format_exc()
             tb += f'Query: {deliv.query}'
@@ -252,7 +309,6 @@ class Delivery(Starken):
         if deliv['mobile_phone']:
             phone_nums.append(deliv['mobile_phone'])
 
-        # ws_client = Client(wsdl=self.ws_url)  # For WS
         body = {
             'rutEmpresaEmisora': self.acct_rut_wo_verifier,
             'rutUsuarioEmisor': self.acct_user,
@@ -317,17 +373,13 @@ class Delivery(Starken):
             body[f'tipoDocumento{index}'] = str(doc_info['type_service'].code)
             body[f'numeroDocumento{index}'] = str(doc_info['folio'])
             body[f'generaEtiquetaDocumento{index}'] = 'S'
-        print('body', body)
 
-        # response = ws_client.service.Execute(body)  # For WS
         response = requests.post(url=self.issue_api_host,
                                  data=json.dumps(obj=body),
-                                 headers={'Content-Type': 'application/json'})  # For Rest
-        # print('response', response)  # For WS
-        print('response', response.text)  # For Rest
+                                 headers={'Content-Type': 'application/json'})
 
         try:
-            response = json.loads(s=response.text)  # For Rest
+            response = json.loads(s=response.text)
             if response['codigoError'] != 0:
                 e_desc = response['descripcionError']
                 e_msg = f'Error: {e_desc}'
@@ -343,8 +395,7 @@ class Delivery(Starken):
         except KeyError:
             tb = traceback.format_exc()
             tb += f'\nBody: {body}'
-            # tb += f'\nResponse: {response}'  # For WS
-            tb += f'\nResponse: {response.text}'  # For Rest
+            tb += f'\nResponse: {response.text}'
             tb += f'\nFolio: {delivery.folio}'
             tb += f'\nId: {delivery.id}'
             e_msg = 'Error: ha ocurrido un error insperado posterior a la '
