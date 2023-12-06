@@ -89,43 +89,46 @@ class Delivery(Starken):
                 CustomError(msg=e_msg, log=tb, notify=True)
                 continue
 
-            receiver_name = unidecode(string=receiver_name)
-            receiver_name = re.sub(pattern=r'[^a-zA-Z\s]',
-                                   repl='',
-                                   string=receiver_name).strip().upper()
-            receiver_tax_id = re.sub(pattern=r'[^-K\d]',
-                                     repl='',
-                                     string=receiver_tax_id).strip().upper()
+            if receiver_name and receiver_tax_id:
+                receiver_name = unidecode(string=receiver_name)
+                receiver_name = re.sub(pattern=r'[^a-zA-Z\s]',
+                                       repl='',
+                                       string=receiver_name).strip().upper()
+                receiver_tax_id = (re.sub(pattern=r'[^-K\d]',
+                                          repl='',
+                                          string=receiver_tax_id)
+                                   .strip()
+                                   .upper())
 
-            receiver = Receiver.objects.filter(delivery=deliv).first()
-            try:
-                if receiver:
-                    receiver.name = receiver_name
-                    receiver.tax_id = receiver_tax_id
-                    receiver.changed_by = user_obj
-                    bulk_update_with_history(
-                        objs=[receiver],
-                        fields=['name', 'tax_id', 'changed_by'],
-                        model=Receiver
-                    )
-                else:
-                    receiver = Receiver(
-                        name=receiver_name,
-                        tax_id=receiver_tax_id,
-                        delivery=deliv,
-                        changed_by=user_obj
-                    )
-                    bulk_create_with_history(
-                        objs=[receiver],
-                        model=Receiver
-                    )
-            except Exception:
-                tb = traceback.format_exc()
-                tb += f'Folio: {self.folio}'
-                e_msg = f'Error: {UNEXP_ERROR}'
-                e_msg += f'\nFolio: {self.folio}'
-                CustomError(msg=e_msg, log=tb, notify=True)
-                continue
+                receiver = Receiver.objects.filter(delivery=deliv).first()
+                try:
+                    if receiver:
+                        receiver.name = receiver_name
+                        receiver.tax_id = receiver_tax_id
+                        receiver.changed_by = user_obj
+                        bulk_update_with_history(
+                            objs=[receiver],
+                            fields=['name', 'tax_id', 'changed_by'],
+                            model=Receiver
+                        )
+                    else:
+                        receiver = Receiver(
+                            name=receiver_name,
+                            tax_id=receiver_tax_id,
+                            delivery=deliv,
+                            changed_by=user_obj
+                        )
+                        bulk_create_with_history(
+                            objs=[receiver],
+                            model=Receiver
+                        )
+                except Exception:
+                    tb = traceback.format_exc()
+                    tb += f'Folio: {self.folio}'
+                    e_msg = f'Error: {UNEXP_ERROR}'
+                    e_msg += f'\nFolio: {self.folio}'
+                    CustomError(msg=e_msg, log=tb, notify=True)
+                    continue
 
             try:
                 status_id = str(tracking['status_id'])
