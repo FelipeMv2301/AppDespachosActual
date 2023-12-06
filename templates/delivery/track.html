@@ -111,6 +111,18 @@
                             <td class="p-2 fw-bold rounded-start" style="background-color: #d8dde1;">Cantidad de bultos</td>
                             <td class="p-2 border border-2 border-start-0 rounded-end">{{ deliv.packages_qty }}</td>
                         </tr>
+                        {% if deliv.receiver_name %}
+                            <tr>
+                                <td class="p-2 fw-bold rounded-start" style="background-color: #d8dde1;">Nombre de receptor</td>
+                                <td class="p-2 border border-2 border-start-0 rounded-end">{{ deliv.receiver_name }}</td>
+                            </tr>
+                        {% endif %}
+                        {% if deliv.receiver_tax_id %}
+                            <tr>
+                                <td class="p-2 fw-bold rounded-start" style="background-color: #d8dde1;">RUT de receptor</td>
+                                <td class="p-2 border border-2 border-start-0 rounded-end">{{ deliv.receiver_tax_id }}</td>
+                            </tr>
+                        {% endif %}
                     </tbody>
                 </table>
                 <div class="pt-2 fs-6" style="font-size: 0.85rem!important;">

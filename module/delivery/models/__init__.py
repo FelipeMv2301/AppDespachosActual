@@ -6,6 +6,7 @@ from .doc_type_service import DocumentTypeService
 from .opt import Option
 from .pay_type import PayType
 from .pay_type_service import PayTypeService
+from .receiver import Receiver
 from .service import Service
 from .status import Status
 from .status_service import StatusService
