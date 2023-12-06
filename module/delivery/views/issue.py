@@ -175,7 +175,7 @@ class IssueView(PermissionRequiredMixin, View):
         muni = Muni.objects.get(code=muni_code)
         addr = Address.objects.get(id=addr_id)
         addr.st_and_num = deliv_st_and_num
-        addr.complement = deliv_addr_complement
+        addr.complement = deliv_addr_complement or None
         addr.muni = muni
         addr.changed_by = user
         bulk_update_with_history(
