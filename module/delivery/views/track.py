@@ -6,9 +6,9 @@ from django.db.models import Case, F, Value, When
 from django.shortcuts import render
 from django.views.generic.base import View
 
-from module.delivery.models.delivery import Delivery
 from helpers.decorator.domain import domain_check
 from helpers.decorator.loggable import loggable
+from module.delivery.models.delivery import Delivery
 from project.settings.base import ALLOWED_PUBLIC_HOSTS
 
 
@@ -41,7 +41,9 @@ class TrackView(View):
                             default='service_status__name'
                         ),
                         company_code=F('service_acct__company__code'),
-                        company_trade_name=F('service_acct__company__trade_name'),)
+                        company_trade_name=F('service_acct__company__trade_name'),
+                        receiver_name=F('receiver__name'),
+                        receiver_tax_id=F('receiver__tax_id'),)
                     .first())
         context = {'deliv': delivery,
                    'folio': folio,
