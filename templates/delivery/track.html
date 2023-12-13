@@ -75,7 +75,11 @@
     <body>
         <header>
             <div class="d-flex position-relative w-100" id="head">
-                <img class="img-fluid logo m-auto px-5" src="{% static 'app/img/white_bq_logo.png' %}">
+                {% if deliv.company_code == 'BQ' or company_code == 'BQ' %}
+                    <img class="img-fluid logo m-auto px-5" src="{% static 'app/img/white_bq_logo.png' %}">
+                {% else %}
+                    <img class="img-fluid logo m-auto px-5" src="{% static 'app/img/white_gs_logo.png' %}">
+                {% endif %}
             </div>
         </header>
         <div class="container">
