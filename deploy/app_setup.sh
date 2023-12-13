@@ -45,5 +45,5 @@ python3 "${MANAGE_PATH}" migrate
 python3 "${MANAGE_PATH}" shell < "${BASE_DIR}/jobs/stk_branch_sync.py"
 python3 "${MANAGE_PATH}" shell < "${BASE_DIR}/jobs/deliv_opt_sync.py"
 
-# # Print finished message
-# echo "FINISHED" | boxes
+# Print finished message
+echo "FINISHED" | boxes
