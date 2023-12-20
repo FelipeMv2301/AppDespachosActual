@@ -110,6 +110,7 @@ DJANGO_APPS = [
     'debug_toolbar',
     'django_extensions',
     'simple_history',
+    'rest_framework',
 ]
 THIRD_PARTY_APPS = []
 
