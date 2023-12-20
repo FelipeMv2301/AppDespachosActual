@@ -104,4 +104,8 @@ class Order(models.Model):
                 'edit_commit_date',
                 'Can edit the order commitment date field',
             ),
+            (
+                'edit_all_order_delivery_form_from_api',
+                'Can edit the order commitment date field from API',
+            ),
         ]

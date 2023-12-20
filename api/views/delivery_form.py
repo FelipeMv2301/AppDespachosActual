@@ -17,7 +17,7 @@ from module.order.models.order import Order
 
 
 class DeliveryFormView(APIView):
-    permission_required = ('order.edit_all_order_delivery_form')
+    permission_required = ('order.edit_all_order_delivery_form_from_api')
     allowed_domains = settings.ALLOWED_PRIVATE_HOSTS
 
     class Global:
