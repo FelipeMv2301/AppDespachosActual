@@ -4,6 +4,7 @@ from typing import Callable
 from django.contrib import messages
 from django.core.handlers.wsgi import WSGIRequest
 from django.shortcuts import redirect
+from rest_framework.request import Request
 
 from helpers.error.custom_error import CustomError
 from project.settings.base import logger
@@ -12,7 +13,8 @@ from project.settings.base import logger
 def loggable(f: Callable):
     def wrapper(*args, **kwargs):
         try:
-            request = next(a for a in args if isinstance(a, WSGIRequest))
+            request = next(a for a in args
+                           if isinstance(a, (WSGIRequest, Request)))
         except StopIteration:
             request = ''
         user = None
