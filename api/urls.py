@@ -3,13 +3,17 @@ from django.urls import path
 from api.views.cancel_delivery import CancelDeliveryView
 from api.views.check_auth import CheckAuthView
 from api.views.deliv_opt_search import DelivOptSearchView
+from api.views.delivery_form import DeliveryFormView
 from api.views.order_group_search import OrderGroupSearchView
 from api.views.order_search import OrderSearchView
 from api.views.send_deliv_email import SendDelivEmailView
 from api.views.upd_deliv_completion import UpdDelivCompletionView
 from api.views.upd_deliv_rcpt_date import UpdDelivRcptDateView
 
+
 urlpatterns = [
+    path(route='v1/delivery_form/',
+         view=DeliveryFormView.as_view()),
     path(route='v1/order/search',
          view=OrderSearchView.as_view(),
          name='order_search'),
