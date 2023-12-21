@@ -3,7 +3,8 @@ from django.core.handlers.wsgi import WSGIRequest
 from django.db.models import Count
 from rest_framework.request import Request
 from rest_framework.response import Response
-from rest_framework.status import HTTP_200_OK, HTTP_404_NOT_FOUND
+from rest_framework.status import (HTTP_200_OK, HTTP_202_ACCEPTED,
+                                   HTTP_404_NOT_FOUND)
 from rest_framework.views import APIView
 from simple_history.utils import (bulk_create_with_history,
                                   bulk_update_with_history)
@@ -54,7 +55,7 @@ class DeliveryFormView(APIView):
         params = request.POST
 
         response_msg = 'OK'
-        response_status = HTTP_200_OK
+        response_status = HTTP_202_ACCEPTED
 
         order_refs = set(params.getlist('order_refs'))
         deliv_opt_id = params.get('delivery_option_id')
