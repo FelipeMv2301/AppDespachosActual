@@ -111,6 +111,7 @@ DJANGO_APPS = [
     'django_extensions',
     'simple_history',
     'rest_framework',
+    'rest_framework.authtoken',
 ]
 THIRD_PARTY_APPS = []
 
