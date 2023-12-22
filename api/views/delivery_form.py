@@ -29,13 +29,13 @@ class DeliveryFormView(APIView):
     @loggable
     def post(self, request: Request, *args, **kwargs):
         user = request.user
-        params = request.POST
+        data = request.data
 
         response_msg = 'OK'
         response_status = HTTP_202_ACCEPTED
 
-        order_refs = set(params.getlist('order_refs'))
-        deliv_opt_id = params.get('delivery_option_id')
+        order_refs = set(data.get('order_refs'))
+        deliv_opt_id = data.get('delivery_option_id')
 
         search_orders = Order.objects.filter(doc_num__in=order_refs)
         orders_found = {o.doc_num for o in search_orders}
