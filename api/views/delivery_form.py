@@ -42,8 +42,8 @@ class DeliveryFormView(APIView):
         orders_not_found = order_refs.difference(orders_found)
         if orders_not_found:
             response_status = HTTP_404_NOT_FOUND
-            response_msg = 'orders {ordrs} were not found'
-            response_msg.format(ordrs=', '.join(orders_not_found))
+            response_msg = ('orders {ordrs} were not found'
+                            .format(ordrs=', '.join(orders_not_found)))
 
         search_deliv_opt = Option.objects.filter(id=deliv_opt_id).first()
         if not search_deliv_opt:
