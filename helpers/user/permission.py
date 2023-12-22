@@ -23,3 +23,8 @@ class Permission:
     def can_edit_deliv_form(self) -> bool:
         perms = ['order.edit_all_order_delivery_form']
         return self.__check_perms(perms=perms)
+
+    @loggable
+    def can_edit_deliv_form_from_api(self) -> bool:
+        perms = ['order.edit_all_order_delivery_form_from_api']
+        return self.__check_perms(perms=perms)
