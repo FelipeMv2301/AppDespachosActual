@@ -1,15 +1,17 @@
 from django.conf import settings
-from django.core.handlers.wsgi import WSGIRequest
 from django.db.models import Count
+from rest_framework.authentication import (SessionAuthentication,
+                                           TokenAuthentication)
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.request import Request
 from rest_framework.response import Response
-from rest_framework.status import (HTTP_200_OK, HTTP_202_ACCEPTED,
-                                   HTTP_404_NOT_FOUND)
+from rest_framework.status import HTTP_202_ACCEPTED, HTTP_404_NOT_FOUND
 from rest_framework.views import APIView
 from simple_history.utils import (bulk_create_with_history,
                                   bulk_update_with_history)
 
-from helpers.decorator.auth import authentication
+from api.permissions.edit_deliv_form_from_api import \
+    EditDelivFormFromApiPermission
 from helpers.decorator.domain import domain_check
 from helpers.decorator.loggable import loggable
 from module.delivery.models.opt import Option
@@ -20,37 +22,12 @@ from module.order.models.order import Order
 class DeliveryFormView(APIView):
     permission_required = ('order.edit_all_order_delivery_form_from_api')
     allowed_domains = settings.ALLOWED_PRIVATE_HOSTS
-
-    class Global:
-        POST_PARAMS = {
-            'order_refs': {
-                'example_value': ['2305218', '2305217'],
-                'type': list
-            },
-            'delivery_option_id': {
-                'example_value': '2',
-                'type': str
-            }
-        }
+    permission_classes = [IsAuthenticated, EditDelivFormFromApiPermission]
+    authentication_classes = [SessionAuthentication, TokenAuthentication]
 
     @domain_check(allowed_domains=allowed_domains)
-    @authentication
     @loggable
-    def options(self, request: WSGIRequest | Request, *args, **kwargs):
-        meta = self.metadata_class()
-        data = meta.determine_metadata(request, self)
-
-        post_params = {}
-        for key, val in self.Global.POST_PARAMS.items():
-            post_params[key] = val['example_value']
-
-        data['data'] = post_params
-        return Response(data=data, status=HTTP_200_OK)
-
-    @domain_check(allowed_domains=allowed_domains)
-    @authentication
-    @loggable
-    def post(self, request: WSGIRequest | Request, *args, **kwargs):
+    def post(self, request: Request, *args, **kwargs):
         user = request.user
         params = request.POST
 
