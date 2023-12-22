@@ -10,10 +10,10 @@ from api.views.send_deliv_email import SendDelivEmailView
 from api.views.upd_deliv_completion import UpdDelivCompletionView
 from api.views.upd_deliv_rcpt_date import UpdDelivRcptDateView
 
-
 urlpatterns = [
     path(route='v1/delivery_form/',
-         view=DeliveryFormView.as_view()),
+         view=DeliveryFormView.as_view(),
+         name='edit_delivery_form'),
     path(route='v1/order/search',
          view=OrderSearchView.as_view(),
          name='order_search'),
