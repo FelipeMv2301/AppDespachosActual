@@ -142,7 +142,7 @@ class DeliveryForm(forms.Form):
             )
             self.fields['deliv_st_and_num'] = forms.CharField(
                 label='Calle y numeración de entrega',
-                max_length=100,
+                max_length=60,
                 required=True,
                 disabled=False,
                 widget=forms.TextInput(
@@ -157,7 +157,7 @@ class DeliveryForm(forms.Form):
             )
             self.fields['deliv_addr_complement'] = forms.CharField(
                 label='Complemento de dirección',
-                max_length=100,
+                max_length=20,
                 required=False,
                 disabled=False,
                 widget=forms.TextInput(
