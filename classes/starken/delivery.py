@@ -395,7 +395,7 @@ class Delivery(Starken):
                 self.folio = int(response['nroOrdenFlete'])
                 self.rcpt_commit_date = response['fechaEstimadaEntrega']
                 self.issue_date = response['fechaEmision']
-        except KeyError:
+        except Exception:
             tb = traceback.format_exc()
             tb += f'\nBody: {body}'
             tb += f'\nResponse: {response.text}'
