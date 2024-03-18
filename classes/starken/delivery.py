@@ -256,7 +256,7 @@ class Delivery(Starken):
                                     Value(' '),
                                     'order_grouping__contact__last_name',
                                     output_field=CharField()),
-                obs=Coalesce('order_grouping__deliv_obs', TextField('')),
+                obs=Coalesce('order_grouping__deliv_obs', Value('')),
                 muni_value=Case(
                     When(order_grouping__delivery_option__branch__code=None,
                          then=F('order_grouping__addr__muni__muniservice__name')),
