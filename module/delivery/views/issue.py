@@ -83,6 +83,15 @@ class IssueView(PermissionRequiredMixin, View):
         contact_mobile_phone = f['contact_mobile_phone']
         deliv_st_and_num = f['deliv_st_and_num']
         deliv_addr_complement = f['deliv_addr_complement']
+        if ((len(deliv_st_and_num) + len(deliv_addr_complement)) > 80):
+            messages.error(
+                request=request,
+                message=('La dirección (calle y numeración + complemento) '
+                         'no debe superar los 80 caracteres')
+            )
+            return render(request=request,
+                          template_name=self.template,
+                          context=context)
         muni_code = f['deliv_muni']
         carrier_code = f['carrier']
         deliv_type_code = f['deliv_type']
