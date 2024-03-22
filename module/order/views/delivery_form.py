@@ -122,11 +122,14 @@ class DeliveryFormView(AnyPermissionRequiredMixin, View):
                               context=context)
             deliv_st_and_num = f['deliv_st_and_num'] or None
             deliv_addr_complement = f['deliv_addr_complement'] or None
-            if ((len(deliv_st_and_num) + len(deliv_addr_complement)) > 80):
+            full_addr_length = len((deliv_st_and_num or '') +
+                                   (deliv_addr_complement or ''))
+            if full_addr_length > 80:
                 messages.error(
                     request=request,
                     message=('La dirección (calle y numeración + complemento) '
-                             'no debe superar los 80 caracteres')
+                             'no debe superar los 80 caracteres. Actualmente '
+                             f'son {full_addr_length} caracteres')
                 )
                 return render(request=request,
                               template_name=self.template,
