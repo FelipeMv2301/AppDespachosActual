@@ -1,4 +1,5 @@
 import json
+import os
 from typing import Any, Dict
 
 import requests
@@ -142,4 +143,29 @@ class Branch(Starken):
             objs=unsync_ags,
             model=mdl,
             fields=['enabled', 'changed_by']
+        )
+
+        branch_info_file = os.path.join('module',
+                                        'delivery',
+                                        'migrations',
+                                        'data',
+                                        'delivery_in_starken_branches.json')
+        with open(file=branch_info_file, mode='r') as file:
+            branch_info = json.loads(s=file.read())
+
+        branches_to_update = []
+        for branch in branch_info:
+            code = branch['code']
+            branch_search = mdl.objects.filter(code=code,
+                                               service_acct=self.serv_account)
+            if not branch_search:
+                continue
+            branch_found = branch_search.first()
+            branch_found.delivery = branch['delivery']
+            branch_found.changed_by = user_obj
+            branches_to_update.append(branch_found)
+        bulk_update_with_history(
+            objs=branches_to_update,
+            model=mdl,
+            fields=['delivery', 'changed_by']
         )
