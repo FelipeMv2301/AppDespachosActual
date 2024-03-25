@@ -100,7 +100,6 @@ class Branch(Starken):
                     'name',
                     'addr',
                     'phone',
-                    'carrier',
                     'shipping',
                     'delivery',
                     'enabled',
