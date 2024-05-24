@@ -25,7 +25,8 @@ class DeliveryFormValidator:
         splited_value = value.split(sep=',')
         for value in splited_value:
             try:
-                Order.objects.filter(doc_num=value, enabled=True)
+                order = Order.objects.get(doc_num=value, enabled=True)
+                self.company = order.service_acct.company
             except Order.DoesNotExist:
                 self.e_msg = 'No existe(n) el/los pedido(s)'
             except Order.MultipleObjectsReturned:
