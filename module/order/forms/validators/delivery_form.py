@@ -130,7 +130,10 @@ class DeliveryFormValidator:
 
     def validate_branch(self, value: str) -> None | ValidationError:
         try:
-            Branch.objects.get(code=value, enabled=True, delivery=True)
+            Branch.objects.get(code=value,
+                               enabled=True,
+                               delivery=True,
+                               service_acct__company=self.company)
         except Branch.DoesNotExist:
             self.e_msg = 'No existe sucursal'
         except Branch.MultipleObjectsReturned:
