@@ -1,5 +1,6 @@
 import re
 from datetime import date
+from typing import Callable
 
 from django.core.exceptions import ValidationError
 
@@ -18,13 +19,20 @@ class IssueValidator:
     def __init__(self, *args, **kwargs):
         self.e_msg = None
 
+    def reset_error_message(f: Callable):
+        def wrapper(slf, *args, **kwargs):
+            setattr(slf, 'e_msg', None)
+            return f(slf, *args, **kwargs)
+        return wrapper
+
     def raise_valid_error(self):
         if self.e_msg:
             raise ValidationError(message=self.e_msg)
 
+    @reset_error_message
     def validate_group(self, value: str) -> None | ValidationError:
         try:
-            Grouping.objects.filter(code=value, enabled=True)
+            Grouping.objects.get(code=value, enabled=True)
         except Grouping.DoesNotExist:
             self.e_msg = 'No existe agrupación de pedido(s)'
         except Grouping.MultipleObjectsReturned:
@@ -32,9 +40,12 @@ class IssueValidator:
 
         self.raise_valid_error()
 
+    @reset_error_message
     def validate_acct(self, value: str) -> None | ValidationError:
         try:
-            ServiceAccount.objects.get(code=value, enabled=True)
+            serv_acct = ServiceAccount.objects.get(code=value,
+                                                   enabled=True)
+            self.company = serv_acct.company
         except ServiceAccount.DoesNotExist:
             self.e_msg = 'No existe cuenta de servicio'
         except ServiceAccount.MultipleObjectsReturned:
@@ -42,6 +53,7 @@ class IssueValidator:
 
         self.raise_valid_error()
 
+    @reset_error_message
     def validate_contact_names(self, value: str) -> None | ValidationError:
         if not isinstance(value, str):
             self.e_msg = 'El valor no es texto'
@@ -51,6 +63,7 @@ class IssueValidator:
 
         self.raise_valid_error()
 
+    @reset_error_message
     def validate_phone_num(self, value: str) -> None | ValidationError:
         cleaned_value = re.sub(pattern=r'\W', repl='', string=value)
         if not cleaned_value:
@@ -58,6 +71,7 @@ class IssueValidator:
 
         self.raise_valid_error()
 
+    @reset_error_message
     def validate_addr(self, value: str) -> None | ValidationError:
         cleaned_value = re.sub(pattern=r'\W', repl='', string=value)
         if not cleaned_value:
@@ -65,72 +79,75 @@ class IssueValidator:
 
         self.raise_valid_error()
 
+    @reset_error_message
     def validate_muni(self, value: str) -> None | ValidationError:
         try:
             Muni.objects.get(code=value, enabled=True)
         except Muni.DoesNotExist:
             self.e_msg = 'No existe comuna'
         except Muni.MultipleObjectsReturned:
-            raise ValidationError(
-                message='No existe comuna definida')
+            self.e_msg = 'No existe comuna definida'
 
         self.raise_valid_error()
 
+    @reset_error_message
     def validate_service(self, value: str) -> None | ValidationError:
         try:
             Service.objects.get(code=value, enabled=True)
         except Service.DoesNotExist:
             self.e_msg = 'No existe servicio'
         except Service.MultipleObjectsReturned:
-            raise ValidationError(
-                message='No existe servicio definida')
+            self.e_msg = 'No existe servicio definido'
 
         self.raise_valid_error()
 
+    @reset_error_message
     def validate_deliv_type(self, value: str) -> None | ValidationError:
         try:
             Type.objects.get(code=value, enabled=True)
         except Type.DoesNotExist:
             self.e_msg = 'No existe tipo de engrega'
         except Type.MultipleObjectsReturned:
-            raise ValidationError(
-                message='No existe tipo de engrega definido')
+            self.e_msg = 'No existe tipo de engrega definido'
 
         self.raise_valid_error()
 
+    @reset_error_message
     def validate_deliv_serv(self, value: str) -> None | ValidationError:
         try:
             DelivService.objects.get(code=value, enabled=True)
         except DelivService.DoesNotExist:
             self.e_msg = 'No existe servicio de entrega'
         except DelivService.MultipleObjectsReturned:
-            raise ValidationError(
-                message='No existe servicio de entrega definido')
+            self.e_msg = 'No existe servicio de entrega definido'
 
         self.raise_valid_error()
 
+    @reset_error_message
     def validate_deliv_pay_type(self, value: str) -> None | ValidationError:
         try:
             PayType.objects.get(code=value, enabled=True)
         except PayType.DoesNotExist:
             self.e_msg = 'No existe tipo de pago'
         except PayType.MultipleObjectsReturned:
-            raise ValidationError(
-                message='No existe tipo de pago definido')
+            self.e_msg = 'No existe tipo de pago definido'
 
         self.raise_valid_error()
 
+    @reset_error_message
     def validate_branch(self, value: str) -> None | ValidationError:
         try:
-            Branch.objects.get(code=value, enabled=True)
+            Branch.objects.get(code=value,
+                               enabled=True,
+                               service_acct__company=self.company)
         except Branch.DoesNotExist:
             self.e_msg = 'No existe sucursal'
         except Branch.MultipleObjectsReturned:
-            raise ValidationError(
-                message='No existe sucursal definido')
+            self.e_msg = 'No existe sucursal definida'
 
         self.raise_valid_error()
 
+    @reset_error_message
     def validate_date(self, value: date) -> None | ValidationError:
         if not isinstance(value, date):
             self.e_msg = 'El tipo de valor no es válido'
@@ -139,6 +156,7 @@ class IssueValidator:
 
         self.raise_valid_error()
 
+    @reset_error_message
     def validate_int_or_float(self,
                               value: float | int) -> None | ValidationError:
         if not isinstance(value, float | int):
@@ -148,13 +166,13 @@ class IssueValidator:
 
         self.raise_valid_error()
 
+    @reset_error_message
     def validate_doc_type(self, value: str) -> None | ValidationError:
         try:
             DocumentType.objects.get(code=value, enabled=True)
         except DocumentType.DoesNotExist:
             self.e_msg = 'No existe tipo de documento'
         except DocumentType.MultipleObjectsReturned:
-            raise ValidationError(
-                message='No existe tipo de documento definido')
+            self.e_msg = 'No existe tipo de documento definido'
 
         self.raise_valid_error()
