@@ -10,6 +10,7 @@ from simple_history.utils import bulk_update_with_history
 
 from module.business_partner.models.contact import Contact
 from module.delivery.forms.issue import IssueForm
+from module.delivery.models.branch import Branch
 from module.delivery.models.delivery import Delivery
 from module.delivery.models.doc import Document
 from module.delivery.models.doc_type import DocumentType as DocType
@@ -114,6 +115,29 @@ class IssueView(PermissionRequiredMixin, View):
         doc_types = params.getlist('doc_type')
         context['form'] = form_by_user
 
+        acct = (ServiceAccount.objects
+                .select_related('service')
+                .get(code=acct_code, enabled=True))
+
+        try:
+            branch = (Branch.objects.get(code=branch_code,
+                                         service_acct__company=acct.company)
+                      if branch_code
+                      else
+                      None)
+        except Branch.MultipleObjectsReturned:
+            messages.error(request=request,
+                           message=('No existe una sucursal definida'))
+            return render(request=request,
+                          template_name=self.template,
+                          context=context)
+        except Branch.DoesNotExist:
+            messages.error(request=request,
+                           message='No existe sucursal')
+            return render(request=request,
+                          template_name=self.template,
+                          context=context)
+
         # Validación de la opción de entrega
         try:
             opt = Option.objects.get(
@@ -121,7 +145,7 @@ class IssueView(PermissionRequiredMixin, View):
                 service__code=deliv_service_code,
                 type__code=deliv_type_code,
                 pay_type__code=deliv_pay_type_code,
-                branch__code=branch_code,
+                branch=branch,
                 enabled=True,
             )
         except Option.DoesNotExist:
@@ -148,10 +172,6 @@ class IssueView(PermissionRequiredMixin, View):
                 return render(request=request,
                               template_name=self.template,
                               context=context)
-
-        acct = (ServiceAccount.objects
-                .select_related('service')
-                .get(code=acct_code, enabled=True))
         groups = (Grouping.objects
                   .select_related('order',
                                   'delivery_option',

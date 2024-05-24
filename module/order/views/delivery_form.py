@@ -9,6 +9,7 @@ from simple_history.utils import (bulk_create_with_history,
                                   bulk_update_with_history)
 
 from module.business_partner.models.contact import Contact
+from module.delivery.models.branch import Branch
 from module.delivery.models.opt import Option
 from module.general.models.address import Address
 from module.general.models.muni import Muni
@@ -142,13 +143,35 @@ class DeliveryFormView(AnyPermissionRequiredMixin, View):
             branch_code = f['branch'] or None
             obs = f['obs']
 
+            company = ordrs.first().service_acct.company
+
+            try:
+                branch = (Branch.objects.get(code=branch_code,
+                                             service_acct__company=company)
+                          if branch_code
+                          else
+                          None)
+            except Branch.MultipleObjectsReturned:
+                messages.error(request=request,
+                               message=('No existe una sucursal definida'))
+                return render(request=request,
+                              template_name=self.template,
+                              context=context)
+            except Branch.DoesNotExist:
+                messages.error(request=request,
+                               message='No existe sucursal')
+                return render(request=request,
+                              template_name=self.template,
+                              context=context)
+
             # Revisar si existe la opción de entrega
             try:
                 opt = Option.objects.get(carrier__code=carrier_code,
                                          service__code=deliv_service_code,
                                          type__code=deliv_type_code,
                                          pay_type__code=deliv_pay_type_code,
-                                         branch__code=branch_code)
+                                         branch=branch,
+                                         enabled=True)
             except Option.MultipleObjectsReturned:
                 messages.error(request=request,
                                message=('No existe una opción de envío '
