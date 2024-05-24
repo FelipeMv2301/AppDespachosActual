@@ -34,7 +34,9 @@ class IssueValidator:
 
     def validate_acct(self, value: str) -> None | ValidationError:
         try:
-            ServiceAccount.objects.get(code=value, enabled=True)
+            serv_acct = ServiceAccount.objects.get(code=value,
+                                                   enabled=True)
+            self.company = serv_acct.company
         except ServiceAccount.DoesNotExist:
             self.e_msg = 'No existe cuenta de servicio'
         except ServiceAccount.MultipleObjectsReturned:
