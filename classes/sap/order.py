@@ -7,6 +7,10 @@ from django.contrib.auth.models import User
 from simple_history.utils import (bulk_create_with_history,
                                   bulk_update_with_history)
 
+from classes.sap.contact import Contact as SapContact
+from classes.sap.sap import Sap
+from helpers.decorator.loggable import loggable
+from helpers.error.custom_error import UNEXP_ERROR, CustomError
 from module.business_partner.models.bsns_partner import BusinessPartner
 from module.business_partner.models.contact import Contact
 from module.business_partner.models.group_service import GroupService
@@ -19,10 +23,6 @@ from module.general.models.service_account import ServiceAccount
 from module.order.models.order import Order as OrderMdl
 from module.order.models.sale_channel_service import SaleChannelService
 from module.order.models.status_service import StatusService
-from classes.sap.contact import Contact as SapContact
-from classes.sap.sap import Sap
-from helpers.decorator.loggable import loggable
-from helpers.error.custom_error import UNEXP_ERROR, CustomError
 from project.settings.base import APP_USERNAME
 
 
