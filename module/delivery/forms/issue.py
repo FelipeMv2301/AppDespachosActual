@@ -46,7 +46,6 @@ class IssueForm(forms.Form):
                 'class': 'mb-2 textfield',
             }
         ),
-        validators=[IssueValidator().validate_acct],
     )
     contact_first_name = forms.CharField(
         label='Nombre de contacto',
@@ -264,7 +263,6 @@ class IssueForm(forms.Form):
                 'class': 'mb-2 textfield',
             }
         ),
-        validators=[IssueValidator().validate_branch],
     )
     obs = forms.CharField(
         label='Observaciones de entrega',
@@ -444,6 +442,9 @@ class IssueForm(forms.Form):
 
     def __init__(self, data: Mapping[str, Any] = None, *args, **kwargs):
         super().__init__(data=data, *args, **kwargs)
+        validator = IssueValidator()
+        self.fields['acct'].validators = [validator.validate_acct]
+        self.fields['branch'].validators = [validator.validate_branch]
         if data:
             if data.get('carrier') != 'STK':
                 self.fields['height'].required = False
