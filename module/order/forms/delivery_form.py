@@ -22,7 +22,6 @@ class DeliveryForm(forms.Form):
                 'autocomplete': 'off',
             }
         ),
-        validators=[DeliveryFormValidator().validate_order],
     )
 
     def __init__(self,
@@ -33,6 +32,8 @@ class DeliveryForm(forms.Form):
                  **kwargs):
         super().__init__(*args, **kwargs)
         self.user = user
+        validator = DeliveryFormValidator()
+        self.fields['orders'].validators = [validator.validate_order]
         if can_edit_commit_date:
             self.fields['commit_date'] = forms.DateField(
                 label='Fecha de compromiso',
@@ -44,7 +45,7 @@ class DeliveryForm(forms.Form):
                         'type': 'date',
                     }
                 ),
-                validators=[DeliveryFormValidator().validate_date],
+                validators=[validator.validate_date],
             )
         if can_edit_form:
             if can_edit_commit_date:
@@ -62,7 +63,7 @@ class DeliveryForm(forms.Form):
                         'oninput': 'this.value = this.value.slice(0, 100);',
                     }
                 ),
-                validators=[DeliveryFormValidator().validate_contact_names],
+                validators=[validator.validate_contact_names],
             )
             self.fields['contact_last_name'] = forms.CharField(
                 label='Apellido de contacto',
@@ -76,7 +77,7 @@ class DeliveryForm(forms.Form):
                         'oninput': 'this.value = this.value.slice(0, 100);',
                     }
                 ),
-                validators=[DeliveryFormValidator().validate_contact_names],
+                validators=[validator.validate_contact_names],
             )
             self.fields['contact_email_addr'] = forms.EmailField(
                 label='Correo electrónico de contacto',
@@ -106,7 +107,7 @@ class DeliveryForm(forms.Form):
                         'maxlength': '100',
                     }
                 ),
-                validators=[DeliveryFormValidator().validate_phone_num],
+                validators=[validator.validate_phone_num],
             )
             self.fields['contact_phone2'] = forms.CharField(
                 label='Teléfono 2 de contacto',
@@ -122,7 +123,7 @@ class DeliveryForm(forms.Form):
                         'maxlength': '100',
                     }
                 ),
-                validators=[DeliveryFormValidator().validate_phone_num],
+                validators=[validator.validate_phone_num],
             )
             self.fields['contact_mobile_phone'] = forms.CharField(
                 label='Celular de contacto',
@@ -138,7 +139,7 @@ class DeliveryForm(forms.Form):
                         'maxlength': '100',
                     }
                 ),
-                validators=[DeliveryFormValidator().validate_phone_num],
+                validators=[validator.validate_phone_num],
             )
             self.fields['deliv_st_and_num'] = forms.CharField(
                 label='Calle y numeración de entrega',
@@ -153,7 +154,7 @@ class DeliveryForm(forms.Form):
                         'oninput': 'this.value = this.value.slice(0, 100);',
                     }
                 ),
-                validators=[DeliveryFormValidator().validate_addr],
+                validators=[validator.validate_addr],
             )
             self.fields['deliv_addr_complement'] = forms.CharField(
                 label='Complemento de dirección',
@@ -182,7 +183,7 @@ class DeliveryForm(forms.Form):
                         'onchange': 'searchDeliveryOption()',
                     }
                 ),
-                validators=[DeliveryFormValidator().validate_muni],
+                validators=[validator.validate_muni],
             )
             self.fields['carrier'] = forms.ChoiceField(
                 label='Vía de entrega',
@@ -198,7 +199,7 @@ class DeliveryForm(forms.Form):
                         'onchange': 'searchDeliveryOption()',
                     }
                 ),
-                validators=[DeliveryFormValidator().validate_carrier],
+                validators=[validator.validate_carrier],
             )
             self.fields['deliv_type'] = forms.ChoiceField(
                 label='Tipo de entrega',
@@ -212,7 +213,7 @@ class DeliveryForm(forms.Form):
                         'onchange': 'searchDeliveryOption()',
                     }
                 ),
-                validators=[DeliveryFormValidator().validate_deliv_type],
+                validators=[validator.validate_deliv_type],
             )
             self.fields['deliv_service'] = forms.ChoiceField(
                 label='Tipo de servicio',
@@ -226,7 +227,7 @@ class DeliveryForm(forms.Form):
                         'onchange': 'searchDeliveryOption()',
                     }
                 ),
-                validators=[DeliveryFormValidator().validate_deliv_serv],
+                validators=[validator.validate_deliv_serv],
             )
             self.fields['deliv_pay_type'] = forms.ChoiceField(
                 label='Tipo de pago de entrega',
@@ -240,7 +241,7 @@ class DeliveryForm(forms.Form):
                         'onchange': 'searchDeliveryOption()',
                     }
                 ),
-                validators=[DeliveryFormValidator().validate_deliv_pay_type],
+                validators=[validator.validate_deliv_pay_type],
             )
             self.fields['branch'] = forms.ChoiceField(
                 label='Sucursal de entrega',
@@ -253,7 +254,7 @@ class DeliveryForm(forms.Form):
                         'class': 'mb-2 textfield',
                     }
                 ),
-                validators=[DeliveryFormValidator().validate_branch],
+                validators=[validator.validate_branch],
             )
             self.fields['obs'] = forms.CharField(
                 label='Observaciones de entrega',
