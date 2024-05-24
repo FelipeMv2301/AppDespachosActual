@@ -586,7 +586,7 @@ class Order(Sap):
             ordr.local_total_amt = local_total_amt
             ordr.doc_total_amt = sys_total_amt
             ordr.status = status
-            ordr.enabled = status.code != 'OPEN'
+            ordr.enabled = True
             ordr.changed_by = user_obj
             sync_kwargs['objs'] = [ordr]
             try:
