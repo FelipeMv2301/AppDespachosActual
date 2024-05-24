@@ -73,8 +73,7 @@ class IssueValidator:
         except Muni.DoesNotExist:
             self.e_msg = 'No existe comuna'
         except Muni.MultipleObjectsReturned:
-            raise ValidationError(
-                message='No existe comuna definida')
+            self.e_msg = 'No existe comuna definida'
 
         self.raise_valid_error()
 
@@ -84,8 +83,7 @@ class IssueValidator:
         except Service.DoesNotExist:
             self.e_msg = 'No existe servicio'
         except Service.MultipleObjectsReturned:
-            raise ValidationError(
-                message='No existe servicio definida')
+            self.e_msg = 'No existe servicio definido'
 
         self.raise_valid_error()
 
@@ -95,8 +93,7 @@ class IssueValidator:
         except Type.DoesNotExist:
             self.e_msg = 'No existe tipo de engrega'
         except Type.MultipleObjectsReturned:
-            raise ValidationError(
-                message='No existe tipo de engrega definido')
+            self.e_msg = 'No existe tipo de engrega definido'
 
         self.raise_valid_error()
 
@@ -106,8 +103,7 @@ class IssueValidator:
         except DelivService.DoesNotExist:
             self.e_msg = 'No existe servicio de entrega'
         except DelivService.MultipleObjectsReturned:
-            raise ValidationError(
-                message='No existe servicio de entrega definido')
+            self.e_msg = 'No existe servicio de entrega definido'
 
         self.raise_valid_error()
 
@@ -117,8 +113,7 @@ class IssueValidator:
         except PayType.DoesNotExist:
             self.e_msg = 'No existe tipo de pago'
         except PayType.MultipleObjectsReturned:
-            raise ValidationError(
-                message='No existe tipo de pago definido')
+            self.e_msg = 'No existe tipo de pago definido'
 
         self.raise_valid_error()
 
@@ -130,8 +125,7 @@ class IssueValidator:
         except Branch.DoesNotExist:
             self.e_msg = 'No existe sucursal'
         except Branch.MultipleObjectsReturned:
-            raise ValidationError(
-                message='No existe sucursal definido')
+            self.e_msg = 'No existe sucursal definida'
 
         self.raise_valid_error()
 
@@ -158,7 +152,6 @@ class IssueValidator:
         except DocumentType.DoesNotExist:
             self.e_msg = 'No existe tipo de documento'
         except DocumentType.MultipleObjectsReturned:
-            raise ValidationError(
-                message='No existe tipo de documento definido')
+            self.e_msg = 'No existe tipo de documento definido'
 
         self.raise_valid_error()
