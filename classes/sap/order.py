@@ -7,6 +7,10 @@ from django.contrib.auth.models import User
 from simple_history.utils import (bulk_create_with_history,
                                   bulk_update_with_history)
 
+from classes.sap.contact import Contact as SapContact
+from classes.sap.sap import Sap
+from helpers.decorator.loggable import loggable
+from helpers.error.custom_error import UNEXP_ERROR, CustomError
 from module.business_partner.models.bsns_partner import BusinessPartner
 from module.business_partner.models.contact import Contact
 from module.business_partner.models.group_service import GroupService
@@ -19,10 +23,6 @@ from module.general.models.service_account import ServiceAccount
 from module.order.models.order import Order as OrderMdl
 from module.order.models.sale_channel_service import SaleChannelService
 from module.order.models.status_service import StatusService
-from classes.sap.contact import Contact as SapContact
-from classes.sap.sap import Sap
-from helpers.decorator.loggable import loggable
-from helpers.error.custom_error import UNEXP_ERROR, CustomError
 from project.settings.base import APP_USERNAME
 
 
@@ -393,13 +393,13 @@ class Order(Sap):
                 contact_sync_func = bulk_update_with_history
                 contact_sync_kwargs['fields'] = [
                     'reference',
-                    'first_name',
-                    'last_name',
+                    # 'first_name',  # No se actualiza
+                    # 'last_name',  # No se actualiza
                     'addr',
-                    'phone1',
-                    'phone2',
-                    'mobile_phone',
-                    'email_addr',
+                    # 'phone1',  # No se actualiza
+                    # 'phone2',  # No se actualiza
+                    # 'mobile_phone',  # No se actualiza
+                    # 'email_addr',  # No se actualiza
                     'changed_by',
                 ]
 
@@ -435,22 +435,22 @@ class Order(Sap):
                     'create_date',
                     'tax_date',
                     'commit_date',
-                    'ship_addr',
+                    # 'ship_addr',  # No se actualiza
                     'bill_addr',
-                    'contact',
+                    # 'contact',  # No se actualiza
                     'local_total_dcnt',
                     'doc_total_dcnt',
                     'local_total_tax',
                     'doc_total_tax',
                     'local_total_amt',
                     'doc_total_amt',
-                    'enabled',
+                    # 'enabled',  # No se actualiza
                     'changed_by',
                 ]
                 addr_sync_kwargs['fields'] = [
                     'reference',
-                    'st_and_num',
-                    'muni',
+                    # 'st_and_num',  # No se actualiza
+                    # 'muni',  # No se actualiza
                     'changed_by',
                 ]
             except mdl.DoesNotExist:
@@ -586,7 +586,7 @@ class Order(Sap):
             ordr.local_total_amt = local_total_amt
             ordr.doc_total_amt = sys_total_amt
             ordr.status = status
-            ordr.enabled = status.code != 'OPEN'
+            ordr.enabled = True
             ordr.changed_by = user_obj
             sync_kwargs['objs'] = [ordr]
             try:
