@@ -8,6 +8,10 @@ from django.shortcuts import redirect, render
 from django.views.generic.base import View
 from simple_history.utils import bulk_update_with_history
 
+from classes.starken.delivery import Delivery as StkDeliv
+from helpers.decorator.auth import authentication
+from helpers.decorator.domain import domain_check
+from helpers.decorator.loggable import loggable
 from module.business_partner.models.contact import Contact
 from module.delivery.forms.issue import IssueForm
 from module.delivery.models.branch import Branch
@@ -24,10 +28,6 @@ from module.general.models.muni_service import MuniService
 from module.general.models.service_account import ServiceAccount
 from module.order.models.delivery import OrderDelivery
 from module.order.models.grouping import Grouping
-from classes.starken.delivery import Delivery as StkDeliv
-from helpers.decorator.auth import authentication
-from helpers.decorator.domain import domain_check
-from helpers.decorator.loggable import loggable
 from notification.email.order import OrderEmail
 from project.settings.base import ALLOWED_PRIVATE_HOSTS
 
