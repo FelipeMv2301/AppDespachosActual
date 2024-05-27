@@ -1,0 +1,46 @@
+[
+{
+    "model": "general.employee",
+    "pk": 32,
+    "fields": {
+        "code": "LJCS32",
+        "first_name": "Vanessa",
+        "last_name": "Novoa",
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employee",
+    "pk": 33,
+    "fields": {
+        "code": "KDHS33",
+        "first_name": "Aaron",
+        "last_name": "Velasquez",
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employee",
+    "pk": 34,
+    "fields": {
+        "code": "DKTP34",
+        "first_name": "Emilia",
+        "last_name": "Herrera",
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employee",
+    "pk": 35,
+    "fields": {
+        "code": "RKRP35",
+        "first_name": "Denisse",
+        "last_name": "Carrasco",
+        "enabled": true,
+        "changed_by": 1
+    }
+}
+]

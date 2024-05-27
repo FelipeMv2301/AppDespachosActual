@@ -1,0 +1,74 @@
+[
+{
+    "model": "general.employeeservice",
+    "pk": 57,
+    "fields": {
+        "code": "33",
+        "name": "Vanessa Novoa",
+        "employee": 32,
+        "service_acct": 3,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 58,
+    "fields": {
+        "code": "31",
+        "name": "Vanessa Novoa",
+        "employee": 32,
+        "service_acct": 3,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 59,
+    "fields": {
+        "code": "34",
+        "name": "Aaron Velasquez",
+        "employee": 33,
+        "service_acct": 3,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 60,
+    "fields": {
+        "code": "32",
+        "name": "Aaron Velasquez",
+        "employee": 33,
+        "service_acct": 3,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 61,
+    "fields": {
+        "code": "35",
+        "name": "Emilia Herrera",
+        "employee": 34,
+        "service_acct": 3,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 62,
+    "fields": {
+        "code": "36",
+        "name": "Denisse Carrasco",
+        "employee": 35,
+        "service_acct": 3,
+        "enabled": true,
+        "changed_by": 1
+    }
+}
+]
