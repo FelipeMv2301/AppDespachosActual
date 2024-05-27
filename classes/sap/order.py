@@ -444,7 +444,7 @@ class Order(Sap):
                     'doc_total_tax',
                     'local_total_amt',
                     'doc_total_amt',
-                    # 'enabled',  # No se actualiza
+                    'enabled',
                     'changed_by',
                 ]
                 addr_sync_kwargs['fields'] = [
