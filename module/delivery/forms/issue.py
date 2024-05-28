@@ -29,6 +29,7 @@ class IssueForm(forms.Form):
         )
     )
     group = forms.CharField(
+        label='Pedido(s)',
         required=True,
         widget=forms.TextInput(attrs={'hidden': 'true'}),
         validators=[IssueValidator().validate_group],
