@@ -31,12 +31,8 @@ class IssueValidator:
 
     @reset_error_message
     def validate_group(self, value: str) -> None | ValidationError:
-        try:
-            Grouping.objects.get(code=value)
-        except Grouping.DoesNotExist:
+        if not Grouping.objects.filter(code=value):
             self.e_msg = 'No existe agrupación de pedido(s)'
-        except Grouping.MultipleObjectsReturned:
-            self.e_msg = 'No existe agrupación de pedido(s) definida'
 
         self.raise_valid_error()
 
