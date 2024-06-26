@@ -8,12 +8,13 @@ from django.http import JsonResponse
 from django.views.generic.base import View
 from simple_history.utils import bulk_update_with_history
 
-from module.delivery.models.delivery import Delivery
-from module.delivery.models.status import Status
+from classes.starken.starken import Starken
 from helpers.decorator.auth import authentication
 from helpers.decorator.domain import domain_check
 from helpers.decorator.loggable import loggable
 from helpers.error.custom_error import UNEXP_ERROR, CustomError
+from module.delivery.models.delivery import Delivery
+from module.delivery.models.status import Status
 from project.settings.base import ALLOWED_PRIVATE_HOSTS
 
 
@@ -35,7 +36,7 @@ class UpdDelivRcptDateView(PermissionRequiredMixin, View):
         upd_status = False
         try:
             delivery = (Delivery.objects
-                        .get(~Q(service_acct__service__code='STK'),
+                        .get(~Q(service_acct__service__code=Starken.serv_code),
                              folio=folio,
                              status__code='ISSUED'))
         except Delivery.DoesNotExist:

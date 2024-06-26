@@ -4,6 +4,7 @@ from typing import Any, Mapping
 from django import forms
 from django.core.validators import EmailValidator
 
+from classes.starken.starken import Starken
 from module.delivery.forms.validators.issue import IssueValidator
 from module.delivery.models.branch import Branch
 from module.delivery.models.doc_type import DocumentType
@@ -27,6 +28,20 @@ class IssueForm(forms.Form):
                 'autocomplete': 'off',
             }
         )
+    )
+    deliv_folio = forms.CharField(
+        label='Orden de transporte',
+        max_length=100,
+        required=False,
+        disabled=False,
+        widget=forms.TextInput(
+            attrs={
+                'class': 'mb-2 textfield',
+                'maxlength': '100',
+                'oninput': 'this.value = this.value.slice(0, 100);',
+            }
+        ),
+        validators=[IssueValidator().validate_deliv_folio],
     )
     group = forms.CharField(
         label='Pedido(s)',
@@ -163,6 +178,32 @@ class IssueForm(forms.Form):
             attrs={
                 'class': 'mb-2 textfield',
                 'placeholder': 'Of/Dpto/Block/Casa',
+                'maxlength': '100',
+                'oninput': 'this.value = this.value.slice(0, 100);',
+            }
+        ),
+    )
+    deliv_addr_reference = forms.CharField(
+        label='Referencia de dirección',
+        max_length=100,
+        required=False,
+        disabled=False,
+        widget=forms.TextInput(
+            attrs={
+                'class': 'mb-2 textfield',
+                'maxlength': '100',
+                'oninput': 'this.value = this.value.slice(0, 100);',
+            }
+        ),
+    )
+    deliv_schedules = forms.CharField(
+        label='Horarios de atención',
+        max_length=100,
+        required=False,
+        disabled=False,
+        widget=forms.TextInput(
+            attrs={
+                'class': 'mb-2 textfield',
                 'maxlength': '100',
                 'oninput': 'this.value = this.value.slice(0, 100);',
             }
@@ -446,8 +487,15 @@ class IssueForm(forms.Form):
         validator = IssueValidator()
         self.fields['acct'].validators = [validator.validate_acct]
         self.fields['branch'].validators = [validator.validate_branch]
+        self.fields['deliv_addr_complement'].validators = [validator.validate_addr_complement]
+        self.fields['deliv_addr_reference'].validators = [validator.validate_addr_reference]
+        self.fields['deliv_schedules'].validators = [validator.validate_schedules]
+        self.fields['obs'].validators = [validator.validate_observations]
         if data:
-            if data.get('carrier') != 'STK':
+            carrier_code = data.get('carrier')
+            if carrier_code not in (Starken.serv_code, 'BQ', 'TD'):
+                self.fields['deliv_folio'].required = True
+            if carrier_code != Starken.serv_code:
                 self.fields['height'].required = False
                 self.fields['width'].required = False
                 self.fields['length'].required = False

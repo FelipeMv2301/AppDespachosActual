@@ -47,6 +47,8 @@ class OrderGroupSearchView(View):
                     'contact_phone2': ordr.contact.phone2,
                     'addr_st_and_num': ordr.ship_addr.st_and_num,
                     'addr_complement': ordr.ship_addr.complement,
+                    'addr_reference': ordr.ship_addr.reference,
+                    'addr_schedules': ordr.ship_addr.schedules,
                     'muni_code': ordr.ship_addr.muni.code,
                 }
             else:
@@ -95,6 +97,8 @@ class OrderGroupSearchView(View):
                     pay_type_code=F('delivery_option__pay_type__code'),
                     addr_st_and_num=F('addr__st_and_num'),
                     addr_complement=F('addr__complement'),
+                    addr_reference=F('addr__reference'),
+                    addr_schedules=F('addr__schedules'),
                     muni_code=F('addr__muni__code'),
                     contact_first_name=F('contact__first_name'),
                     contact_last_name=F('contact__last_name'),

@@ -5,6 +5,14 @@
         table {
             font-size: 0.85rem;
         }
+        .pagination {
+            margin: 10px 0;
+            text-align: center;
+        }
+        .pagination button {
+            margin: 0 2px;
+            padding: 5px 10px;
+        }
     </style>
 {% endblock %}
 {% block content %}
@@ -64,7 +72,7 @@
         </div>
         <div class="pt-5 pb-5 text-end">
             <button type="submit" class="greenbutton fw-bold">Filtrar</button>
-            <button class="btn btn-outline-secondary right-float" type="button" onclick="exportToXLSX();">
+            <button class="btn btn-outline-secondary right-float" type="button" id="results-export">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
                     <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"></path>
                     <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"></path>
@@ -92,6 +100,9 @@
         {{ html_table|safe }}
     </tbody>
 </table>
+<div class="pagination" id="pagination">
+    <!-- Botones de paginación aquí -->
+</div>
 <div class="text-end fw-bold fs-7">
     <span>Límite: 500 resultados</span>
 </div>
@@ -105,6 +116,101 @@
         const carrierSelect = $('#{{ form.carrier.id_for_label }}');
         const selectedCarriersArea = document.getElementById('selected-carriers');
         const selectedCarriers = new Set();
+
+        function getDate() {
+            const date = new Date();
+            const options = { 
+            year: 'numeric', 
+            month: '2-digit', 
+            day: '2-digit', 
+            hour: '2-digit', 
+            minute: '2-digit', 
+            second: '2-digit' 
+            };
+            const formattedDate = new Intl.DateTimeFormat('es-ES', options).format(date).replace(/[:/]/g, '-');
+
+            return formattedDate;
+        }
+        
+        document.addEventListener('DOMContentLoaded', function () {
+            const table = document.getElementById('myTable');
+            const tbody = table.querySelector('tbody');
+            const pagination = document.getElementById('pagination');
+        
+            const rowsPerPage = 1;
+            let currentPage = 1;
+            let rows = Array.from(tbody.querySelectorAll('tr'));
+        
+            function displayRows(rows, page = 1) {
+                tbody.innerHTML = '';
+                let start = (page - 1) * rowsPerPage;
+                let end = start + rowsPerPage;
+                let paginatedRows = rows.slice(start, end);
+                
+                for (let row of paginatedRows) {
+                    tbody.appendChild(row);
+                }
+            }
+        
+            function setupPagination(rows) {
+                pagination.innerHTML = '';
+                let pageCount = Math.ceil(rows.length / rowsPerPage);
+        
+                for (let i = 1; i <= pageCount; i++) {
+                    let button = document.createElement('button');
+                    button.innerText = i;
+                    button.className = 'page-button';
+                    button.addEventListener('click', function () {
+                        currentPage = i;
+                        displayRows(rows, currentPage);
+                        updatePaginationButtons();
+                    });
+                    pagination.appendChild(button);
+                }
+            }
+        
+            function updatePaginationButtons() {
+                let buttons = pagination.querySelectorAll('.page-button');
+                buttons.forEach((button, index) => {
+                    if (index + 1 === currentPage) {
+                        button.disabled = true;
+                    } else {
+                        button.disabled = false;
+                    }
+                });
+            }
+    
+            $('#results-export').on('click', function exportToXLSX() {
+                const data = [];
+                {% comment %} for (let i = 0; i < table.rows.length; i++) {
+                  const row = [];
+                  for (let j = 0; j < table.rows[i].cells.length; j++) {
+                    row.push(table.rows[i].cells[j].innerText);
+                  }
+                  data.push(row);
+                } {% endcomment %}
+                const headers = Array.from(table.querySelectorAll('thead th')).map(th => th.innerText);
+                data.push(headers);
+    
+                rows.forEach(row => {
+                    const rowData = Array.from(row.querySelectorAll('th,td')).map(td => td.innerText);
+                    data.push(rowData);
+                });
+              
+                const workbook = XLSX.utils.book_new();
+                const worksheet = XLSX.utils.aoa_to_sheet(data);
+                XLSX.utils.book_append_sheet(workbook, worksheet, 'Sheet1');
+                
+                const date = getDate();
+
+                XLSX.writeFile(workbook, `panel_entregas_${date}.xlsx`);
+            });
+        
+            // Inicializar
+            displayRows(rows, currentPage);
+            setupPagination(rows);
+            updatePaginationButtons();
+        });
 
         $('form').submit(function(event) {
             // Prevenir el envío del formulario por defecto
@@ -227,42 +333,6 @@
         function removeSelectedCarrier(value, elem) {
             selectedCarriers.delete(value);
             elem.parentNode.remove();
-        }
-
-        function getDate() {
-            const date = new Date();
-            const options = { 
-            year: 'numeric', 
-            month: '2-digit', 
-            day: '2-digit', 
-            hour: '2-digit', 
-            minute: '2-digit', 
-            second: '2-digit' 
-            };
-            const formattedDate = new Intl.DateTimeFormat('es-ES', options).format(date).replace(/[:/]/g, '-');
-
-            return formattedDate;
-        }
-
-        function exportToXLSX() {
-            const table = document.getElementById("myTable");
-          
-            const data = [];
-            for (let i = 0; i < table.rows.length; i++) {
-              const row = [];
-              for (let j = 0; j < table.rows[i].cells.length; j++) {
-                row.push(table.rows[i].cells[j].innerText);
-              }
-              data.push(row);
-            }
-          
-            const workbook = XLSX.utils.book_new();
-            const worksheet = XLSX.utils.aoa_to_sheet(data);
-            XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
-            
-            const date = getDate();
-
-            XLSX.writeFile(workbook, `panel_entregas_${date}.xlsx`);
         }
     </script>
 {% endblock %}

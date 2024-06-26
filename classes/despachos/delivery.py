@@ -4,6 +4,9 @@ from typing import Any, Dict, List
 
 from django.contrib.auth.models import User
 
+from classes.despachos.despachos import Despachos
+from helpers.decorator.loggable import loggable
+from helpers.error.custom_error import CustomError
 from module.delivery.models.branch import Branch
 from module.delivery.models.delivery import Delivery as DelivMdl
 from module.delivery.models.doc import Document
@@ -18,9 +21,6 @@ from module.general.models.muni import Muni
 from module.general.models.service_account import ServiceAccount
 from module.order.models.grouping import Grouping
 from module.order.models.order import Order
-from classes.despachos.despachos import Despachos
-from helpers.decorator.loggable import loggable
-from helpers.error.custom_error import CustomError
 from project.settings.base import APP_USERNAME
 
 
@@ -70,6 +70,9 @@ class Delivery(Despachos):
         deliv_types = {dt.code: dt for dt in Type.objects.all()}
         pay_types = {dpt.code: dpt for dpt in PayType.objects.all()}
 
+        branch_deliv_code = Type.BRANCH_CODE
+        home_deliv_code = Type.HOME_CODE
+
         for d in delivs:
             folio = d['folio']
             issue_date = d['issue_date']
@@ -85,19 +88,19 @@ class Delivery(Despachos):
             if status_code == 'NOTISSUED' or not issue_date:
                 continue
             deliv_type_code = str(d['deliv_type_code'])
-            # to_branch = deliv_type_code == 'BRDELIV'
+            # to_branch = deliv_type_code == branch_deliv_code
             pay_type_code = str(d['pay_type_code'])
             serv_code = str(d['serv_code'])
             branch_code = d['branch_serv_code']
             docs = json.loads(s=d['docs'])
 
             if serv_code == 'BQ':
-                deliv_type_code = 'BRDELIV'
+                deliv_type_code = branch_deliv_code
                 branch_code = 'BQ301'
             elif branch_code:
-                deliv_type_code = 'BRDELIV'
+                deliv_type_code = branch_deliv_code
             else:
-                deliv_type_code = 'HOMEDELIV'
+                deliv_type_code = home_deliv_code
 
             try:
                 deliv = DelivMdl.objects.get(folio=folio)
@@ -159,7 +162,7 @@ class Delivery(Despachos):
                 CustomError(msg=e_msg)
                 continue
 
-            if deliv_type_code != 'BRDELIV':
+            if deliv_type_code != branch_deliv_code:
                 branch = None
                 try:
                     muni = Muni.objects.get(code=ship_muni_utc_code)

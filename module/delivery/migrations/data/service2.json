@@ -1,0 +1,12 @@
+[
+{
+    "model": "delivery.service",
+    "pk": 2,
+    "fields": {
+        "code": "PR",
+        "name": "Prioritario",
+        "enabled": true,
+        "changed_by": 1
+    }
+}
+]

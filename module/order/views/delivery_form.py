@@ -16,6 +16,7 @@ from helpers.user.permission import Permission
 from module.business_partner.models.contact import Contact
 from module.delivery.models.branch import Branch
 from module.delivery.models.opt import Option
+from module.delivery.models.pay_type import PayType
 from module.general.models.address import Address
 from module.general.models.muni import Muni
 from module.general.models.muni_service import MuniService
@@ -123,18 +124,8 @@ class DeliveryFormView(AnyPermissionRequiredMixin, View):
                               context=context)
             deliv_st_and_num = f['deliv_st_and_num'] or None
             deliv_addr_complement = f['deliv_addr_complement'] or None
-            full_addr_length = len((deliv_st_and_num or '') +
-                                   (deliv_addr_complement or ''))
-            if full_addr_length > 80:
-                messages.error(
-                    request=request,
-                    message=('La dirección (calle y numeración + complemento) '
-                             'no debe superar los 80 caracteres. Actualmente '
-                             f'son {full_addr_length} caracteres')
-                )
-                return render(request=request,
-                              template_name=self.template,
-                              context=context)
+            deliv_addr_reference = f['deliv_addr_reference'] or None
+            deliv_schedules = f['deliv_schedules'] or None
             deliv_muni_code = f['deliv_muni']
             carrier_code = f['carrier']
             deliv_type_code = f['deliv_type']
@@ -190,7 +181,7 @@ class DeliveryFormView(AnyPermissionRequiredMixin, View):
                             .filter(service_acct__service=opt.carrier,
                                     muni__code=deliv_muni_code)
                             .first())
-            if deliv_pay_type_code == 'CE':
+            if deliv_pay_type_code == PayType.ON_DELIVERY_CODE:
                 if muni_service and not muni_service.to_pay:
                     messages.error(request=request,
                                    message=('La comuna no acepta el tipo de '
@@ -227,13 +218,17 @@ class DeliveryFormView(AnyPermissionRequiredMixin, View):
                 addr = Address.objects.get(id=first_group.addr.id)
                 addr.st_and_num = deliv_st_and_num
                 addr.complement = deliv_addr_complement
+                addr.reference = deliv_addr_reference
+                addr.schedules = deliv_schedules
                 addr.muni = muni
                 addr.changed_by = user
                 bulk_update_with_history(objs=[addr],
                                          model=Address,
                                          fields=['st_and_num',
                                                  'complement',
+                                                 'reference',
                                                  'muni',
+                                                 'schedules',
                                                  'changed_by'])
                 contact = Contact.objects.get(id=first_group.contact.id)
                 contact.first_name = contact_first_name
@@ -267,7 +262,9 @@ class DeliveryFormView(AnyPermissionRequiredMixin, View):
                 addr = Address.objects.create(
                     st_and_num=deliv_st_and_num,
                     complement=deliv_addr_complement,
+                    reference=deliv_addr_reference,
                     muni=muni,
+                    schedules=deliv_schedules,
                     changed_by=user
                 )
                 contact = Contact.objects.create(

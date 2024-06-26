@@ -7,8 +7,8 @@ from typing import Any, Dict
 import pandas as pd
 import requests
 from django.contrib.auth.models import User
-from django.db.models import Case, CharField, F, TextField, Value, When
-from django.db.models.functions import Coalesce, Concat
+from django.db.models import Case, CharField, F, Value, When
+from django.db.models.functions import Cast, Coalesce, Concat
 from simple_history.utils import (bulk_create_with_history,
                                   bulk_update_with_history)
 from unidecode import unidecode
@@ -64,8 +64,10 @@ class Delivery(Starken):
 
         delivs = mdl.objects.filter(service_acct=self.serv_account,
                                     issue_date__gte=from_date)
-        status = status_mdl.objects.filter(service_acct=self.serv_account)
-        status = {st.code: st for st in status}
+        status = {
+            st.code: st
+            for st in status_mdl.objects.filter(service_acct=self.serv_account)
+        }
         for deliv in delivs:
             self.folio = deliv.folio
             try:
@@ -256,7 +258,14 @@ class Delivery(Starken):
                                     Value(' '),
                                     'order_grouping__contact__last_name',
                                     output_field=CharField()),
-                obs=Coalesce('order_grouping__deliv_obs', TextField('')),
+                obs=Concat(
+                    Cast(F('order_grouping__addr__reference'), CharField()),
+                    Value('||'),
+                    Cast(F('order_grouping__addr__schedules'), CharField()),
+                    Value('||'),
+                    Cast(F('order_grouping__deliv_obs'), CharField()),
+                    output_field=CharField()
+                ),
                 muni_value=Case(
                     When(order_grouping__delivery_option__branch__code=None,
                          then=F('order_grouping__addr__muni__muniservice__name')),
@@ -377,6 +386,7 @@ class Delivery(Starken):
             body[f'numeroDocumento{index}'] = str(doc_info['folio'])
             body[f'generaEtiquetaDocumento{index}'] = 'S'
 
+        print(json.dumps(obj=body, indent=4))
         response = requests.post(url=self.issue_api_host,
                                  data=json.dumps(obj=body),
                                  headers={'Content-Type': 'application/json'})

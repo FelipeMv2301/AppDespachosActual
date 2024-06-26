@@ -77,6 +77,18 @@
                     </div>
                     <div class="row">
                         <div class="col">
+                            {{ form.deliv_addr_reference.label_tag }}
+                            {{ form.deliv_addr_reference }}
+                            {{ form.deliv_addr_reference.errors }}
+                        </div>
+                        <div class="col">
+                            {{ form.deliv_schedules.label_tag }}
+                            {{ form.deliv_schedules }}
+                            {{ form.deliv_schedules.errors }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
                             {{ form.deliv_muni.label_tag }}
                             {{ form.deliv_muni }}
                             {{ form.deliv_muni.errors }}
@@ -86,20 +98,18 @@
                             {{ form.carrier }}
                             {{ form.carrier.errors }}
                         </div>
-                    </div>
-                    <div class="row">
                         <div class="col">
                             {{ form.deliv_type.label_tag }}
                             {{ form.deliv_type }}
                             {{ form.deliv_type.errors }}
                         </div>
+                    </div>
+                    <div class="row">
                         <div class="col">
                             {{ form.deliv_service.label_tag }}
                             {{ form.deliv_service }}
                             {{ form.deliv_service.errors }}
                         </div>
-                    </div>
-                    <div class="row">
                         <div class="col">
                             {{ form.deliv_pay_type.label_tag }}
                             {{ form.deliv_pay_type }}
@@ -125,6 +135,11 @@
                 <span class="fs-5 fw-bold">Información de envío</span>
                 <div class="form-group pt-4 d-grid">
                     <div class="row">
+                        <div class="col deliv-folio">
+                            {{ form.deliv_folio.label_tag }}
+                            {{ form.deliv_folio }}
+                            {{ form.deliv_folio.errors }}
+                        </div>
                         <div class="col">
                             {{ form.acct.label_tag }}
                             {{ form.acct }}
@@ -253,6 +268,8 @@
     var selects = {
         stAndNum: $('#{{ form.deliv_st_and_num.id_for_label }}'),
         complement: $('#{{ form.deliv_addr_complement.id_for_label }}'),
+        reference: $('#{{ form.deliv_addr_reference.id_for_label }}'),
+        schedules: $('#{{ form.deliv_schedules.id_for_label }}'),
         obs: $('#{{ form.obs.id_for_label }}'),
         contactFirstName: $('#{{ form.contact_first_name.id_for_label }}'),
         contactLastName: $('#{{ form.contact_last_name.id_for_label }}'),
@@ -274,7 +291,22 @@
         valuation: $('#{{ form.valuation.id_for_label }}'),
         docType: $('#{{ form.doc_type.id_for_label }}'),
         docFolio: $('#{{ form.doc_folio.id_for_label }}'),
+        delivFolio: $('#{{ form.deliv_folio.id_for_label }}'),
     };
+
+    var originalValues = {};
+    function reloadFieldValue(allFields = true, fieldRefs = []) {
+        if (allFields) {
+            originalValues = Object.entries(selects).reduce((acc, [fieldRef, field]) => {
+                acc[fieldRef] = field.val();
+                return acc;
+            }, {});
+        } else {
+            for (let fieldRef of fieldRefs) {
+                originalValues[fieldRef] = selects[fieldRef].val();
+            }
+        }
+    }
     
     function createListElement(orderCode, orderRef) {
         const li = document.createElement('li');
@@ -413,6 +445,8 @@
                     const groupData = response.group;
                     selects.stAndNum.val(groupData.addr_st_and_num);
                     selects.complement.val(groupData.addr_complement);
+                    selects.reference.val(groupData.addr_reference);
+                    selects.schedules.val(groupData.addr_schedules);
                     selects.obs.val(groupData.obs);
                     selects.contactFirstName.val(groupData.contact_first_name);
                     selects.contactLastName.val(groupData.contact_last_name);
@@ -452,6 +486,8 @@
                     });
                     searchDeliveryOption();
                     requiredFieldsManage(groupData.carrier_code);
+
+                    reloadFieldValue();
                 },
                 error: function () { }
             });
@@ -658,6 +694,33 @@
             shipInfo.show();
         } else {
             shipInfo.hide();
+        }
+
+        const delivFolio = $('.deliv-folio');
+        if (!['STK', 'BQ', 'TD'].includes(carrierCode)) {
+            selects.delivFolio.prop('required', true);
+            delivFolio.show();
+        } else {
+            delivFolio.hide();
+            selects.delivFolio.val('');
+            selects.delivFolio.prop('required', false);
+        }
+    }
+
+    function preloadData() {
+        let newValues = {
+            delivPayType: 'FREE',
+            {% comment %} delivMuni: '13118', {% endcomment %}
+        }
+        if (selects.carrier.val() == 'BQ' && selects.delivType.val() == 'BRDELIV') {
+            reloadFieldValue(false, Object.keys(newValues));
+            for (let [fieldRef, newValue] of Object.entries(newValues)) {
+                selects[fieldRef].val(newValue);
+            }
+        } else {
+            for (let fieldRef of Object.keys(newValues)) {
+                selects[fieldRef].val(originalValues[fieldRef]);
+            }
         }
     }
 </script>

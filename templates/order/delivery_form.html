@@ -95,6 +95,18 @@
                     </div>
                     <div class="row">
                         <div class="col">
+                            {{ form.deliv_addr_reference.label_tag }}
+                            {{ form.deliv_addr_reference }}
+                            {{ form.deliv_addr_reference.errors }}
+                        </div>
+                        <div class="col">
+                            {{ form.deliv_schedules.label_tag }}
+                            {{ form.deliv_schedules }}
+                            {{ form.deliv_schedules.errors }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
                             {{ form.deliv_muni.label_tag }}
                             {{ form.deliv_muni }}
                             {{ form.deliv_muni.errors }}
@@ -104,17 +116,10 @@
                             {{ form.carrier }}
                             {{ form.carrier.errors }}
                         </div>
-                    </div>
-                    <div class="row">
                         <div class="col">
                             {{ form.deliv_type.label_tag }}
                             {{ form.deliv_type }}
                             {{ form.deliv_type.errors }}
-                        </div>
-                        <div class="col">
-                            {{ form.deliv_service.label_tag }}
-                            {{ form.deliv_service }}
-                            {{ form.deliv_service.errors }}
                         </div>
                     </div>
                     <div class="row">
@@ -128,14 +133,18 @@
                             {{ form.branch }}
                             {{ form.branch.errors }}
                         </div>
-                    </div>
-                    <div class="row">
                         <div class="col">
                             {{ form.obs.label_tag }}
                             {{ form.obs }}
                             {{ form.obs.errors }}
                         </div>
-                        <div class="col"></div>
+                    </div>
+                    <div class="row" hidden>
+                        <div class="col">
+                            {{ form.deliv_service.label_tag }}
+                            {{ form.deliv_service }}
+                            {{ form.deliv_service.errors }}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -174,6 +183,8 @@
         {% if can_edit_form %}
         stAndNum: $('#{{ form.deliv_st_and_num.id_for_label }}'),
         complement: $('#{{ form.deliv_addr_complement.id_for_label }}'),
+        reference: $('#{{ form.deliv_addr_reference.id_for_label }}'),
+        schedules: $('#{{ form.deliv_schedules.id_for_label }}'),
         contactFirstName: $('#{{ form.contact_first_name.id_for_label }}'),
         contactLastName: $('#{{ form.contact_last_name.id_for_label }}'),
         contactEmailAddr: $('#{{ form.contact_email_addr.id_for_label }}'),
@@ -340,6 +351,8 @@
                     {% if can_edit_form %}
                     selects.stAndNum.val(data.addr_st_and_num);
                     selects.complement.val(data.addr_complement);
+                    selects.reference.val(data.addr_reference);
+                    selects.schedules.val(data.addr_schedules);
                     selects.contactFirstName.val(data.contact_first_name);
                     selects.contactLastName.val(data.contact_last_name);
                     selects.contactEmailAddr.val(data.contact_email_addr);

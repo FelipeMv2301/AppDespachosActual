@@ -35,3 +35,6 @@ class Type(models.Model):
             'created_at',
             'updated_at',
         ]
+
+    BRANCH_CODE = 'BRDELIV'
+    HOME_CODE = 'HOMEDELIV'

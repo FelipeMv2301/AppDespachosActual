@@ -50,8 +50,9 @@ class Order(Sap):
         url += 'ContactPersonCode, SalesPersonCode, DocTotal, '
         url += 'DocTotalSys,  VatSum, VatSumSys, TotalDiscount, ShipToCode, '
         url += f'PayToCode),{order_addr_mdl}($select=ShipToStreet, '
-        url += f'ShipToCounty, BillToStreet, BillToCounty),{bsns_partner_mdl}'
-        url += '($select=CardCode, GroupCode, Currency, CardName, CardType, '
+        url += 'ShipToCounty, BillToStreet, BillToCounty, U_BQ_ReferenceS, '
+        url += f'U_BQ_SchedulesS),{bsns_partner_mdl}($select=CardCode, '
+        url += 'GroupCode, Currency, CardName, CardType, '
         url += 'FederalTaxID, Phone1, Phone2, EmailAddress)'
         url += f'&$filter={mdl}/DocEntry eq {order_addr_mdl}/DocEntry and '
         url += f'{mdl}/CardCode eq {bsns_partner_mdl}/CardCode and '
@@ -116,6 +117,8 @@ class Order(Sap):
             ordr_ship_addr_ref = ordr_info['ShipToCode']
             ordr_ship_st_and_num = ordr_addr_info['ShipToStreet'] or ''
             ordr_ship_muni_name = ordr_addr_info['ShipToCounty']
+            ordr_ship_schedules = ordr_addr_info['U_BQ_SchedulesS'] or ''
+            ordr_ship_reference = ordr_addr_info['U_BQ_ReferenceS'] or ''
 
             # Extraction of business partner information
             bsns_partner_info = order[sap_bsns_partner_mdl]
@@ -505,6 +508,8 @@ class Order(Sap):
 
             ordr_ship_addr.reference = ordr_ship_addr_ref
             ordr_ship_addr.st_and_num = ordr_ship_st_and_num
+            ordr_ship_addr.reference = ordr_ship_reference
+            ordr_ship_addr.schedules = ordr_ship_schedules
             ordr_ship_addr.muni = ordr_ship_muni
             ordr_ship_addr.changed_by = user_obj
             addr_sync_kwargs['objs'] = [ordr_ship_addr]

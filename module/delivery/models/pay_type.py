@@ -33,3 +33,7 @@ class PayType(models.Model):
             'created_at',
             'updated_at',
         ]
+
+    PAID_CODE = 'PA'
+    ON_DELIVERY_CODE = 'CE'
+    FREE_CODE = 'FREE'

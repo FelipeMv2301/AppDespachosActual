@@ -1,19 +1,19 @@
-import os
 import re
 import traceback
 from typing import Sequence
 
-from django.conf import settings
 from django.db.models import CharField, F, Value
 from django.db.models.functions import Coalesce, Concat
 from django.template.loader import render_to_string
-from django.urls import reverse
 from django.utils.html import strip_tags
 
-from module.delivery.models.delivery import Delivery
-from module.order.models.delivery import OrderDelivery
+from classes.chilexpress.chilexpress import Chilexpress
+from classes.starken.starken import Starken
 from helpers.error.custom_error import CustomError
-from notification.email.email import ATTACHMENTS_PATH, Email
+from module.delivery.models.delivery import Delivery
+from module.delivery.models.type import Type
+from module.order.models.delivery import OrderDelivery
+from notification.email.email import Email
 from project.settings.base import EMAIL_HOST_USER, env
 
 
@@ -87,12 +87,12 @@ class OrderEmail(Email):
 
         self.to = to or [self.deliv_query['email_addr']]
 
-        if not self.__validate_deliv_for_email():
-            e_msg = 'Error: Ha ocurrido un error en el envío de correo. '
-            e_msg = 'No corresponde correo de notificación para la entrega'
-            log_msg = e_msg + f'\nDelivery folio: {delivery.folio}'
-            e = CustomError(msg=e_msg, log=log_msg)
-            raise e
+        # if not self.__validate_deliv_for_email():
+        #     e_msg = 'Error: Ha ocurrido un error en el envío de correo. '
+        #     e_msg = 'No corresponde correo de notificación para la entrega'
+        #     log_msg = e_msg + f'\nDelivery folio: {delivery.folio}'
+        #     e = CustomError(msg=e_msg, log=log_msg)
+        #     raise e
 
         if deliv_status_code != 'ISSUED':
             e_msg = 'Error: Ha ocurrido un error en el envío de correo. '
@@ -108,12 +108,22 @@ class OrderEmail(Email):
 
         ordr_doc_nums = ', '.join([deliv['order_doc_num']
                                    for deliv in deliv_query])
-        track_url = (
-            settings.ALLOWED_PUBLIC_HOSTS[0] +
-            reverse(viewname='deliv_track',
-                    kwargs={'company_code': company_code,
-                            'folio': folio})
-        )
+
+        # track_url = (
+        #     settings.ALLOWED_PUBLIC_HOSTS[0] +
+        #     reverse(viewname='deliv_track',
+        #             kwargs={'company_code': company_code,
+        #                     'folio': folio})
+        # )
+        track_url = None
+        match carrier_code:
+            case Starken.serv_code:
+                track_url = Starken.track_url.format(folio=folio)
+            case Chilexpress.serv_code:
+                track_url = Chilexpress.track_url.format(folio=folio)
+            case _:
+                track_url = None
+
         tmpl_context = {
             'contact_fullname': str(self.deliv_query['contact_fullname']).title(),
             'order_doc_num': ordr_doc_nums,
@@ -126,34 +136,28 @@ class OrderEmail(Email):
             'track_url': track_url,
         }
 
-        self.attachs = []
-        if carrier_code == 'STK' or deliv_type_code == 'HOMEDELIV':
+        # self.attachs = []
+        if (deliv_type_code == Type.BRANCH_CODE and
+                carrier_code in ('BQ', 'TD')):
+            filepath_template = 'order_pickup_email.html'
+        else:
             filepath_template = 'order_shipped_email.html'
             tmpl_context.update({
                 'folio': folio,
                 'carrier_name': self.deliv_query['carrier_name'],
                 'deliv_type_code': deliv_type_code,
             })
-            self.attachs = [{
-                'filepath': 'dispatch_insurance.pdf',
-                'filename': 'Seguro de envío.pdf'
-            }]
-        elif (self.deliv_query['carrier_code'] == 'BQ' or
-              self.deliv_query['carrier_code'] == 'TD'):
-            filepath_template = 'order_pickup_email.html'
-        else:
-            e_msg = 'Error: Ha ocurrido un error en el envío de correo. '
-            e_msg = 'No se pudo definir el tipo de correo'
-            log_msg = e_msg + f'\nDelivery folio: {delivery.folio}'
-            e = CustomError(msg=e_msg, log=log_msg)
-            raise e
+            # self.attachs = [{
+            #     'filepath': 'dispatch_insurance.pdf',
+            #     'filename': 'Seguro de envío.pdf'
+            # }]
 
-        for attch in self.attachs:
-            filepath = attch['filepath']
-            filepath = os.path.join(ATTACHMENTS_PATH, filepath)
-            attch['filepath'] = filepath
-            with open(file=filepath, mode='rb') as f:
-                attch['content'] = f.read()
+        # for attch in self.attachs:
+        #     filepath = attch['filepath']
+        #     filepath = os.path.join(ATTACHMENTS_PATH, filepath)
+        #     attch['filepath'] = filepath
+        #     with open(file=filepath, mode='rb') as f:
+        #         attch['content'] = f.read()
 
         self.subject = f'{subject}: {ordr_doc_nums}'
         template = render_to_string(template_name=filepath_template,
@@ -169,25 +173,25 @@ class OrderEmail(Email):
                          cc=self.cc,
                          bcc=self.bcc,
                          reply_to=self.reply_to,
-                         attachments=self.attachs,
+                        #  attachments=self.attachs,
                          *args,
                          **kwargs)
 
-    def __validate_deliv_for_email(self, *args, **kwargs) -> bool:
-        carrier_code = self.deliv_query['carrier_code']
-        branch_code = self.deliv_query['branch_code']
-        deliv_type_code = self.deliv_query['deliv_type_code']
+    # def __validate_deliv_for_email(self, *args, **kwargs) -> bool:
+    #     carrier_code = self.deliv_query['carrier_code']
+    #     branch_code = self.deliv_query['branch_code']
+    #     deliv_type_code = self.deliv_query['deliv_type_code']
 
-        validation = (carrier_code == 'STK' or
-                      (carrier_code == 'BQ' and deliv_type_code == 'BRDELIV'
-                       and branch_code != 'BQ201'))
+    #     validation = (carrier_code == 'STK' or
+    #                   (carrier_code == 'BQ' and deliv_type_code == 'BRDELIV'
+    #                    and branch_code != 'BQ201'))
 
-        return validation
+    #     return validation
 
     def send_email(self):
         try:
-            if not self.__validate_deliv_for_email():
-                return
+            # if not self.__validate_deliv_for_email():
+            #     return
             self.send()
         except Exception:
             tb = traceback.format_exc()

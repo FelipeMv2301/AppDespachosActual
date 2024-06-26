@@ -169,6 +169,21 @@ class DeliveryForm(forms.Form):
                         'oninput': 'this.value = this.value.slice(0, 100);',
                     }
                 ),
+                validators=[validator.validate_addr_complement],
+            )
+            self.fields['deliv_addr_reference'] = forms.CharField(
+                label='Referencia de dirección',
+                max_length=100,
+                required=False,
+                disabled=False,
+                widget=forms.TextInput(
+                    attrs={
+                        'class': 'mb-2 textfield',
+                        'maxlength': '100',
+                        'oninput': 'this.value = this.value.slice(0, 100);',
+                    }
+                ),
+                validators=[validator.validate_addr_reference],
             )
             self.fields['deliv_muni'] = forms.ChoiceField(
                 label='Comuna de entrega',
@@ -184,6 +199,20 @@ class DeliveryForm(forms.Form):
                     }
                 ),
                 validators=[validator.validate_muni],
+            )
+            self.fields['deliv_schedules'] = forms.CharField(
+                label='Horarios de atención',
+                max_length=100,
+                required=False,
+                disabled=False,
+                widget=forms.TextInput(
+                    attrs={
+                        'class': 'mb-2 textfield',
+                        'maxlength': '100',
+                        'oninput': 'this.value = this.value.slice(0, 100);',
+                    }
+                ),
+                validators=[validator.validate_schedules],
             )
             self.fields['carrier'] = forms.ChoiceField(
                 label='Vía de entrega',
@@ -267,5 +296,6 @@ class DeliveryForm(forms.Form):
                         'maxlength': '255',
                         'oninput': 'this.value = this.value.slice(0, 255)',
                     }
-                )
+                ),
+                validators=[validator.validate_observations],
             )
