@@ -19,6 +19,8 @@ from module.order.models.grouping import Grouping
 class IssueValidator:
     def __init__(self, *args, **kwargs):
         self.e_msg = None
+        self.schedules = ''
+        self.addr_reference = ''
 
     def reset_error_message(f: Callable):
         def wrapper(slf, *args, **kwargs):
