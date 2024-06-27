@@ -167,7 +167,6 @@ class IssueForm(forms.Form):
                 'oninput': 'this.value = this.value.slice(0, 100);',
             }
         ),
-        validators=[IssueValidator().validate_addr],
     )
     deliv_addr_complement = forms.CharField(
         label='Complemento de dirección',
@@ -487,6 +486,7 @@ class IssueForm(forms.Form):
         validator = IssueValidator()
         self.fields['acct'].validators = [validator.validate_acct]
         self.fields['branch'].validators = [validator.validate_branch]
+        self.fields['deliv_st_and_num'].validators = [validator.validate_addr]
         self.fields['deliv_addr_complement'].validators = [validator.validate_addr_complement]
         self.fields['deliv_addr_reference'].validators = [validator.validate_addr_reference]
         self.fields['deliv_schedules'].validators = [validator.validate_schedules]
