@@ -80,10 +80,31 @@ class DeliveryFormValidator:
     @reset_error_message
     def validate_addr(self, value: str) -> None | ValidationError:
         cleaned_value = re.sub(pattern=r'\W', repl='', string=value)
+        self.addr = cleaned_value
         if not cleaned_value:
             self.e_msg = 'El valor no es válido'
 
         self.raise_valid_error()
+
+    @reset_error_message
+    def validate_addr_complement(self, value: str) -> None | ValidationError:
+        cleaned_value = re.sub(pattern=r'\W', repl='', string=value)
+        full_addr = str(self.addr) + str(cleaned_value)
+        full_addr_len = len(full_addr)
+        if full_addr_len > 80:
+            self.e_msg = ('La dirección (calle y numeración + complemento) '
+                          'no debe superar los 80 caracteres. Actualmente '
+                          f'son {full_addr_len} caracteres')
+
+        self.raise_valid_error()
+
+    @reset_error_message
+    def validate_addr_reference(self, value: str) -> None | ValidationError:
+        self.addr_reference = re.sub(pattern=r'\W', repl='', string=value)
+
+    @reset_error_message
+    def validate_schedules(self, value: str) -> None | ValidationError:
+        self.schedules = re.sub(pattern=r'\W', repl='', string=value)
 
     @reset_error_message
     def validate_muni(self, value: str) -> None | ValidationError:
@@ -158,5 +179,20 @@ class DeliveryFormValidator:
     def validate_date(self, value: date) -> None | ValidationError:
         if not isinstance(value, date):
             self.e_msg = 'El tipo de valor no es válido'
+
+        self.raise_valid_error()
+
+    @reset_error_message
+    def validate_observations(self, value: str) -> None | ValidationError:
+        cleaned_value = re.sub(pattern=r'\W', repl='', string=value)
+        full_obs = (str(cleaned_value) +
+                    str(self.addr_reference) +
+                    str(self.schedules))
+        full_obs_len = len(full_obs)
+        if full_obs_len > 80:
+            self.e_msg = ('El total de la información ingresada en los campos '
+                          '"Referencia de dirección", "Horarios de atención" '
+                          'y "Observaciones" no debe superar 80 caracteres '
+                          'Por favor, reduce la cantidad de texto.')
 
         self.raise_valid_error()

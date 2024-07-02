@@ -25,9 +25,11 @@ class Address(models.Model):
     reference = models.CharField(max_length=100, default=new_code.__func__)
     st_and_num = models.CharField(max_length=500)
     complement = models.CharField(max_length=500, null=True)
+    reference = models.CharField(max_length=255, null=True)
     muni = models.ForeignKey(to='general.Muni',
                              on_delete=models.CASCADE,
                              null=True)
+    schedules = models.CharField(max_length=255, null=True)
     maps_url = models.URLField(max_length=200, null=True)
     latitude = models.FloatField(null=True)
     longitude = models.FloatField(null=True)
@@ -53,7 +55,9 @@ class Address(models.Model):
             'reference',
             'st_and_num',
             'complement',
+            'reference',
             'muni',
+            'schedules',
             'maps_url',
             'latitude',
             'longitude',

@@ -27,3 +27,6 @@ class Service(models.Model):
 
     class Meta:
         db_table = 'delivery_service'
+
+    NORMAL_CODE = 'NO'
+    PRIORITY_CODE = 'PR'

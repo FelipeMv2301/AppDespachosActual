@@ -26,7 +26,8 @@ class PanelView(PermissionRequiredMixin, View):
     @loggable
     def get(self, request, *args, **kwargs):
         params = request.GET
-        context = {'page_title': PAGE_TITLE, 'form': self.form()}
+        context = {'page_title': PAGE_TITLE,
+                   'form': (self.form(data=params))}
 
         status = params.get('status')
         carriers = params.get('carrier')

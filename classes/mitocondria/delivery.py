@@ -23,7 +23,7 @@ from module.general.models.service_account import ServiceAccount
 from module.order.models.grouping import Grouping
 from module.order.models.order import Order
 from classes.mitocondria.mitocondria import Mitocondria
-from classes.starken.starken import SERV_CODE as STK_SERV_CODE
+from classes.starken.starken import Starken
 from helpers.decorator.loggable import loggable
 from helpers.error.custom_error import CustomError
 from project.settings.base import APP_USERNAME
@@ -63,7 +63,7 @@ class Delivery(Mitocondria):
         sap_acct = ServiceAccount.objects.get(code='SAPBQ01')
         bq_acct = ServiceAccount.objects.get(code='BQ01')
         bq_service = Service.objects.get(code='BQ')
-        stk_service = Service.objects.get(code=STK_SERV_CODE)
+        stk_service = Service.objects.get(code=Starken.serv_code)
         deliv_service = DelivService.objects.get(code='NO')
 
         doc_types_equiv = {k: DocumentType.objects.get(code=v)

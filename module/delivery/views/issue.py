@@ -9,6 +9,7 @@ from django.views.generic.base import View
 from simple_history.utils import bulk_update_with_history
 
 from classes.starken.delivery import Delivery as StkDeliv
+from classes.starken.starken import Starken
 from helpers.decorator.auth import authentication
 from helpers.decorator.domain import domain_check
 from helpers.decorator.loggable import loggable
@@ -21,6 +22,7 @@ from module.delivery.models.doc_type import DocumentType as DocType
 from module.delivery.models.doc_type_service import \
     DocumentTypeService as DocTypeServ
 from module.delivery.models.opt import Option
+from module.delivery.models.pay_type import PayType
 from module.delivery.models.status import Status
 from module.general.models.address import Address
 from module.general.models.muni import Muni
@@ -83,19 +85,9 @@ class IssueView(PermissionRequiredMixin, View):
         contact_email_addr = f['contact_email_addr']
         contact_mobile_phone = f['contact_mobile_phone']
         deliv_st_and_num = f['deliv_st_and_num']
-        deliv_addr_complement = f['deliv_addr_complement']
-        full_addr_length = len((deliv_st_and_num or '') +
-                               (deliv_addr_complement or ''))
-        if full_addr_length > 80:
-            messages.error(
-                request=request,
-                message=('La dirección (calle y numeración + complemento) '
-                         'no debe superar los 80 caracteres. Actualmente '
-                         f'son {full_addr_length} caracteres')
-            )
-            return render(request=request,
-                          template_name=self.template,
-                          context=context)
+        deliv_addr_complement = f['deliv_addr_complement'] or None
+        deliv_addr_reference = f['deliv_addr_reference'] or None
+        deliv_schedules = f['deliv_schedules'] or None
         muni_code = f['deliv_muni']
         carrier_code = f['carrier']
         deliv_type_code = f['deliv_type']
@@ -112,6 +104,7 @@ class IssueView(PermissionRequiredMixin, View):
         valuation = f['valuation']
         is_complete = f['is_complete'] == 'Y'
         doc_folios = params.getlist(key='doc_folio')
+        deliv_folio = f['deliv_folio']
         doc_types = params.getlist('doc_type')
         context['form'] = form_by_user
 
@@ -165,7 +158,7 @@ class IssueView(PermissionRequiredMixin, View):
                         .filter(service_acct__service=opt.carrier,
                                 muni__code=muni_code)
                         .first())
-        if deliv_pay_type_code == 'CE':
+        if deliv_pay_type_code == PayType.ON_DELIVERY_CODE:
             if muni_service and not muni_service.to_pay:
                 messages.error(request=request,
                                message='La comuna no acepta el tipo de pago')
@@ -207,7 +200,9 @@ class IssueView(PermissionRequiredMixin, View):
         muni = Muni.objects.get(code=muni_code)
         addr = Address.objects.get(id=addr_id)
         addr.st_and_num = deliv_st_and_num
-        addr.complement = deliv_addr_complement or None
+        addr.complement = deliv_addr_complement
+        addr.reference = deliv_addr_reference
+        addr.schedules = deliv_schedules
         addr.muni = muni
         addr.changed_by = user
         bulk_update_with_history(
@@ -274,7 +269,7 @@ class IssueView(PermissionRequiredMixin, View):
                              'type_service': doc_type_serv,
                              'folio': folio})
 
-        if acct.service.code == 'STK':
+        if acct.service.code == Starken.serv_code:
             stk_deliv = StkDeliv(account=acct)
             stk_deliv.issue(
                 delivery=deliv,
@@ -301,6 +296,8 @@ class IssueView(PermissionRequiredMixin, View):
                                              'changed_by',
                                              'locked'])
         else:
+            if deliv_folio:
+                deliv.folio = deliv_folio
             deliv.issue_date = date.today()
             deliv.locked = True
             deliv.status = Status.objects.get(code='ISSUED')
@@ -309,6 +306,7 @@ class IssueView(PermissionRequiredMixin, View):
                                      model=Delivery,
                                      fields=['issue_date',
                                              'status',
+                                             'folio',
                                              'changed_by',
                                              'locked'])
         messages.success(request=request,

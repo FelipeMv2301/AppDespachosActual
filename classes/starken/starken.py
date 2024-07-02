@@ -7,13 +7,15 @@ from helpers.decorator.loggable import loggable
 from helpers.error.custom_error import CustomError
 from project.settings.base import env
 
-SERV_CODE = 'STK'
-
 
 class Starken:
+    serv_code = 'STK'
+
+    # Track
+    track_url = env.str(var='STARKEN_TRACK_URL')
+
     def __init__(self, account: ServiceAccount, *args, **kwargs):
         # Starken service account info
-        self.serv_code = SERV_CODE
         self.serv_account = account
         self.acct_rut = self.serv_account.rut
         acct_rut_split = self.acct_rut.split('-')

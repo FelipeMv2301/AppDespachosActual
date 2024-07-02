@@ -1,0 +1,13 @@
+[
+{
+    "model": "general.service",
+    "pk": 11,
+    "fields": {
+        "code": "AIREX",
+        "name": "Air Express",
+        "is_carrier": true,
+        "changed_by": 1
+    }
+}
+]
+    
