@@ -17,6 +17,8 @@ from module.order.models.order import Order
 class DeliveryFormValidator:
     def __init__(self, *args, **kwargs):
         self.e_msg = None
+        self.schedules = ''
+        self.addr_reference = ''
 
     def raise_valid_error(self):
         if self.e_msg:
