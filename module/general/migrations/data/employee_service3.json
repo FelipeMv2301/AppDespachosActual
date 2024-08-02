@@ -1,0 +1,26 @@
+[
+{
+    "model": "general.employeeservice",
+    "pk": 63,
+    "fields": {
+        "code": "38",
+        "name": "Valentina Neira",
+        "employee": 36,
+        "service_acct": 3,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employeeservice",
+    "pk": 64,
+    "fields": {
+        "code": "39",
+        "name": "Daniela Verdugo",
+        "employee": 37,
+        "service_acct": 3,
+        "enabled": true,
+        "changed_by": 1
+    }
+}
+]

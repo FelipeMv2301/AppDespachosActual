@@ -1,0 +1,24 @@
+[
+{
+    "model": "general.employee",
+    "pk": 36,
+    "fields": {
+        "code": "DHBS36",
+        "first_name": "Valentina",
+        "last_name": "Neira",
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.employee",
+    "pk": 37,
+    "fields": {
+        "code": "LORT37",
+        "first_name": "Daniela",
+        "last_name": "Verdugo",
+        "enabled": true,
+        "changed_by": 1
+    }
+}
+]
