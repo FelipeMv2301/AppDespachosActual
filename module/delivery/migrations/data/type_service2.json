@@ -1,0 +1,26 @@
+[
+{
+    "model": "delivery.typeservice",
+    "pk": 8,
+    "fields": {
+        "code": "HOME",
+        "name": "A domicilio",
+        "type": 2,
+        "service_acct": 3,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.typeservice",
+    "pk": 9,
+    "fields": {
+        "code": "BRANCH",
+        "name": "Retiro en sucursal",
+        "type": 1,
+        "service_acct": 3,
+        "enabled": true,
+        "changed_by": 1
+    }
+}
+]

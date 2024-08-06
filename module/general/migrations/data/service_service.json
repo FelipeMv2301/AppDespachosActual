@@ -1,0 +1,50 @@
+[
+{
+    "model": "general.serviceservice",
+    "pk": 1,
+    "fields": {
+        "code": "1",
+        "name": "Bioquimica.cl",
+        "service": 1,
+        "service_acct": 3,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.serviceservice",
+    "pk": 2,
+    "fields": {
+        "code": "2",
+        "name": "Starken",
+        "service": 4,
+        "service_acct": 3,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.serviceservice",
+    "pk": 3,
+    "fields": {
+        "code": "3",
+        "name": "Chilexpress",
+        "service": 6,
+        "service_acct": 3,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "general.serviceservice",
+    "pk": 4,
+    "fields": {
+        "code": "4",
+        "name": "AirExpress",
+        "service": 11,
+        "service_acct": 3,
+        "enabled": true,
+        "changed_by": 1
+    }
+}
+]

@@ -15,11 +15,16 @@ from module.business_partner.models.bsns_partner import BusinessPartner
 from module.business_partner.models.contact import Contact
 from module.business_partner.models.group_service import GroupService
 from module.business_partner.models.type_service import TypeService
+from module.delivery.models.opt import Option
+from module.delivery.models.pay_type_service import PayTypeService
+from module.delivery.models.type_service import TypeService as DelivTypeServ
 from module.general.models.address import Address
 from module.general.models.currency_service import CurrencyService
 from module.general.models.employee_service import EmployeeService
 from module.general.models.muni_service import MuniService
 from module.general.models.service_account import ServiceAccount
+from module.general.models.service_service import ServiceService
+from module.order.models.grouping import Grouping
 from module.order.models.order import Order as OrderMdl
 from module.order.models.sale_channel_service import SaleChannelService
 from module.order.models.status_service import StatusService
@@ -49,7 +54,9 @@ class Order(Sap):
         url += 'U_TipoVenta, CardName, DocumentStatus, Cancelled, '
         url += 'ContactPersonCode, SalesPersonCode, DocTotal, '
         url += 'DocTotalSys,  VatSum, VatSumSys, TotalDiscount, ShipToCode, '
-        url += f'PayToCode),{order_addr_mdl}($select=ShipToStreet, '
+        url += 'PayToCode, U_BQ_ViaEntrega, TransportationCode, '
+        url += 'U_BQ_TipoPagoEntrega, U_BQ_ObsEntrega),'
+        url += f'{order_addr_mdl}($select=ShipToStreet, '
         url += 'ShipToCounty, BillToStreet, BillToCounty, U_BQ_ReferenceS, '
         url += f'U_BQ_SchedulesS),{bsns_partner_mdl}($select=CardCode, '
         url += 'GroupCode, Currency, CardName, CardType, '
@@ -81,6 +88,11 @@ class Order(Sap):
         status_mdl = StatusService
         employee_mdl = EmployeeService
         muni_mdl = MuniService
+        pay_type_mdl = PayTypeService
+        deliv_type_mdl = DelivTypeServ
+        carrier_mdl = ServiceService
+        option_mdl = Option
+        ordr_group_mdl = Grouping
 
         sap_order_mdl = self.order_mdl
         sap_order_addr_mdl = self.order_addrs_mdl
@@ -108,6 +120,10 @@ class Order(Sap):
             total_dcnt = ordr_info['TotalDiscount']
             status_code = ordr_info['DocumentStatus']
             cancel_status = ordr_info['Cancelled']
+            carrier_code = ordr_info['TransportationCode']
+            deliv_type_code = ordr_info['U_BQ_ViaEntrega']
+            deliv_pay_type_code = ordr_info['U_BQ_TipoPagoEntrega']
+            deliv_obs = ordr_info['U_BQ_ObsEntrega']
 
             # Extraction of order address information
             ordr_addr_info = order[sap_order_addr_mdl]
@@ -253,8 +269,9 @@ class Order(Sap):
 
             # validation of seller existence (by code) in model
             try:
-                seller = employee_mdl.objects.get(code=seller_code,
-                                                  service_acct=self.serv_account)
+                seller = (employee_mdl.objects
+                          .get(code=seller_code,
+                               service_acct=self.serv_account))
             except employee_mdl.DoesNotExist:
                 e_msg = f'Error: seller code \'{seller_code}\' does not exist'
                 e_msg += f'\nOrder: {doc_num}'
@@ -272,8 +289,9 @@ class Order(Sap):
 
             # validation of order bill muni existence (by name) in model
             try:
-                ordr_bill_muni = muni_mdl.objects.get(name=ordr_bill_muni_name,
-                                                      service_acct=self.serv_account)
+                ordr_bill_muni = (muni_mdl.objects
+                                  .get(name=ordr_bill_muni_name,
+                                       service_acct=self.serv_account))
             except muni_mdl.DoesNotExist:
                 ordr_bill_muni = (muni_mdl.objects
                                   .filter(service_acct=self.serv_account,
@@ -478,9 +496,9 @@ class Order(Sap):
                 e_msg += f'\nOrder: {doc_num}'
                 CustomError(msg=e_msg, log=tb, notify=True)
                 continue
-            contact_addr = (contact_addr_sync[0]
-                            if contact_addr_sync
-                            else contact_addr)
+            contact_addr = (contact_addr
+                            if isinstance(contact_addr_sync, int)
+                            else contact_addr_sync[0])
 
             contact.reference = contact_ref
             contact.first_name = ' '.join([
@@ -504,7 +522,9 @@ class Order(Sap):
                 e_msg += f'\nOrder: {doc_num}'
                 CustomError(msg=e_msg, log=tb, notify=True)
                 continue
-            contact = contact_sync[0] if contact_sync else contact
+            contact = (contact
+                       if isinstance(contact_sync, int)
+                       else contact_sync[0])
 
             ordr_ship_addr.reference = ordr_ship_addr_ref
             ordr_ship_addr.st_and_num = ordr_ship_st_and_num
@@ -523,9 +543,9 @@ class Order(Sap):
                 CustomError(msg=e_msg, log=tb, notify=True)
                 continue
 
-            ordr_ship_addr = (ordr_ship_addr_sync[0]
-                              if ordr_ship_addr_sync
-                              else ordr_ship_addr)
+            ordr_ship_addr = (ordr_ship_addr
+                              if isinstance(ordr_ship_addr_sync, int)
+                              else ordr_ship_addr_sync[0])
 
             ordr_bill_addr.reference = ordr_bill_addr_ref
             ordr_bill_addr.st_and_num = ordr_bill_st_and_num
@@ -541,9 +561,9 @@ class Order(Sap):
                 e_msg += f'\nOrder: {doc_num}'
                 CustomError(msg=e_msg, log=tb, notify=True)
                 continue
-            ordr_bill_addr = (ordr_bill_addr_sync[0]
-                              if ordr_bill_addr_sync
-                              else ordr_bill_addr)
+            ordr_bill_addr = (ordr_bill_addr
+                              if isinstance(ordr_bill_addr_sync, int)
+                              else ordr_bill_addr_sync[0])
 
             bsns_partner.name = bsns_partner_name
             bsns_partner.currency = bsns_partner_ccy
@@ -566,9 +586,9 @@ class Order(Sap):
                 e_msg += f'\nOrder: {doc_num}'
                 CustomError(msg=e_msg, log=tb, notify=True)
                 continue
-            bsns_partner = (bsns_partner_sync[0]
-                            if bsns_partner_sync
-                            else bsns_partner)
+            bsns_partner = (bsns_partner
+                            if isinstance(bsns_partner_sync, int)
+                            else bsns_partner_sync[0])
 
             ordr.reference = f'{self.serv_account.reference}{doc_num}'
             ordr.service_acct = self.serv_account
@@ -603,4 +623,75 @@ class Order(Sap):
                 e_msg += f'\nOrder: {doc_num}'
                 CustomError(msg=e_msg, log=tb, notify=True)
                 continue
-            ordr = ordr_sync[0] if ordr_sync else ordr
+            ordr = (ordr if isinstance(ordr_sync, int) else ordr_sync[0])
+
+            if not ordr_group_mdl.objects.filter(order=ordr):
+                # validation of the carrier equivalence existence
+                try:
+                    carrier = (carrier_mdl.objects
+                               .get(code=carrier_code,
+                                    service_acct=self.serv_account))
+                except carrier_mdl.DoesNotExist:
+                    e_msg = f'Error: carrier code {carrier_code} does not '
+                    e_msg += f'exist \nOrder: {doc_num}'
+                    CustomError(msg=e_msg, notify=True)
+                    continue
+
+                # validation of the deliv type equivalence existence
+                try:
+                    deliv_type = (deliv_type_mdl.objects
+                                  .get(code=deliv_type_code,
+                                       service_acct=self.serv_account))
+                except deliv_type_mdl.DoesNotExist:
+                    e_msg = f'Error: deliv type code {deliv_type_code} does '
+                    e_msg += f'not exist\nOrder: {doc_num}'
+                    CustomError(msg=e_msg, notify=True)
+                    continue
+
+                # validation of the pay type equivalence existence
+                try:
+                    pay_type = (pay_type_mdl.objects
+                                .get(code=deliv_pay_type_code,
+                                     service_acct=self.serv_account))
+                except pay_type_mdl.DoesNotExist:
+                    e_msg = f'Error: pay type code {deliv_pay_type_code} does '
+                    e_msg += f'not exist\nOrder: {doc_num}'
+                    CustomError(msg=e_msg, notify=True)
+                    continue
+
+                # validation of the pay type equivalence existence
+                option = (option_mdl.objects
+                          .filter(carrier=carrier.service,
+                                  type=deliv_type.type,
+                                  pay_type=pay_type.pay_type)
+                          .first())
+                if not option:
+                    e_msg = 'Error: deliv option with carrier code '
+                    e_msg += f'{carrier_code}, deliv type code '
+                    e_msg += f'{deliv_type_code}, deliv pay type code '
+                    e_msg += f'{deliv_pay_type_code} '
+                    e_msg += f'does not exist\nOrder: {doc_num}'
+                    CustomError(msg=e_msg, notify=True)
+                    continue
+
+                try:
+                    bulk_create_with_history(
+                        objs=[ordr_group_mdl(
+                            code=ordr_group_mdl.new_code(),
+                            order=ordr,
+                            delivery_option=option,
+                            addr=ordr_ship_addr,
+                            customer=bsns_partner,
+                            contact=contact,
+                            deliv_obs=deliv_obs,
+                            changed_by=user_obj,
+                        )],
+                        model=ordr_group_mdl
+                    )
+                except Exception:
+                    tb = traceback.format_exc()
+                    tb += f'\nOrder: {doc_num}'
+                    e_msg = f'Error: {UNEXP_ERROR}'
+                    e_msg += f'\nOrder: {doc_num}'
+                    CustomError(msg=e_msg, log=tb, notify=True)
+                    continue

@@ -9,6 +9,7 @@ from .muni import Muni
 from .muni_service import MuniService
 from .service import Service
 from .service_account import ServiceAccount
+from .service_service import ServiceService
 from .state import State
 from .url import Url
 from .user_profile import UserProfile
