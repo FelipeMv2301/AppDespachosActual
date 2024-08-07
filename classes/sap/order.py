@@ -637,6 +637,12 @@ class Order(Sap):
                     CustomError(msg=e_msg, notify=True)
                     continue
 
+                branch_code = None
+                if carrier.service.code == 'BQ':
+                    deliv_type_code = 'BRANCH'
+                    deliv_pay_type_code = 'FREE'
+                    branch_code = 'BQ301'
+
                 # validation of the deliv type equivalence existence
                 try:
                     deliv_type = (deliv_type_mdl.objects
@@ -663,8 +669,10 @@ class Order(Sap):
                 option = (option_mdl.objects
                           .filter(carrier=carrier.service,
                                   type=deliv_type.type,
-                                  pay_type=pay_type.pay_type)
-                          .first())
+                                  pay_type=pay_type.pay_type))
+                if branch_code:
+                    option = option.filter(branch__code=branch_code)
+                option = option.first()
                 if not option:
                     e_msg = 'Error: deliv option with carrier code '
                     e_msg += f'{carrier_code}, deliv type code '

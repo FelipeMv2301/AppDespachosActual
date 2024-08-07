@@ -27,6 +27,7 @@ class DelivOptSearchView(View):
         enabled_filter = Q(enabled=True)
         filter_for_branch = (Q(branch__addr__muni__code=muni_code) &
                              Q(branch__delivery=True) &
+                             Q(branch__enabled=True) &
                              Q(type__code=type_code))
 
         found_opts = (Option.objects
