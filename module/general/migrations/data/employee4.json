@@ -1,0 +1,165 @@
+[
+    {
+        "model": "general.employee",
+        "pk": 1,
+        "fields": {
+            "email_addr": "daniela.araya@bioquimica.cl",
+            "changed_by": 1,
+            "enabled": true
+        }
+    },
+    {
+        "model": "general.employee",
+        "pk": 2,
+        "fields": {
+            "email_addr": "bianca.vargas@bioquimica.cl",
+            "changed_by": 1,
+            "enabled": true
+        }
+    },
+    {
+        "model": "general.employee",
+        "pk": 3,
+        "fields": {
+            "email_addr": "johanna.palmegiani@bioquimica.cl",
+            "changed_by": 1,
+            "enabled": true
+        }
+    },
+    {
+        "model": "general.employee",
+        "pk": 4,
+        "fields": {
+            "email_addr": null,
+            "changed_by": 1,
+            "enabled": false
+        }
+    },
+    {
+        "model": "general.employee",
+        "pk": 5,
+        "fields": {
+            "email_addr": "elsa.martinez@bioquimica.cl",
+            "changed_by": 1,
+            "enabled": true
+        }
+    },
+    {
+        "model": "general.employee",
+        "pk": 6,
+        "fields": {
+            "email_addr": null,
+            "changed_by": 1,
+            "enabled": false
+        }
+    },
+    {
+        "model": "general.employee",
+        "pk": 7,
+        "fields": {
+            "email_addr": "manuel.aracena@bioquimica.cl",
+            "changed_by": 1,
+            "enabled": true
+        }
+    },
+    {
+        "model": "general.employee",
+        "pk": 8,
+        "fields": {
+            "email_addr": "hermi.parra@bioquimica.cl",
+            "changed_by": 1,
+            "enabled": true
+        }
+    },
+    {
+        "model": "general.employee",
+        "pk": 9,
+        "fields": {
+            "email_addr": null,
+            "changed_by": 1,
+            "enabled": false
+        }
+    },
+    {
+        "model": "general.employee",
+        "pk": 10,
+        "fields": {
+            "email_addr": null,
+            "changed_by": 1,
+            "enabled": true
+        }
+    },
+    {
+        "model": "general.employee",
+        "pk": 11,
+        "fields": {
+            "email_addr": "maria.lobos@bioquimica.cl",
+            "changed_by": 1,
+            "enabled": true
+        }
+    },
+    {
+        "model": "general.employee",
+        "pk": 31,
+        "fields": {
+            "email_addr": "camila.solis@genosur.com",
+            "changed_by": 1,
+            "enabled": true
+        }
+    },
+    {
+        "model": "general.employee",
+        "pk": 32,
+        "fields": {
+            "email_addr": "vanessa.novoa@bioquimica.cl",
+            "changed_by": 1,
+            "enabled": true
+        }
+    },
+    {
+        "model": "general.employee",
+        "pk": 33,
+        "fields": {
+            "email_addr": "aaron.velasquez@bioquimica.cl",
+            "changed_by": 1,
+            "enabled": true
+        }
+    },
+    {
+        "model": "general.employee",
+        "pk": 34,
+        "fields": {
+            "email_addr": null,
+            "changed_by": 1,
+            "enabled": false
+        }
+    },
+    {
+        "model": "general.employee",
+        "pk": 35,
+        "fields": {
+            "email_addr": "denisse.carrasco@bioquimica.cl",
+            "changed_by": 1,
+            "enabled": true
+        }
+    },
+    {
+        "model": "general.employee",
+        "pk": 36,
+        "fields": {
+            "email_addr": "valentina.neira@bioquimica.cl",
+            "changed_by": 1,
+            "enabled": true
+        }
+    },
+    {
+        "model": "general.employee",
+        "pk": 37,
+        "fields": {
+            "email_addr": "daniela.verdugo@bioquimica.cl",
+            "changed_by": 1,
+            "enabled": true
+        }
+    }
+]
+    

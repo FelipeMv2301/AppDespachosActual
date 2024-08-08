@@ -24,6 +24,7 @@ class Employee(models.Model):
                             default=new_code.__func__)
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
+    email_addr = models.EmailField(max_length=100, null=True)
     enabled = models.BooleanField(default=True)
     # Object tracking
     changed_by = models.ForeignKey(to='auth.User', on_delete=models.CASCADE)
@@ -46,6 +47,7 @@ class Employee(models.Model):
             'code',
             'first_name',
             'last_name',
+            'email_addr',
             'enabled',
             'changed_by',
             'created_at',

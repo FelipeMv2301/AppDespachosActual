@@ -67,8 +67,12 @@ class OrderEmail(Email):
                                             Value(' '),
                                             Coalesce('order_grouping__contact__last_name', Value('')),
                                             output_field=CharField()),
+                    seller_email_addr=F('order_grouping__order__seller__email_addr'),
                 ).distinct()
             )
+            self.bcc += [o.get('seller_email_addr')
+                         for o in deliv_query
+                         if o.get('seller_email_addr')]
             self.deliv_query = deliv_query.first()
         except Exception:
             tb = traceback.format_exc()
