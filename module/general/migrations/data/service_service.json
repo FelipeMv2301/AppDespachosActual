@@ -15,7 +15,7 @@
     "model": "general.serviceservice",
     "pk": 2,
     "fields": {
-        "code": "2",
+        "code": "3",
         "name": "Retiro Bioquimica.cl",
         "service": 1,
         "service_acct": 3,
