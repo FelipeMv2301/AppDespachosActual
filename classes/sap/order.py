@@ -54,7 +54,7 @@ class Order(Sap):
         url += 'U_TipoVenta, CardName, DocumentStatus, Cancelled, '
         url += 'ContactPersonCode, SalesPersonCode, DocTotal, '
         url += 'DocTotalSys,  VatSum, VatSumSys, TotalDiscount, ShipToCode, '
-        url += 'PayToCode, U_BQ_ViaEntrega, TransportationCode, '
+        url += 'PayToCode, U_BQ_TipoEntrega, TransportationCode, '
         url += 'U_BQ_TipoPagoEntrega, U_BQ_ObsEntrega),'
         url += f'{order_addr_mdl}($select=ShipToStreet, '
         url += 'ShipToCounty, BillToStreet, BillToCounty, U_BQ_ReferenceS, '
@@ -121,7 +121,7 @@ class Order(Sap):
             status_code = ordr_info['DocumentStatus']
             cancel_status = ordr_info['Cancelled']
             carrier_code = ordr_info['TransportationCode']
-            deliv_type_code = ordr_info['U_BQ_ViaEntrega']
+            deliv_type_code = ordr_info['U_BQ_TipoEntrega']
             deliv_pay_type_code = ordr_info['U_BQ_TipoPagoEntrega']
             deliv_obs = ordr_info['U_BQ_ObsEntrega']
 
