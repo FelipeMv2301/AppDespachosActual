@@ -458,6 +458,11 @@
                     selects.delivService.val(groupData.service_code);
                     selects.delivPayType.val(groupData.pay_type_code);
                     selects.delivBranch.val(groupData.branch_code);
+                    var carrierCode = groupData.carrier_code;
+                    var typeCode = groupData.type_code;
+                    var serviceCode = groupData.service_code;
+                    var payTypeCode = groupData.pay_type_code;
+                    var branchCode = groupData.branch_code;
 
                     selects.delivType.find('option').each(function () {
                         if ($(this).val() === groupData.type_code) {
@@ -484,7 +489,7 @@
                             $(this).prop('selected', true);
                         }
                     });
-                    searchDeliveryOption();
+                    searchDeliveryOption({carrier: carrierCode, delivType: typeCode, delivService: serviceCode, delivPayType: payTypeCode, delivBranch: branchCode});
                     requiredFieldsManage(groupData.carrier_code);
 
                     reloadFieldValue();
@@ -508,15 +513,18 @@
         showNoResultsMessage();
     }
 
-    function searchDeliveryOption() {
+    function searchDeliveryOption({ delivMuni = null, carrier = null, delivType = null, delivService = null, delivPayType = null, delivBranch = null } = {}) {
         const selectsCopy = { ...selects };
+        if (!delivMuni && delivBranch == 'BQ301') {
+            delivMuni = 13118
+        }
         const selectValues = {
-            delivMuni: selectsCopy.delivMuni.val(),
-            carrier: selectsCopy.carrier.val(),
-            delivType: selectsCopy.delivType.val(),
-            delivService: selectsCopy.delivService.val(),
-            delivPayType: selectsCopy.delivPayType.val(),
-            delivBranch: selectsCopy.delivBranch.val(),
+            delivMuni: delivMuni ? delivMuni : selectsCopy.delivMuni.val(),
+            carrier: carrier ? carrier : selectsCopy.carrier.val(),
+            delivType: delivType ? delivType : selectsCopy.delivType.val(),
+            delivService: delivService ? delivService : selectsCopy.delivService.val(),
+            delivPayType: delivPayType ? delivPayType : selectsCopy.delivPayType.val(),
+            delivBranch: delivBranch ? delivBranch : selectsCopy.delivBranch.val(),
             acct: selectsCopy.acct.val(),
         };
         var url = `{% url 'deliv_opt_search' %}?` + $.param(selectValues);
