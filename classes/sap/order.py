@@ -487,13 +487,8 @@ class Order(Sap):
             contact_addr.changed_by = user_obj
             contact_addr_sync_kwargs['objs'] = [contact_addr]
             try:
-                print(doc_num)
-                print(contact_addr_sync_kwargs)
-                print(contact_addr)
                 contact_addr_sync = contact_sync_func(
                     **contact_addr_sync_kwargs)
-                print(contact_addr_sync)
-                print(contact_sync_func)
             except Exception:
                 tb = traceback.format_exc()
                 tb += f'\nOrder: {doc_num}'
