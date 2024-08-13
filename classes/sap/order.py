@@ -487,8 +487,13 @@ class Order(Sap):
             contact_addr.changed_by = user_obj
             contact_addr_sync_kwargs['objs'] = [contact_addr]
             try:
+                print(doc_num)
+                print(contact_addr_sync_kwargs)
+                print(contact_addr)
                 contact_addr_sync = contact_sync_func(
                     **contact_addr_sync_kwargs)
+                print(contact_addr_sync)
+                print(contact_sync_func)
             except Exception:
                 tb = traceback.format_exc()
                 tb += f'\nOrder: {doc_num}'
@@ -497,7 +502,8 @@ class Order(Sap):
                 CustomError(msg=e_msg, log=tb, notify=True)
                 continue
             contact_addr = (contact_addr
-                            if isinstance(contact_addr_sync, int)
+                            if (isinstance(contact_addr_sync, int) or
+                                not contact_addr_sync)
                             else contact_addr_sync[0])
 
             contact.reference = contact_ref
@@ -523,7 +529,7 @@ class Order(Sap):
                 CustomError(msg=e_msg, log=tb, notify=True)
                 continue
             contact = (contact
-                       if isinstance(contact_sync, int)
+                       if isinstance(contact_sync, int) or not contact_sync
                        else contact_sync[0])
 
             ordr_ship_addr.reference = ordr_ship_addr_ref
@@ -544,7 +550,8 @@ class Order(Sap):
                 continue
 
             ordr_ship_addr = (ordr_ship_addr
-                              if isinstance(ordr_ship_addr_sync, int)
+                              if (isinstance(ordr_ship_addr_sync, int)
+                                  or not ordr_ship_addr_sync)
                               else ordr_ship_addr_sync[0])
 
             ordr_bill_addr.reference = ordr_bill_addr_ref
@@ -562,7 +569,8 @@ class Order(Sap):
                 CustomError(msg=e_msg, log=tb, notify=True)
                 continue
             ordr_bill_addr = (ordr_bill_addr
-                              if isinstance(ordr_bill_addr_sync, int)
+                              if (isinstance(ordr_bill_addr_sync, int)
+                                  or not ordr_bill_addr_sync)
                               else ordr_bill_addr_sync[0])
 
             bsns_partner.name = bsns_partner_name
@@ -587,7 +595,8 @@ class Order(Sap):
                 CustomError(msg=e_msg, log=tb, notify=True)
                 continue
             bsns_partner = (bsns_partner
-                            if isinstance(bsns_partner_sync, int)
+                            if (isinstance(bsns_partner_sync, int)
+                                or not bsns_partner_sync)
                             else bsns_partner_sync[0])
 
             ordr.reference = f'{self.serv_account.reference}{doc_num}'
@@ -623,7 +632,9 @@ class Order(Sap):
                 e_msg += f'\nOrder: {doc_num}'
                 CustomError(msg=e_msg, log=tb, notify=True)
                 continue
-            ordr = (ordr if isinstance(ordr_sync, int) else ordr_sync[0])
+            ordr = (ordr
+                    if isinstance(ordr_sync, int) or not ordr_sync
+                    else ordr_sync[0])
 
             if not ordr_group_mdl.objects.filter(order=ordr):
                 # validation of the carrier equivalence existence
