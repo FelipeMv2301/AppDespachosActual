@@ -406,7 +406,7 @@
                             }
                         });
                     }
-                    searchDeliveryOption();
+                    searchDeliveryOption({carrier: carrierCode, delivType: typeCode, delivService: serviceCode, delivPayType: payTypeCode, delivBranch: branchCode});
                     {% endif %}
                 },
                 error: function () { }
@@ -437,16 +437,19 @@
         }
     }
 
-    function searchDeliveryOption() {
+    function searchDeliveryOption({ delivMuni = null, carrier = null, delivType = null, delivService = null, delivPayType = null, delivBranch = null } = {}) {
         {% if can_edit_form %}
         const selectsCopy = { ...selects };
+        if (!delivMuni && delivBranch == 'BQ301') {
+            delivMuni = 13118
+        }
         const selectValues = {
-            delivMuni: selectsCopy.delivMuni.val(),
-            carrier: selectsCopy.carrier.val(),
-            delivType: selectsCopy.delivType.val(),
-            delivService: selectsCopy.delivService.val(),
-            delivPayType: selectsCopy.delivPayType.val(),
-            delivBranch: selectsCopy.delivBranch.val(),
+            delivMuni: delivMuni ? delivMuni : selectsCopy.delivMuni.val(),
+            carrier: carrier ? carrier : selectsCopy.carrier.val(),
+            delivType: delivType ? delivType : selectsCopy.delivType.val(),
+            delivService: delivService ? delivService : selectsCopy.delivService.val(),
+            delivPayType: delivPayType ? delivPayType : selectsCopy.delivPayType.val(),
+            delivBranch: delivBranch ? delivBranch : selectsCopy.delivBranch.val(),
         };
         var url = `{% url 'deliv_opt_search' %}?` + $.param(selectValues);
         $.ajax({

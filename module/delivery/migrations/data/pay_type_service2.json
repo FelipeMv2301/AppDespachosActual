@@ -1,0 +1,38 @@
+[
+{
+    "model": "delivery.paytypeservice",
+    "pk": 8,
+    "fields": {
+        "code": "PAID",
+        "name": "Pagado",
+        "service_acct": 3,
+        "pay_type": 1,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.paytypeservice",
+    "pk": 9,
+    "fields": {
+        "code": "ONDEL",
+        "name": "Contra entrega",
+        "service_acct": 3,
+        "pay_type": 2,
+        "enabled": true,
+        "changed_by": 1
+    }
+},
+{
+    "model": "delivery.paytypeservice",
+    "pk": 10,
+    "fields": {
+        "code": "FREE",
+        "name": "Gratis",
+        "service_acct": 3,
+        "pay_type": 3,
+        "enabled": true,
+        "changed_by": 1
+    }
+}
+]
