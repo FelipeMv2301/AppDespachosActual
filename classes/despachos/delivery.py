@@ -96,7 +96,7 @@ class Delivery(Despachos):
 
             if serv_code == 'BQ':
                 deliv_type_code = branch_deliv_code
-                branch_code = 'BQ301'
+                branch_code = 'BQ201'
             elif branch_code:
                 deliv_type_code = branch_deliv_code
             else:

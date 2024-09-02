@@ -440,7 +440,7 @@
     function searchDeliveryOption({ delivMuni = null, carrier = null, delivType = null, delivService = null, delivPayType = null, delivBranch = null } = {}) {
         {% if can_edit_form %}
         const selectsCopy = { ...selects };
-        if (!delivMuni && delivBranch == 'BQ301') {
+        if (!delivMuni && delivBranch == 'BQ201') {
             delivMuni = 13118
         }
         const selectValues = {

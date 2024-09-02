@@ -647,7 +647,7 @@ class Order(Sap):
                 if carrier.service.code == 'BQ':
                     deliv_type_code = 'BRANCH'
                     deliv_pay_type_code = 'FREE'
-                    branch_code = 'BQ301'
+                    branch_code = 'BQ201'
 
                 # validation of the deliv type equivalence existence
                 try:

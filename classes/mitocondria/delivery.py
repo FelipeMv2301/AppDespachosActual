@@ -181,7 +181,7 @@ class Delivery(Mitocondria):
                     branch_code = str(ship_muni_name).replace('@', '')
                     serv_acct = stk_acct
                 else:
-                    branch_code = 'BQ301'
+                    branch_code = 'BQ201'
                     serv_acct = bq_acct
                 try:
                     branch = (Branch.objects.select_related('addr')
