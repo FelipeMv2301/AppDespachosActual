@@ -62,6 +62,11 @@
             const checkAuthUrl = '{% url "check_auth" %}';
             const loginUrl = '{% url "login" %}';
             const authenticatedUser = {{ request.user.is_authenticated|lower }};
+
+
+            {% if external_url %}
+                window.open('{{ external_url }}', '_blank');
+            {% endif %}
         </script>
         <script src="{% static 'app/js/main.js' %}"></script>
         {% block scripts %}

@@ -27,7 +27,8 @@ class ReviewView(PermissionRequiredMixin, View):
     @loggable
     def get(self, request: WSGIRequest, *args, **kwargs):
         context = {'page_title': PAGE_TITLE,
-                   'form': self.form()}
+                   'form': self.form(),
+                   'external_url': request.session.get('external_url', None)}
 
         return render(request=request,
                       template_name=self.template,
