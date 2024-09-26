@@ -5,6 +5,7 @@ from django import forms
 from django.core.validators import EmailValidator
 
 from classes.starken.starken import Starken
+from classes.alasxpress.alasxpress import Alasxpress
 from module.delivery.forms.validators.issue import IssueValidator
 from module.delivery.models.branch import Branch
 from module.delivery.models.doc_type import DocumentType
@@ -493,14 +494,15 @@ class IssueForm(forms.Form):
         self.fields['obs'].validators = [validator.validate_observations]
         if data:
             carrier_code = data.get('carrier')
-            if carrier_code not in (Starken.serv_code, 'BQ', 'TD'):
+            if carrier_code not in (Starken.serv_code, 'BQ', 'TD', Alasxpress.serv_code):
                 self.fields['deliv_folio'].required = True
             if carrier_code != Starken.serv_code:
                 self.fields['height'].required = False
                 self.fields['width'].required = False
                 self.fields['length'].required = False
                 self.fields['weight'].required = False
-                self.fields['pack_qty'].required = False
                 self.fields['valuation'].required = False
                 self.fields['doc_folio'].required = False
                 self.fields['doc_type'].required = False
+                if carrier_code != Alasxpress.serv_code:
+                    self.fields['pack_qty'].required = False

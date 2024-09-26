@@ -30,7 +30,7 @@ def reverse_func(apps, schema_editor):
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('general', '0006_loademployees'),
+        ('general', '0008_disableserviceaccount'),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 

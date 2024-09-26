@@ -10,6 +10,8 @@ from simple_history.utils import bulk_update_with_history
 
 from classes.starken.delivery import Delivery as StkDeliv
 from classes.starken.starken import Starken
+from classes.alasxpress.alasxpress import Alasxpress
+from classes.alasxpress.delivery import Delivery as AlasDeliv
 from helpers.decorator.auth import authentication
 from helpers.decorator.domain import domain_check
 from helpers.decorator.loggable import loggable
@@ -295,6 +297,20 @@ class IssueView(PermissionRequiredMixin, View):
                                              'status',
                                              'changed_by',
                                              'locked'])
+        elif acct.service.code == Alasxpress.serv_code:
+            alas_deliv = AlasDeliv(account=acct)
+            alas_deliv.issue(delivery=deliv, data={'packg_qty': pack_qty})
+            deliv.folio = alas_deliv.folio
+            deliv.locked = True
+            deliv.status = Status.objects.get(code='ISSUED')
+            deliv.changed_by = user
+            bulk_update_with_history(objs=[deliv],
+                                     model=Delivery,
+                                     fields=['folio',
+                                             'status',
+                                             'changed_by',
+                                             'locked'])
+            request.session['external_url'] = alas_deliv.labels_url
         else:
             if deliv_folio:
                 deliv.folio = deliv_folio

@@ -1,0 +1,13 @@
+[
+{
+    "model": "general.service",
+    "pk": 12,
+    "fields": {
+        "code": "ALAS",
+        "name": "Alasxpress",
+        "is_carrier": true,
+        "changed_by": 1
+    }
+}
+]
+    

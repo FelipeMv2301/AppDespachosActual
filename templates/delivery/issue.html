@@ -680,39 +680,66 @@
     }
 
     function requiredFieldsManage(carrierCode) {
-        const requiredValue = carrierCode == 'STK';
+        const isStarken = carrierCode == 'STK';
+        const isAlas = carrierCode == 'ALAS';
 
-        const inputs = [
-            selects.height,
-            selects.width,
-            selects.length,
-            selects.weight,
-            selects.packQty,
-            selects.valuation,
-            selects.docType,
-            selects.docFolio,
-        ];
-        inputs.forEach(input => {
-            input.prop('required', requiredValue);
-            input.prop('disabled', requiredValue == false);
-        })
-
-        const shipInfo = $('.ship-info');
-        if (requiredValue) { 
-            shipInfo.show();
+        if (!isStarken && !isAlas) {
+            // Ocultar todos los divs de clase "ship-info" y quitar el "required"
+            $('.ship-info').hide();
+            $('.ship-info input').prop('required', false);
+            selects.delivFolio.closest('.col').show(); // Mostrar "Orden de transporte"
+        } else if (isAlas) {
+            // Ocultar todos los divs de clase "ship-info", excepto "id_pack_qty"
+            $('.ship-info').hide(); // Ocultar todo
+            selects.packQty.closest('.col').parent().show(); // Mostrar solo el div de id_pack_qty
+            selects.packQty.prop('required', true); // Hacer "required" id_pack_qty
+            selects.delivFolio.closest('.col').hide(); // Ocultar "Orden de transporte"
+            $('.ship-info input').not('#{{ form.pack_qty.id_for_label }}').prop('required', false); // Quitar "required" de los demás campos
         } else {
-            shipInfo.hide();
+            // Mostrar todo y restaurar los "required"
+            $('.ship-info').show();
+            selects.delivFolio.closest('.col').hide(); // Ocultar "Orden de transporte"
+            selects.height.prop('required', true);
+            selects.width.prop('required', true);
+            selects.length.prop('required', true);
+            selects.weight.prop('required', true);
+            selects.packQty.prop('required', true);
+            selects.valuation.prop('required', true);
+            selects.docType.prop('required', true);
+            selects.docFolio.prop('required', true);
         }
 
-        const delivFolio = $('.deliv-folio');
-        if (!['STK', 'BQ', 'TD'].includes(carrierCode)) {
-            selects.delivFolio.prop('required', true);
-            delivFolio.show();
-        } else {
-            delivFolio.hide();
-            selects.delivFolio.val('');
-            selects.delivFolio.prop('required', false);
-        }
+        // const inputs = [
+        //     selects.height,
+        //     selects.width,
+        //     selects.length,
+        //     selects.weight,
+        //     selects.packQty,
+        //     selects.valuation,
+        //     selects.docType,
+        //     selects.docFolio,
+        // ];
+        // inputs.forEach(input => {
+        //     input.prop('required', requiredValue);
+        //     input.prop('disabled', requiredValue == false);
+        // })
+
+        // const shipInfo = $('.ship-info');
+        // if (requiredValue) { 
+        //     shipInfo.show();
+        // } else {
+        //     shipInfo.hide();
+        // }
+
+        // const delivFolio = $('.deliv-folio');
+        // if (!['STK', 'BQ', 'TD'].includes(carrierCode)) {
+        //     selects.delivFolio.prop('required', true);
+        //     delivFolio.show();
+        // } else {
+        //     delivFolio.hide();
+        //     selects.delivFolio.val('');
+        //     selects.delivFolio.prop('required', false);
+        // }
     }
 
     function preloadData() {

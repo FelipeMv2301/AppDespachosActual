@@ -39,7 +39,7 @@ def reverse_func(apps, schema_editor):
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('general', '0007_historicalserviceservice_serviceservice'),
+        ('general', '0007_alter_employee_options_employee_email_addr_and_more'),
     ]
 
     operations = [
