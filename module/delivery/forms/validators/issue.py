@@ -71,8 +71,9 @@ class IssueValidator:
 
     @reset_error_message
     def validate_phone_num(self, value: str) -> None | ValidationError:
-        cleaned_value = re.sub(pattern=r'\W', repl='', string=value)
-        if not cleaned_value:
+        chilean_phone_pattern = r'^\+56\d{9}$'
+        cleaned_value = value.replace(' ', '')
+        if not re.match(chilean_phone_pattern, cleaned_value):
             self.e_msg = 'El valor no es válido'
 
         self.raise_valid_error()
