@@ -210,7 +210,12 @@ class IssueView(PermissionRequiredMixin, View):
         bulk_update_with_history(
             objs=[addr],
             model=Address,
-            fields=['st_and_num', 'complement', 'muni', 'changed_by']
+            fields=['st_and_num',
+                    'complement',
+                    'reference',
+                    'schedules',
+                    'muni',
+                    'changed_by']
         )
         contact = Contact.objects.get(id=contact_id)
         contact.first_name = contact_first_name
