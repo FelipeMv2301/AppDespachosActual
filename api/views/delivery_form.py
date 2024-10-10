@@ -68,6 +68,7 @@ class DeliveryFormView(APIView):
         )
 
         # Creación o actualización de cliente
+        currency = Currency.objects.get(code='CLP')
         tax_id = data.get('customer_tax_id')
         customer = BusinessPartner.objects.filter(tax_id=tax_id)
         if customer:
@@ -80,7 +81,6 @@ class DeliveryFormView(APIView):
                 changed_by=user,
             )
         else:
-            currency = Currency.objects.get(code='CLP')
             customer_group = Group.objects.get(code='CN')
             customer_type = Type.objects.get(code='CL')
             customer = BusinessPartner.objects.create(
