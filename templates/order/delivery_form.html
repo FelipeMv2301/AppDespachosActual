@@ -317,7 +317,7 @@
     function searchOrder() {
         const inputValue = searchInput.value;
         var url = `{% url 'order_search' %}?` + $.param({doc_num_start: inputValue});
-        if (inputValue.length > 5) {
+        if (inputValue.length > 3) {
             $.ajax({
                 type: 'GET',
                 url: url,

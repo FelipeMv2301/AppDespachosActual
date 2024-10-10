@@ -23,7 +23,7 @@ class OrderGroupSearchView(View):
         code = params.get('code')
         for_deliv_form = params.get('for_deliv_form')
 
-        if doc_num and len(doc_num) > 5 and not code:
+        if doc_num and len(doc_num) > 3 and not code:
             found_orders = [
                 obj
                 for obj in Grouping.query_for_delivery_issue(ordr_doc_num=doc_num)

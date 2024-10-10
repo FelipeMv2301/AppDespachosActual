@@ -415,7 +415,7 @@
         hideForm();
         const inputValue = searchInput.value;
         var url = `{% url 'order_group_search' %}?` + $.param({doc_num: inputValue});
-        if (inputValue.length > 5) {
+        if (inputValue.length > 3) {
             $.ajax({
                 type: 'GET',
                 url: url,

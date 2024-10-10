@@ -18,11 +18,11 @@ class OrderSearchView(View):
     def get(self, request: WSGIRequest, *args, **kwargs):
         params = request.GET
         doc_number_start = params.get('doc_num_start')
-        if len(doc_number_start) <= 5:
+        if len(doc_number_start) <= 3:
             return HttpResponseNotFound()
 
         found_orders = (Order.objects.filter(
-                doc_num__startswith=doc_number_start))
+                doc_num__startswith=doc_number_start)[:10])
 
         if not found_orders:
             return HttpResponseNotFound()
