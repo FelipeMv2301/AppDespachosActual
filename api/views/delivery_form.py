@@ -39,6 +39,7 @@ class DeliveryFormView(APIView):
     @domain_check(allowed_domains=allowed_domains)
     @loggable
     def post(self, request: Request, *args, **kwargs):
+        user = request.user
         data = request.data
 
         response_msg = 'OK'
@@ -54,6 +55,7 @@ class DeliveryFormView(APIView):
             st_and_num=data.get('bill_street_and_number'),
             complement=data.get('bill_complement'),
             muni=bill_muni,
+            user=user,
         )
 
         # Creación de dirección de entrega
@@ -62,6 +64,7 @@ class DeliveryFormView(APIView):
             st_and_num=data.get('ship_street_and_number'),
             complement=data.get('ship_complement'),
             muni=ship_muni,
+            user=user,
         )
 
         # Creación o actualización de cliente
@@ -74,6 +77,7 @@ class DeliveryFormView(APIView):
                 phone2=data.get('customer_phone2'),
                 mobile_phone=data.get('customer_mobile_phone'),
                 email_addr=data.get('customer_email_addr'),
+                user=user,
             )
         else:
             currency = Currency.objects.get(code='CLP')
@@ -90,6 +94,7 @@ class DeliveryFormView(APIView):
                 phone2=data.get('customer_phone2'),
                 mobile_phone=data.get('customer_mobile_phone'),
                 email_addr=data.get('customer_email_addr'),
+                user=user,
             )
 
         # Creación de contacto
@@ -101,6 +106,7 @@ class DeliveryFormView(APIView):
             phone2=data.get('contact_phone2'),
             mobile_phone=data.get('contact_mobile_phone'),
             email_addr=data.get('contact_email_addr'),
+            user=user,
         )
 
         # Creación del pedido
@@ -131,6 +137,7 @@ class DeliveryFormView(APIView):
             local_total_amt=data.get('local_total_amt'),
             doc_total_amt=data.get('local_total_amt'),
             status=status,
+            user=user,
         )
 
         # Creación de la agrupación de pedido
@@ -142,6 +149,7 @@ class DeliveryFormView(APIView):
             addr=ship_addr,
             customer=customer,
             contact=contact,
+            user=user,
         )
 
         return Response(data={'message': response_msg}, status=response_status)
