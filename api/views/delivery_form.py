@@ -111,7 +111,7 @@ class DeliveryFormView(APIView):
 
         # Creación del pedido
         sale_channel = SaleChannel.objects.get(code='WEB')
-        seller = Employee.objects.get(code='PTAN10')
+        seller = Employee.objects.get(code='SAYB38')
         status = Status.objects.get(code='CLOSE')
         service_acct = ServiceAccount.objects.get(code='SAPBQ01')
         order = Order.objects.create(
