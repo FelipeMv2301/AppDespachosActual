@@ -80,6 +80,7 @@ class DeliveryFormView(APIView):
                 email_addr=data.get('customer_email_addr'),
                 changed_by=user,
             )
+            customer = customer.first()
         else:
             customer_group = Group.objects.get(code='CN')
             customer_type = Type.objects.get(code='CL')
