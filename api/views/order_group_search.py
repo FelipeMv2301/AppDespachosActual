@@ -26,7 +26,7 @@ class OrderGroupSearchView(View):
         if doc_num and len(doc_num) > 3 and not code:
             found_orders = [
                 obj
-                for obj in Grouping.query_for_delivery_issue(ordr_doc_num=doc_num)
+                for obj in Grouping.query_for_delivery_issue(ordr_doc_num=doc_num)[:10]
             ]
 
             if not found_orders:
