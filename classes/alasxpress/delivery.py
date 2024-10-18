@@ -82,7 +82,7 @@ class Delivery(Alasxpress):
         deliv = deliv.first()
 
         phone = deliv['mobile_phone'].replace(' ', '').replace('+56', '')
-        addr_ref = f'{deliv['addr_complement']} {deliv['obs']}'
+        addr_ref = f'{deliv["addr_complement"]} {deliv["obs"]}'
 
         body = {
             'senderCode': self.acct_rut,
