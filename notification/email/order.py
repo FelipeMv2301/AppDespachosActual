@@ -7,6 +7,7 @@ from django.db.models.functions import Coalesce, Concat
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 
+from classes.alasxpress.alasxpress import Alasxpress
 from classes.chilexpress.chilexpress import Chilexpress
 from classes.starken.starken import Starken
 from helpers.error.custom_error import CustomError
@@ -125,6 +126,8 @@ class OrderEmail(Email):
                 track_url = Starken.track_url.format(folio=folio)
             case Chilexpress.serv_code:
                 track_url = Chilexpress.track_url.format(folio=folio)
+            case Alasxpress.serv_code:
+                track_url = Alasxpress.track_url
             case _:
                 track_url = None
 

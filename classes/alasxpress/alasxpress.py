@@ -12,7 +12,7 @@ class Alasxpress:
     serv_code = 'ALAS'
 
     # Track
-    # track_url = env.str(var='')
+    track_url = env.str(var='ALAS_TRACK_URL')
 
     def __init__(self, account: ServiceAccount, *args, **kwargs):
         # Alasxpress service account info
