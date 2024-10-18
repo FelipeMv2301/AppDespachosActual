@@ -45,6 +45,7 @@ class Delivery(Alasxpress):
             .filter(delivery=delivery)
             .values(
                 deliv_id=F('delivery__id'),
+                doc_num=F('order_grouping__order__doc_num'),
                 customer_taxid=F('order_grouping__customer__tax_id'),
                 customer_name=F('order_grouping__customer__name'),
                 contact_name=Concat('order_grouping__contact__first_name',
@@ -77,6 +78,7 @@ class Delivery(Alasxpress):
             e_msg += f'\nFolio: {delivery.folio}'
             e = CustomError(msg=e_msg, log=tb, notify=True)
             raise e
+        doc_nums = [d['doc_num'] for d in deliv]
         deliv = deliv.first()
 
         phone = deliv['mobile_phone'].replace(' ', '').replace('+56', '')
@@ -95,7 +97,7 @@ class Delivery(Alasxpress):
             'destinationNumber': '.',
             'destinationReference': addr_ref[:1000],
             'destinationCity': deliv['muni'][:50],
-            'deliveryOrderCode': delivery.folio,
+            'deliveryOrderCode': 'BQ'+'/'.join(doc_nums),
             'productsCodes': [str(i) for i in range(int(data['packg_qty']))],
             'deliveryLabelsSync': True
         }

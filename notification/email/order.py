@@ -128,6 +128,8 @@ class OrderEmail(Email):
                 track_url = Chilexpress.track_url.format(folio=folio)
             case Alasxpress.serv_code:
                 track_url = Alasxpress.track_url
+                doc_nums = [deliv['order_doc_num'] for deliv in deliv_query]
+                folio = 'BQ'+'/'.join(doc_nums)
             case _:
                 track_url = None
 
