@@ -82,7 +82,7 @@
         <!-- Contenido -->
         <div class="content">
             <p>Hola {{ contact_fullname }},</p>
-            <p>Tu(s) pedido(s) con el ID <span class="order-id">{{ order_doc_num }}</span> ha sido enviado{% if track_url %} con la orden de transporte <span class="order-id">{{ folio }}{% endif %}</span>. A continuación encontrarás los detalles:</p>
+            <p>Tu(s) pedido(s) con el ID <span class="order-id">{{ order_doc_num }}</span> ha sido enviado{% if track_url %}{% if carrier_code == 'ALAS' %}. Para conocer el estado del envío, ingresa el código <span class="order-id">{{ folio }}</span> correspondiente a la orden de transporte en el siguiente <b><a target="_blank" href="{{ track_url }}">link</a></b>{% endif %} con la orden de transporte <span class="order-id">{{ folio }}</span>{% endif %}. A continuación encontrarás los detalles:</p>
             <div class="transport-company">
                 <p><b>Empresa de transporte</b>: {{ carrier_name }}</p>
             </div>
@@ -101,7 +101,7 @@
                     <p><b>Fecha estimada de llegada</b>: {{ rcpt_commit_date |date:'l d F Y' }}</p>
                 </div>
             {% endif %}
-            {% if track_url %}
+            {% if track_url and carrier_code != 'ALAS' %}
                 <div class="tracking-link">
                     <b><a target="_blank" href="{{ track_url }}">Seguir pedido aquí</a></b>
                 </div>
