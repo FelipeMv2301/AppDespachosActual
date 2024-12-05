@@ -1,0 +1,15 @@
+[
+    {
+        "model": "general.employee",
+        "pk": 38,
+        "fields": {
+            "code": "YQFB7",
+            "first_name": "Daniela",
+            "last_name": "Mendoza",
+            "email_addr": "daniela.mendoza@bioquimica.cl",
+            "enabled": true,
+            "changed_by": 1
+        }
+    }
+]
+    
