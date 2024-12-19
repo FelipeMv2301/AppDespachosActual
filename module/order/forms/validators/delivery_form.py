@@ -67,15 +67,10 @@ class DeliveryFormValidator:
 
     @reset_error_message
     def validate_phone_num(self, value: str) -> None | ValidationError:
-        search_invalid_chars = re.findall(pattern=r'[^0-9+]+', string=value)
-        search_digits = re.findall(pattern=r'[0-9]', string=value)
-        search_plus_sign = re.findall(pattern=r'\+', string=value)
-        if search_invalid_chars:
-            self.e_msg = 'Contiene caracteres no válidos'
-        elif not search_digits:
-            self.e_msg = 'No contiene dígitos'
-        elif not search_plus_sign:
-            self.e_msg = 'No contiene signo +'
+        chilean_phone_pattern = r'^\+56\d{9}$'
+        cleaned_value = value.replace(' ', '')
+        if not re.match(chilean_phone_pattern, cleaned_value):
+            self.e_msg = 'El valor no es válido'
 
         self.raise_valid_error()
 
