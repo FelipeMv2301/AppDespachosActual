@@ -1,0 +1,15 @@
+[
+    {
+        "model": "general.employee",
+        "pk": 39,
+        "fields": {
+            "code": "KFDL7",
+            "first_name": "Lorena",
+            "last_name": "Balmaceda",
+            "email_addr": "lorena.balmaceda@bioquimica.cl",
+            "enabled": true,
+            "changed_by": 1
+        }
+    }
+]
+    
