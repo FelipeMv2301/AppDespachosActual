@@ -1,0 +1,11 @@
+[
+{
+    "model": "order.salechannel",
+    "pk": 9,
+    "fields": {
+        "code": "LP",
+        "name": "Licitación Privada",
+        "changed_by": 1
+    }
+}
+]

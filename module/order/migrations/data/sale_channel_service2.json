@@ -1,0 +1,14 @@
+[
+{
+    "model": "order.salechannelservice",
+    "pk": 18,
+    "fields": {
+        "code": "LP",
+        "name": "Licitación Privada",
+        "sale_channel": 9,
+        "service_acct": 3,
+        "enabled": true,
+        "changed_by": 1
+    }
+}
+]
