@@ -3,7 +3,7 @@
     "model": "order.salechannelservice",
     "pk": 18,
     "fields": {
-        "code": "LP",
+        "code": "LIP",
         "name": "Licitación Privada",
         "sale_channel": 9,
         "service_acct": 3,

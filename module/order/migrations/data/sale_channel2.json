@@ -3,7 +3,7 @@
     "model": "order.salechannel",
     "pk": 9,
     "fields": {
-        "code": "LP",
+        "code": "LIP",
         "name": "Licitación Privada",
         "changed_by": 1
     }
