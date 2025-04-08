@@ -23,13 +23,12 @@ class DelivOptSearchView(View):
         muni_code = params.get('delivMuni')
         type_code = params.get('delivType')
 
-        service_filter = Q(carrier__code=carrier_code)
+        service_filter = (Q(carrier__code=carrier_code) & Q(type__code=type_code))
         enabled_filter = (Q(enabled=True) &
                           Q(carrier__serviceaccount__enabled=True))
         filter_for_branch = (Q(branch__addr__muni__code=muni_code) &
                              Q(branch__delivery=True) &
-                             Q(branch__enabled=True) &
-                             Q(type__code=type_code))
+                             Q(branch__enabled=True))
 
         found_opts = (Option.objects
                       .filter(service_filter & enabled_filter)
