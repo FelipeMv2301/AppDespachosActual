@@ -8,6 +8,7 @@ from module.delivery.models.opt import Option
 from helpers.decorator.auth import authentication
 from helpers.decorator.domain import domain_check
 from helpers.decorator.loggable import loggable
+from module.delivery.models.type import Type
 from project.settings.base import ALLOWED_PRIVATE_HOSTS
 
 
@@ -41,13 +42,13 @@ class DelivOptSearchView(View):
                               pay_type_code=F('pay_type__code'),
                               pay_type_name=F('pay_type__name'),
                               branch_code=Case(
-                                    When(filter_for_branch,
+                                    When(Q(filter_for_branch) & Q(type__code=Type.BRANCH_CODE),
                                          then=F('branch__code')),
                                     default=None,
                                     output_field=CharField()
                               ),
                               branch_name=Case(
-                                    When(filter_for_branch,
+                                    When(Q(filter_for_branch) & Q(type__code=Type.BRANCH_CODE),
                                          then=Concat('branch__name',
                                                      Value(' - '),
                                                      'branch__addr__st_and_num')),
