@@ -4,10 +4,10 @@ from django.db.models.functions import Concat
 from django.http import HttpResponseNotFound, JsonResponse
 from django.views.generic.base import View
 
-from module.delivery.models.opt import Option
 from helpers.decorator.auth import authentication
 from helpers.decorator.domain import domain_check
 from helpers.decorator.loggable import loggable
+from module.delivery.models.opt import Option
 from module.delivery.models.type import Type
 from project.settings.base import ALLOWED_PRIVATE_HOSTS
 
@@ -24,12 +24,14 @@ class DelivOptSearchView(View):
         muni_code = params.get('delivMuni')
         type_code = params.get('delivType')
 
-        service_filter = (Q(carrier__code=carrier_code) & Q(type__code=type_code))
+        service_filter = Q(carrier__code=carrier_code)
         enabled_filter = (Q(enabled=True) &
                           Q(carrier__serviceaccount__enabled=True))
+        enabled_filter = Q(enabled=True)
         filter_for_branch = (Q(branch__addr__muni__code=muni_code) &
                              Q(branch__delivery=True) &
-                             Q(branch__enabled=True))
+                             Q(branch__enabled=True) &
+                             Q(type__code=type_code))
 
         found_opts = (Option.objects
                       .filter(service_filter & enabled_filter)
@@ -42,13 +44,13 @@ class DelivOptSearchView(View):
                               pay_type_code=F('pay_type__code'),
                               pay_type_name=F('pay_type__name'),
                               branch_code=Case(
-                                    When(Q(filter_for_branch) & Q(type__code=Type.BRANCH_CODE),
+                                    When(filter_for_branch,
                                          then=F('branch__code')),
                                     default=None,
                                     output_field=CharField()
                               ),
                               branch_name=Case(
-                                    When(Q(filter_for_branch) & Q(type__code=Type.BRANCH_CODE),
+                                    When(filter_for_branch,
                                          then=Concat('branch__name',
                                                      Value(' - '),
                                                      'branch__addr__st_and_num')),
