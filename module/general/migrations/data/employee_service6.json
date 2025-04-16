@@ -1,0 +1,14 @@
+[
+{
+    "model": "general.employeeservice",
+    "pk": 68,
+    "fields": {
+        "code": "42",
+        "name": "Valeria Salgado",
+        "employee": 40,
+        "service_acct": 3,
+        "enabled": true,
+        "changed_by": 1
+    }
+}
+]

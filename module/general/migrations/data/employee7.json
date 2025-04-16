@@ -1,0 +1,15 @@
+[
+    {
+        "model": "general.employee",
+        "pk": 40,
+        "fields": {
+            "code": "WPLL2",
+            "first_name": "Valeria",
+            "last_name": "Salgado",
+            "email_addr": "valeria.salgado@bioquimica.cl",
+            "enabled": true,
+            "changed_by": 1
+        }
+    }
+]
+    
