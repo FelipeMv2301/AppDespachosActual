@@ -1,0 +1,11 @@
+[
+{
+    "model": "order.salechannel",
+    "pk": 10,
+    "fields": {
+        "code": "AC",
+        "name": "Autocotización",
+        "changed_by": 1
+    }
+}
+]

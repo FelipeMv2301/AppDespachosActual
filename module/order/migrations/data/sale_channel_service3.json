@@ -1,0 +1,14 @@
+[
+{
+    "model": "order.salechannelservice",
+    "pk": 19,
+    "fields": {
+        "code": "AC",
+        "name": "Autocotización",
+        "sale_channel": 10,
+        "service_acct": 3,
+        "enabled": true,
+        "changed_by": 1
+    }
+}
+]
