@@ -26,22 +26,11 @@
         }
 
         .header {
-                {
-                % if company_code=='BQ' %
-            }
-
+            {% if company_code == 'BQ' %}
             background-color: #00b0ca;
-
-                {
-                % else %
-            }
-
+            {% else %}
             background-image: linear-gradient(90deg, #43bdd7, #95c11f);
-
-                {
-                % endif %
-            }
-
+            {% endif %}
             padding: 30px;
             text-align: center;
         }
@@ -72,22 +61,11 @@
         }
 
         .footer {
-                {
-                % if company_code=='BQ' %
-            }
-
+            {% if company_code == 'BQ' %}
             background-color: #00b0ca;
-
-                {
-                % else %
-            }
-
+            {% else %}
             background-image: linear-gradient(90deg, #43bdd7, #95c11f);
-
-                {
-                % endif %
-            }
-
+            {% endif %}
             padding: 15px;
             text-align: center;
             color: #fff;
