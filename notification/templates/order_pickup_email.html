@@ -1,99 +1,174 @@
 <!DOCTYPE html>
 <html lang="es">
 {% load static %}
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notificación de Pedido</title>
+    <title>Pedido listo para retiro</title>
     <style>
-        /* Estilos generales */
         body {
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             font-size: 16px;
-            background-color: #fff;
+            background-color: #f4f4f4;
             color: #333;
             margin: 0;
             padding: 0;
         }
+
         .container {
-            font-size: 16px;
-            max-width: 90%;
-            margin: 0 auto;
-            padding: 20px;
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
-        /* Encabezado */
+
         .header {
-            {% if company_code == 'BQ' %}
-                background-color: #4ec0a6;
-            {% else %}
-                background-image: linear-gradient(90deg,#43bdd7,#95c11f);
-            {% endif %}
-            padding: 10px;
+                {
+                % if company_code=='BQ' %
+            }
+
+            background-color: #00b0ca;
+
+                {
+                % else %
+            }
+
+            background-image: linear-gradient(90deg, #43bdd7, #95c11f);
+
+                {
+                % endif %
+            }
+
+            padding: 30px;
             text-align: center;
-            color: #fff;
         }
+
         .logo {
-            max-width: 100px;
+            max-width: 150px;
             height: auto;
         }
-        .contact-info {
-            color: #fff;
-        }
-        /* Contenido */
+
         .content {
-            padding: 20px;
+            padding: 30px;
+            line-height: 1.5;
         }
-        .order-id {
-            font-size: 18px;
+
+        .section-title {
             font-weight: bold;
-            color: #222;
-        }
-        .pickup-details {
+            display: block;
             margin-top: 20px;
+            font-size: 17px;
+            color: #00b0ca;
         }
-        .tracking-link {
-            margin-top: 20px;
-            text-align: center;
+
+        .info-box {
+            background-color: #f9f9f9;
+            border-left: 4px solid #00b0ca;
+            padding: 15px;
+            margin: 15px 0;
         }
-        /* Pie de página */
+
         .footer {
-            {% if company_code == 'BQ' %}
-                background-color: #4ec0a6;
-            {% else %}
-                background-image: linear-gradient(90deg,#43bdd7,#95c11f);
-            {% endif %}
-            padding: 10px;
+                {
+                % if company_code=='BQ' %
+            }
+
+            background-color: #00b0ca;
+
+                {
+                % else %
+            }
+
+            background-image: linear-gradient(90deg, #43bdd7, #95c11f);
+
+                {
+                % endif %
+            }
+
+            padding: 15px;
             text-align: center;
             color: #fff;
+            font-size: 14px;
+        }
+
+        a {
+            color: #00b0ca;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        ul {
+            padding-left: 20px;
+            margin: 5px 0;
+            list-style: none;
         }
     </style>
 </head>
+
 <body>
     <div class="container">
-        <!-- Encabezado -->
         <div class="header">
             {% if company_code == 'BQ' %}
-                <img class="logo" src="https://firebasestorage.googleapis.com/v0/b/bioquimicacl.appspot.com/o/logos%2Fwhite_bq_logo.png?alt=media&token=8343a4cc-37ce-4c7c-b9b0-97a67166789f" alt="Logo">
+            <img class="logo"
+                src="https://firebasestorage.googleapis.com/v0/b/bioquimicacl.appspot.com/o/logos%2Fwhite_bq_logo.png?alt=media"
+                alt="Logo">
             {% else %}
-                <img class="logo" src="https://firebasestorage.googleapis.com/v0/b/bioquimicacl.appspot.com/o/logos%2Fwhite_gs_logo.png?alt=media&token=1a0768bd-c28d-409c-9efd-f8b919b8189c" alt="Logo">
+            <img class="logo"
+                src="https://firebasestorage.googleapis.com/v0/b/bioquimicacl.appspot.com/o/logos%2Fwhite_gs_logo.png?alt=media"
+                alt="Logo">
             {% endif %}
         </div>
-        <!-- Contenido -->
+
         <div class="content">
-            <p>Hola {{ contact_fullname }},</p>
-            <p>Tu(s) pedido(s) con el ID <span class="order-id">{{ order_doc_num }}</span> está listo para ser retirado. A continuación, encontrarás los detalles:</p>
-            <div class="pickup-details">
-                <p><b>Dirección de sucursal para retiro</b>: <a target="_blank" href="{{ branch_addr_maps_url }}">{{ branch_address }}</a></p>
+            <p>Hola <strong>{{ contact_fullname }}</strong>,</p>
+
+            <p>¡Buenas noticias! 🎉<br>
+                Tu pedido <strong>#{{ order_doc_num }}</strong> ya está listo para retiro.</p>
+
+            <span class="section-title">📍 ¿Dónde retirar?</span>
+            <p style="margin-top: 5px; margin-bottom: 10px;">
+                {{ company_trade_name }}<br>
+                {{ branch_address }}<br>
+                {% if company_code == 'BQ' %}¡Contamos con estacionamiento!{% endif %}<br>
+                {% if branch_addr_maps_url %}
+                <a href="{{ branch_addr_maps_url }}" target="_blank">Ver ubicación en Google Maps</a>
+                {% endif %}
+            </p>
+
+            <span class="section-title">🕒 Horarios de retiro</span>
+            <p style="margin-top: 5px;">{{ branch_hours }}</p>
+
+            <div class="info-box">
+                <span class="section-title" style="margin-top: 0; color: #333;">⚠️ Importante antes de venir</span>
+                <p style="margin-bottom: 10px;">Para poder entregar tu pedido, debes presentar el <b>número de
+                        pedido</b>
+                    y el <b>documento que acredite la compra</b> (correo o comprobante)</p>
+
+                <p style="margin-bottom: 5px;">Si retira otra persona por ti:</p>
+                <ul>
+                    <li>✔ Debe indicar el número de pedido</li>
+                    <li>✔ Nombre de quien realizó la compra</li>
+                </ul>
             </div>
-            <div class="pickup-details">
-                <p><b>Horarios de sucursal para retiro</b>: {{ branch_hours }}</p>
-            </div>
-            <p>El retiro debe realizarse únicamente con documentos de respaldo que acrediten la compra, de lo contrario no podrá ser entregado.</p>
-            <p>Si el pedido no será retirado por usted, por favor informar a <a href="mailto:retiropedidos@bioquimica.cl" target="_blank">retiropedidos@bioquimica.cl</a> indicando el número de pedido y el nombre de quién realizará el retiro.</p>
-            <p>¡Gracias por elegirnos!</p>
+
+            <span class="section-title">💬 ¿Necesitas ayuda?</span>
+            <p style="margin-top: 5px;">
+                Escríbenos a <a href="mailto:web@bioquimica.cl">web@bioquimica.cl</a><br>
+                o por WhatsApp al <a href="https://wa.me/56932026198">+56 9 3202 6198</a>
+            </p>
+
+            <p style="margin-top: 25px;">Gracias por tu compra,<br>
+                <strong>Equipo {{ company_trade_name }}</strong>
+            </p>
         </div>
-        <!-- Pie de página -->
-        <div class="footer">©{% now "Y" %} {{ company_trade_name }}. Todos los derechos reservados.</div>
+
+        <div class="footer">
+            ©{% now "Y" %} {{ company_trade_name }}. Todos los derechos reservados.
+        </div>
     </div>
 </body>
+
 </html>
